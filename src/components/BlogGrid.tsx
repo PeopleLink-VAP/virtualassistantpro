@@ -41,7 +41,6 @@ const BlogGrid = ({ posts, featuredPost }: BlogGridProps) => {
             author={featuredPost.author}
             publishedAt={featuredPost.published_at || ''}
             featured={true}
-            featuredImage={featuredPost.featured_image}
           />
         </div>
       )}
@@ -67,7 +66,6 @@ const BlogGrid = ({ posts, featuredPost }: BlogGridProps) => {
             slug={post.slug}
             author={post.author}
             publishedAt={post.published_at || ''}
-            featuredImage={post.featured_image}
           />
         ))}
       </motion.div>

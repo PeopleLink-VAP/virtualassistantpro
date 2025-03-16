@@ -11,7 +11,6 @@ interface BlogCardProps {
   author: string;
   publishedAt: string;
   featured?: boolean;
-  featuredImage?: string;
 }
 
 const BlogCard = ({ title, excerpt, slug, author, publishedAt, featured = false }: BlogCardProps) => {
@@ -40,7 +39,7 @@ const BlogCard = ({ title, excerpt, slug, author, publishedAt, featured = false 
           group-hover:bg-white/80 border border-white/30 group-hover:shadow-lg ${featured ? 'lg:flex' : ''}`}>
           <div className={`${featured ? 'lg:w-2/5' : ''} relative rounded-t-xl lg:rounded-l-xl lg:rounded-tr-none overflow-hidden ${featured ? 'h-full min-h-[200px]' : 'h-48'}`}>
             <img 
-              src={featuredImage || '/images/placeholder.svg'}
+              src={`https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=500`} 
               alt={title}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
