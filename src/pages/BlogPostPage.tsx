@@ -89,7 +89,7 @@ const BlogPostPage = () => {
         <Navbar />
         
         <section className="pt-32 pb-20">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8">
             {isLoading ? (
               <div className="flex justify-center items-center py-20">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflower"></div>
@@ -103,15 +103,15 @@ const BlogPostPage = () => {
                 </Link>
               </div>
             ) : post ? (
-              <div className="max-w-3xl mx-auto">
-                <Link to="/blog" className="inline-flex items-center text-navy hover:text-sunflower mb-6 transition-colors">
+              <div className="max-w-2xl mx-auto px-4 md:px-0">
+                <Link to="/blog" className="inline-flex items-center text-navy/70 hover:text-sunflower mb-12 transition-colors">
                   <ArrowLeft size={18} className="mr-2" />
                   Quay lại blog
                 </Link>
                 
-                <h1 className="text-3xl md:text-4xl font-bold text-navy mb-6">{post.title}</h1>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-8 leading-tight">{post.title}</h1>
                 
-                <div className="flex flex-wrap items-center gap-4 mb-8 text-navy/60 text-sm">
+                <div className="flex flex-wrap items-center gap-4 mb-12 text-navy/60 text-sm">
                   <div className="flex items-center">
                     <User size={16} className="mr-2" />
                     {post.author}
@@ -126,15 +126,15 @@ const BlogPostPage = () => {
                   </div>
                 </div>
                 
-                <div className="rounded-xl overflow-hidden mb-10 bg-navy/5">
+                <div className="rounded-xl overflow-hidden mb-12 bg-navy/5">
                   <img 
                     src={post.featured_image || "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=2000"} 
                     alt={post.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-72 md:h-96 object-cover"
                   />
                 </div>
                 
-                <div className="prose prose-lg max-w-none prose-headings:text-navy prose-p:text-navy/80 prose-strong:text-navy prose-a:text-sunflower">
+                <div className="prose prose-lg md:prose-xl max-w-none prose-headings:text-navy prose-headings:font-bold prose-p:text-navy/80 prose-p:leading-relaxed prose-strong:text-navy prose-a:text-sunflower prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
                   <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
               </div>

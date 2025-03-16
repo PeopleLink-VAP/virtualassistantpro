@@ -77,7 +77,7 @@ const BlogPage = () => {
         <Navbar />
         
         <section className="pt-32 pb-20">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-4 md:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h1 className="text-4xl font-bold text-navy mb-4">Blog</h1>
               <p className="text-navy/70 max-w-2xl mx-auto">
@@ -90,9 +90,9 @@ const BlogPage = () => {
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-sunflower"></div>
               </div>
             ) : (
-              <div className="space-y-12">
+              <div className="max-w-[1600px] mx-auto">
                 {blogPosts.length > 0 && (
-                  <div className="mb-10">
+                  <div className="mb-16">
                     <BlogCard 
                       id={blogPosts[0].id}
                       title={blogPosts[0].title}
@@ -105,17 +105,18 @@ const BlogPage = () => {
                   </div>
                 )}
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                   {blogPosts.slice(1).map((post) => (
-                    <BlogCard
-                      key={post.id}
-                      id={post.id}
-                      title={post.title}
-                      excerpt={post.excerpt}
-                      slug={post.slug}
-                      author={post.author}
-                      publishedAt={post.published_at}
-                    />
+                    <div key={post.id} className="break-inside-avoid">
+                      <BlogCard
+                        id={post.id}
+                        title={post.title}
+                        excerpt={post.excerpt}
+                        slug={post.slug}
+                        author={post.author}
+                        publishedAt={post.published_at}
+                      />
+                    </div>
                   ))}
                 </div>
                 
