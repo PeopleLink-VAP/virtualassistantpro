@@ -8,7 +8,7 @@ interface SeoProps {
 }
 
 const Seo = ({
-  title = "Homepage - Virtual Assistant Pro",
+  title = "Trang Chủ - Virtual Assistant Pro",
   description = "Hãy để mình cùng đồng hành với bạn trên hành trình thú vị nhưng cũng đầy cam go này!",
   canonicalUrl = "https://virtualassistantpro.vn/"
 }: SeoProps) => {
@@ -30,10 +30,10 @@ const Seo = ({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:label1" content="Written by" />
+      <meta name="twitter:label1" content="Viết bởi" />
       <meta name="twitter:data1" content="virtual_user" />
-      <meta name="twitter:label2" content="Time to read" />
-      <meta name="twitter:data2" content="9 minutes" />
+      <meta name="twitter:label2" content="Thời gian đọc" />
+      <meta name="twitter:data2" content="9 phút" />
     </Helmet>
   );
 };

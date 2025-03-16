@@ -1,8 +1,15 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X, User, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,10 +27,50 @@ const Navbar = () => {
           </Link>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/courses" className="text-navy hover:text-sunflower transition-colors">Khóa Học</Link>
-            <Link to="/about" className="text-navy hover:text-sunflower transition-colors">Về Chúng Tôi</Link>
-            <Link to="/contact" className="text-navy hover:text-sunflower transition-colors">Liên Hệ</Link>
+          <div className="hidden md:flex items-center space-x-4">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent">Về Chúng Tôi</NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white/90 backdrop-blur-sm p-4 rounded-lg w-64 navy-shadow">
+                    <ul className="space-y-2">
+                      <li>
+                        <Link to="/about" className="block p-2 rounded hover:bg-sunflower/10 text-navy">Giới Thiệu</Link>
+                      </li>
+                      <li>
+                        <Link to="/team" className="block p-2 rounded hover:bg-sunflower/10 text-navy">Đội Ngũ Đào Tạo</Link>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent">Đào Tạo</NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-white/90 backdrop-blur-sm p-4 rounded-lg w-64 navy-shadow">
+                    <ul className="space-y-2">
+                      <li>
+                        <Link to="/courses-view" className="block p-2 rounded hover:bg-sunflower/10 text-navy">Xem Khóa Học</Link>
+                      </li>
+                      <li>
+                        <Link to="/training-program" className="block p-2 rounded hover:bg-sunflower/10 text-navy">Chương Trình Đào Tạo</Link>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/career-opportunities" className="flex items-center text-navy hover:text-sunflower transition-colors px-4 py-2">Cơ Hội Nghề Nghiệp</Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/contact" className="flex items-center text-navy hover:text-sunflower transition-colors px-4 py-2">Liên Hệ</Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/blog" className="flex items-center text-navy hover:text-sunflower transition-colors px-4 py-2">Blog</Link>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
             
             <Link to="/courses-view">
               <Button className="btn-primary backdrop-blur-sm">Xem Khóa Học</Button>
@@ -55,9 +102,21 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 space-y-3 animate-fade-in bg-warmWhite/90 backdrop-blur-md rounded-lg mt-2 p-4 navy-shadow">
-            <Link to="/courses" className="block py-2 text-navy hover:text-sunflower transition-colors">Khóa Học</Link>
-            <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors">Về Chúng Tôi</Link>
+            <div className="border-b border-navy/10 pb-2 mb-2">
+              <p className="font-medium text-navy mb-1">Về Chúng Tôi</p>
+              <Link to="/about" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors">Giới Thiệu</Link>
+              <Link to="/team" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors">Đội Ngũ Đào Tạo</Link>
+            </div>
+            
+            <div className="border-b border-navy/10 pb-2 mb-2">
+              <p className="font-medium text-navy mb-1">Đào Tạo</p>
+              <Link to="/courses-view" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors">Xem Khóa Học</Link>
+              <Link to="/training-program" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors">Chương Trình Đào Tạo</Link>
+            </div>
+            
+            <Link to="/career-opportunities" className="block py-2 text-navy hover:text-sunflower transition-colors">Cơ Hội Nghề Nghiệp</Link>
             <Link to="/contact" className="block py-2 text-navy hover:text-sunflower transition-colors">Liên Hệ</Link>
+            <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors">Blog</Link>
             
             <div className="flex flex-col gap-3 pt-2">
               <Link to="/courses-view" className="w-full">

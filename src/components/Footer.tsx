@@ -1,5 +1,6 @@
 
 import { Sun, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -33,29 +34,29 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Khóa Học</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Kỹ Năng Hành Chính</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Phát Triển Nghề Nghiệp</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Quản Lý Khách Hàng</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Điều Phối Dự Án</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Giải Pháp Cá Nhân Hóa</a></li>
+              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors">Kỹ Năng Hành Chính</Link></li>
+              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors">Phát Triển Nghề Nghiệp</Link></li>
+              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors">Quản Lý Khách Hàng</Link></li>
+              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors">Điều Phối Dự Án</Link></li>
+              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors">Giải Pháp Cá Nhân Hóa</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Giới Thiệu</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-warmWhite/80 hover:text-sunflower transition-colors">Về Chúng Tôi</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Đội Ngũ Đào Tạo</a></li>
-              <li><a href="#training" className="text-warmWhite/80 hover:text-sunflower transition-colors">Chương Trình Đào Tạo</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Cơ Hội Nghề Nghiệp</a></li>
-              <li><a href="#contact" className="text-warmWhite/80 hover:text-sunflower transition-colors">Liên Hệ</a></li>
+              <li><Link to="/about" className="text-warmWhite/80 hover:text-sunflower transition-colors">Về Chúng Tôi</Link></li>
+              <li><Link to="/team" className="text-warmWhite/80 hover:text-sunflower transition-colors">Đội Ngũ Đào Tạo</Link></li>
+              <li><Link to="/training-program" className="text-warmWhite/80 hover:text-sunflower transition-colors">Chương Trình Đào Tạo</Link></li>
+              <li><Link to="/career-opportunities" className="text-warmWhite/80 hover:text-sunflower transition-colors">Cơ Hội Nghề Nghiệp</Link></li>
+              <li><Link to="/contact" className="text-warmWhite/80 hover:text-sunflower transition-colors">Liên Hệ</Link></li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-lg font-semibold mb-4">Tài Nguyên</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Blog</a></li>
+              <li><Link to="/blog" className="text-warmWhite/80 hover:text-sunflower transition-colors">Blog</Link></li>
               <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Tài Liệu Học Tập</a></li>
               <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Tài Nguyên VA</a></li>
               <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Câu Hỏi Thường Gặp</a></li>
@@ -66,7 +67,7 @@ const Footer = () => {
         
         <div className="pt-8 border-t border-warmWhite/20 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-warmWhite/70 text-sm">
-            © 2023 Virtual Assistant Pro. Tất cả quyền được bảo lưu.
+            © 2025 Virtual Assistant Pro. Tất cả quyền được bảo lưu.
           </div>
         </div>
       </div>
