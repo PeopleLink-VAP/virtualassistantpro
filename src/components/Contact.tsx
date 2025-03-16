@@ -6,20 +6,20 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'hello@vap-hub.com',
+    value: 'hello@virtualassistantpro.vn',
     description: 'Liên hệ chung và thông tin'
   },
   {
     icon: Phone,
     title: 'Điện Thoại',
-    value: '+84 (28) 1234 5678',
-    description: 'Thứ 2-6 từ 9h đến 18h (GMT+7)'
+    value: '+84 932548082',
+    description: 'Thứ 2-6 từ 9h đến 18h (GMT+7 Vietnam)'
   },
   {
     icon: MapPin,
     title: 'Địa Chỉ',
     value: 'TP. Hồ Chí Minh, Việt Nam',
-    description: 'Quận 1, Khu Trung Tâm'
+    description: '19 Tố Hữu, Thủ Thiêm, Quận 2'
   }
 ];
 

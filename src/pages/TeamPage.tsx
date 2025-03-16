@@ -113,7 +113,7 @@ const TeamPage = () => {
                   </div>
                   
                   <div className="mt-8">
-                    <a href="https://cal.com/duyenpham/meeting" target="_blank" rel="noopener noreferrer">
+                    <a href="https://cal.com/duyenpham93/vap-coaching" target="_blank" rel="noopener noreferrer">
                       <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
                         <CalendarClock className="h-5 w-5" />
                         Book A Meeting

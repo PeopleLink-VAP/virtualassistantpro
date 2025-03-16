@@ -34,7 +34,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-4 animate-fade-in">
-              Khóa Học{' '}
+              Khóa Học Nghề {' '}
               <span className="text-sunflower font-['Big_Shoulders_Stencil']">Virtual Assistant Pro</span> Chuyên Nghiệp
             </h1>
             

@@ -20,7 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				montserrat: ['Montserrat', 'sans-serif'],
+				sans: ['Roboto', 'sans-serif'],
+				condensed: ['Roboto Condensed', 'sans-serif'],
 			},
 			colors: {
 				// Custom color palette for VAP-Hub

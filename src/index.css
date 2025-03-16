@@ -91,7 +91,7 @@
   }
 
   body {
-    @apply bg-warmWhite text-navy font-montserrat;
+    @apply bg-warmWhite text-navy;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
   
@@ -130,11 +130,11 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 font-montserrat;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4;
   }
   
   .section-subtitle {
-    @apply text-xl text-navy/80 max-w-2xl mx-auto mb-8 font-montserrat;
+    @apply text-xl text-navy/80 max-w-2xl mx-auto mb-8;
   }
   
   .card-hover {

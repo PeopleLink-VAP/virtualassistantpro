@@ -36,7 +36,7 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList className="space-x-0.5">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-montserrat text-sm px-2 py-1.5">
+                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-condensed text-sm px-2 py-1.5">
                     <Users size={16} />
                     Giới Thiệu
                   </NavigationMenuTrigger>
@@ -59,7 +59,7 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-montserrat text-sm px-2 py-1.5">
+                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-condensed text-sm px-2 py-1.5">
                     <BookOpen size={16} />
                     Đào Tạo
                   </NavigationMenuTrigger>
@@ -82,21 +82,21 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/career-opportunities" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-montserrat text-sm">
+                  <Link to="/career-opportunities" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <Briefcase size={16} />
                     Nghề Nghiệp
                   </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/contact" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-montserrat text-sm">
+                  <Link to="/contact" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <Mail size={16} />
                     Liên Hệ
                   </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/blog" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-montserrat text-sm">
+                  <Link to="/blog" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <BookOpen size={16} />
                     Blog
                   </Link>
@@ -105,11 +105,11 @@ const Navbar = () => {
             </NavigationMenu>
             
             <Link to="/courses-view">
-              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-montserrat text-sm px-4 py-2">Xem Khóa Học</Button>
+              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Xem Khóa Học</Button>
             </Link>
             
             <Link to="/login">
-              <Button variant="outline" className="flex items-center gap-1.5 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all backdrop-blur-sm hover:scale-105 font-montserrat text-sm px-4 py-2">
+              <Button variant="outline" className="flex items-center gap-1.5 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all backdrop-blur-sm hover:scale-105 font-condensed text-sm px-4 py-2">
                 <User className="h-4 w-4" />
                 Đăng Nhập
               </Button>
@@ -135,34 +135,34 @@ const Navbar = () => {
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 space-y-3 animate-fade-in bg-warmWhite/90 backdrop-blur-md rounded-lg mt-2 p-4 navy-shadow">
             <div className="border-b border-navy/10 pb-2 mb-2">
-              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-montserrat"><Users size={16} /> Về Chúng Tôi</p>
-              <Link to="/about" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-montserrat">Giới Thiệu</Link>
-              <Link to="/team" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-montserrat">Đội Ngũ Đào Tạo</Link>
+              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-condensed"><Users size={16} /> Về Chúng Tôi</p>
+              <Link to="/about" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Giới Thiệu</Link>
+              <Link to="/team" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Đội Ngũ Đào Tạo</Link>
             </div>
             
             <div className="border-b border-navy/10 pb-2 mb-2">
-              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-montserrat"><BookOpen size={16} /> Đào Tạo</p>
-              <Link to="/courses-view" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-montserrat">Xem Khóa Học</Link>
-              <Link to="/training-program" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-montserrat">Chương Trình Đào Tạo</Link>
+              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-condensed"><BookOpen size={16} /> Đào Tạo</p>
+              <Link to="/courses-view" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Xem Khóa Học</Link>
+              <Link to="/training-program" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Chương Trình Đào Tạo</Link>
             </div>
             
-            <Link to="/career-opportunities" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-montserrat">
+            <Link to="/career-opportunities" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Briefcase size={16} /> Cơ Hội Nghề Nghiệp
             </Link>
-            <Link to="/contact" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-montserrat">
+            <Link to="/contact" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Mail size={16} /> Liên Hệ
             </Link>
-            <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-montserrat">
+            <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <BookOpen size={16} /> Blog
             </Link>
             
             <div className="flex flex-col gap-3 pt-2">
               <Link to="/courses-view" className="w-full">
-                <Button className="w-full btn-primary font-montserrat">Xem Khóa Học</Button>
+                <Button className="w-full btn-primary font-condensed">Xem Khóa Học</Button>
               </Link>
               
               <Link to="/login" className="w-full">
-                <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all font-montserrat">
+                <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all font-condensed">
                   <User className="h-4 w-4" />
                   Đăng Nhập
                 </Button>
