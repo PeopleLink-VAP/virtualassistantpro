@@ -120,7 +120,7 @@
   }
   
   .glass-blog-card {
-    @apply bg-white/60 backdrop-blur-lg border border-white/30 shadow-lg transition-all duration-300;
+    @apply bg-white/60 backdrop-blur-lg border border-white/30 shadow-md transition-all duration-300 hover:backdrop-blur-xl;
   }
   
   .sunflower-shadow {
@@ -128,7 +128,7 @@
   }
   
   .navy-shadow {
-    @apply shadow-[0_4px_20px_rgba(27,54,93,0.2)];
+    @apply shadow-[0_4px_20px_rgba(27,54,93,0.15)];
   }
   
   .blog-hover-shadow {
