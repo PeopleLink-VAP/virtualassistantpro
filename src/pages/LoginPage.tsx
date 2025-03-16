@@ -1,142 +1,237 @@
 
 import { useState } from 'react';
-import { supabase } from '@/integrations/supabase/client';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { toast } from 'sonner';
-import { useNavigate, Link } from 'react-router-dom';
-import { Mail, Phone, Lock } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Helmet } from 'react-helmet';
+
+// Validation schemas
+const loginSchema = z.object({
+  email: z.string().email('Email không hợp lệ').min(1, 'Email là bắt buộc'),
+  password: z.string().min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
+});
+
+const registerSchema = z.object({
+  name: z.string().min(1, 'Tên là bắt buộc'),
+  email: z.string().email('Email không hợp lệ').min(1, 'Email là bắt buộc'),
+  password: z.string().min(6, 'Mật khẩu phải có ít nhất 6 ký tự'),
+  confirmPassword: z.string().min(6, 'Xác nhận mật khẩu phải có ít nhất 6 ký tự'),
+}).refine((data) => data.password === data.confirmPassword, {
+  message: "Mật khẩu không khớp",
+  path: ["confirmPassword"],
+});
+
+type LoginFormValues = z.infer<typeof loginSchema>;
+type RegisterFormValues = z.infer<typeof registerSchema>;
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<string>('login');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handleEmailLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Login form
+  const loginForm = useForm<LoginFormValues>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+
+  // Register form
+  const registerForm = useForm<RegisterFormValues>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    },
+  });
+
+  const onLoginSubmit = async (values: LoginFormValues) => {
     setIsLoading(true);
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
-      if (error) throw error;
-      toast.success('Đăng nhập thành công');
-      navigate('/courses');
-    } catch (error: any) {
-      toast.error(error.message);
-    } finally {
+    console.log('Login values:', values);
+    // Implement actual login logic here
+    setTimeout(() => {
       setIsLoading(false);
-    }
+    }, 1500);
   };
 
-  const handleGoogleLogin = async () => {
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'google',
-      });
-      if (error) throw error;
-    } catch (error: any) {
-      toast.error(error.message);
-    }
+  const onRegisterSubmit = async (values: RegisterFormValues) => {
+    setIsLoading(true);
+    console.log('Register values:', values);
+    // Implement actual registration logic here
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
   };
 
   return (
-    <div className="min-h-screen bg-warmWhite">
-      <Navbar />
-      <div className="container mx-auto px-4 pt-32 pb-20">
-        <div className="max-w-md mx-auto">
-          <div className="bg-white/70 backdrop-blur-md rounded-2xl p-8 navy-shadow">
-            <h2 className="text-2xl font-bold text-navy mb-6 text-center">Đăng Nhập Thành Viên</h2>
-            
-            <form onSubmit={handleEmailLogin} className="space-y-4">
-              <div>
-                <label className="text-sm font-medium text-navy/70 mb-1 block">
-                  Email
-                </label>
-                <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-navy/40" />
-                  <Input
-                    type="email"
-                    placeholder="Email của bạn"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="pl-10"
-                  />
+    <>
+      <Helmet>
+        <title>Đăng Nhập - Virtual Assistant Pro</title>
+        <meta name="description" content="Đăng nhập hoặc đăng ký tài khoản của bạn để truy cập các khóa học và tài nguyên độc quyền." />
+      </Helmet>
+      
+      <div className="min-h-screen bg-warmWhite">
+        <Navbar />
+        
+        <section className="pt-32 pb-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-md mx-auto">
+              <div className="text-center mb-8">
+                <h1 className="text-3xl font-bold text-navy mb-4">Tài Khoản Của Bạn</h1>
+                <p className="text-navy/70">
+                  Đăng nhập hoặc đăng ký để truy cập các khóa học và tài nguyên độc quyền
+                </p>
+              </div>
+              
+              <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 navy-shadow">
+                <Tabs defaultValue="login" value={activeTab} onValueChange={setActiveTab}>
+                  <TabsList className="grid grid-cols-2 mb-6">
+                    <TabsTrigger value="login">Đăng Nhập</TabsTrigger>
+                    <TabsTrigger value="register">Đăng Ký</TabsTrigger>
+                  </TabsList>
+                  
+                  <TabsContent value="login">
+                    <Form {...loginForm}>
+                      <form onSubmit={loginForm.handleSubmit(onLoginSubmit)} className="space-y-4">
+                        <FormField
+                          control={loginForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email</FormLabel>
+                              <FormControl>
+                                <Input placeholder="example@domain.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={loginForm.control}
+                          name="password"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Mật Khẩu</FormLabel>
+                              <FormControl>
+                                <Input type="password" placeholder="••••••" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <div className="flex justify-between items-center text-sm">
+                          <Link to="/forgot-password" className="text-sunflower hover:underline">
+                            Quên mật khẩu?
+                          </Link>
+                        </div>
+                        
+                        <Button type="submit" className="w-full" disabled={isLoading}>
+                          {isLoading ? 'Đang xử lý...' : 'Đăng Nhập'}
+                        </Button>
+                      </form>
+                    </Form>
+                  </TabsContent>
+                  
+                  <TabsContent value="register">
+                    <Form {...registerForm}>
+                      <form onSubmit={registerForm.handleSubmit(onRegisterSubmit)} className="space-y-4">
+                        <FormField
+                          control={registerForm.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Họ Tên</FormLabel>
+                              <FormControl>
+                                <Input placeholder="Nguyễn Văn A" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={registerForm.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Email</FormLabel>
+                              <FormControl>
+                                <Input placeholder="example@domain.com" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={registerForm.control}
+                          name="password"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Mật Khẩu</FormLabel>
+                              <FormControl>
+                                <Input type="password" placeholder="••••••" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <FormField
+                          control={registerForm.control}
+                          name="confirmPassword"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Xác Nhận Mật Khẩu</FormLabel>
+                              <FormControl>
+                                <Input type="password" placeholder="••••••" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        
+                        <Button type="submit" className="w-full" disabled={isLoading}>
+                          {isLoading ? 'Đang xử lý...' : 'Đăng Ký'}
+                        </Button>
+                      </form>
+                    </Form>
+                  </TabsContent>
+                </Tabs>
+                
+                <div className="mt-6 pt-6 border-t border-gray-200 text-center text-sm text-navy/70">
+                  <p>
+                    Bằng cách tiếp tục, bạn đồng ý với{' '}
+                    <Link to="/terms" className="text-sunflower hover:underline">
+                      Điều khoản dịch vụ
+                    </Link>{' '}
+                    và{' '}
+                    <Link to="/privacy" className="text-sunflower hover:underline">
+                      Chính sách bảo mật
+                    </Link>{' '}
+                    của chúng tôi.
+                  </p>
                 </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium text-navy/70 mb-1 block">
-                  Số điện thoại
-                </label>
-                <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-navy/40" />
-                  <Input
-                    type="tel"
-                    placeholder="Số điện thoại của bạn"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="text-sm font-medium text-navy/70 mb-1 block">
-                  Mật khẩu
-                </label>
-                <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-navy/40" />
-                  <Input
-                    type="password"
-                    placeholder="Mật khẩu của bạn"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-
-              <Button type="submit" className="w-full btn-primary" disabled={isLoading}>
-                {isLoading ? 'Đang đăng nhập...' : 'Đăng Nhập'}
-              </Button>
-            </form>
-
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-navy/10"></div>
-              </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white/70 text-navy/60">Hoặc</span>
               </div>
             </div>
-
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full bg-white hover:bg-navy hover:text-white transition-colors"
-              onClick={handleGoogleLogin}
-            >
-              <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4 mr-2" />
-              Đăng nhập với Google
-            </Button>
-
-            <p className="mt-4 text-sm text-center text-navy/60">
-              Chưa có tài khoản?{' '}
-              <Link to="/register" className="text-sunflower hover:text-sunflower/80 font-medium">
-                Đăng ký ngay
-              </Link>
-            </p>
           </div>
-        </div>
+        </section>
+        
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 };
 
