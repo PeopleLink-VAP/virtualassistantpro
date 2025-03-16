@@ -14,27 +14,27 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-4 animate-fade-in">
-              Nurturing Growth Through Professional{' '}
-              <span className="text-sunflower">Virtual Assistant</span> Services
+              Khóa Học{' '}
+              <span className="text-sunflower">Virtual Assistant PRO</span> Chuyên Nghiệp
             </h1>
             
             <p className="text-lg text-navy/80 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.1s' }}>
-              Connecting international businesses with skilled Vietnamese professionals while fostering the growth of aspiring Virtual Assistants.
+              Mình tin rằng để thành công, chúng ta cần phải học chuyên sâu về con đường mình đi. Khóa học là nơi mình "truyền nghề", "chia sẻ hết lòng" về các kinh nghiệm của mình bao năm qua.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <Link to="/services">
+              <Link to="/courses-view">
                 <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-base w-full sm:w-auto">
-                  <Users size={20} />
-                  Find Your VA
+                  <BookOpen size={20} />
+                  Xem Khóa Học
                   <ArrowRight size={16} />
                 </Button>
               </Link>
               
-              <Link to="/training">
+              <Link to="/login">
                 <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 text-base w-full sm:w-auto">
-                  <BookOpen size={20} />
-                  Become a VA
+                  <Users size={20} />
+                  Đăng Nhập Thành Viên
                   <ArrowRight size={16} />
                 </Button>
               </Link>
@@ -48,7 +48,7 @@ const Hero = () => {
                   </div>
                 ))}
               </div>
-              <p>Trusted by 200+ clients worldwide</p>
+              <p>Đã đào tạo hơn 60 học viên thành công</p>
             </div>
           </div>
           
@@ -61,32 +61,31 @@ const Hero = () => {
                   <div className="mb-4 overflow-hidden rounded-lg">
                     <img 
                       src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
-                      alt="Professional virtual assistant working"
+                      alt="Khóa học Virtual Assistant chuyên nghiệp"
                       className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   
                   <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
-                    <span className="w-6 h-6 bg-sunflower rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                    Professional Virtual Assistant Services
+                    <span className="w-6 h-6 bg
+
+-sunflower rounded-full flex items-center justify-center text-white text-xs">✓</span>
+                    Khóa Học Virtual Assistant PRO
                   </h3>
-                  <p className="text-navy/70 mb-4">Combining local expertise with international standards</p>
+                  <p className="text-navy/70 mb-4">Đào tạo kỹ năng chuyên nghiệp, xây dựng sự nghiệp vững chắc</p>
                   
                   <div className="space-y-3">
-                    {["Administrative Support", "Business Development", "Client Management", "Project Coordination"].map((service, idx) => (
+                    {[
+                      "Hướng dẫn Fiverr từ A-Z",
+                      "Tạo portfolio chuẩn chỉnh",
+                      "Tư vấn trực tiếp không giới hạn",
+                      "Lớp học nhỏ 8-12 thành viên"
+                    ].map((feature, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-leafGreen/20 text-leafGreen rounded-full flex items-center justify-center text-xs">✓</span>
-                        <span className="text-sm">{service}</span>
+                        <span className="text-sm">{feature}</span>
                       </div>
                     ))}
-                  </div>
-                  
-                  {/* Decorative sunflower icon */}
-                  <div className="absolute bottom-4 right-4 w-16 h-16 text-sunflower opacity-20">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                      <path d="M100,20 C80,40 60,40 40,20 C40,60 20,80 0,80 C40,100 40,120 20,140 C60,140 80,160 100,180 C120,160 140,140 180,140 C160,120 160,100 200,80 C180,80 160,60 160,20 C140,40 120,40 100,20 Z" />
-                      <circle cx="100" cy="100" r="30" />
-                    </svg>
                   </div>
                 </div>
               </div>
