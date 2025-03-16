@@ -77,9 +77,9 @@ const TeamPage = () => {
                 <div className="md:w-1/3 relative">
                   {/* Alternating profile images */}
                   <div className="relative h-64 md:h-auto overflow-hidden">
-                    <img src="/images/duyen/profile_1.jpg" alt="Duyên Pham" 
+                    <img src="/images/duyen/profile_1.jpg" alt="Duyen Pham" 
                       className="w-full h-full object-cover hover:scale-105 transition-all duration-1000" />
-                    <img src="/images/duyen/profile_2.jpg" alt="Duyên Pham" 
+                    <img src="/images/duyen/profile_2.jpg" alt="Duyen Pham" 
                       className="absolute inset-0 w-full h-full object-cover opacity-0 hover:opacity-100 transition-opacity duration-1000" />
                   </div>
                   
@@ -88,8 +88,8 @@ const TeamPage = () => {
                 </div>
                 <div className="p-8 md:w-2/3">
                   <h3 className="text-2xl font-bold text-navy mb-1">Duyên Pham</h3>
-                  <p className="text-sunflower font-medium mb-4">Founder & Giám Đốc Đào Tạo</p>
-                  <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực hành chính văn phòng và phát triển kinh doanh quốc tế. Duyên đã đào tạo hơn 60 VA chuyên nghiệp và điều hành cộng đồng VA Việt Nam với hơn 5,000 thành viên.</p>
+                  <p className="text-sunflower font-medium mb-4">Founder</p>
+                  <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực hành chính văn phòng và phát triển kinh doanh quốc tế. Duyên đã đào tạo hơn 60 VA chuyên nghiệp và điều hành cộng đồng VA Việt Nam với hơn 10,000 thành viên.</p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>

@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="animate-fade-in">
             <div className="flex items-center gap-2 mb-4">
               <Sun className="text-sunflower w-8 h-8" />
-              <span className="font-bold text-xl">VAP-Hub</span>
+              <span className="font-bold text-xl">Virtual Assistant Pro</span>
             </div>
             <p className="text-warmWhite/80 mb-6">
               Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Trợ Lý Ảo tại Việt Nam.
