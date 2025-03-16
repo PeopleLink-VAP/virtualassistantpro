@@ -11,6 +11,22 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+// Add TypeScript declarations for Google Translate
+declare global {
+  interface Window {
+    googleTranslateElementInit: () => void;
+    google: {
+      translate: {
+        TranslateElement: new (options: {
+          pageLanguage: string;
+          includedLanguages: string;
+          autoDisplay: boolean;
+        }, elementId: string) => void;
+      }
+    }
+  }
+}
+
 const languages = [
   { code: 'en', name: 'English' },
   { code: 'vi', name: 'Vietnamese' },
