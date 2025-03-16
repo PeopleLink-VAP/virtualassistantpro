@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import BlogCard from '@/components/BlogCard';
 import { supabase } from '@/integrations/supabase/client';
 import { Helmet } from 'react-helmet';
+import { motion } from 'framer-motion';
 
 interface BlogPost {
   id: string;
@@ -65,6 +66,30 @@ const BlogPage = () => {
       supabase.removeChannel(channel);
     };
   }, []);
+
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+  
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100
+      }
+    }
+  };
   
   return (
     <>
@@ -78,12 +103,17 @@ const BlogPage = () => {
         
         <section className="pt-32 pb-20">
           <div className="container mx-auto px-4 md:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl font-bold text-navy mb-4">Blog</h1>
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
+              <h1 className="text-4xl md:text-5xl font-bold text-navy mb-4 font-condensed">Blog</h1>
               <p className="text-navy/70 max-w-2xl mx-auto">
                 Khám phá những bài viết mới nhất về nghề Trợ Lý Ảo, xu hướng và cơ hội việc làm trong thị trường Việt Nam
               </p>
-            </div>
+            </motion.div>
             
             {isLoading ? (
               <div className="flex justify-center items-center py-20">
@@ -92,22 +122,42 @@ const BlogPage = () => {
             ) : (
               <div className="max-w-[1600px] mx-auto">
                 {blogPosts.length > 0 && (
-                  <div className="mb-16">
-                    <BlogCard 
-                      id={blogPosts[0].id}
-                      title={blogPosts[0].title}
-                      excerpt={blogPosts[0].excerpt}
-                      slug={blogPosts[0].slug}
-                      author={blogPosts[0].author}
-                      publishedAt={blogPosts[0].published_at}
-                      featured={true}
-                    />
-                  </div>
+                  <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="mb-16"
+                  >
+                    <div className="glass-blog-card overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.01] hover:shadow-xl">
+                      <BlogCard 
+                        id={blogPosts[0].id}
+                        title={blogPosts[0].title}
+                        excerpt={blogPosts[0].excerpt}
+                        slug={blogPosts[0].slug}
+                        author={blogPosts[0].author}
+                        publishedAt={blogPosts[0].published_at}
+                        featured={true}
+                      />
+                    </div>
+                  </motion.div>
                 )}
                 
-                <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-                  {blogPosts.slice(1).map((post) => (
-                    <div key={post.id} className="break-inside-avoid">
+                <motion.div 
+                  variants={containerVariants}
+                  initial="hidden"
+                  animate="visible"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                >
+                  {blogPosts.slice(1).map((post, index) => (
+                    <motion.div 
+                      key={post.id} 
+                      variants={itemVariants}
+                      className="rounded-xl overflow-hidden glass-blog-card transition-transform duration-300 hover:translate-y-[-8px] hover:shadow-xl"
+                      style={{ 
+                        transformOrigin: 'center bottom',
+                        animationDelay: `${index * 0.1}s` 
+                      }}
+                    >
                       <BlogCard
                         id={post.id}
                         title={post.title}
@@ -116,14 +166,19 @@ const BlogPage = () => {
                         author={post.author}
                         publishedAt={post.published_at}
                       />
-                    </div>
+                    </motion.div>
                   ))}
-                </div>
+                </motion.div>
                 
                 {blogPosts.length === 0 && (
-                  <div className="text-center py-20">
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                    className="text-center py-20 glass-blog-card rounded-xl p-10"
+                  >
                     <p className="text-navy/70">Chưa có bài viết nào. Hãy quay lại sau nhé!</p>
-                  </div>
+                  </motion.div>
                 )}
               </div>
             )}
