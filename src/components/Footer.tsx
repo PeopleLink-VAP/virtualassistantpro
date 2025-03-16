@@ -24,7 +24,7 @@ const Footer = () => {
               Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Trợ Lý Ảo tại Việt Nam.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">
+              <a href="https://www.facebook.com/groups/1774549309585565" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">
                 <Facebook size={16} />
               </a>
               <a href="#" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">

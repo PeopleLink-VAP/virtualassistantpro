@@ -35,7 +35,7 @@ const Hero = () => {
           <div className="lg:w-1/2 z-10">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-4 animate-fade-in">
               Khóa Học{' '}
-              <span className="text-sunflower">Virtual Assistant PRO</span> Chuyên Nghiệp
+              <span className="text-sunflower font-['Big_Shoulders_Stencil']">Virtual Assistant Pro</span> Chuyên Nghiệp
             </h1>
             
             <p className="text-lg text-navy/80 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.1s' }}>
@@ -68,7 +68,7 @@ const Hero = () => {
                   </div>
                 ))}
               </div>
-              <p>Đã đào tạo hơn 60 học viên thành công</p>
+              <p>Đã đào tạo hơn 200 học viên thành công</p>
             </div>
           </div>
           
@@ -104,7 +104,7 @@ const Hero = () => {
                   
                   <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
                     <span className="w-6 h-6 bg-sunflower rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                    Khóa Học Virtual Assistant PRO
+                    Khóa Học Virtual Assistant Pro
                   </h3>
                   <p className="text-navy/70 mb-4">Đào tạo kỹ năng chuyên nghiệp, xây dựng sự nghiệp vững chắc</p>
                   
