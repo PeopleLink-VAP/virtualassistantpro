@@ -103,7 +103,7 @@ const BlogPostPage = () => {
                 </Link>
               </div>
             ) : post ? (
-              <div className="max-w-2xl mx-auto px-4 md:px-0">
+              <div className="max-w-2xl mx-auto px-4 md:px-0 bg-white rounded-xl shadow-lg p-8 sm:p-10 lg:p-12">
                 <Link to="/blog" className="inline-flex items-center text-navy/70 hover:text-sunflower mb-12 transition-colors">
                   <ArrowLeft size={18} className="mr-2" />
                   Quay lại blog
@@ -134,7 +134,7 @@ const BlogPostPage = () => {
                   />
                 </div>
                 
-                <div className="prose prose-lg md:prose-xl max-w-none prose-headings:text-navy prose-headings:font-bold prose-p:text-navy/80 prose-p:leading-relaxed prose-strong:text-navy prose-a:text-sunflower prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl">
+                <div className="prose prose-lg md:prose-xl max-w-none prose-headings:font-condensed prose-headings:text-navy prose-headings:font-bold prose-headings:mb-8 prose-p:text-navy/80 prose-p:leading-9 prose-p:mb-8 prose-p:font-sans prose-strong:text-navy prose-a:text-sunflower prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl prose-headings:leading-tight">
                   <ReactMarkdown>{post.content}</ReactMarkdown>
                 </div>
               </div>
