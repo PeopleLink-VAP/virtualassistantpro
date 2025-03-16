@@ -87,7 +87,7 @@ const TeamPage = () => {
                   <div className="absolute top-5 right-5 w-12 h-12 bg-sunflower/60 rounded-full animate-float"></div>
                 </div>
                 <div className="p-8 md:w-2/3">
-                  <h3 className="text-2xl font-bold text-navy mb-1">Duyên Pham</h3>
+                  <h3 className="text-2xl font-bold text-navy mb-1">Duyen Pham</h3>
                   <p className="text-sunflower font-medium mb-4">Founder</p>
                   <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực hành chính văn phòng và phát triển kinh doanh quốc tế. Duyên đã đào tạo hơn 60 VA chuyên nghiệp và điều hành cộng đồng VA Việt Nam với hơn 10,000 thành viên.</p>
                   
