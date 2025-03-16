@@ -38,7 +38,7 @@ const Navbar = () => {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-1 font-montserrat">
                     <Users size={18} />
-                    Về Chúng Tôi
+                    Giới Thiệu
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-white/90 backdrop-blur-sm p-4 rounded-lg min-w-[280px] navy-shadow">
                     <ul className="flex flex-wrap gap-2 text-xs">
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <NavigationMenuItem>
                   <Link to="/career-opportunities" className="flex items-center gap-1 text-navy hover:text-sunflower transition-colors px-4 py-2 font-montserrat">
                     <Briefcase size={18} />
-                    Cơ Hội Nghề Nghiệp
+                    Nghề Nghiệp
                   </Link>
                 </NavigationMenuItem>
                 
