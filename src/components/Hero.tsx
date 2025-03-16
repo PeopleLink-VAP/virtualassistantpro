@@ -33,9 +33,10 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 z-10">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-4 animate-fade-in">
-              Khóa Học Nghề {' '}
-              <span className="text-sunflower font-['Big_Shoulders_Stencil']">Virtual Assistant Pro</span> Chuyên Nghiệp
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-['Roboto_Condensed'] text-navy leading-tight mb-4 animate-fade-in">
+              Khóa Học Nghề
+              <span className="text-sunflower font-['Big_Shoulders_Stencil']">Virtual Assistant Pro</span> 
+              Chuyên Nghiệp
             </h1>
             
             <p className="text-lg text-navy/80 mb-8 max-w-xl animate-fade-in" style={{ animationDelay: '0.1s' }}>

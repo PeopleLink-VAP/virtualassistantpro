@@ -71,7 +71,6 @@ const TeamPage = () => {
             </div>
             
             <div className="space-y-12 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              <h2 className="text-2xl font-bold text-navy text-center mb-10">Giảng Viên Chuyên Nghiệp</h2>
               
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl navy-shadow overflow-hidden md:flex hover:shadow-lg transition-shadow">
                 <div className="md:w-1/3 relative">
@@ -116,7 +115,7 @@ const TeamPage = () => {
                     <a href="https://cal.com/duyenpham93/vap-coaching" target="_blank" rel="noopener noreferrer">
                       <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
                         <CalendarClock className="h-5 w-5" />
-                        Book A Meeting
+                        Đặt Lịch hẹn Coaching
                       </Button>
                     </a>
                   </div>
