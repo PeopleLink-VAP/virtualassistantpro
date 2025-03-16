@@ -104,6 +104,40 @@
   html {
     @apply scroll-smooth;
   }
+
+  /* Print styles */
+  @media print {
+    body {
+      @apply bg-white text-black;
+    }
+    
+    .paper-note {
+      @apply shadow-none border-none p-0 m-0;
+    }
+  }
+  
+  /* Reader mode styles */
+  body.reader-mode {
+    @apply bg-[#FFFDF6];
+  }
+  
+  body.reader-mode .paper-note {
+    @apply max-w-4xl mx-auto mt-8 bg-[#FFFDF6] shadow-none border-none;
+  }
+  
+  body.reader-mode .paper-note > div {
+    @apply shadow-none border-none;
+  }
+  
+  body.reader-mode nav,
+  body.reader-mode footer,
+  body.reader-mode .print-buttons {
+    @apply hidden;
+  }
+  
+  body.reader-mode .prose {
+    @apply text-lg leading-relaxed;
+  }
 }
 
 @layer components {
@@ -162,6 +196,68 @@
   .sunflower-accent::before {
     @apply content-[''] absolute w-6 h-6 bg-sunflower/20 rounded-full -left-3 -top-3 animate-pulse;
   }
+  
+  /* Paper Note Styles */
+  .paper-note {
+    @apply relative bg-[#FFFDF6] rounded-md shadow-lg border border-gray-200 overflow-hidden;
+  }
+  
+  .paper-note::before {
+    @apply content-[''] absolute inset-0 opacity-5 pointer-events-none;
+    background-image: url('/public/paper-texture.png');
+    background-repeat: repeat;
+  }
+  
+  .paper-note .prose h1,
+  .paper-note .prose h2,
+  .paper-note .prose h3 {
+    @apply font-condensed text-navy border-b border-navy/10 pb-2;
+  }
+  
+  .paper-note .prose blockquote {
+    @apply bg-sunflower/5 border-l-4 border-sunflower p-4 italic;
+  }
+  
+  .paper-note .prose a {
+    @apply text-leafGreen underline decoration-dotted underline-offset-4 hover:text-leafGreen/80;
+  }
+  
+  .paper-note .prose code {
+    @apply bg-navy/5 px-1.5 py-0.5 rounded text-navy/80 font-mono text-sm;
+  }
+  
+  .paper-note .prose pre {
+    @apply bg-navy/10 border border-navy/5 rounded-md shadow-sm;
+  }
+  
+  .paper-note .prose img {
+    @apply rounded-md shadow-sm mx-auto my-6;
+  }
+  
+  .paper-note .prose hr {
+    @apply border-t border-dashed border-navy/20 my-8;
+  }
+  
+  .paper-note .prose table {
+    @apply border-collapse border border-navy/20 rounded-md overflow-hidden shadow-sm;
+  }
+  
+  .paper-note .prose th {
+    @apply bg-navy/5 text-navy font-semibold px-4 py-2 border border-navy/20;
+  }
+  
+  .paper-note .prose td {
+    @apply px-4 py-2 border border-navy/20;
+  }
+  
+  .paper-note .prose ul,
+  .paper-note .prose ol {
+    @apply my-4 ml-6;
+  }
+  
+  .paper-note .prose li {
+    @apply mb-2;
+  }
 }
 
 @layer utilities {
@@ -197,6 +293,82 @@
     }
     50% {
       transform: rotate(2deg);
+    }
+  }
+  
+  /* Print-specific utilities */
+  @media print {
+    .print\:hidden {
+      display: none !important;
+    }
+    
+    .print\:block {
+      display: block !important;
+    }
+    
+    .print\:pt-8 {
+      padding-top: 2rem !important;
+    }
+    
+    .print\:pb-8 {
+      padding-bottom: 2rem !important;
+    }
+    
+    .print\:mt-8 {
+      margin-top: 2rem !important;
+    }
+    
+    .print\:shadow-none {
+      box-shadow: none !important;
+    }
+    
+    .print\:border-none {
+      border: none !important;
+    }
+    
+    .print\:text-2xl {
+      font-size: 1.5rem !important;
+    }
+    
+    .print\:text-base {
+      font-size: 1rem !important;
+    }
+    
+    .print\:text-xs {
+      font-size: 0.75rem !important;
+    }
+    
+    .print\:max-h-\[300px\] {
+      max-height: 300px !important;
+    }
+    
+    .print\:mb-4 {
+      margin-bottom: 1rem !important;
+    }
+    
+    .print\:mb-2 {
+      margin-bottom: 0.5rem !important;
+    }
+    
+    .print\:py-3 {
+      padding-top: 0.75rem !important;
+      padding-bottom: 0.75rem !important;
+    }
+    
+    .print\:prose-base .prose {
+      font-size: 1rem !important;
+    }
+    
+    .print\:prose-p\:leading-relaxed p {
+      line-height: 1.625 !important;
+    }
+    
+    .print\:h-8 {
+      height: 2rem !important;
+    }
+    
+    .print\:w-8 {
+      width: 2rem !important;
     }
   }
 }
