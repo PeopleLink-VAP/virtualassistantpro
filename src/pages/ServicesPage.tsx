@@ -1,6 +1,7 @@
 
 import Navbar from '@/components/Navbar';
 import Services from '@/components/Services';
+import ClientTestimonials from '@/components/ClientTestimonials';
 import Footer from '@/components/Footer';
 
 const ServicesPage = () => {
@@ -9,6 +10,7 @@ const ServicesPage = () => {
       <Navbar />
       <div className="pt-24">
         <Services />
+        <ClientTestimonials />
       </div>
       <Footer />
     </div>

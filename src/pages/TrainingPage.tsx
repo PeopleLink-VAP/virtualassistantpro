@@ -1,6 +1,7 @@
 
 import Navbar from '@/components/Navbar';
 import Training from '@/components/Training';
+import StudentTestimonials from '@/components/StudentTestimonials';
 import Footer from '@/components/Footer';
 
 const TrainingPage = () => {
@@ -9,6 +10,7 @@ const TrainingPage = () => {
       <Navbar />
       <div className="pt-24">
         <Training />
+        <StudentTestimonials />
       </div>
       <Footer />
     </div>
