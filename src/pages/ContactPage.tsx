@@ -1,16 +1,18 @@
 
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const ContactPage = () => {
   return (
     <div className="min-h-screen bg-warmWhite">
       <Navbar />
-      <Hero />
+      <div className="pt-24">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default ContactPage;

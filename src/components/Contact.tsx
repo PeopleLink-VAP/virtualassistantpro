@@ -55,7 +55,7 @@ const Contact = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-white rounded-2xl navy-shadow p-6">
+            <div className="bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6">
               <h3 className="text-xl font-bold mb-6">Get in Touch</h3>
               
               <div className="space-y-6">
@@ -74,7 +74,7 @@ const Contact = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-br from-sunflower/30 to-navy/20 rounded-2xl p-6">
+            <div className="bg-gradient-to-br from-sunflower/30 to-navy/20 backdrop-blur-md rounded-2xl p-6">
               <h3 className="text-xl font-bold mb-4">Working Hours</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
@@ -96,9 +96,17 @@ const Contact = () => {
                 </p>
               </div>
             </div>
+            
+            <div className="overflow-hidden rounded-2xl navy-shadow h-64">
+              <img 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
+                alt="Office location"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
           
-          <div className="lg:col-span-3 bg-white rounded-2xl navy-shadow p-6 md:p-8">
+          <div className="lg:col-span-3 bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6 md:p-8">
             <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -107,14 +115,14 @@ const Contact = () => {
                   <label htmlFor="name" className="text-sm font-medium">
                     Full Name
                   </label>
-                  <Input id="name" placeholder="Enter your name" required />
+                  <Input id="name" placeholder="Enter your name" required className="bg-white/50" />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
                     Email Address
                   </label>
-                  <Input id="email" type="email" placeholder="Enter your email" required />
+                  <Input id="email" type="email" placeholder="Enter your email" required className="bg-white/50" />
                 </div>
               </div>
               
@@ -123,10 +131,10 @@ const Contact = () => {
                   Inquiry Type
                 </label>
                 <Select>
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-white/50">
                     <SelectValue placeholder="Select inquiry type" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white/90 backdrop-blur-md">
                     <SelectItem value="client">I'm looking to hire a VA</SelectItem>
                     <SelectItem value="va">I want to become a VA</SelectItem>
                     <SelectItem value="partnership">Partnership opportunity</SelectItem>
@@ -142,7 +150,7 @@ const Contact = () => {
                 <Textarea 
                   id="message" 
                   placeholder="How can we help you?" 
-                  className="min-h-[120px]"
+                  className="min-h-[120px] bg-white/50"
                   required 
                 />
               </div>

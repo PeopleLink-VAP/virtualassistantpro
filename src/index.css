@@ -92,10 +92,27 @@
 
   body {
     @apply bg-warmWhite text-navy;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+  
+  html {
+    @apply scroll-smooth;
   }
 }
 
 @layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/30 shadow-lg;
+  }
+  
+  .glass-navbar {
+    @apply bg-warmWhite/70 backdrop-blur-md shadow-sm border-b border-white/20;
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-sm shadow-md;
+  }
+  
   .sunflower-shadow {
     @apply shadow-[0_4px_20px_rgba(255,215,0,0.3)];
   }
@@ -105,11 +122,11 @@
   }
   
   .btn-primary {
-    @apply bg-sunflower text-navy font-semibold px-6 py-3 rounded-md hover:bg-sunflower/90 transition-all duration-300 sunflower-shadow;
+    @apply bg-sunflower text-navy font-semibold px-6 py-3 rounded-md hover:bg-sunflower/90 transition-all duration-300 sunflower-shadow glass-button;
   }
   
   .btn-secondary {
-    @apply bg-navy text-warmWhite font-semibold px-6 py-3 rounded-md hover:bg-navy/90 transition-all duration-300 navy-shadow;
+    @apply bg-navy text-warmWhite font-semibold px-6 py-3 rounded-md hover:bg-navy/90 transition-all duration-300 navy-shadow glass-button;
   }
   
   .section-title {
@@ -122,5 +139,16 @@
   
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1 hover:sunflower-shadow;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
   }
 }

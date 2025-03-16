@@ -1,16 +1,18 @@
 
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
+import Training from '@/components/Training';
 import Footer from '@/components/Footer';
 
-const Index = () => {
+const TrainingPage = () => {
   return (
     <div className="min-h-screen bg-warmWhite">
       <Navbar />
-      <Hero />
+      <div className="pt-24">
+        <Training />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default TrainingPage;

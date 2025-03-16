@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Users, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -22,17 +23,21 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              <Button className="btn-primary flex items-center gap-2 text-base">
-                <Users size={20} />
-                Find Your VA
-                <ArrowRight size={16} />
-              </Button>
+              <Link to="/services">
+                <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-base w-full sm:w-auto">
+                  <Users size={20} />
+                  Find Your VA
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
               
-              <Button className="btn-secondary flex items-center gap-2 text-base">
-                <BookOpen size={20} />
-                Become a VA
-                <ArrowRight size={16} />
-              </Button>
+              <Link to="/training">
+                <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 text-base w-full sm:w-auto">
+                  <BookOpen size={20} />
+                  Become a VA
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
             </div>
             
             <div className="flex items-center gap-6 text-navy/80 animate-fade-in" style={{ animationDelay: '0.3s' }}>
@@ -51,8 +56,16 @@ const Hero = () => {
           <div className="lg:w-1/2 mt-12 lg:mt-0 z-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-full h-full bg-leafGreen/10 rounded-2xl"></div>
-              <div className="w-full h-full bg-gradient-to-br from-sunflower/30 to-navy/20 rounded-2xl p-8 relative shadow-lg">
-                <div className="bg-warmWhite rounded-xl p-6 shadow-xl">
+              <div className="w-full h-full bg-gradient-to-br from-sunflower/30 to-navy/20 backdrop-blur-sm rounded-2xl p-8 relative shadow-lg">
+                <div className="bg-white/80 backdrop-blur-md rounded-xl p-6 shadow-xl">
+                  <div className="mb-4 overflow-hidden rounded-lg">
+                    <img 
+                      src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                      alt="Professional virtual assistant working"
+                      className="w-full h-64 object-cover object-center hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  
                   <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
                     <span className="w-6 h-6 bg-sunflower rounded-full flex items-center justify-center text-white text-xs">✓</span>
                     Professional Virtual Assistant Services

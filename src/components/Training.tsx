@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import { Check, BookOpen, Award, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -42,7 +43,7 @@ const Training = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div className="bg-navy rounded-2xl p-8 text-warmWhite">
+          <div className="bg-navy/90 backdrop-blur-md rounded-2xl p-8 text-warmWhite navy-shadow">
             <h3 className="text-2xl font-bold mb-6 flex items-center">
               <BookOpen className="mr-3 h-6 w-6 text-sunflower" />
               Professional Development Pathway
@@ -68,9 +69,11 @@ const Training = () => {
               ))}
             </div>
             
-            <Button className="mt-8 bg-sunflower text-navy hover:bg-sunflower/90">
-              Apply for Training Program
-            </Button>
+            <Link to="/book-meeting">
+              <Button className="mt-8 bg-sunflower text-navy hover:bg-sunflower/90 glass-button">
+                Apply for Training Program
+              </Button>
+            </Link>
           </div>
           
           <div>
@@ -80,43 +83,70 @@ const Training = () => {
             </h3>
             
             <div className="space-y-6">
-              {[1, 2].map((i) => (
-                <Card key={i} className="bg-white border-none navy-shadow">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start mb-4">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sunflower to-leafGreen flex items-center justify-center text-white font-bold text-lg mr-4">
-                        {i === 1 ? 'TL' : 'NH'}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold">{i === 1 ? 'Tran Linh' : 'Nguyen Huong'}</h4>
-                        <p className="text-sm text-navy/70">
-                          {i === 1 ? 'Administrative VA, Graduated 2022' : 'Project Coordination VA, Graduated 2023'}
-                        </p>
-                      </div>
+              <Card className="bg-white/70 backdrop-blur-md border-none navy-shadow overflow-hidden">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7" 
+                    alt="Success story"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="pt-6">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sunflower to-leafGreen flex items-center justify-center text-white font-bold text-lg mr-4">
+                      TL
                     </div>
-                    <p className="text-navy/80 italic">
-                      {i === 1 
-                        ? "The VAP-Hub training program transformed my professional path. I now work with international clients and earn triple my previous salary while working from home."
-                        : "The specialized skills I learned through VAP-Hub allowed me to secure high-quality clients. The ongoing community support has been invaluable for my career growth."}
-                    </p>
-                    <div className="mt-4 flex items-center">
-                      <TrendingUp className="h-4 w-4 text-leafGreen mr-2" />
-                      <span className="text-sm font-medium">
-                        {i === 1 ? 'Income increased by 200%' : 'Now working with Fortune 500 clients'}
-                      </span>
+                    <div>
+                      <h4 className="font-semibold">Tran Linh</h4>
+                      <p className="text-sm text-navy/70">Administrative VA, Graduated 2022</p>
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                  <p className="text-navy/80 italic">
+                    "The VAP-Hub training program transformed my professional path. I now work with international clients and earn triple my previous salary while working from home."
+                  </p>
+                  <div className="mt-4 flex items-center">
+                    <TrendingUp className="h-4 w-4 text-leafGreen mr-2" />
+                    <span className="text-sm font-medium">Income increased by 200%</span>
+                  </div>
+                </CardContent>
+              </Card>
               
-              <Button variant="outline" className="w-full mt-4 border-navy text-navy hover:bg-navy hover:text-warmWhite">
+              <Card className="bg-white/70 backdrop-blur-md border-none navy-shadow overflow-hidden">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                    alt="Success story"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <CardContent className="pt-6">
+                  <div className="flex items-start mb-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-sunflower to-leafGreen flex items-center justify-center text-white font-bold text-lg mr-4">
+                      NH
+                    </div>
+                    <div>
+                      <h4 className="font-semibold">Nguyen Huong</h4>
+                      <p className="text-sm text-navy/70">Project Coordination VA, Graduated 2023</p>
+                    </div>
+                  </div>
+                  <p className="text-navy/80 italic">
+                    "The specialized skills I learned through VAP-Hub allowed me to secure high-quality clients. The ongoing community support has been invaluable for my career growth."
+                  </p>
+                  <div className="mt-4 flex items-center">
+                    <TrendingUp className="h-4 w-4 text-leafGreen mr-2" />
+                    <span className="text-sm font-medium">Now working with Fortune 500 clients</span>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Button variant="outline" className="w-full mt-4 border-navy text-navy hover:bg-navy hover:text-warmWhite glass-button">
                 View More Success Stories
               </Button>
             </div>
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-sunflower/20 to-leafGreen/20 rounded-2xl p-8 md:p-10">
+        <div className="bg-gradient-to-r from-sunflower/20 to-leafGreen/20 backdrop-blur-md rounded-2xl p-8 md:p-10">
           <div className="text-center mb-8">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Grow Your VA Career?</h3>
             <p className="text-navy/80 max-w-xl mx-auto">
@@ -134,9 +164,11 @@ const Training = () => {
           </div>
           
           <div className="text-center">
-            <Button className="btn-primary text-base px-8">
-              Start Your VA Journey Today
-            </Button>
+            <Link to="/book-meeting">
+              <Button className="btn-primary text-base px-8">
+                Start Your VA Journey Today
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

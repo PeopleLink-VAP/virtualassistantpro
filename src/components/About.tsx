@@ -45,7 +45,7 @@ const About = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, idx) => (
-            <div key={idx} className="text-center">
+            <div key={idx} className="text-center bg-white/60 backdrop-blur-sm rounded-xl p-6 navy-shadow">
               <div className="text-4xl lg:text-5xl font-bold text-sunflower mb-2">{stat.value}</div>
               <div className="text-navy/80 font-medium">{stat.label}</div>
             </div>
@@ -53,7 +53,7 @@ const About = () => {
         </div>
         
         {/* Our Story */}
-        <div className="bg-white rounded-2xl navy-shadow p-8 md:p-10 mb-20">
+        <div className="bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-8 md:p-10 mb-20">
           <div className="flex flex-col md:flex-row gap-10">
             <div className="md:w-1/2">
               <h3 className="text-2xl font-bold mb-4">Our Story</h3>
@@ -75,19 +75,19 @@ const About = () => {
             </div>
             
             <div className="md:w-1/2">
-              <div className="relative h-full min-h-[300px] rounded-xl overflow-hidden bg-gradient-to-br from-sunflower/30 to-leafGreen/30 flex items-center justify-center">
-                {/* This would typically be an actual image of the team/founder */}
-                <div className="text-center p-6">
-                  <div className="w-24 h-24 mx-auto mb-4">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="text-sunflower">
-                      <path d="M100,20 C80,40 60,40 40,20 C40,60 20,80 0,80 C40,100 40,120 20,140 C60,140 80,160 100,180 C120,160 140,140 180,140 C160,120 160,100 200,80 C180,80 160,60 160,20 C140,40 120,40 100,20 Z" />
-                      <circle cx="100" cy="100" r="30" fill="#1B365D" />
-                    </svg>
+              <div className="relative h-full min-h-[300px] rounded-xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+                  alt="VAP-Hub team"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent flex items-end p-6">
+                  <div className="text-white">
+                    <h4 className="text-xl font-bold">Growing Together</h4>
+                    <p className="mt-2 text-white/90">
+                      Our team of dedicated professionals is committed to nurturing growth for both clients and VAs
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold">Growing Together</h4>
-                  <p className="text-navy/80 mt-2">
-                    Our team of dedicated professionals is committed to nurturing growth for both clients and VAs
-                  </p>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@ const About = () => {
         <h3 className="text-2xl font-bold text-center mb-10">Our Core Values</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((value, idx) => (
-            <div key={idx} className="bg-white rounded-xl p-6 navy-shadow card-hover">
+            <div key={idx} className="bg-white/70 backdrop-blur-md rounded-xl p-6 navy-shadow card-hover">
               <div className="w-12 h-12 bg-sunflower/20 rounded-full flex items-center justify-center mb-4">
                 <value.icon className="h-6 w-6 text-navy" />
               </div>
