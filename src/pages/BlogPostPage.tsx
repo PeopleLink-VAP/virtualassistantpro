@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import { Tables } from '@/integrations/supabase/types';
-import { ArrowLeft, Calendar, User, Loader2, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Loader2, Clock, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 
@@ -59,6 +59,11 @@ const BlogPostPage = () => {
     ? Math.ceil(post.content.split(' ').length / 200) // Assuming average reading speed of 200 words per minute
     : 0;
 
+  // Tiny paperclip decoration component
+  const Paperclip = () => (
+    <div className="absolute -top-3 -right-3 w-8 h-16 bg-[#C8C8C9] rounded-sm rotate-45 z-20"></div>
+  );
+
   return (
     <>
       <Helmet>
@@ -69,12 +74,11 @@ const BlogPostPage = () => {
       <div className="min-h-screen bg-warmWhite relative overflow-hidden">
         <Navbar />
         
-        {/* Floating Decorative Elements */}
+        {/* Subtle background decorations */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-sunflower/10 animate-spin-slow"></div>
-          <div className="absolute top-1/4 left-10 w-32 h-32 rounded-full bg-sunflower/15 animate-float"></div>
-          <div className="absolute bottom-1/3 -right-16 w-48 h-48 rounded-full bg-sunflower/10 animate-spin-slow"></div>
-          <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-sunflower/5 animate-float"></div>
+          <div className="absolute top-20 right-5 w-32 h-32 rounded-full bg-sunflower/5 animate-float"></div>
+          <div className="absolute bottom-40 left-10 w-24 h-24 rounded-full bg-sunflower/10 animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/3 left-5 w-16 h-16 rounded-full bg-navy/5 animate-float" style={{ animationDelay: '2s' }}></div>
         </div>
 
         <div className="relative z-10 pt-32 pb-16">
@@ -99,28 +103,46 @@ const BlogPostPage = () => {
             </div>
           ) : post ? (
             <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                >
+              <motion.div 
+                initial={{ opacity: 0, y: 20, rotate: -1 }}
+                animate={{ opacity: 1, y: 0, rotate: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="max-w-4xl mx-auto paper-note rounded-lg animate-slight-rotate overflow-hidden relative"
+              >
+                {/* Decorative paperclip in corner */}
+                <Paperclip />
+                
+                <div className="paper-note-content">
                   {/* Featured Image */}
                   {post.featured_image && (
-                    <div className="rounded-xl overflow-hidden mb-8 shadow-lg">
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3, duration: 0.6 }}
+                      className="rounded-lg overflow-hidden mb-8 shadow-md border border-navy/10 relative"
+                    >
                       <img 
                         src={post.featured_image}
                         alt={post.title}
-                        className="w-full h-[400px] object-cover"
+                        className="w-full h-[300px] md:h-[400px] object-cover"
                       />
-                    </div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#FEF7CD]/50 to-transparent"></div>
+                    </motion.div>
                   )}
                   
                   {/* Post Header */}
                   <div className="mb-8">
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-navy">{post.title}</h1>
+                    <motion.h1 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.7 }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-navy handwritten-heading relative"
+                    >
+                      {post.title}
+                      <div className="h-1 w-full bg-sunflower/50 mt-2 animate-pen-write"></div>
+                    </motion.h1>
                     
-                    <div className="flex flex-wrap items-center text-navy/60 mb-6">
+                    <div className="flex flex-wrap items-center text-navy/60 mb-6 italic">
                       <div className="flex items-center mr-6 mb-2">
                         <User className="w-4 h-4 mr-2" />
                         <span>{post.author}</span>
@@ -135,15 +157,36 @@ const BlogPostPage = () => {
                       </div>
                     </div>
                     
-                    <p className="text-xl text-navy/80 italic">{post.excerpt}</p>
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.8, duration: 0.6 }}
+                      className="text-xl text-navy/80 italic border-l-2 border-sunflower pl-4 py-1"
+                    >
+                      {post.excerpt}
+                    </motion.p>
                   </div>
                   
                   {/* Post Content */}
-                  <div className="prose prose-lg max-w-none prose-headings:text-navy prose-p:text-navy/80 mb-8">
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.8 }}
+                    className="prose prose-lg max-w-none prose-headings:text-navy prose-p:text-navy/80"
+                  >
                     <ReactMarkdown>{post.content}</ReactMarkdown>
+                  </motion.div>
+                  
+                  {/* Signature footer */}
+                  <div className="paper-note-footer">
+                    <p className="flex items-center justify-end">
+                      <span>Với yêu thương,</span>
+                      <Heart className="w-4 h-4 mx-2 text-sunflower fill-sunflower" />
+                    </p>
+                    <p className="text-xl font-bold text-navy mt-2">Duyen</p>
                   </div>
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             </div>
           ) : (
             <div className="text-center py-20">
