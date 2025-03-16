@@ -25,4 +25,33 @@
       transform: rotate(2deg);
     }
   }
+  
+  /* Paper note animations */
+  .animate-appear {
+    animation: appear 0.8s ease-out forwards;
+  }
+  
+  @keyframes appear {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-pen-write {
+    animation: pen-write 1.2s ease-out forwards;
+  }
+  
+  @keyframes pen-write {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 }

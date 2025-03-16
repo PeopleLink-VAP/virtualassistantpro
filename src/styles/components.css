@@ -55,4 +55,49 @@
   .sunflower-accent::before {
     @apply content-[''] absolute w-6 h-6 bg-sunflower/20 rounded-full -left-3 -top-3 animate-pulse;
   }
+
+  /* Paper note styles */
+  .paper-note {
+    @apply bg-[#FEF7CD] border-t-4 border-sunflower shadow-md relative;
+  }
+  
+  .paper-note::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-[url('/images/paper-texture.png')] opacity-30 pointer-events-none z-0;
+  }
+  
+  .paper-note-content {
+    @apply relative z-10 p-8 md:p-12;
+  }
+  
+  .handwritten-heading {
+    @apply font-serif italic text-navy/90 leading-tight;
+  }
+  
+  .paper-note-content p {
+    @apply text-navy/80 leading-relaxed my-4;
+  }
+  
+  .paper-note-content h2 {
+    @apply text-2xl md:text-3xl font-serif italic text-navy my-6 border-b border-sunflower/40 pb-2;
+  }
+  
+  .paper-note-content h3 {
+    @apply text-xl md:text-2xl font-serif italic text-navy my-4;
+  }
+  
+  .paper-note-content blockquote {
+    @apply border-l-4 border-sunflower/70 pl-4 my-6 py-2 italic text-navy/70;
+  }
+  
+  .paper-note-content ul {
+    @apply list-disc pl-6 my-4;
+  }
+  
+  .paper-note-content ol {
+    @apply list-decimal pl-6 my-4;
+  }
+  
+  .paper-note-footer {
+    @apply text-right pt-8 border-t border-dashed border-navy/20 mt-8 text-navy/60 italic;
+  }
 }
