@@ -90,6 +90,8 @@ const NavigationMenuViewport = React.forwardRef<
         className
       )}
       ref={ref}
+      // Increase delay for viewport closing to keep menu open longer
+      data-state-delay="300"
       {...props}
     />
   </div>

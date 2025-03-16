@@ -91,7 +91,7 @@
   }
 
   body {
-    @apply bg-warmWhite text-navy;
+    @apply bg-warmWhite text-navy font-montserrat;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
   
@@ -130,15 +130,23 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 font-montserrat;
   }
   
   .section-subtitle {
-    @apply text-xl text-navy/80 max-w-2xl mx-auto mb-8;
+    @apply text-xl text-navy/80 max-w-2xl mx-auto mb-8 font-montserrat;
   }
   
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1 hover:sunflower-shadow;
+  }
+  
+  .sunflower-accent {
+    @apply relative;
+  }
+  
+  .sunflower-accent::before {
+    @apply content-[''] absolute w-6 h-6 bg-sunflower/20 rounded-full -left-3 -top-3 animate-pulse;
   }
 }
 

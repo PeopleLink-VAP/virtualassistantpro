@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				montserrat: ['Montserrat', 'sans-serif'],
+			},
 			colors: {
 				// Custom color palette for VAP-Hub
 				sunflower: "#FFD700",
@@ -117,6 +120,14 @@ export default {
 					'100%': {
 						transform: 'rotate(360deg)'
 					}
+				},
+				'sway': {
+					'0%, 100%': {
+						transform: 'rotate(-3deg)'
+					},
+					'50%': {
+						transform: 'rotate(3deg)'
+					}
 				}
 			},
 			animation: {
@@ -124,7 +135,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'float': 'float 3s ease-in-out infinite',
-				'spin-slow': 'spin-slow 20s linear infinite'
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'sway': 'sway 6s ease-in-out infinite'
 			}
 		}
 	},
