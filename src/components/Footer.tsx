@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="font-bold text-xl">VAP-Hub</span>
             </div>
             <p className="text-warmWhite/80 mb-6">
-              Professional Vietnamese Virtual Assistant services combining local expertise with international standards.
+              Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Trợ Lý Ảo tại Việt Nam.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors">
@@ -31,50 +31,42 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Khóa Học</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Administrative Support</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Business Development</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Client Management</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Project Coordination</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Custom Solutions</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Kỹ Năng Hành Chính</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Phát Triển Nghề Nghiệp</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Quản Lý Khách Hàng</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Điều Phối Dự Án</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Giải Pháp Cá Nhân Hóa</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Company</h4>
+            <h4 className="text-lg font-semibold mb-4">Giới Thiệu</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-warmWhite/80 hover:text-sunflower transition-colors">About Us</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Our Team</a></li>
-              <li><a href="#training" className="text-warmWhite/80 hover:text-sunflower transition-colors">VA Training</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Careers</a></li>
-              <li><a href="#contact" className="text-warmWhite/80 hover:text-sunflower transition-colors">Contact Us</a></li>
+              <li><a href="#about" className="text-warmWhite/80 hover:text-sunflower transition-colors">Về Chúng Tôi</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Đội Ngũ Đào Tạo</a></li>
+              <li><a href="#training" className="text-warmWhite/80 hover:text-sunflower transition-colors">Chương Trình Đào Tạo</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Cơ Hội Nghề Nghiệp</a></li>
+              <li><a href="#contact" className="text-warmWhite/80 hover:text-sunflower transition-colors">Liên Hệ</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <h4 className="text-lg font-semibold mb-4">Tài Nguyên</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Blog</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Client Resources</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">VA Resources</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">FAQs</a></li>
-              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Tài Liệu Học Tập</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Tài Nguyên VA</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Câu Hỏi Thường Gặp</a></li>
+              <li><a href="#" className="text-warmWhite/80 hover:text-sunflower transition-colors">Chính Sách Bảo Mật</a></li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 border-t border-warmWhite/20 flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0 text-warmWhite/70 text-sm">
-            © 2023 VAP-Hub. All rights reserved.
-          </div>
-          
-          <div className="flex items-center">
-            <span className="mr-2 text-sm text-warmWhite/70">Language:</span>
-            <select className="bg-navy border border-warmWhite/30 rounded text-warmWhite/90 text-sm px-2 py-1 focus:outline-none focus:border-sunflower">
-              <option value="en">English</option>
-              <option value="vi">Tiếng Việt</option>
-            </select>
+            © 2023 Virtual Assistant Pro. Tất cả quyền được bảo lưu.
           </div>
         </div>
       </div>

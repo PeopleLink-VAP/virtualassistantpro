@@ -10,21 +10,21 @@ import { toast } from 'sonner';
 const contactMethods = [
   {
     icon: Mail,
-    title: 'Email Us',
+    title: 'Email',
     value: 'hello@vap-hub.com',
-    description: 'For general inquiries and information'
+    description: 'Liên hệ chung và thông tin'
   },
   {
     icon: Phone,
-    title: 'Call Us',
+    title: 'Điện Thoại',
     value: '+84 (28) 1234 5678',
-    description: 'Mon-Fri from 9am to 6pm (GMT+7)'
+    description: 'Thứ 2-6 từ 9h đến 18h (GMT+7)'
   },
   {
     icon: MapPin,
-    title: 'Visit Us',
-    value: 'Ho Chi Minh City, Vietnam',
-    description: 'District 1, Central Business Area'
+    title: 'Địa Chỉ',
+    value: 'TP. Hồ Chí Minh, Việt Nam',
+    description: 'Quận 1, Khu Trung Tâm'
   }
 ];
 
@@ -38,7 +38,7 @@ const Contact = () => {
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
-      toast.success('Thank you for your message! We will get back to you soon.');
+      toast.success('Cảm ơn bạn đã gửi tin nhắn! Chúng tôi sẽ liên hệ lại sớm.');
       // Would normally reset the form here
     }, 1500);
   };
@@ -47,16 +47,16 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-gradient-to-b from-navy/5 to-warmWhite">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Contact Us</h2>
+          <h2 className="section-title">Liên Hệ</h2>
           <p className="section-subtitle">
-            Have questions or ready to get started? Reach out to us and we'll be happy to help.
+            Bạn có câu hỏi hoặc sẵn sàng bắt đầu? Hãy liên hệ với chúng tôi, chúng tôi sẽ hỗ trợ bạn.
           </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6">
-              <h3 className="text-xl font-bold mb-6">Get in Touch</h3>
+              <h3 className="text-xl font-bold mb-6">Thông Tin Liên Hệ</h3>
               
               <div className="space-y-6">
                 {contactMethods.map((method, idx) => (
@@ -75,24 +75,24 @@ const Contact = () => {
             </div>
             
             <div className="bg-gradient-to-br from-sunflower/30 to-navy/20 backdrop-blur-md rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-4">Working Hours</h3>
+              <h3 className="text-xl font-bold mb-4">Giờ Làm Việc</h3>
               <div className="space-y-2">
                 <div className="flex justify-between">
-                  <span className="font-medium">Monday - Friday:</span>
-                  <span>9:00 AM - 6:00 PM (GMT+7)</span>
+                  <span className="font-medium">Thứ Hai - Thứ Sáu:</span>
+                  <span>9:00 - 18:00 (GMT+7)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-medium">Saturday:</span>
-                  <span>9:00 AM - 1:00 PM (GMT+7)</span>
+                  <span className="font-medium">Thứ Bảy:</span>
+                  <span>9:00 - 13:00 (GMT+7)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="font-medium">Sunday:</span>
-                  <span>Closed</span>
+                  <span className="font-medium">Chủ Nhật:</span>
+                  <span>Nghỉ</span>
                 </div>
               </div>
               <div className="mt-4 pt-4 border-t border-navy/20">
                 <p className="text-sm">
-                  We also offer flexible scheduling to accommodate different time zones.
+                  Chúng tôi cũng có lịch linh hoạt để phù hợp với các học viên khác nhau.
                 </p>
               </div>
             </div>
@@ -100,56 +100,56 @@ const Contact = () => {
             <div className="overflow-hidden rounded-2xl navy-shadow h-64">
               <img 
                 src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
-                alt="Office location"
+                alt="Địa điểm văn phòng"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
           
           <div className="lg:col-span-3 bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6 md:p-8">
-            <h3 className="text-xl font-bold mb-6">Send Us a Message</h3>
+            <h3 className="text-xl font-bold mb-6">Gửi Tin Nhắn</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
-                    Full Name
+                    Họ Tên
                   </label>
-                  <Input id="name" placeholder="Enter your name" required className="bg-white/50" />
+                  <Input id="name" placeholder="Nhập họ tên của bạn" required className="bg-white/50" />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium">
-                    Email Address
+                    Email
                   </label>
-                  <Input id="email" type="email" placeholder="Enter your email" required className="bg-white/50" />
+                  <Input id="email" type="email" placeholder="Nhập email của bạn" required className="bg-white/50" />
                 </div>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="inquiry-type" className="text-sm font-medium">
-                  Inquiry Type
+                  Loại Yêu Cầu
                 </label>
                 <Select>
                   <SelectTrigger className="bg-white/50">
-                    <SelectValue placeholder="Select inquiry type" />
+                    <SelectValue placeholder="Chọn loại yêu cầu" />
                   </SelectTrigger>
                   <SelectContent className="bg-white/90 backdrop-blur-md">
-                    <SelectItem value="client">I'm looking to hire a VA</SelectItem>
-                    <SelectItem value="va">I want to become a VA</SelectItem>
-                    <SelectItem value="partnership">Partnership opportunity</SelectItem>
-                    <SelectItem value="other">Other inquiry</SelectItem>
+                    <SelectItem value="course">Tôi muốn tìm hiểu khóa học</SelectItem>
+                    <SelectItem value="va">Tôi muốn trở thành VA</SelectItem>
+                    <SelectItem value="partnership">Cơ hội hợp tác</SelectItem>
+                    <SelectItem value="other">Yêu cầu khác</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
               
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
-                  Your Message
+                  Tin Nhắn
                 </label>
                 <Textarea 
                   id="message" 
-                  placeholder="How can we help you?" 
+                  placeholder="Bạn cần hỗ trợ gì?" 
                   className="min-h-[120px] bg-white/50"
                   required 
                 />
@@ -162,12 +162,12 @@ const Contact = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Sending...
+                    Đang gửi...
                   </span>
                 ) : (
                   <span className="flex items-center">
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    Gửi Tin Nhắn
                   </span>
                 )}
               </Button>

@@ -6,56 +6,56 @@ import { GraduationCap, Award, ThumbsUp } from "lucide-react";
 const students = [
   {
     id: 1,
-    name: "Linh Nguyen",
+    name: "Nguyễn Thị Linh",
     avatar: "https://i.pravatar.cc/150?img=9",
-    location: "Ho Chi Minh City",
-    testimonial: "The training program gave me confidence and practical skills. I now work with international clients I never thought I could reach.",
-    specialization: "Administrative Support",
+    location: "TP. Hồ Chí Minh",
+    testimonial: "Chương trình đào tạo đã mang đến cho tôi sự tự tin và kỹ năng thực tế. Hiện tại tôi làm việc với các khách hàng mà trước đây tôi chưa từng nghĩ mình có thể tiếp cận.",
+    specialization: "Hỗ Trợ Hành Chính",
     icon: GraduationCap
   },
   {
     id: 2,
-    name: "Minh Tran",
+    name: "Trần Văn Minh",
     avatar: "https://i.pravatar.cc/150?img=12",
-    location: "Hanoi",
-    testimonial: "The mentorship and practical exercises prepared me for real client situations. I've tripled my income since completing the program.",
-    specialization: "Business Development",
+    location: "Hà Nội",
+    testimonial: "Sự hướng dẫn và các bài tập thực tế đã chuẩn bị cho tôi đối phó với các tình huống khách hàng thực tế. Thu nhập của tôi đã tăng gấp ba kể từ khi hoàn thành chương trình.",
+    specialization: "Phát Triển Kinh Doanh",
     icon: Award
   },
   {
     id: 3,
-    name: "Huong Pham",
+    name: "Phạm Thị Hương",
     avatar: "https://i.pravatar.cc/150?img=15",
-    location: "Da Nang",
-    testimonial: "Learning from experienced VAs made all the difference. The ongoing community support helps me continuously improve my services.",
-    specialization: "Project Coordination",
+    location: "Đà Nẵng",
+    testimonial: "Học hỏi từ các VA có kinh nghiệm đã tạo nên sự khác biệt lớn. Cộng đồng hỗ trợ liên tục giúp tôi không ngừng cải thiện dịch vụ của mình.",
+    specialization: "Điều Phối Dự Án",
     icon: ThumbsUp
   },
   {
     id: 4,
-    name: "Trung Le",
+    name: "Lê Văn Trung",
     avatar: "https://i.pravatar.cc/150?img=20",
-    location: "Can Tho",
-    testimonial: "The program's focus on international standards and cultural awareness has been invaluable in working with clients from different countries.",
-    specialization: "Client Management",
+    location: "Cần Thơ",
+    testimonial: "Khóa học chú trọng vào tiêu chuẩn quốc tế và nhận thức văn hóa đã vô cùng giá trị khi làm việc với khách hàng từ các quốc gia khác nhau.",
+    specialization: "Quản Lý Khách Hàng",
     icon: GraduationCap
   },
   {
     id: 5,
-    name: "Mai Vo",
+    name: "Võ Thị Mai",
     avatar: "https://i.pravatar.cc/150?img=21",
-    location: "Hue",
-    testimonial: "The certification has opened doors to high-quality clients. The skills I learned have made me confident in handling complex projects.",
-    specialization: "Administrative Support",
+    location: "Huế",
+    testimonial: "Chứng chỉ đã mở ra cánh cửa đến với khách hàng chất lượng cao. Các kỹ năng tôi học được đã giúp tôi tự tin xử lý các dự án phức tạp.",
+    specialization: "Hỗ Trợ Hành Chính",
     icon: Award
   },
   {
     id: 6,
-    name: "Quan Nguyen",
+    name: "Nguyễn Văn Quân",
     avatar: "https://i.pravatar.cc/150?img=25",
     location: "Nha Trang",
-    testimonial: "The practical, hands-on approach to learning made it easy to apply new skills immediately. I started getting clients even before graduation.",
-    specialization: "Business Development",
+    testimonial: "Phương pháp học thực tế đã giúp tôi dễ dàng áp dụng các kỹ năng mới ngay lập tức. Tôi đã bắt đầu có khách hàng ngay cả trước khi tốt nghiệp.",
+    specialization: "Phát Triển Kinh Doanh",
     icon: ThumbsUp
   }
 ];
@@ -91,9 +91,9 @@ const StudentTestimonials = () => {
     <section className="py-20 bg-gradient-to-b from-sunflower/10 to-warmWhite relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Success Stories</h2>
+          <h2 className="section-title">Câu Chuyện Thành Công</h2>
           <p className="section-subtitle">
-            Meet the graduates who transformed their careers through our training program
+            Gặp gỡ các học viên đã thay đổi sự nghiệp thông qua chương trình đào tạo của chúng tôi
           </p>
         </div>
         

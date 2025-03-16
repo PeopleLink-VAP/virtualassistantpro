@@ -6,37 +6,37 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Nguyễn Thị Mai",
     role: "CEO, TechStart Solutions",
     avatar: "https://i.pravatar.cc/150?img=1",
-    content: "Working with Virtual Assistant Pro has transformed how we manage our administrative tasks. Their attention to detail and quick turnaround has been exactly what our growing company needed.",
+    content: "Khóa học VA Pro đã giúp tôi học được nhiều kỹ năng mới và tạo được nguồn thu nhập ổn định. Cảm ơn đội ngũ giảng viên tận tâm.",
     rating: 5,
     company: "TechStart Solutions"
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Trần Minh Đức",
     role: "Founder, EcoGrowth",
     avatar: "https://i.pravatar.cc/150?img=3",
-    content: "The business development support we've received has been exceptional. Our VA not only helps with market research but also provides valuable insights that have directly increased our client acquisition.",
+    content: "Tôi đã tìm được khách hàng ngay sau khi hoàn thành khóa học. Phương pháp giảng dạy rất thực tế và dễ áp dụng.",
     rating: 5,
     company: "EcoGrowth"
   },
   {
     id: 3,
-    name: "Emma Rodriguez",
+    name: "Lê Thị Hương",
     role: "Director, Global Edu",
     avatar: "https://i.pravatar.cc/150?img=5",
-    content: "The attention to detail and cultural understanding that our VA brings to client management has been invaluable. Our international clients feel understood and valued.",
+    content: "Sự tận tâm và hiểu biết sâu sắc của các giảng viên là điều tôi đánh giá cao nhất. Khóa học thực sự đã thay đổi sự nghiệp của tôi.",
     rating: 5,
     company: "Global Edu"
   },
   {
     id: 4,
-    name: "David Kim",
+    name: "Phạm Văn Tùng",
     role: "Project Manager, BuildFlow",
     avatar: "https://i.pravatar.cc/150?img=8",
-    content: "The project coordination service has streamlined our workflows significantly. Our VA anticipates needs before they arise and keeps everything moving smoothly.",
+    content: "Tôi đã tăng thu nhập gấp đôi sau 3 tháng áp dụng những gì học được từ khóa học. Đặc biệt là các kỹ năng giao tiếp và tìm kiếm khách hàng.",
     rating: 5,
     company: "BuildFlow"
   }
@@ -47,9 +47,9 @@ const ClientTestimonials = () => {
     <section className="py-20 bg-gradient-to-b from-warmWhite to-sunflower/20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">What Our Clients Say</h2>
+          <h2 className="section-title">Học Viên Nói Gì</h2>
           <p className="section-subtitle">
-            Hear from businesses that have transformed their operations with our virtual assistant services
+            Lắng nghe từ các học viên đã thành công trong lĩnh vực VA sau khi tham gia khóa học
           </p>
         </div>
         
@@ -80,7 +80,7 @@ const ClientTestimonials = () => {
                 <div className="mt-4 pt-4 border-t border-navy/10">
                   <div className="flex items-center justify-between">
                     <span className="text-sm font-medium text-navy/60">{testimonial.company}</span>
-                    <span className="text-xs text-navy/60">Verified Client</span>
+                    <span className="text-xs text-navy/60">Học Viên Đã Xác Thực</span>
                   </div>
                 </div>
               </CardContent>
