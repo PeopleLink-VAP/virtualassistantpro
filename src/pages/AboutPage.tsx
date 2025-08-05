@@ -1,6 +1,6 @@
 
 import Navbar from '@/components/Navbar';
-import About from '@/components/About';
+import AboutMe from '@/components/AboutMe';
 import Footer from '@/components/Footer';
 
 const AboutPage = () => {
@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-warmWhite">
       <Navbar />
       <div className="pt-24">
-        <About />
+        <AboutMe />
       </div>
       <Footer />
     </div>
