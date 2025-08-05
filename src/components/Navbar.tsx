@@ -36,62 +36,23 @@ const Navbar = () => {
             <NavigationMenu>
               <NavigationMenuList className="space-x-0.5">
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-condensed text-sm px-2 py-1.5">
-                    <Users size={16} />
-                    Giới Thiệu
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white/90 backdrop-blur-sm p-3 rounded-lg min-w-[200px] navy-shadow">
-                    <ul className="flex flex-col gap-1 text-xs">
-                      <li>
-                        <Link to="/about" className="block p-1.5 rounded hover:bg-sunflower/10 text-navy flex items-center gap-1.5 whitespace-nowrap">
-                          <Home size={14} />
-                          Giới Thiệu
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/team" className="block p-1.5 rounded hover:bg-sunflower/10 text-navy flex items-center gap-1.5 whitespace-nowrap">
-                          <Users size={14} />
-                          Đội Ngũ Đào Tạo
-                        </Link>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-navy hover:text-sunflower transition-colors bg-transparent flex items-center gap-0.5 font-condensed text-sm px-2 py-1.5">
-                    <BookOpen size={16} />
-                    Đào Tạo
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-white/90 backdrop-blur-sm p-3 rounded-lg min-w-[200px] navy-shadow">
-                    <ul className="flex flex-col gap-1 text-xs">
-                      <li>
-                        <Link to="/courses-view" className="block p-1.5 rounded hover:bg-sunflower/10 text-navy flex items-center gap-1.5 whitespace-nowrap">
-                          <BookOpen size={14} />
-                          Xem Khóa Học
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/training-program" className="block p-1.5 rounded hover:bg-sunflower/10 text-navy flex items-center gap-1.5 whitespace-nowrap">
-                          <Globe size={14} />
-                          Chương Trình Đào Tạo
-                        </Link>
-                      </li>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <Link to="/career-opportunities" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <Briefcase size={16} />
-                    Nghề Nghiệp
+                  <Link to="/" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <Home size={16} />
+                    Homepage
                   </Link>
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/contact" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <Mail size={16} />
-                    Liên Hệ
+                  <Link to="/e-learning" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <BookOpen size={16} />
+                    E-learning Course
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/vap-course" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <Users size={16} />
+                    VAP Course
                   </Link>
                 </NavigationMenuItem>
                 
@@ -101,11 +62,18 @@ const Navbar = () => {
                     Blog
                   </Link>
                 </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/about" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <User size={16} />
+                    About Me
+                  </Link>
+                </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>
             
-            <Link to="/courses-view">
-              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Xem Khóa Học</Button>
+            <Link to="/e-learning">
+              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Tìm hiểu thêm</Button>
             </Link>
             
             <Link to="/login">
@@ -134,31 +102,25 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-3 space-y-3 animate-fade-in bg-warmWhite/90 backdrop-blur-md rounded-lg mt-2 p-4 navy-shadow">
-            <div className="border-b border-navy/10 pb-2 mb-2">
-              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-condensed"><Users size={16} /> Về Chúng Tôi</p>
-              <Link to="/about" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Giới Thiệu</Link>
-              <Link to="/team" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Đội Ngũ Đào Tạo</Link>
-            </div>
-            
-            <div className="border-b border-navy/10 pb-2 mb-2">
-              <p className="font-medium text-navy mb-1 flex items-center gap-1 font-condensed"><BookOpen size={16} /> Đào Tạo</p>
-              <Link to="/courses-view" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Xem Khóa Học</Link>
-              <Link to="/training-program" className="block py-1 pl-3 text-sm text-navy/80 hover:text-sunflower transition-colors font-condensed">Chương Trình Đào Tạo</Link>
-            </div>
-            
-            <Link to="/career-opportunities" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <Briefcase size={16} /> Cơ Hội Nghề Nghiệp
+            <Link to="/" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <Home size={16} /> Homepage
             </Link>
-            <Link to="/contact" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <Mail size={16} /> Liên Hệ
+            <Link to="/e-learning" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <BookOpen size={16} /> E-learning Course
+            </Link>
+            <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <Users size={16} /> VAP Course
             </Link>
             <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <BookOpen size={16} /> Blog
             </Link>
+            <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <User size={16} /> About Me
+            </Link>
             
             <div className="flex flex-col gap-3 pt-2">
-              <Link to="/courses-view" className="w-full">
-                <Button className="w-full btn-primary font-condensed">Xem Khóa Học</Button>
+              <Link to="/e-learning" className="w-full">
+                <Button className="w-full btn-primary font-condensed">Tìm hiểu thêm</Button>
               </Link>
               
               <Link to="/login" className="w-full">
