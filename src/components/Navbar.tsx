@@ -43,9 +43,9 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/e-learning" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <BookOpen size={16} />
-                    E-learning Course
+                  <Link to="/free-resources" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <Globe size={16} />
+                    Free Resources
                   </Link>
                 </NavigationMenuItem>
                 
@@ -72,8 +72,8 @@ const Navbar = () => {
               </NavigationMenuList>
             </NavigationMenu>
             
-            <Link to="/e-learning">
-              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Tìm hiểu thêm</Button>
+            <Link to="/free-resources">
+              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Free Resources</Button>
             </Link>
             
             <Link to="/login">
@@ -105,8 +105,8 @@ const Navbar = () => {
             <Link to="/" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Home size={16} /> Homepage
             </Link>
-            <Link to="/e-learning" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <BookOpen size={16} /> E-learning Course
+            <Link to="/free-resources" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <Globe size={16} /> Free Resources
             </Link>
             <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Users size={16} /> VAP Course
@@ -119,8 +119,8 @@ const Navbar = () => {
             </Link>
             
             <div className="flex flex-col gap-3 pt-2">
-              <Link to="/e-learning" className="w-full">
-                <Button className="w-full btn-primary font-condensed">Tìm hiểu thêm</Button>
+              <Link to="/free-resources" className="w-full">
+                <Button className="w-full btn-primary font-condensed">Free Resources</Button>
               </Link>
               
               <Link to="/login" className="w-full">

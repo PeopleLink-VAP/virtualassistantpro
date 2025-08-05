@@ -12,6 +12,7 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
 import CoursesViewPage from "./pages/TrainingPage";
+import FreeResourcesPage from "./pages/FreeResourcesPage";
 import TeamPage from "./pages/TeamPage";
 import TrainingProgramPage from "./pages/TrainingProgramPage";
 import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
@@ -34,7 +35,8 @@ const App = () => (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/courses-view" element={<CoursesViewPage />} />
-          <Route path="/e-learning" element={<CoursesViewPage />} />
+          <Route path="/free-resources" element={<FreeResourcesPage />} />
+          <Route path="/e-learning" element={<FreeResourcesPage />} />
           <Route path="/vap-course" element={<CoursesViewPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/training-program" element={<TrainingProgramPage />} />
