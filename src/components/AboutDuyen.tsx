@@ -26,7 +26,7 @@ const AboutDuyen = () => {
           {/* Content */}
           <div className="lg:w-1/2 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-6">
-              Về <span className="text-sunflower font-['Big_Shoulders_Stencil']">Duyên</span>
+              <span className="text-sunflower font-['Big_Shoulders_Stencil']">Duyên</span> xin chào bạn!
             </h2>
             
             <p className="text-lg text-navy/80 mb-6 leading-relaxed">
@@ -37,10 +37,10 @@ const AboutDuyen = () => {
             <div className="bg-sunflower/10 rounded-lg p-6 mb-8">
               <h3 className="font-bold text-navy mb-3 flex items-center gap-2">
                 <span className="w-6 h-6 bg-sunflower rounded-full flex items-center justify-center text-white text-xs">✓</span>
-                Tailored Roadmap
+                Lộ trình học được cá nhân hóa
               </h3>
               <p className="text-navy/80">
-                To match your skills, needs & goals - đây là phương pháp tôi áp dụng để đảm bảo 
+                Để phù hợp với kỹ năng, nhu cầu và mục tiêu của bạn - đây là phương pháp tôi áp dụng để đảm bảo 
                 mỗi học viên đều có thể phát triển theo con đường phù hợp nhất với bản thân.
               </p>
             </div>
@@ -49,7 +49,7 @@ const AboutDuyen = () => {
               <Link to="/blog">
                 <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 w-full sm:w-auto hover:scale-105 transition-all">
                   <BookOpen size={18} />
-                  Đọc thêm về Duyên
+                  Tìm hiểu thêm về Duyên
                   <ArrowRight size={16} />
                 </Button>
               </Link>
@@ -65,7 +65,7 @@ const AboutDuyen = () => {
               <Link to="/e-learning">
                 <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 w-full sm:w-auto hover:scale-105 transition-all">
                   <BookOpen size={18} />
-                  My Course
+                  Khóa học của tôi
                   <ArrowRight size={16} />
                 </Button>
               </Link>

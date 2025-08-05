@@ -43,13 +43,6 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/free-resources" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <Globe size={16} />
-                    Free Resources
-                  </Link>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
                   <Link to="/vap-course" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <Users size={16} />
                     VAP Course
@@ -104,9 +97,6 @@ const Navbar = () => {
           <div className="md:hidden pt-4 pb-3 space-y-3 animate-fade-in bg-warmWhite/90 backdrop-blur-md rounded-lg mt-2 p-4 navy-shadow">
             <Link to="/" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Home size={16} /> Homepage
-            </Link>
-            <Link to="/free-resources" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <Globe size={16} /> Free Resources
             </Link>
             <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Users size={16} /> VAP Course

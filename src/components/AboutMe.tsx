@@ -39,7 +39,7 @@ const QuickFacts = () => (
 const milestones = [
   {
     year: '2011-2015',
-    description: 'Học tập và làm việc bán thời gian trong ngành khách sạn tại Đà Nẵng',
+    description: 'Học tập và làm việc bán thời gian trong ngành khách sạn và dịch vụ tại Đà Nẵng',
   },
   {
     year: '2015 - 2020',
