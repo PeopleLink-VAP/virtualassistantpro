@@ -9,17 +9,18 @@ interface BlogCardProps {
   excerpt: string;
   slug: string;
   author: string;
-  publishedAt: string;
+  publishedAt: string | null;
   featured?: boolean;
 }
 
 const BlogCard = ({ title, excerpt, slug, author, publishedAt, featured = false }: BlogCardProps) => {
-  const publishedDate = new Date(publishedAt);
-  const formattedDate = new Intl.DateTimeFormat('vi-VN', { 
-    day: 'numeric', 
-    month: 'long', 
-    year: 'numeric' 
-  }).format(publishedDate);
+  const formattedDate = publishedAt
+    ? new Intl.DateTimeFormat('vi-VN', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      }).format(new Date(publishedAt))
+    : 'Ngày không xác định';
 
   return (
     <motion.div

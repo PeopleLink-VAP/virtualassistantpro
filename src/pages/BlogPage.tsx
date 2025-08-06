@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BlogGrid from '@/components/BlogGrid';
+import BlogHero from '@/components/BlogHero';
 import { supabase } from '@/integrations/supabase/client';
 import { Tables } from '@/integrations/supabase/types';
 import { Loader2 } from 'lucide-react';
@@ -67,9 +68,16 @@ const BlogPage = () => {
           <div className="container mx-auto px-4 text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-navy">Blog & Kiến Thức</h1>
             <p className="text-lg text-navy/70 max-w-3xl mx-auto">
-              Khám phá những bài viết hữu ích về nghề trợ lý ảo, phát triển kỹ năng 
-              chuyên môn và cập nhật xu hướng mới nhất trong ngành.
-            </p>
+            Khám phá những bài viết hữu ích về nghề trợ lý ảo, phát triển kỹ năng 
+            chuyên môn và cập nhật xu hướng mới nhất trong ngành.
+          </p>
+        </div>
+        
+        {/* Blog Hero Section */}
+        <BlogHero />
+
+        {/* Blog Content */}
+        <div className="container mx-auto px-4 py-12">
           </div>
           
           {/* Blog Content */}
@@ -88,8 +96,9 @@ const BlogPage = () => {
               </button>
             </div>
           ) : (
-            <BlogGrid posts={posts} featuredPost={featuredPost} />
+            <BlogGrid posts={posts.filter(post => post.id !== featuredPost?.id)} featuredPost={featuredPost} />
           )}
+
         </div>
         
         <Footer />
