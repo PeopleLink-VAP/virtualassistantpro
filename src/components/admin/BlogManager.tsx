@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Search, Plus, Edit, Eye, Trash2 } from 'lucide-react';
+import { Search, Plus, Edit, Eye, Trash2, FileText, Calendar, User, MoreHorizontal, Filter } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -185,21 +185,49 @@ export const BlogManager = () => {
   );
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div className="relative flex-1 max-w-sm">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-          <Input
-            placeholder="Search posts..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-9"
-          />
+    <div className="space-y-8">
+      {/* Header with Indochine-inspired styling */}
+      <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-orange-50 rounded-xl p-6 border border-rose-200/50">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-rose-100 rounded-lg">
+              <FileText className="w-6 h-6 text-rose-600" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">Blog Posts</h2>
+              <p className="text-sm text-gray-600">Manage your blog content with elegance</p>
+            </div>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-rose-400 w-4 h-4" />
+              <Input
+                placeholder="Search posts..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 w-64 border-rose-200 focus:border-rose-400 focus:ring-rose-400/20 bg-white/70 backdrop-blur-sm"
+              />
+            </div>
+            
+            <Button variant="outline" className="border-rose-300 text-rose-600 hover:bg-rose-50">
+              <Filter className="w-4 h-4 mr-2" />
+              Filter
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Action Bar */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-sm text-gray-600">
+          <span className="font-medium">{filteredPosts.length}</span>
+          <span>posts total</span>
         </div>
         
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button onClick={resetForm}>
+            <Button onClick={resetForm} className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white shadow-lg">
               <Plus className="w-4 h-4 mr-2" />
               New Post
             </Button>
@@ -335,59 +363,175 @@ export const BlogManager = () => {
         </Dialog>
       </div>
 
-      <div className="grid gap-4">
-        {filteredPosts.map((post) => (
-          <Card key={post.id}>
-            <CardHeader>
-              <div className="flex justify-between items-start">
-                <div>
-                  <CardTitle className="text-lg">{post.title}</CardTitle>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    By {post.author} • {new Date(post.created_at).toLocaleDateString()}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <Badge variant={post.status === 'published' ? 'default' : 'secondary'}>
-                    {post.status}
-                  </Badge>
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground mb-4">
-                {post.excerpt || post.content.substring(0, 150) + '...'}
-              </p>
-              <div className="flex justify-between items-center">
-                <div className="flex gap-2 flex-wrap">
-                  {post.tags?.map((tag, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
-                  >
-                    <Eye className="w-4 h-4" />
-                  </Button>
-                  <Button size="sm" variant="outline" onClick={() => handleEdit(post)}>
-                    <Edit className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleDelete(post.id)}
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      {/* Ghost-style Table */}
+      <div className="bg-white rounded-xl shadow-sm border border-rose-200/50 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            {/* Table Header */}
+            <thead className="bg-gradient-to-r from-rose-50 to-pink-50 border-b border-rose-200/50">
+              <tr>
+                <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-rose-500" />
+                    Title
+                  </div>
+                </th>
+                <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
+                  <div className="flex items-center gap-2">
+                    <User className="w-4 h-4 text-rose-500" />
+                    Author
+                  </div>
+                </th>
+                <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
+                  Status
+                </th>
+                <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-rose-500" />
+                    Published
+                  </div>
+                </th>
+                <th className="text-right py-4 px-6 font-semibold text-gray-900 text-sm">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            
+            {/* Table Body */}
+            <tbody className="divide-y divide-rose-100">
+              {filteredPosts.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="py-12 px-6 text-center text-gray-500">
+                    <div className="flex flex-col items-center gap-3">
+                      <div className="p-3 bg-rose-50 rounded-full">
+                        <FileText className="w-6 h-6 text-rose-400" />
+                      </div>
+                      <div>
+                        <p className="font-medium">No posts found</p>
+                        <p className="text-sm text-gray-400 mt-1">Create your first blog post to get started</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ) : (
+                filteredPosts.map((post, index) => (
+                  <tr key={post.id} className="group hover:bg-rose-50/30 transition-colors duration-200">
+                    {/* Title */}
+                    <td className="py-4 px-6">
+                      <div className="flex items-start gap-3">
+                        <div className="w-12 h-12 bg-gradient-to-br from-rose-100 to-pink-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                          <span className="text-rose-600 font-bold text-sm">
+                            {(index + 1).toString().padStart(2, '0')}
+                          </span>
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="font-semibold text-gray-900 line-clamp-1 group-hover:text-rose-600 transition-colors">
+                            {post.title}
+                          </h3>
+                          <p className="text-sm text-gray-500 mt-1 line-clamp-2">
+                            {post.excerpt || post.content.substring(0, 100) + '...'}
+                          </p>
+                          {post.tags && post.tags.length > 0 && (
+                            <div className="flex gap-1 mt-2">
+                              {post.tags.slice(0, 2).map((tag, tagIndex) => (
+                                <span key={tagIndex} className="inline-flex items-center px-2 py-0.5 rounded-full text-xs bg-rose-100 text-rose-700">
+                                  {tag}
+                                </span>
+                              ))}
+                              {post.tags.length > 2 && (
+                                <span className="text-xs text-gray-400 px-2 py-0.5">
+                                  +{post.tags.length - 2} more
+                                </span>
+                              )}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </td>
+                    
+                    {/* Author */}
+                    <td className="py-4 px-6">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-gradient-to-br from-rose-200 to-pink-200 rounded-full flex items-center justify-center">
+                          <User className="w-4 h-4 text-rose-600" />
+                        </div>
+                        <span className="font-medium text-gray-700 text-sm">{post.author}</span>
+                      </div>
+                    </td>
+                    
+                    {/* Status */}
+                    <td className="py-4 px-6">
+                      <div className="flex items-center">
+                        {post.status === 'published' ? (
+                          <Badge className="bg-green-100 text-green-800 hover:bg-green-100 border-green-200">
+                            <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                            Published
+                          </Badge>
+                        ) : (
+                          <Badge variant="secondary" className="bg-orange-100 text-orange-800 hover:bg-orange-100 border-orange-200">
+                            <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                            Draft
+                          </Badge>
+                        )}
+                      </div>
+                    </td>
+                    
+                    {/* Published Date */}
+                    <td className="py-4 px-6">
+                      <div className="text-sm text-gray-600">
+                        {post.published_at 
+                          ? new Date(post.published_at).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric'
+                            })
+                          : new Date(post.created_at).toLocaleDateString('en-US', {
+                              year: 'numeric',
+                              month: 'short',
+                              day: 'numeric'
+                            })
+                        }
+                      </div>
+                    </td>
+                    
+                    {/* Actions */}
+                    <td className="py-4 px-6">
+                      <div className="flex items-center justify-end gap-2">
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:bg-rose-100 hover:text-rose-600 text-gray-400"
+                          onClick={() => window.open(`/blog/${post.slug}`, '_blank')}
+                          title="View post"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:bg-rose-100 hover:text-rose-600 text-gray-400"
+                          onClick={() => handleEdit(post)}
+                          title="Edit post"
+                        >
+                          <Edit className="w-4 h-4" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="h-8 w-8 p-0 hover:bg-red-100 hover:text-red-600 text-gray-400"
+                          onClick={() => handleDelete(post.id)}
+                          title="Delete post"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
