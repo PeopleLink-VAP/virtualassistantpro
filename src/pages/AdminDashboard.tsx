@@ -7,8 +7,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BlogManager } from '@/components/admin/BlogManager';
 import { CategoryManager } from '@/components/admin/CategoryManager';
 import { UserManager } from '@/components/admin/UserManager';
+import { NewsletterManager } from '@/components/admin/NewsletterManager';
 import { SystemSettings } from '@/components/admin/SystemSettings';
-import { Users, FileText, Settings, LogOut, Folder, User } from 'lucide-react';
+import { Users, FileText, Settings, LogOut, Folder, User, Mail } from 'lucide-react';
 
 export default function AdminDashboard() {
   const { signOut, profile } = useAuth();
@@ -35,7 +36,7 @@ export default function AdminDashboard() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted-foreground">
-              Welcome, 
+              👮🏻 &nbsp;
               <Link 
                 to="/members" 
                 className="font-medium text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
@@ -59,7 +60,11 @@ export default function AdminDashboard() {
                 <TabsList className="flex flex-col items-start space-y-1 w-full h-auto p-0 bg-transparent">
                   <TabsTrigger value="blog" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <FileText className="w-4 h-4 mr-2" />
-                    Blog Management
+                    VAP Blog
+                  </TabsTrigger>
+                  <TabsTrigger value="newsletter" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
+                    <Mail className="w-4 h-4 mr-2" />
+                    Newsletter
                   </TabsTrigger>
                   <TabsTrigger value="members" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <Users className="w-4 h-4 mr-2" />
@@ -127,6 +132,20 @@ export default function AdminDashboard() {
               </CardHeader>
               <CardContent>
                 <UserManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="newsletter" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle>Newsletter Management</CardTitle>
+                <CardDescription>
+                  Create and manage email campaigns and subscriber lists
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <NewsletterManager />
               </CardContent>
             </Card>
           </TabsContent>

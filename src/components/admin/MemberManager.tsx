@@ -50,7 +50,7 @@ export const MemberManager = () => {
       if (error) throw error;
       setMembers(data || []);
     } catch (error) {
-      console.error('Error fetching members:', error);
+      console.error('Error fetching members:', error.message);
       toast({
         title: "Error",
         description: "Failed to fetch members.",
@@ -89,7 +89,7 @@ export const MemberManager = () => {
       
       fetchMembers();
     } catch (error) {
-      console.error('Error updating member tier:', error);
+      console.error('Error updating member tier:', error.message);
       toast({
         title: "Error",
         description: "Failed to update member tier.",
@@ -114,7 +114,7 @@ export const MemberManager = () => {
       
       fetchMembers();
     } catch (error) {
-      console.error('Error updating member role:', error);
+      console.error('Error updating member role:', error.message);
       toast({
         title: "Error",
         description: "Failed to update member role.",

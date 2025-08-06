@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Search, Filter, Eye, Edit, Trash2, SortAsc, SortDesc, Calendar, User, Tag, FileText } from 'lucide-react';
+import { Search, Eye, Edit, Trash2, SortAsc, SortDesc, Calendar, User, Tag, FileText } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -29,21 +29,13 @@ interface BlogPostsTableProps {
   onDelete: (id: string) => void;
 }
 
-type SortField = 'title' | 'author' | 'status' | 'category' | 'published_at' | 'created_at';
+type SortField = 'title' | 'author' | 'published_at' | 'created_at';
 type SortDirection = 'asc' | 'desc';
 
 export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [categoryFilter, setCategoryFilter] = useState('all');
   const [sortField, setSortField] = useState<SortField>('created_at');
   const [sortDirection, setSortDirection] = useState<SortDirection>('desc');
-
-  // Get unique categories for filter
-  const categories = useMemo(() => {
-    const uniqueCategories = Array.from(new Set(posts.map(post => post.category).filter(Boolean)));
-    return uniqueCategories.sort();
-  }, [posts]);
 
   // Filter and sort posts
   const filteredAndSortedPosts = useMemo(() => {
@@ -55,10 +47,7 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
         post.excerpt?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
       
-      const matchesStatus = statusFilter === 'all' || post.status === statusFilter;
-      const matchesCategory = categoryFilter === 'all' || post.category === categoryFilter;
-      
-      return matchesSearch && matchesStatus && matchesCategory;
+      return matchesSearch;
     });
 
     // Sort posts
@@ -75,14 +64,7 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
           aValue = a.author;
           bValue = b.author;
           break;
-        case 'status':
-          aValue = a.status;
-          bValue = b.status;
-          break;
-        case 'category':
-          aValue = a.category || '';
-          bValue = b.category || '';
-          break;
+
         case 'published_at':
           aValue = new Date(a.published_at || a.created_at).getTime();
           bValue = new Date(b.published_at || b.created_at).getTime();
@@ -105,7 +87,7 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
     });
 
     return filtered;
-  }, [posts, searchTerm, statusFilter, categoryFilter, sortField, sortDirection]);
+  }, [posts, searchTerm, sortField, sortDirection]);
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
@@ -144,30 +126,7 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
         </div>
         
         <div className="flex gap-2">
-          <Select value={statusFilter} onValueChange={setStatusFilter}>
-            <SelectTrigger className="w-[140px]">
-              <SelectValue placeholder="Status" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Status</SelectItem>
-              <SelectItem value="published">Published</SelectItem>
-              <SelectItem value="draft">Draft</SelectItem>
-            </SelectContent>
-          </Select>
-          
-          <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-            <SelectTrigger className="w-[140px]">
-              <SelectValue placeholder="Category" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
-              {categories.map((category) => (
-                <SelectItem key={category} value={category}>
-                  {category}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+
         </div>
       </div>
 
@@ -183,7 +142,7 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[40%]">
+              <TableHead className="w-[50%]">
                 <Button 
                   variant="ghost" 
                   size="sm" 
@@ -207,41 +166,18 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
                   <SortIcon field="author" />
                 </Button>
               </TableHead>
-              <TableHead className="w-[12%]">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => handleSort('status')}
-                  className="h-auto p-0 font-medium hover:bg-transparent"
-                >
-                  Status
-                  <SortIcon field="status" />
-                </Button>
-              </TableHead>
-              <TableHead className="w-[15%]">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => handleSort('category')}
-                  className="h-auto p-0 font-medium hover:bg-transparent"
-                >
-                  <Tag className="w-4 h-4 mr-2" />
-                  Category
-                  <SortIcon field="category" />
-                </Button>
-              </TableHead>
-              <TableHead className="w-[15%]">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={() => handleSort('published_at')}
-                  className="h-auto p-0 font-medium hover:bg-transparent"
-                >
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Published
-                  <SortIcon field="published_at" />
-                </Button>
-              </TableHead>
+                <TableHead className="w-[10%]">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    onClick={() => handleSort('published_at')}
+                    className="h-auto p-0 font-medium hover:bg-transparent"
+                  >
+                    <Calendar className="w-4 h-4 mr-2" />
+                    Category / Status
+                    <SortIcon field="published_at" />
+                  </Button>
+                </TableHead>
               <TableHead className="w-[120px] text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -283,39 +219,16 @@ export const BlogPostsTable = ({ posts, onEdit, onDelete }: BlogPostsTableProps)
                     <div className="text-sm font-medium">{post.author}</div>
                   </TableCell>
                   <TableCell>
-                    <Badge 
-                      variant={post.status === 'published' ? 'default' : 'secondary'}
-                      className={
-                        post.status === 'published' 
-                          ? 'bg-green-100 text-green-800 hover:bg-green-100' 
-                          : 'bg-orange-100 text-orange-800 hover:bg-orange-100'
-                      }
-                    >
-                      <div className={`w-2 h-2 rounded-full mr-2 ${
-                        post.status === 'published' ? 'bg-green-500' : 'bg-orange-500'
-                      }`} />
-                      {post.status === 'published' ? 'Published' : 'Draft'}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                      {post.category || 'General'}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <div className="text-sm">
-                      {post.published_at 
-                        ? new Date(post.published_at).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })
-                        : new Date(post.created_at).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })
-                      }
+                    <div className="flex flex-col">
+                      <span className="font-medium">{post.category}</span>
+                      <span className="text-xs text-muted-foreground">
+                        {post.status === 'published' ? 'Published' : 'Draft'}
+                      </span>
+                      {post.published_at && post.status === 'published' && (
+                        <span className="text-xs text-muted-foreground">
+                          {new Date(post.published_at).toLocaleDateString()}
+                        </span>
+                      )}
                     </div>
                   </TableCell>
                   <TableCell className="text-right">
