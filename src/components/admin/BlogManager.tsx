@@ -55,7 +55,7 @@ export const BlogManager = () => {
     try {
       const { data, error } = await supabase
         .from('blog_posts')
-        .select('*')
+        .select('id, title, slug, excerpt, content, featured_image, author, status, category, meta_title, meta_description, tags, published_at, created_at')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -192,12 +192,7 @@ export const BlogManager = () => {
     <div className="space-y-6">
       
       {/* Action Bar */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 text-sm text-gray-600">
-          <span className="font-medium">{filteredPosts.length}</span>
-          <span>posts total</span>
-        </div>
-        
+      <div className="flex items-center justify-end">
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
             <Button onClick={resetForm} className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white shadow-lg">
