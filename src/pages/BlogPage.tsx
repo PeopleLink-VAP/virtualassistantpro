@@ -12,8 +12,8 @@ import { Loader2 } from 'lucide-react';
 type BlogPost = Tables<'blog_posts'>;
 
 const BlogPage = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
+    const [posts, setPosts] = useState<Partial<BlogPost>[]>([]);
+  const [featuredPost, setFeaturedPost] = useState<Partial<BlogPost> | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,7 +24,7 @@ const BlogPage = () => {
         // Fetch all posts
         const { data, error } = await supabase
           .from('blog_posts')
-          .select('*')
+          .select('id, title, excerpt, author, published_at, slug, featured_image')
           .order('published_at', { ascending: false });
         
         if (error) throw error;
