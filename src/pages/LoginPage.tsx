@@ -1,15 +1,17 @@
 
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useAuth } from '@/hooks/useAuth';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
 import { Helmet } from 'react-helmet';
 
 // Validation schemas
@@ -34,6 +36,20 @@ type RegisterFormValues = z.infer<typeof registerSchema>;
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState<string>('login');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { signIn, signUp, user, profile } = useAuth();
+  const { toast } = useToast();
+  const navigate = useNavigate();
+
+  // Redirect if already logged in
+  useEffect(() => {
+    if (user && profile) {
+      if (profile.role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/members');
+      }
+    }
+  }, [user, profile, navigate]);
 
   // Login form
   const loginForm = useForm<LoginFormValues>({
@@ -57,20 +73,59 @@ const LoginPage = () => {
 
   const onLoginSubmit = async (values: LoginFormValues) => {
     setIsLoading(true);
-    console.log('Login values:', values);
-    // Implement actual login logic here
-    setTimeout(() => {
+    try {
+      const { error } = await signIn(values.email, values.password);
+      
+      if (error) {
+        toast({
+          title: "Lỗi đăng nhập",
+          description: error.message || "Có lỗi xảy ra khi đăng nhập",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Đăng nhập thành công",
+          description: "Chào mừng bạn quay trở lại!",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Lỗi",
+        description: "Có lỗi xảy ra. Vui lòng thử lại.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   const onRegisterSubmit = async (values: RegisterFormValues) => {
     setIsLoading(true);
-    console.log('Register values:', values);
-    // Implement actual registration logic here
-    setTimeout(() => {
+    try {
+      const { error } = await signUp(values.email, values.password, values.name);
+      
+      if (error) {
+        toast({
+          title: "Lỗi đăng ký",
+          description: error.message || "Có lỗi xảy ra khi đăng ký",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Đăng ký thành công",
+          description: "Vui lòng kiểm tra email để xác nhận tài khoản.",
+        });
+        setActiveTab('login');
+      }
+    } catch (error) {
+      toast({
+        title: "Lỗi",
+        description: "Có lỗi xảy ra. Vui lòng thử lại.",
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (
