@@ -141,17 +141,18 @@ export const SystemSettings = () => {
               <p className="text-sm font-medium">Environment</p>
               <p className="text-sm text-muted-foreground">Production</p>
             </div>
-            
+
+
             <div>
               <p className="text-sm font-medium">Database</p>
               <p className="text-sm text-muted-foreground">Supabase PostgreSQL</p>
             </div>
-            
+
             <div>
               <p className="text-sm font-medium">Framework</p>
               <p className="text-sm text-muted-foreground">React + Vite</p>
             </div>
-            
+
             <div>
               <p className="text-sm font-medium">Deployment</p>
               <p className="text-sm text-muted-foreground">Lovable Platform</p>
@@ -159,6 +160,16 @@ export const SystemSettings = () => {
           </div>
         </CardContent>
       </Card>
+      <Attribution />
     </div>
   );
 };
+
+const Attribution = () => (
+  <div className="fixed bottom-4 right-4 flex items-center gap-2 text-muted-foreground text-sm opacity-75 hover:opacity-100 transition-opacity">
+    <img src="https://alphabits.team/images/AB_Logo_black_icon.png" alt="Alpha Bits Logo" className="h-4 w-4" />
+    <a href="https://alphabits.team/?utm_source=vap&utm_medium=1&utm_campaign=launch" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      Built with ♥ &amp; AI
+    </a>
+  </div>
+);
