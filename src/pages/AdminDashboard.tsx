@@ -9,7 +9,8 @@ import { CategoryManager } from '@/components/admin/CategoryManager';
 import { UserManager } from '@/components/admin/UserManager';
 import { NewsletterManager } from '@/components/admin/NewsletterManager';
 import { SystemSettings } from '@/components/admin/SystemSettings';
-import { Users, FileText, Settings, LogOut, Folder, User, Mail } from 'lucide-react';
+import { VirtualAssistantManager } from '@/components/admin/VirtualAssistantManager';
+import { Users, FileText, Settings, LogOut, Folder, User, Mail, UserCheck } from 'lucide-react';
 
 export default function AdminDashboard() {
   const { signOut, profile } = useAuth();
@@ -69,6 +70,10 @@ export default function AdminDashboard() {
                   <TabsTrigger value="members" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <Users className="w-4 h-4 mr-2" />
                     Members
+                  </TabsTrigger>
+                  <TabsTrigger value="virtual-assistants" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
+                    <UserCheck className="w-4 h-4 mr-2" />
+                    Virtual Assistants
                   </TabsTrigger>
                   <TabsTrigger value="settings" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <Settings className="w-4 h-4 mr-2" />
@@ -146,6 +151,20 @@ export default function AdminDashboard() {
               </CardHeader>
               <CardContent>
                 <NewsletterManager />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="virtual-assistants" className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-indochine">Virtual Assistants Management</CardTitle>
+                <CardDescription>
+                  Manage vetted VA members, applications, and profiles
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <VirtualAssistantManager />
               </CardContent>
             </Card>
           </TabsContent>

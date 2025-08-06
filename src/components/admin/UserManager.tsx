@@ -35,6 +35,7 @@ export const UserManager = () => {
   const [users, setUsers] = useState<Profile[]>([]);
   const [tiers, setTiers] = useState<MembershipTier[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [loading, setLoading] = useState(true);
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
   const [isPasswordResetDialogOpen, setIsPasswordResetDialogOpen] = useState(false);
@@ -62,6 +63,7 @@ export const UserManager = () => {
 
   const fetchUsers = async () => {
     try {
+      setLoading(true);
       const { data, error } = await supabase
         .from('profiles')
         .select('*')
@@ -69,13 +71,15 @@ export const UserManager = () => {
 
       if (error) throw error;
       setUsers(data || []);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching users:', error);
       toast({
         title: "Error",
-        description: "Failed to fetch users.",
+        description: error?.message || "Failed to fetch users.",
         variant: "destructive",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -88,8 +92,13 @@ export const UserManager = () => {
 
       if (error) throw error;
       setTiers(data || []);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching tiers:', error);
+      toast({
+        title: "Error",
+        description: error?.message || "Failed to fetch membership tiers.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -108,11 +117,11 @@ export const UserManager = () => {
       });
       
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating user tier:', error);
       toast({
         title: "Error",
-        description: "Failed to update user tier.",
+        description: error?.message || "Failed to update user tier.",
         variant: "destructive",
       });
     }
@@ -133,11 +142,11 @@ export const UserManager = () => {
       });
       
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating user role:', error);
       toast({
         title: "Error",
-        description: "Failed to update user role.",
+        description: error?.message || "Failed to update user role.",
         variant: "destructive",
       });
     }
@@ -227,11 +236,11 @@ export const UserManager = () => {
       setIsEditDialogOpen(false);
       setEditingUser(null);
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating user:', error);
       toast({
         title: "Error",
-        description: "Failed to update user.",
+        description: error?.message || "Failed to update user.",
         variant: "destructive",
       });
     }
@@ -459,14 +468,38 @@ export const UserManager = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredUsers.map((user) => (
-                <TableRow key={user.id}>
-                  <TableCell>
-                    <div>
-                      <p className="font-medium">{user.full_name || 'Unknown'}</p>
-                      <p className="text-sm text-muted-foreground">{user.email}</p>
+              {loading ? (
+                <TableRow>
+                  <TableCell colSpan={6} className="text-center py-8">
+                    <div className="flex justify-center items-center">
+                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+                      <span className="ml-2">Loading users...</span>
                     </div>
                   </TableCell>
+                </TableRow>
+              ) : filteredUsers.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={6} className="text-center py-8">
+                    <div className="flex flex-col items-center text-muted-foreground">
+                      <Users className="w-12 h-12 mb-2" />
+                      <p className="text-lg font-semibold mb-1">
+                        {searchTerm ? 'No users found' : 'No users yet'}
+                      </p>
+                      <p className="text-sm">
+                        {searchTerm ? 'Try adjusting your search terms' : 'Create your first user to get started'}
+                      </p>
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ) : (
+                filteredUsers.map((user) => (
+                  <TableRow key={user.id}>
+                    <TableCell>
+                      <div>
+                        <p className="font-medium">{user.full_name || 'Unknown'}</p>
+                        <p className="text-sm text-muted-foreground">{user.email}</p>
+                      </div>
+                    </TableCell>
                   <TableCell>
                     <Select
                       value={user.role}
@@ -538,7 +571,8 @@ export const UserManager = () => {
                     </div>
                   </TableCell>
                 </TableRow>
-              ))}
+                ))
+              )}
             </TableBody>
           </Table>
         </CardContent>

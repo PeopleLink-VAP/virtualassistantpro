@@ -49,11 +49,11 @@ export const MemberManager = () => {
 
       if (error) throw error;
       setMembers(data || []);
-    } catch (error) {
-      console.error('Error fetching members:', error.message);
+    } catch (error: any) {
+      console.error('Error fetching members:', error);
       toast({
         title: "Error",
-        description: "Failed to fetch members.",
+        description: error?.message || "Failed to fetch members.",
         variant: "destructive",
       });
     }
@@ -68,8 +68,13 @@ export const MemberManager = () => {
 
       if (error) throw error;
       setTiers(data || []);
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error fetching tiers:', error);
+      toast({
+        title: "Error",
+        description: error?.message || "Failed to fetch membership tiers.",
+        variant: "destructive",
+      });
     }
   };
 
@@ -88,11 +93,11 @@ export const MemberManager = () => {
       });
       
       fetchMembers();
-    } catch (error) {
-      console.error('Error updating member tier:', error.message);
+    } catch (error: any) {
+      console.error('Error updating member tier:', error);
       toast({
         title: "Error",
-        description: "Failed to update member tier.",
+        description: error?.message || "Failed to update member tier.",
         variant: "destructive",
       });
     }
@@ -113,11 +118,11 @@ export const MemberManager = () => {
       });
       
       fetchMembers();
-    } catch (error) {
-      console.error('Error updating member role:', error.message);
+    } catch (error: any) {
+      console.error('Error updating member role:', error);
       toast({
         title: "Error",
-        description: "Failed to update member role.",
+        description: error?.message || "Failed to update member role.",
         variant: "destructive",
       });
     }
