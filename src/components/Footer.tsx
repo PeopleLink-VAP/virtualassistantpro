@@ -21,7 +21,7 @@ const Footer = () => {
             <span className="font-bold text-xl font-['Big_Shoulders_Stencil']">Virtual Assistant Pro</span>
           </div>
             <p className="text-warmWhite/80 mb-6 font-['Roboto'] italic">
-              Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Trợ Lý Ảo tại Việt Nam.
+              Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Virtual Assistant tại Việt Nam.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.facebook.com/groups/1774549309585565" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">
