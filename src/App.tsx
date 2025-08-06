@@ -21,6 +21,11 @@ import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import VANetworkPage from "./pages/VANetworkPage";
+import BookMeetingPage from "./pages/BookMeetingPage";
+import ServicesPage from "./pages/ServicesPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import TermsPage from "./pages/TermsPage";
+import PrivacyPage from "./pages/PrivacyPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -38,6 +43,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/courses-view" element={<CoursesViewPage />} />
@@ -48,6 +54,10 @@ const App = () => (
             <Route path="/training-program" element={<TrainingProgramPage />} />
             <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
             <Route path="/va-network" element={<VANetworkPage />} />
+            <Route path="/book-meeting" element={<BookMeetingPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route 
