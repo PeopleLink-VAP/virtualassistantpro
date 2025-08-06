@@ -204,7 +204,7 @@
   
   .paper-note::before {
     @apply content-[''] absolute inset-0 opacity-5 pointer-events-none;
-    background-image: url('/public/paper-texture.png');
+    background-image: url('/images/paper-texture.png');
     background-repeat: repeat;
   }
   

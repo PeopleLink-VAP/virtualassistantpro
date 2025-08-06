@@ -221,7 +221,7 @@ const TrainingPage = () => {
           <h2 className="text-4xl font-bold text-navy mb-12 animate-fade-in">Video Giới Thiệu Khóa Học</h2>
           <div className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden shadow-xl aspect-video bg-gray-200 flex items-center justify-center group animate-fade-in-up">
             <img 
-              src="/public/images/groups/workshop_2.jpg" 
+              src="/images/groups/workshop_2.jpg" 
               alt="Video Thumbnail" 
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -288,13 +288,13 @@ const TrainingPage = () => {
           <div className="flex animate-flow-gallery whitespace-nowrap">
             {[...Array(2)].map((_, i) => (
               <>
-                <img src="/public/images/groups/group_1.jpg" alt="Group 1" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_2.jpg" alt="Group 2" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_3.jpg" alt="Group 3" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_4.jpg" alt="Group 4" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_5.jpg" alt="Group 5" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_6.jpg" alt="Group 6" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
-                <img src="/public/images/groups/group_7.jpg" alt="Group 7" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_1.jpg" alt="Group 1" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_2.jpg" alt="Group 2" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_3.jpg" alt="Group 3" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_4.jpg" alt="Group 4" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_5.jpg" alt="Group 5" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_6.jpg" alt="Group 6" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
+                <img src="/images/groups/group_7.jpg" alt="Group 7" className="h-64 mx-4 rounded-lg shadow-lg object-cover" />
               </>
             ))}
           </div>
