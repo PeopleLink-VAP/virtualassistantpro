@@ -11,6 +11,8 @@ interface Profile {
   membership_tier: string;
   bio: string | null;
   skills: string[] | null;
+  avatar_url: string | null;
+  country_of_origin: string | null;
 }
 
 interface AuthContextType {

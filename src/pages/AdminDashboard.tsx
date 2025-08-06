@@ -4,9 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BlogManager } from '@/components/admin/BlogManager';
-import { MemberManager } from '@/components/admin/MemberManager';
+import { CategoryManager } from '@/components/admin/CategoryManager';
+import { UserManager } from '@/components/admin/UserManager';
 import { SystemSettings } from '@/components/admin/SystemSettings';
-import { Users, FileText, Settings, LogOut } from 'lucide-react';
+import { Users, FileText, Settings, LogOut, Folder, User } from 'lucide-react';
 
 export default function AdminDashboard() {
   const { signOut, profile } = useAuth();
@@ -57,29 +58,58 @@ export default function AdminDashboard() {
             <div className="flex-1 p-4">
 
           <TabsContent value="blog" className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>Blog Posts Management</CardTitle>
-                <CardDescription>
-                  Create, edit, and manage blog posts with SEO features
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <BlogManager />
-              </CardContent>
-            </Card>
+            <Tabs defaultValue="posts" className="space-y-4">
+              <TabsList className="grid w-full grid-cols-2">
+                <TabsTrigger value="posts">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Post Listings
+                </TabsTrigger>
+                <TabsTrigger value="categories">
+                  <Folder className="w-4 h-4 mr-2" />
+                  Categories
+                </TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="posts" className="space-y-4">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Blog Posts Management</CardTitle>
+                    <CardDescription>
+                      Create, edit, and manage blog posts with SEO features
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <BlogManager />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+              
+              <TabsContent value="categories" className="space-y-4">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Category Management</CardTitle>
+                    <CardDescription>
+                      Organize and manage blog post categories
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <CategoryManager />
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </TabsContent>
 
           <TabsContent value="members" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Member Management</CardTitle>
+                <CardTitle>User Management</CardTitle>
                 <CardDescription>
-                  Manage members and their tiers
+                  Create, edit users and manage their tiers and permissions
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <MemberManager />
+                <UserManager />
               </CardContent>
             </Card>
           </TabsContent>

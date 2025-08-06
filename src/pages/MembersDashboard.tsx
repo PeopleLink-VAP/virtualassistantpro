@@ -8,7 +8,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
-import { LogOut, User } from 'lucide-react';
+import { LogOut, User, Globe } from 'lucide-react';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export default function MembersDashboard() {
   const { signOut, profile, user } = useAuth();
@@ -18,6 +20,8 @@ export default function MembersDashboard() {
     full_name: '',
     bio: '',
     skills: '',
+    avatar_url: '',
+    country_of_origin: '',
   });
 
   useEffect(() => {
@@ -26,6 +30,8 @@ export default function MembersDashboard() {
         full_name: profile.full_name || '',
         bio: profile.bio || '',
         skills: profile.skills?.join(', ') || '',
+        avatar_url: profile.avatar_url || '',
+        country_of_origin: profile.country_of_origin || '',
       });
     }
   }, [profile]);
@@ -45,6 +51,8 @@ export default function MembersDashboard() {
           full_name: formData.full_name,
           bio: formData.bio,
           skills: formData.skills.split(',').map(s => s.trim()).filter(Boolean),
+          avatar_url: formData.avatar_url,
+          country_of_origin: formData.country_of_origin,
         })
         .eq('user_id', user.id);
 
@@ -112,6 +120,16 @@ export default function MembersDashboard() {
             {isEditing ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
+                  <Label htmlFor="avatar_url">Avatar URL</Label>
+                  <Input
+                    id="avatar_url"
+                    value={formData.avatar_url}
+                    onChange={(e) => setFormData(prev => ({ ...prev, avatar_url: e.target.value }))}
+                    placeholder="Enter your avatar image URL"
+                  />
+                </div>
+
+                <div>
                   <Label htmlFor="full_name">Full Name</Label>
                   <Input
                     id="full_name"
@@ -119,6 +137,26 @@ export default function MembersDashboard() {
                     onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))}
                     placeholder="Enter your full name"
                   />
+                </div>
+
+                <div>
+                  <Label htmlFor="country_of_origin">Country of Origin</Label>
+                  <Select
+                    value={formData.country_of_origin}
+                    onValueChange={(value) => setFormData(prev => ({ ...prev, country_of_origin: value }))}
+                  >
+                    <SelectTrigger id="country_of_origin">
+                      <SelectValue placeholder="Select your country" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="Vietnam">Vietnam</SelectItem>
+                      <SelectItem value="United States">United States</SelectItem>
+                      <SelectItem value="Canada">Canada</SelectItem>
+                      <SelectItem value="Australia">Australia</SelectItem>
+                      <SelectItem value="United Kingdom">United Kingdom</SelectItem>
+                      <SelectItem value="Other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div>
@@ -149,6 +187,16 @@ export default function MembersDashboard() {
             ) : (
               <div className="space-y-4">
                 <div>
+                  <Label className="text-sm font-medium">Avatar</Label>
+                  <div className="mt-1">
+                    <Avatar className="h-20 w-20">
+                      <AvatarImage src={profile?.avatar_url || ''} alt="User Avatar" />
+                      <AvatarFallback>{profile?.full_name ? profile.full_name.charAt(0) : profile?.email?.charAt(0) || 'VA'}</AvatarFallback>
+                    </Avatar>
+                  </div>
+                </div>
+
+                <div>
                   <Label className="text-sm font-medium">Email</Label>
                   <p className="text-sm text-muted-foreground mt-1">{profile?.email}</p>
                 </div>
@@ -157,6 +205,13 @@ export default function MembersDashboard() {
                   <Label className="text-sm font-medium">Full Name</Label>
                   <p className="text-sm text-muted-foreground mt-1">
                     {profile?.full_name || 'Not set'}
+                  </p>
+                </div>
+
+                <div>
+                  <Label className="text-sm font-medium">Country of Origin</Label>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {profile?.country_of_origin || 'Not set'}
                   </p>
                 </div>
 
