@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Search, Plus, Edit, Trash2, Tag, Folder } from 'lucide-react';
+import { Plus, Edit, Trash2, Tag, Folder } from 'lucide-react';
 
 interface Category {
   id: string;
@@ -22,7 +22,7 @@ interface Category {
 
 export const CategoryManager = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [formData, setFormData] = useState({
@@ -40,6 +40,10 @@ export const CategoryManager = () => {
   const fetchCategories = async () => {
     try {
       // Since we don't have a separate categories table, we'll get unique categories from blog_posts
+      interface CategorySelectResult {
+        category: string | null;
+      }
+
       const { data, error } = await supabase
         .from('blog_posts')
         .select('category')
@@ -49,7 +53,7 @@ export const CategoryManager = () => {
 
       // Count posts per category
       const categoryStats: { [key: string]: number } = {};
-      data?.forEach(post => {
+      (data as CategorySelectResult[])?.forEach(post => {
         if (post.category) {
           categoryStats[post.category] = (categoryStats[post.category] || 0) + 1;
         }
@@ -179,40 +183,10 @@ export const CategoryManager = () => {
     }
   };
 
-  const filteredCategories = categories.filter(category =>
-    category.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    category.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredCategories = categories;
 
   return (
     <div className="space-y-8">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-6 border border-blue-200/50">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-blue-100 rounded-lg">
-              <Folder className="w-6 h-6 text-blue-600" />
-            </div>
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900">Categories</h2>
-              <p className="text-sm text-gray-600">Manage blog post categories</p>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-4 h-4" />
-              <Input
-                placeholder="Search categories..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-64 border-blue-200 focus:border-blue-400 focus:ring-blue-400/20 bg-white/70 backdrop-blur-sm"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      
       {/* Action Bar */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm text-gray-600">

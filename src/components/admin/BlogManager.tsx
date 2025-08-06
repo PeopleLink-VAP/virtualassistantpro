@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { BlogPostsTable } from '@/components/admin/BlogPostsTable';
+import { PlateEditorComponent } from '@/components/admin/PlateEditor';
 import { useToast } from '@/hooks/use-toast';
 import { Plus, FileText, Search, Filter } from 'lucide-react';
 
@@ -32,6 +33,7 @@ export const BlogManager = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -96,6 +98,11 @@ export const BlogManager = () => {
 
   const handleEdit = (post: BlogPost) => {
     setEditingPost(post);
+    setIsEditorOpen(true);
+  };
+
+  const handleEditWithDialog = (post: BlogPost) => {
+    setEditingPost(post);
     setFormData({
       title: post.title,
       slug: post.slug,
@@ -110,6 +117,17 @@ export const BlogManager = () => {
       tags: post.tags?.join(', ') || '',
     });
     setIsDialogOpen(true);
+  };
+
+  const handleEditorClose = () => {
+    setIsEditorOpen(false);
+    setEditingPost(null);
+  };
+
+  const handleEditorSave = () => {
+    setIsEditorOpen(false);
+    setEditingPost(null);
+    fetchPosts();
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -355,6 +373,15 @@ export const BlogManager = () => {
         onEdit={handleEdit} 
         onDelete={handleDelete} 
       />
+      
+      {/* WYSIWYG Editor */}
+      {isEditorOpen && editingPost && (
+        <PlateEditorComponent
+          post={editingPost}
+          onClose={handleEditorClose}
+          onSave={handleEditorSave}
+        />
+      )}
     </div>
   );
 };

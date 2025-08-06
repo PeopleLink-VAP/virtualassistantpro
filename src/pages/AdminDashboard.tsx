@@ -95,7 +95,7 @@ export default function AdminDashboard() {
               <TabsContent value="posts" className="space-y-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Blog Posts Management</CardTitle>
+                    <CardTitle className="text-indochine">Blog Posts Management</CardTitle>
                     <CardDescription>
                       Create, edit, and manage blog posts with SEO features
                     </CardDescription>
@@ -109,7 +109,7 @@ export default function AdminDashboard() {
               <TabsContent value="categories" className="space-y-4">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Category Management</CardTitle>
+                    <CardTitle className="text-indochine">Category Management</CardTitle>
                     <CardDescription>
                       Organize and manage blog post categories
                     </CardDescription>
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
           <TabsContent value="members" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>User Management</CardTitle>
+                <CardTitle className="text-indochine">User Management</CardTitle>
                 <CardDescription>
                   Create, edit users and manage their tiers and permissions
                 </CardDescription>
@@ -139,7 +139,7 @@ export default function AdminDashboard() {
           <TabsContent value="newsletter" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Newsletter Management</CardTitle>
+                <CardTitle className="text-indochine">Newsletter Management</CardTitle>
                 <CardDescription>
                   Create and manage email campaigns and subscriber lists
                 </CardDescription>
@@ -153,7 +153,7 @@ export default function AdminDashboard() {
           <TabsContent value="settings" className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>System Settings</CardTitle>
+                <CardTitle className="text-indochine">System Settings</CardTitle>
                 <CardDescription>
                   View system information and settings
                 </CardDescription>

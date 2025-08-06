@@ -29,6 +29,7 @@ export default {
 				navy: "#1B365D",
 				warmWhite: "#FFFAF0",
 				leafGreen: "#228B22",
+				indochine: "#3C4B3C",
 				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
