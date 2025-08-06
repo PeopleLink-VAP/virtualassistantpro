@@ -25,7 +25,7 @@ const FreeResourcesPage = () => {
                 <ChevronRight className="h-4 w-4 mx-2" />
               </li>
               <li className="flex items-center">
-                <span className="text-sunflower">Free Resources</span>
+                <span className="text-sunflower">Tài liệu Virtual Assistant</span>
               </li>
             </ol>
           </nav>

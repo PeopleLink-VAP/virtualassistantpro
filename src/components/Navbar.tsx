@@ -9,6 +9,8 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuLink,
+  NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
@@ -35,27 +37,14 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             <NavigationMenu>
               <NavigationMenuList className="space-x-0.5">
+                <NavigationMenuIndicator />
                 <NavigationMenuItem>
                   <Link to="/" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <Home size={16} />
                     Homepage
                   </Link>
                 </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <Link to="/vap-course" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <Users size={16} />
-                    VAP Course
-                  </Link>
-                </NavigationMenuItem>
-                
-                <NavigationMenuItem>
-                  <Link to="/va-network" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <Network size={16} />
-                    VA Network
-                  </Link>
-                </NavigationMenuItem>
-                
+
                 <NavigationMenuItem>
                   <Link to="/blog" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <BookOpen size={16} />
@@ -64,24 +53,69 @@ const Navbar = () => {
                 </NavigationMenuItem>
                 
                 <NavigationMenuItem>
-                  <Link to="/about" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <User size={16} />
-                    About Me
-                  </Link>
+                  <NavigationMenuTrigger className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <Users size={16} />
+                    Khóa học VAP
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/vap-course" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <BookOpen size={16} />
+                            <div className="text-sm font-medium leading-none">Thông tin khóa học VAP</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/va-network" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <Network size={16} />
+                            <div className="text-sm font-medium leading-none">VA Network</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
                 </NavigationMenuItem>
+                
+                
+                
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <User size={16} />
+                    Giới thiệu
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/about" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <User size={16} />
+                            <div className="text-sm font-medium leading-none">Duyên xin chào</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/team" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <Users size={16} />
+                            <div className="text-sm font-medium leading-none">Đội Ngũ Đào Tạo</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+                
               </NavigationMenuList>
             </NavigationMenu>
             
             <Link to="/free-resources">
-              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Free Resources</Button>
+              <Button className="btn-primary backdrop-blur-sm hover:scale-105 transition-all font-condensed text-sm px-4 py-2">Tài liệu VA</Button>
             </Link>
             
-            <Link to="/login">
-              <Button variant="outline" className="flex items-center gap-1.5 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all backdrop-blur-sm hover:scale-105 font-condensed text-sm px-4 py-2">
-                <User className="h-4 w-4" />
-                Đăng Nhập
-              </Button>
-            </Link>
+
           </div>
           
           {/* Mobile menu button */}
@@ -105,29 +139,44 @@ const Navbar = () => {
             <Link to="/" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Home size={16} /> Homepage
             </Link>
-            <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <Users size={16} /> VAP Course
-            </Link>
-            <Link to="/va-network" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <Network size={16} /> VA Network
-            </Link>
+
             <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <BookOpen size={16} /> Blog
             </Link>
-            <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <User size={16} /> About Me
-            </Link>
+
+            <details className="group">
+              <summary className="flex items-center justify-between py-2 text-navy hover:text-sunflower transition-colors font-condensed cursor-pointer">
+                <span className="flex items-center gap-1"><Users size={16} /> Khóa học VAP</span>
+                <ChevronDown size={16} className="transform transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="pl-4 space-y-2">
+                <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <BookOpen size={16} /> Thông tin khóa học VAP
+                </Link>
+                <Link to="/va-network" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <Network size={16} /> VA Network
+                </Link>
+              </div>
+            </details>
+            
+            <details className="group">
+              <summary className="flex items-center justify-between py-2 text-navy hover:text-sunflower transition-colors font-condensed cursor-pointer">
+                <span className="flex items-center gap-1"><User size={16} /> Giới thiệu</span>
+                <ChevronDown size={16} className="transform transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="pl-4 space-y-2">
+                <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <User size={16} /> Duyên xin chào
+                </Link>
+                <Link to="/team" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <Users size={16} /> Đội Ngũ Đào Tạo
+                </Link>
+              </div>
+            </details>
             
             <div className="flex flex-col gap-3 pt-2">
               <Link to="/free-resources" className="w-full">
-                <Button className="w-full btn-primary font-condensed">Free Resources</Button>
-              </Link>
-              
-              <Link to="/login" className="w-full">
-                <Button variant="outline" className="w-full flex items-center justify-center gap-2 bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all font-condensed">
-                  <User className="h-4 w-4" />
-                  Đăng Nhập
-                </Button>
+                <Button className="w-full btn-primary font-condensed">Tài liệu VA</Button>
               </Link>
             </div>
           </div>
