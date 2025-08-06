@@ -1,0 +1,139 @@
+/* Modern Glassmorphism Toast Styles */
+
+/* Custom shadow utilities for glass effect */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 8px 30px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced backdrop blur for better glass effect */
+.backdrop-blur-xl {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Toast container improvements */
+[data-sonner-toaster] {
+  z-index: 9999 !important;
+}
+
+/* Custom animations for modern feel */
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-slide-out {
+  from {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Apply animations to toasts */
+[data-sonner-toast] {
+  animation: toast-slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-sonner-toast][data-removed="true"] {
+  animation: toast-slide-out 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism enhancements for different toast types */
+[data-sonner-toast][data-type="success"] {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.08) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.18), 0 4px 15px rgba(5, 150, 105, 0.12);
+}
+
+[data-sonner-toast][data-type="error"] {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.2) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.15), 0 4px 15px rgba(239, 68, 68, 0.1);
+}
+
+[data-sonner-toast][data-type="warning"] {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.05) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.15), 0 4px 15px rgba(245, 158, 11, 0.1);
+}
+
+[data-sonner-toast][data-type="info"] {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.05) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15), 0 4px 15px rgba(59, 130, 246, 0.1);
+}
+
+/* Default toast glassmorphism */
+[data-sonner-toast]:not([data-type]) {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  [data-sonner-toast]:not([data-type]) {
+    background: linear-gradient(135deg, rgba(55, 65, 81, 0.2) 0%, rgba(17, 24, 39, 0.05) 100%);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: rgb(243, 244, 246);
+  }
+}
+
+/* Hover effects for interactive toasts */
+[data-sonner-toast]:hover {
+  transform: scale(1.02);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-sonner-toast]:active {
+  transform: scale(0.98);
+}
+
+/* Close button modern styling */
+[data-close-button] {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 6px !important;
+  transition: all 0.2s ease;
+}
+
+[data-close-button]:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.1);
+}
+
+/* Modern typography for toast content */
+[data-sonner-toast] [data-title] {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+[data-sonner-toast] [data-description] {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  [data-sonner-toaster] {
+    max-width: calc(100vw - 2rem) !important;
+  }
+  
+  [data-sonner-toast] {
+    margin: 0.5rem !important;
+    border-radius: 1rem !important;
+  }
+}
