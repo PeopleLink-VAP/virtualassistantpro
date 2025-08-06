@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Send, CheckCircle } from 'lucide-react';
+import { Mail, Send, CheckCircle, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { subscribeToNewsletter } from '@/utils/newsletterSubscription';
 
 const ContactNewsletter = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast({
@@ -20,13 +22,34 @@ const ContactNewsletter = () => {
       return;
     }
     
-    // Simulate newsletter subscription
-    setIsSubscribed(true);
-    toast({
-      title: "Đăng ký thành công!",
-      description: "Cảm ơn bạn đã đăng ký nhận newsletter từ chúng tôi."
-    });
-    setEmail('');
+    setIsLoading(true);
+    
+    try {
+      const result = await subscribeToNewsletter(email, 'newsletter_form');
+      
+      if (result.success) {
+        setIsSubscribed(true);
+        toast({
+          title: "Đăng ký thành công!",
+          description: result.message
+        });
+        setEmail('');
+      } else {
+        toast({
+          title: "Lỗi đăng ký",
+          description: result.message,
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Lỗi",
+        description: "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại sau.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -64,10 +87,20 @@ const ContactNewsletter = () => {
                 
                 <Button 
                   type="submit" 
-                  className="btn-primary backdrop-blur-sm flex items-center gap-2 w-full py-3 text-lg hover:scale-105 transition-all"
+                  disabled={isLoading}
+                  className="btn-primary backdrop-blur-sm flex items-center gap-2 w-full py-3 text-lg hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <Send size={20} />
-                  Đăng Ký Newsletter
+                  {isLoading ? (
+                    <>
+                      <Loader2 size={20} className="animate-spin" />
+                      Đang xử lý...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} />
+                      Đăng Ký Newsletter
+                    </>
+                  )}
                 </Button>
               </form>
             ) : (

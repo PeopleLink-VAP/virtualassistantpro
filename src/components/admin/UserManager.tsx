@@ -46,12 +46,12 @@ export const UserManager = () => {
     password: '',
     full_name: '',
     role: 'member',
-    membership_tier: 'basic',
+    membership_tier: 'subscriber',
   });
   const [editFormData, setEditFormData] = useState({
     full_name: '',
     role: 'member',
-    membership_tier: 'basic',
+    membership_tier: 'subscriber',
   });
   const [newPassword, setNewPassword] = useState('');
   const { toast } = useToast();
@@ -198,7 +198,7 @@ export const UserManager = () => {
         password: '',
         full_name: '',
         role: 'member',
-        membership_tier: 'basic',
+        membership_tier: 'subscriber',
       });
       fetchUsers();
     } catch (error: any) {
@@ -301,6 +301,7 @@ export const UserManager = () => {
   const userStats = {
     total: users.length,
     admins: users.filter(u => u.role === 'admin').length,
+    subscribers: users.filter(u => u.membership_tier === 'subscriber').length,
     basic: users.filter(u => u.membership_tier === 'basic').length,
     premium: users.filter(u => u.membership_tier === 'premium').length,
     vip: users.filter(u => u.membership_tier === 'vip').length,
@@ -309,7 +310,7 @@ export const UserManager = () => {
   return (
     <div className="space-y-6">
       {/* Statistics Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center gap-2">
@@ -327,6 +328,15 @@ export const UserManager = () => {
             <div>
               <p className="text-2xl font-bold">{userStats.admins}</p>
               <p className="text-xs text-muted-foreground">Admins</p>
+            </div>
+          </CardContent>
+        </Card>
+        
+        <Card>
+          <CardContent className="p-4">
+            <div>
+              <p className="text-2xl font-bold">{userStats.subscribers}</p>
+              <p className="text-xs text-muted-foreground">Subscribers</p>
             </div>
           </CardContent>
         </Card>
