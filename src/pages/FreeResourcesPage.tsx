@@ -30,10 +30,10 @@ const FreeResourcesPage = () => {
             </ol>
           </nav>
           <h1 className="text-5xl font-bold text-navy mb-6 font-condensed">
-            Tài Nguyên Miễn Phí
+            Tài Liệu Virtual Assistant Miễn Phí
           </h1>
           <p className="text-lg text-gray-700 mb-12 max-w-3xl">
-            Chào mừng bạn đến với trang Tài Nguyên Miễn Phí của chúng tôi! Tại đây, bạn sẽ tìm thấy bộ sưu tập các công cụ, hướng dẫn và liên kết hữu ích có thể giúp bạn trên hành trình trở thành trợ lý ảo. Chúng tôi chỉ giới thiệu các sản phẩm và dịch vụ mà chúng tôi tin tưởng và tin rằng sẽ thực sự mang lại lợi ích cho bạn.
+            Tại đây, bạn sẽ tìm thấy bộ sưu tập các công cụ, hướng dẫn và liên kết hữu ích có thể giúp bạn trên hành trình trở thành trợ lý ảo. 
           </p>
 
           {/* Photo Grid Card Layout - Placeholder */}

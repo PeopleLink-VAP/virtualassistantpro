@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="absolute top-1/2 left-1/3 w-12 h-12 bg-sunflower/15 rounded-full animate-pulse"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mb-10">
           <div className="animate-fade-in">
             <div className="flex items-center gap-2 mb-4">
               <svg height="48px" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-sway">

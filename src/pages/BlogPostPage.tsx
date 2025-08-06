@@ -116,7 +116,7 @@ const BlogPostPage = () => {
         )}
       </Helmet>
       
-      <div className="min-h-screen bg-warmWhite relative overflow-hidden">
+      <div className="min-h-screen bg-warmWhite relative overflow-hidden bg-[url('/images/paper-texture.svg')] bg-repeat bg-opacity-10">
         {/* Navigation - hidden in print view */}
         <div className="print:hidden">
           <Navbar />
