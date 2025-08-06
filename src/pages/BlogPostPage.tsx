@@ -124,7 +124,7 @@ const BlogPostPage = () => {
         
         <div className="relative z-10 pt-32 pb-16 print:pt-8 print:pb-8">
           {/* Back button - hidden in print view */}
-          <div className="container mx-auto px-4 mb-6 print:hidden">
+          <div className="w-full px-4 mb-6 print:hidden md:max-w-[900px] md:mx-auto">
             <Link to="/blog" className="inline-flex items-center text-navy/70 hover:text-sunflower transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Quay lại Blog
@@ -161,34 +161,16 @@ const BlogPostPage = () => {
               </Link>
             </div>
           ) : post ? (
-            <div className="container mx-auto px-4">
+            <div className="w-full px-4 md:max-w-[900px] md:mx-auto">
               <div className="max-w-4xl mx-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="paper-note"
+                  className=""
                 >
-                  {/* Paper Note Container */}
-                  <div className="bg-[#FFFDF6] p-8 rounded-md shadow-md border border-gray-200 relative overflow-hidden print:shadow-none print:border-none">
-                    {/* Paper texture overlay */}
-                    <div className="absolute inset-0 bg-[url('/lovable-uploads/e74bad6a-525f-42b8-84c6-c59308b94dea.png')] opacity-5 pointer-events-none"></div>
-                    
-                    {/* Decorative elements */}
-                    <div className="absolute top-0 left-0 w-20 h-20 bg-sunflower/10 rounded-br-full -z-1"></div>
-                    <div className="absolute top-4 right-4 w-20 h-20 bg-leafGreen/5 rounded-full -z-1"></div>
-                    
-                    {/* Small sunflower logo */}
-                    <div className="flex justify-center mb-4 print:mb-2">
-                      <img 
-                        src="/images/sunflower.png" 
-                        alt="Virtual Assistant Pro" 
-                        className="h-10 w-10 print:h-8 print:w-8"
-                      />
-                    </div>
-                    
-                    {/* Paper tape effect at the top */}
-                    <div className="absolute top-6 left-1/2 transform -translate-x-1/2 w-32 h-4 bg-sunflower/30 rounded print:hidden"></div>
+                  <div className="relative overflow-hidden print:shadow-none print:border-none">
+
                     
                     {/* Featured Image */}
                     {post.featured_image && (
@@ -234,12 +216,7 @@ const BlogPostPage = () => {
                       <p className="font-bold">{post.author}</p>
                     </div>
                     
-                    {/* Paper tear effect at the bottom */}
-                    <div className="relative h-4 mt-10 overflow-hidden print:hidden">
-                      <div className="absolute bottom-0 left-0 right-0 h-8 bg-[#FFFDF6]" style={{ 
-                        clipPath: 'polygon(0% 0%, 5% 60%, 10% 0%, 15% 60%, 20% 0%, 25% 60%, 30% 0%, 35% 60%, 40% 0%, 45% 60%, 50% 0%, 55% 60%, 60% 0%, 65% 60%, 70% 0%, 75% 60%, 80% 0%, 85% 60%, 90% 0%, 95% 60%, 100% 0%, 100% 100%, 0% 100%)'
-                      }}></div>
-                    </div>
+
                   </div>
                 </motion.div>
               </div>
