@@ -39,9 +39,9 @@ const Footer = () => {
               Khóa Học
             </h4>
             <ul className="space-y-2 font-['Roboto_Condensed']">
-              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Kỹ Năng Hành Chính</Link></li>
-              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Phát Triển Nghề Nghiệp</Link></li>
-              <li><Link to="/courses-view" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Quản Lý Khách Hàng</Link></li>
+              <li><Link to="/vap-course" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Giới thiệu khóa học</Link></li>
+              <li><Link to="/career-opportunities" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Cơ hội nghề nghiệp</Link></li>
+              <li><Link to="/free-resources" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Tài liệu VA</Link></li>
             </ul>
           </div>
           
@@ -53,7 +53,7 @@ const Footer = () => {
             <ul className="space-y-2 font-['Roboto_Condensed']">
               <li><Link to="/about" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Về Chúng Tôi</Link></li>
               <li><Link to="/team" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Đội Ngũ Đào Tạo</Link></li>
-              <li><Link to="/career-opportunities" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Cơ Hội Nghề Nghiệp</Link></li>
+              <li><Link to="/login" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Đăng nhập</Link></li>
               <li><Link to="/contact" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Liên Hệ</Link></li>
             </ul>
           </div>
