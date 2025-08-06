@@ -31,21 +31,25 @@ ON public.profiles
 FOR INSERT 
 WITH CHECK (auth.uid() = user_id);
 
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS BOOLEAN
+LANGUAGE plpgsql
+SECURITY INVOKER
+AS $$
+BEGIN
+  RETURN EXISTS (SELECT 1 FROM public.profiles WHERE user_id = auth.uid() AND role = 'admin');
+END;
+$$;
+
 CREATE POLICY "Admins can view all profiles" 
 ON public.profiles 
 FOR SELECT 
-USING (EXISTS (
-  SELECT 1 FROM public.profiles 
-  WHERE user_id = auth.uid() AND role = 'admin'
-));
+USING (public.is_admin());
 
 CREATE POLICY "Admins can update all profiles" 
 ON public.profiles 
 FOR UPDATE 
-USING (EXISTS (
-  SELECT 1 FROM public.profiles 
-  WHERE user_id = auth.uid() AND role = 'admin'
-));
+USING (public.is_admin());
 
 -- Create membership tiers table
 CREATE TABLE public.membership_tiers (
@@ -70,10 +74,7 @@ USING (true);
 CREATE POLICY "Admins can manage membership tiers" 
 ON public.membership_tiers 
 FOR ALL 
-USING (EXISTS (
-  SELECT 1 FROM public.profiles 
-  WHERE user_id = auth.uid() AND role = 'admin'
-));
+USING (public.is_admin());
 
 -- Add status and SEO fields to blog_posts
 ALTER TABLE public.blog_posts 
@@ -86,10 +87,7 @@ ADD COLUMN tags TEXT[];
 CREATE POLICY "Admins can manage blog posts" 
 ON public.blog_posts 
 FOR ALL 
-USING (EXISTS (
-  SELECT 1 FROM public.profiles 
-  WHERE user_id = auth.uid() AND role = 'admin'
-));
+USING (public.is_admin());
 
 -- Only show published posts to public
 DROP POLICY "Blog posts are publicly readable" ON public.blog_posts;
