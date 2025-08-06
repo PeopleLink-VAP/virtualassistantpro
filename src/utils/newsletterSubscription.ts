@@ -24,81 +24,105 @@ export const subscribeToNewsletter = async (
       .from('profiles')
       .select('user_id, membership_tier')
       .eq('email', email)
-      .single();
+      .maybeSingle(); // Use maybeSingle() instead of single() to avoid throwing on not found
 
-    if (profileError && profileError.code !== 'PGRST116') {
-      // Error other than "not found"
+    if (profileError) {
+      // If there's an error other than not found, throw it
+      console.error('Profile lookup error:', profileError);
       throw profileError;
     }
 
     let userCreated = false;
 
     if (!existingProfile) {
-      // User doesn't exist, create a new account
-      const password = generateSimplePassword(10);
+      // User doesn't exist, create a new account using regular signup
+      const password = generateSimplePassword(12);
       
-      // Create user account using Supabase Auth Admin API
-      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+      // Create user account using regular auth signup
+      const { data: authData, error: authError } = await supabase.auth.signUp({
         email: email,
         password: password,
-        email_confirm: true,
-        user_metadata: {
-          subscription_source: source,
-          auto_generated: true,
+        options: {
+          data: {
+            subscription_source: source,
+            auto_generated: true,
+            membership_tier: 'subscriber',
+            role: 'member',
+          },
+          // Don't require email redirect for newsletter signups
+          emailRedirectTo: undefined
         }
       });
 
-      if (authError) throw authError;
+      if (authError) {
+        console.error('Auth signup error:', authError);
+        throw authError;
+      }
 
       if (authData.user) {
-        // Update profile with subscriber tier
-        const { error: profileUpdateError } = await supabase
+        userCreated = true;
+        
+        // The profile will be automatically created by database trigger
+        // We can update it after a short delay to ensure it's created
+        setTimeout(async () => {
+          try {
+            await supabase
+              .from('profiles')
+              .update({
+                membership_tier: 'subscriber',
+                role: 'member'
+              })
+              .eq('user_id', authData.user.id);
+          } catch (updateError) {
+            console.warn('Profile update error:', updateError);
+          }
+        }, 1000);
+      }
+    } else {
+      // User exists, update their subscription status if needed
+      if (existingProfile.membership_tier === 'basic' || !existingProfile.membership_tier) {
+        const { error: updateError } = await supabase
           .from('profiles')
           .update({
-            membership_tier: 'subscriber',
-            role: 'member'
+            membership_tier: 'subscriber'
           })
-          .eq('user_id', authData.user.id);
+          .eq('user_id', existingProfile.user_id);
 
-        if (profileUpdateError) {
-          console.warn('Profile update error:', profileUpdateError);
+        if (updateError) {
+          console.warn('Error updating membership tier:', updateError);
         }
-
-        userCreated = true;
-      }
-    } else if (existingProfile.membership_tier === 'basic' || existingProfile.membership_tier === 'subscriber') {
-      // User exists but has basic or subscriber tier, ensure they're marked as subscriber
-      const { error: updateError } = await supabase
-        .from('profiles')
-        .update({
-          membership_tier: 'subscriber'
-        })
-        .eq('user_id', existingProfile.user_id);
-
-      if (updateError) {
-        console.warn('Error updating membership tier:', updateError);
       }
     }
 
     // Add to newsletter list (if newsletter system is implemented)
     // This would be where you'd add the user to an email list
-    // For now, we'll just log it
     console.log(`User ${email} subscribed to newsletter from ${source}`);
 
     return {
       success: true,
       message: userCreated 
-        ? 'Đăng ký thành công! Bạn đã được tạo tài khoản và sẽ nhận được newsletter.' 
-        : 'Đăng ký newsletter thành công!',
+        ? 'Đăng ký thành công! Chúng tôi đã gửi email xác nhận đến hộp thư của bạn. Vui lòng kiểm tra và xác nhận để hoàn tất đăng ký newsletter.' 
+        : 'Đăng ký newsletter thành công! Cảm ơn bạn đã đăng ký.',
       userCreated
     };
 
   } catch (error: any) {
     console.error('Newsletter subscription error:', error);
     
+    // Handle specific error cases
+    let errorMessage = 'Đã xảy ra lỗi khi đăng ký newsletter. Vui lòng thử lại sau.';
+    
+    if (error.message?.includes('User already registered')) {
+      errorMessage = 'Email này đã được đăng ký. Nếu bạn đã có tài khoản, vui lòng đăng nhập.';
+    } else if (error.message?.includes('Invalid email')) {
+      errorMessage = 'Email không hợp lệ. Vui lòng kiểm tra lại địa chỉ email.';
+    } else if (error.message?.includes('signup is disabled')) {
+      errorMessage = 'Đăng ký tạm thời bị tắt. Vui lòng liên hệ quản trị viên.';
+    }
+    
     return {
       success: false,
-      message: 'Đã xảy ra lỗi khi đăng ký newsletter. Vui lòng thử lại sau.',
+      message: errorMessage,
       error: error.message || 'Unknown error',
       userCreated: false
     };
