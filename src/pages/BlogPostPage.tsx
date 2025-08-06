@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import { Tables } from '@/integrations/supabase/types';
-import { ArrowLeft, Calendar, User, Loader2, Clock, Printer, BookOpen } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Loader2, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 
@@ -59,14 +59,7 @@ const BlogPostPage = () => {
     ? Math.ceil(post.content.split(' ').length / 200) // Assuming average reading speed of 200 words per minute
     : 0;
     
-  const handlePrint = () => {
-    window.print();
-  };
-  
-  const activateReaderMode = () => {
-    // This is a simplified approach - actual reader mode depends on browser support
-    document.body.classList.toggle('reader-mode');
-  };
+
 
   return (
     <>
@@ -122,31 +115,13 @@ const BlogPostPage = () => {
           <Navbar />
         </div>
         
-        <div className="relative z-10 pt-32 pb-16 print:pt-8 print:pb-8">
+        <div className="relative z-10 pt-32 pb-16">
           {/* Back button - hidden in print view */}
-          <div className="w-full px-4 mb-6 print:hidden md:max-w-[900px] md:mx-auto">
+          <div className="w-full px-4 mb-6 md:max-w-[900px] md:mx-auto">
             <Link to="/blog" className="inline-flex items-center text-navy/70 hover:text-sunflower transition-colors">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Quay lại Blog
             </Link>
-            
-            {/* Print and Reader mode buttons */}
-            <div className="float-right space-x-2">
-              <button 
-                onClick={handlePrint}
-                className="inline-flex items-center text-navy/70 hover:text-sunflower transition-colors px-3 py-1 rounded-md border border-navy/20"
-              >
-                <Printer className="w-4 h-4 mr-2" />
-                In bài viết
-              </button>
-              <button 
-                onClick={activateReaderMode}
-                className="inline-flex items-center text-navy/70 hover:text-sunflower transition-colors px-3 py-1 rounded-md border border-navy/20"
-              >
-                <BookOpen className="w-4 h-4 mr-2" />
-                Chế độ đọc
-              </button>
-            </div>
           </div>
           
           {loading ? (
@@ -169,12 +144,12 @@ const BlogPostPage = () => {
                   transition={{ duration: 0.5 }}
                   className=""
                 >
-                  <div className="relative overflow-hidden print:shadow-none print:border-none">
+                  <div className="relative overflow-hidden">
 
                     
                     {/* Featured Image */}
                     {post.featured_image && (
-                      <div className="rounded-xl overflow-hidden mb-8 shadow-sm max-h-[400px] print:max-h-[300px]">
+                      <div className="rounded-xl overflow-hidden mb-8 shadow-sm max-h-[400px]">
                         <img 
                           src={post.featured_image}
                           alt={post.title}
@@ -184,10 +159,10 @@ const BlogPostPage = () => {
                     )}
                     
                     {/* Post Header */}
-                    <div className="mb-8 print:mb-6">
-                      <h1 className="text-3xl md:text-4xl font-condensed font-bold mb-4 text-navy text-center print:text-2xl">{post.title}</h1>
+                    <div className="mb-8">
+                      <h1 className="text-3xl md:text-4xl font-condensed font-bold mb-4 text-navy text-center">{post.title}</h1>
                       
-                      <div className="flex flex-wrap items-center justify-center text-navy/60 mb-6 print:mb-4 text-sm print:text-xs">
+                      <div className="flex flex-wrap items-center justify-center text-navy/60 mb-6 text-sm">
                         <div className="flex items-center mx-3 mb-2">
                           <User className="w-4 h-4 mr-2" />
                           <span>{post.author}</span>
@@ -202,16 +177,16 @@ const BlogPostPage = () => {
                         </div>
                       </div>
                       
-                      <p className="text-xl text-navy/80 italic text-center border-b border-t border-navy/10 py-4 px-6 mx-auto max-w-2xl print:text-base print:py-3">{post.excerpt}</p>
+                      <p className="text-xl text-navy/80 italic text-center border-b border-t border-navy/10 py-4 px-6 mx-auto max-w-2xl">{post.excerpt}</p>
                     </div>
                     
                     {/* Post Content */}
-                    <div className="prose prose-lg max-w-none prose-headings:text-navy prose-headings:font-condensed prose-p:text-navy/80 mb-8 prose-img:rounded-md prose-img:shadow-sm print:prose-base print:prose-p:leading-relaxed">
+                    <div className="prose prose-lg max-w-none prose-headings:text-navy prose-headings:font-condensed prose-p:text-navy/80 mb-8 prose-img:rounded-md prose-img:shadow-sm">
                       <ReactMarkdown>{post.content}</ReactMarkdown>
                     </div>
                     
                     {/* Author signature */}
-                    <div className="mt-12 text-right italic text-navy/70 border-t border-navy/10 pt-4 print:mt-8">
+                    <div className="mt-12 text-right italic text-navy/70 border-t border-navy/10 pt-4">
                       <p className="mb-1">Chia sẻ từ đội ngũ Virtual Assistant Pro,</p>
                       <p className="font-bold">{post.author}</p>
                     </div>
