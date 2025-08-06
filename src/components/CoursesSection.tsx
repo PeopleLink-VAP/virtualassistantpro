@@ -50,7 +50,7 @@ const CoursesSection = () => {
               ))}
             </div>
             
-            <Link to="/e-learning">
+            <Link to="/vap-course">
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 w-full hover:scale-105 transition-all">
                 <BookOpen size={18} />
                 Xem Chi Tiết

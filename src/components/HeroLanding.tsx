@@ -23,7 +23,7 @@ const HeroLanding = () => {
           </p>
           
           <div className="mb-12 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <Link to="/e-learning">
+            <Link to="/vap-course">
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-3 hover:scale-105 transition-all mx-auto">
                 <BookOpen size={20} />
                 Tìm hiểu thêm
