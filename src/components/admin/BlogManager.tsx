@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { Search, Plus, Edit, Eye, Trash2, FileText, Calendar, User, MoreHorizontal, Filter } from 'lucide-react';
+import { Search, Plus, Edit, Eye, Trash2, FileText, Calendar, User, MoreHorizontal, Filter, Tag } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -20,6 +20,7 @@ interface BlogPost {
   featured_image: string;
   author: string;
   status: string;
+  category: string;
   meta_title: string;
   meta_description: string;
   tags: string[];
@@ -40,6 +41,7 @@ export const BlogManager = () => {
     featured_image: '',
     author: 'Virtual Assistant Pro',
     status: 'draft',
+    category: 'General',
     meta_title: '',
     meta_description: '',
     tags: '',
@@ -85,6 +87,7 @@ export const BlogManager = () => {
       featured_image: '',
       author: 'Virtual Assistant Pro',
       status: 'draft',
+      category: 'General',
       meta_title: '',
       meta_description: '',
       tags: '',
@@ -102,6 +105,7 @@ export const BlogManager = () => {
       featured_image: post.featured_image || '',
       author: post.author,
       status: post.status,
+      category: post.category || 'General',
       meta_title: post.meta_title || '',
       meta_description: post.meta_description || '',
       tags: post.tags?.join(', ') || '',
@@ -121,6 +125,7 @@ export const BlogManager = () => {
         featured_image: formData.featured_image,
         author: formData.author,
         status: formData.status,
+        category: formData.category,
         meta_title: formData.meta_title,
         meta_description: formData.meta_description,
         tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean),
@@ -195,7 +200,7 @@ export const BlogManager = () => {
             </div>
             <div>
               <h2 className="text-2xl font-bold text-gray-900">Blog Posts</h2>
-              <p className="text-sm text-gray-600">Manage your blog content with elegance</p>
+              <p className="text-sm text-gray-600">Manage blog content</p>
             </div>
           </div>
           
@@ -306,7 +311,25 @@ export const BlogManager = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <Label htmlFor="category">Category</Label>
+                  <Select value={formData.category} onValueChange={(value) => setFormData(prev => ({ ...prev, category: value }))}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="General">General</SelectItem>
+                      <SelectItem value="Virtual Assistant">Virtual Assistant</SelectItem>
+                      <SelectItem value="Freelancing">Freelancing</SelectItem>
+                      <SelectItem value="Productivity">Productivity</SelectItem>
+                      <SelectItem value="Business Tips">Business Tips</SelectItem>
+                      <SelectItem value="Technology">Technology</SelectItem>
+                      <SelectItem value="Marketing">Marketing</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
                 <div>
                   <Label htmlFor="meta_title">Meta Title (SEO)</Label>
                   <Input
@@ -387,6 +410,12 @@ export const BlogManager = () => {
                 </th>
                 <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
                   <div className="flex items-center gap-2">
+                    <Tag className="w-4 h-4 text-rose-500" />
+                    Category
+                  </div>
+                </th>
+                <th className="text-left py-4 px-6 font-semibold text-gray-900 text-sm">
+                  <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-rose-500" />
                     Published
                   </div>
@@ -401,7 +430,7 @@ export const BlogManager = () => {
             <tbody className="divide-y divide-rose-100">
               {filteredPosts.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="py-12 px-6 text-center text-gray-500">
+                  <td colSpan={6} className="py-12 px-6 text-center text-gray-500">
                     <div className="flex flex-col items-center gap-3">
                       <div className="p-3 bg-rose-50 rounded-full">
                         <FileText className="w-6 h-6 text-rose-400" />
@@ -473,6 +502,16 @@ export const BlogManager = () => {
                             Draft
                           </Badge>
                         )}
+                      </div>
+                    </td>
+                    
+                    {/* Category */}
+                    <td className="py-4 px-6">
+                      <div className="flex items-center">
+                        <Badge variant="outline" className="bg-rose-50 text-rose-700 border-rose-200 hover:bg-rose-50">
+                          <Tag className="w-3 h-3 mr-1" />
+                          {post.category || 'General'}
+                        </Badge>
                       </div>
                     </td>
                     
