@@ -4,6 +4,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./hooks/useAuth";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import Seo from "./components/Seo";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
@@ -18,35 +20,55 @@ import TrainingProgramPage from "./pages/TrainingProgramPage";
 import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import AdminDashboard from "./pages/AdminDashboard";
+import MembersDashboard from "./pages/MembersDashboard";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Seo />
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/courses-view" element={<CoursesViewPage />} />
-          <Route path="/free-resources" element={<FreeResourcesPage />} />
-          <Route path="/e-learning" element={<FreeResourcesPage />} />
-          <Route path="/vap-course" element={<CoursesViewPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/training-program" element={<TrainingProgramPage />} />
-          <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/blog/:slug" element={<BlogPostPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Seo />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/courses-view" element={<CoursesViewPage />} />
+            <Route path="/free-resources" element={<FreeResourcesPage />} />
+            <Route path="/e-learning" element={<FreeResourcesPage />} />
+            <Route path="/vap-course" element={<CoursesViewPage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/training-program" element={<TrainingProgramPage />} />
+            <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route 
+              path="/admin" 
+              element={
+                <ProtectedRoute requireAdmin>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/members" 
+              element={
+                <ProtectedRoute>
+                  <MembersDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
