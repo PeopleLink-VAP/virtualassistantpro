@@ -37,6 +37,7 @@ interface PlateEditorProps {
 
 export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps) => {
   const editorRef = useRef<HTMLDivElement>(null);
+  const [contentLength, setContentLength] = useState(0);
   const [formData, setFormData] = useState({
     title: post.title,
     slug: post.slug,
@@ -54,6 +55,9 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.innerHTML = post.content;
+      // Initialize content length
+      const textLength = editorRef.current.textContent?.length || 0;
+      setContentLength(textLength);
     }
   }, [post.content]);
 
@@ -70,6 +74,10 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
         .replace(/<div><br><\/div>/g, '<br>') // Clean up empty divs with breaks
         .replace(/<div><\/div>/g, '<br>') // Clean up empty divs
         .replace(/(<br>\s*){3,}/g, '<br><br>'); // Limit consecutive breaks
+      
+      // Calculate content length for display
+      const textLength = editorRef.current.textContent?.length || 0;
+      setContentLength(textLength);
       
       if (cleanedContent !== currentContent) {
         // Save cursor position
@@ -188,17 +196,27 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
     }
   };
 
-  const handleSave = async () => {
+  const handleSave = async (forceSimpleText = false) => {
     try {
-      // Get the current content from the editor and clean it
+      // Get the current content from the editor
       const rawContent = editorRef.current?.innerHTML || formData.content;
-      const cleanedContent = cleanHTMLContent(rawContent);
+      
+      let finalContent;
+      if (forceSimpleText) {
+        // Force plain text conversion
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = rawContent;
+        finalContent = tempDiv.textContent || tempDiv.innerText || rawContent;
+      } else {
+        // Try cleaned HTML first
+        finalContent = cleanHTMLContent(rawContent);
+      }
       
       // Limit content length to prevent issues
-      const maxContentLength = 50000; // 50KB limit
-      const finalContent = cleanedContent.length > maxContentLength 
-        ? cleanedContent.substring(0, maxContentLength) + '...'
-        : cleanedContent;
+      const maxContentLength = 30000; // Reduced to 30KB limit
+      if (finalContent.length > maxContentLength) {
+        finalContent = finalContent.substring(0, maxContentLength) + '...';
+      }
       
       const postData = {
         title: formData.title.trim(),
@@ -211,12 +229,13 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
         category: formData.category,
         meta_title: formData.meta_title.trim(),
         meta_description: formData.meta_description.trim(),
-        tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean).slice(0, 20), // Limit tags
+        tags: formData.tags.split(',').map(tag => tag.trim()).filter(Boolean).slice(0, 10), // Reduced to 10 tags
       };
 
       console.log('Saving post data:', {
         ...postData,
-        content: `${postData.content.substring(0, 100)}...` // Log first 100 chars only
+        content: `${postData.content.substring(0, 100)}... (${postData.content.length} chars)`,
+        contentType: forceSimpleText ? 'plain text' : 'cleaned HTML'
       });
 
       const { error } = await supabase
@@ -231,17 +250,27 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
 
       toast({ 
         title: "Success", 
-        description: "Post saved successfully." 
+        description: forceSimpleText ? "Post saved as plain text." : "Post saved successfully." 
       });
       
       onSave();
     } catch (error: any) {
       console.error('Error saving post:', error);
       
+      if ((error.code === '54001' || error.message?.includes('stack depth')) && !forceSimpleText) {
+        // Retry as plain text
+        console.log('Retrying save as plain text...');
+        toast({
+          title: "Converting to plain text",
+          description: "Content was too complex, saving as plain text instead.",
+        });
+        return handleSave(true);
+      }
+      
       let errorMessage = "Failed to save post.";
       
       if (error.code === '54001' || error.message?.includes('stack depth')) {
-        errorMessage = "Content is too complex. Please simplify the formatting and try again.";
+        errorMessage = "Content is still too complex even as plain text. Please reduce content length.";
       } else if (error.code === '22001') {
         errorMessage = "Content is too long. Please reduce the content length.";
       } else if (error.message?.includes('network') || error.message?.includes('connection')) {
@@ -425,7 +454,8 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
             <Label className="text-sm font-medium">Content</Label>
             <div className="border rounded-lg overflow-hidden">
               {/* Editor Toolbar */}
-              <div className="flex items-center gap-1 p-2 border-b bg-muted/50">
+              <div className="flex items-center justify-between p-2 border-b bg-muted/50">
+                <div className="flex items-center gap-1">
                 <Button
                   type="button"
                   variant="ghost"
@@ -571,6 +601,19 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
                 >
                   <Link className="w-4 h-4" />
                 </Button>
+                </div>
+                
+                {/* Content Length Indicator */}
+                <div className="text-xs text-muted-foreground flex items-center gap-2">
+                  <span className={`${contentLength > 25000 ? 'text-red-500 font-semibold' : contentLength > 20000 ? 'text-yellow-600' : 'text-muted-foreground'}`}>
+                    {contentLength.toLocaleString()}
+                  </span>
+                  <span>/</span>
+                  <span>30,000 chars</span>
+                  {contentLength > 25000 && (
+                    <span className="text-red-500 text-xs font-medium">⚠ Content may be too long</span>
+                  )}
+                </div>
               </div>
               
               {/* Rich Text Editor */}
