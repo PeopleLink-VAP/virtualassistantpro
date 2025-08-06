@@ -73,6 +73,47 @@ const BlogPostPage = () => {
       <Helmet>
         <title>{post?.title || 'Đang tải...'} - Virtual Assistant Pro</title>
         <meta name="description" content={post?.excerpt || 'Bài viết từ Virtual Assistant Pro'} />
+        {/* Canonical URL */}
+        <link rel="canonical" href={window.location.href} />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:title" content={post?.title || 'Virtual Assistant Pro Blog'} />
+        <meta property="og:description" content={post?.excerpt || 'Bài viết từ Virtual Assistant Pro'} />
+        <meta property="og:image" content={post?.featured_image || '/images/sunflower.png'} />
+
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={window.location.href} />
+        <meta property="twitter:title" content={post?.title || 'Virtual Assistant Pro Blog'} />
+        <meta property="twitter:description" content={post?.excerpt || 'Bài viết từ Virtual Assistant Pro'} />
+        <meta property="twitter:image" content={post?.featured_image || '/images/sunflower.png'} />
+
+        {/* JSON-LD Structured Data */}
+        {post && (
+          <script type="application/ld+json">
+            {`
+              {
+                "@context": "https://schema.org",
+                "@type": "BlogPosting",
+                "headline": "${post.title}",
+                "description": "${post.excerpt}",
+                "image": "${post.featured_image || '/images/sunflower.png'}",
+                "author": {
+                  "@type": "Person",
+                  "name": "${post.author}"
+                },
+                "datePublished": "${post.published_at}",
+                "dateModified": "${post.published_at}",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "${window.location.href}"
+                }
+              }
+            `}
+          </script>
+        )}
       </Helmet>
       
       <div className="min-h-screen bg-warmWhite relative overflow-hidden">
