@@ -2,8 +2,8 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://ooafylweoqbazoduzmqy.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9vYWZ5bHdlb3FiYXpvZHV6bXF5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDIxMDA2NDEsImV4cCI6MjA1NzY3NjY0MX0.ELf2HrOg8oScC0-Nrlif9sa1_0edDPKzwBHwqCGK4os";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL || "https://vjolbqhdnyrktxnugixe.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZqb2xicWhkbnlya3R4bnVnaXhlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTQ0MDkwNTAsImV4cCI6MjA2OTk4NTA1MH0.-RVZ0b3Ia885rbzrszkPb2JpR4654A_xssNSUow4Y8g";
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
