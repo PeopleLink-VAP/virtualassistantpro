@@ -12,8 +12,8 @@ import { Loader2 } from 'lucide-react';
 type BlogPost = Tables<'blog_posts'>;
 
 const BlogPage = () => {
-    const [posts, setPosts] = useState<Partial<BlogPost>[]>([]);
-  const [featuredPost, setFeaturedPost] = useState<Partial<BlogPost> | null>(null);
+    const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -24,7 +24,7 @@ const BlogPage = () => {
         // Fetch all posts
         const { data, error } = await supabase
           .from('blog_posts')
-          .select('id, title, excerpt, author, published_at, slug, featured_image')
+          .select('*')
           .order('published_at', { ascending: false });
         
         if (error) throw error;
@@ -77,28 +77,28 @@ const BlogPage = () => {
         <BlogHero />
 
         {/* Blog Content */}
-        <div className="container mx-auto px-4 py-12">
-          </div>
-          
-          {/* Blog Content */}
-          {loading ? (
-            <div className="flex justify-center items-center py-20">
-              <Loader2 className="h-12 w-12 animate-spin text-sunflower" />
+        <div className="container mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-1 gap-8">
+            <div className="lg:col-span-1">
+              {loading ? (
+                <div className="flex justify-center items-center py-20">
+                  <Loader2 className="h-12 w-12 animate-spin text-sunflower" />
+                </div>
+              ) : error ? (
+                <div className="text-center py-20">
+                  <p className="text-red-500">{error}</p>
+                  <button 
+                    onClick={() => window.location.reload()} 
+                    className="mt-4 btn-primary"
+                  >
+                    Thử lại
+                  </button>
+                </div>
+              ) : (
+                <BlogGrid posts={posts.filter(post => post.id !== featuredPost?.id)} featuredPost={featuredPost} />
+              )}
             </div>
-          ) : error ? (
-            <div className="text-center py-20">
-              <p className="text-red-500">{error}</p>
-              <button 
-                onClick={() => window.location.reload()} 
-                className="mt-4 btn-primary"
-              >
-                Thử lại
-              </button>
-            </div>
-          ) : (
-            <BlogGrid posts={posts.filter(post => post.id !== featuredPost?.id)} featuredPost={featuredPost} />
-          )}
 
+          </div>
         </div>
         
         <Footer />
