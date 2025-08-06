@@ -20,6 +20,7 @@ import TrainingProgramPage from "./pages/TrainingProgramPage";
 import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import VANetworkPage from "./pages/VANetworkPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/team" element={<TeamPage />} />
             <Route path="/training-program" element={<TrainingProgramPage />} />
             <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
+            <Route path="/va-network" element={<VANetworkPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route 

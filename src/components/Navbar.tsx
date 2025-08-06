@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, User, ChevronDown, Home, Users, BookOpen, Briefcase, Mail, Globe } from 'lucide-react';
+import { Menu, X, User, ChevronDown, Home, Users, BookOpen, Briefcase, Mail, Globe, Network } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   NavigationMenu,
@@ -46,6 +46,13 @@ const Navbar = () => {
                   <Link to="/vap-course" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
                     <Users size={16} />
                     VAP Course
+                  </Link>
+                </NavigationMenuItem>
+                
+                <NavigationMenuItem>
+                  <Link to="/va-network" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
+                    <Network size={16} />
+                    VA Network
                   </Link>
                 </NavigationMenuItem>
                 
@@ -100,6 +107,9 @@ const Navbar = () => {
             </Link>
             <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <Users size={16} /> VAP Course
+            </Link>
+            <Link to="/va-network" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+              <Network size={16} /> VA Network
             </Link>
             <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
               <BookOpen size={16} /> Blog
