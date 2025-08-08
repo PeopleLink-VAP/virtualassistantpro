@@ -20,7 +20,6 @@ import TrainingProgramPage from "./pages/TrainingProgramPage";
 import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
-import VANetworkPage from "./pages/VANetworkPage";
 import BookMeetingPage from "./pages/BookMeetingPage";
 import ServicesPage from "./pages/ServicesPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
@@ -53,8 +52,7 @@ const App = () => (
             <Route path="/team" element={<TeamPage />} />
             <Route path="/training-program" element={<TrainingProgramPage />} />
             <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
-            <Route path="/va-network" element={<VANetworkPage />} />
-            <Route path="/book-meeting" element={<BookMeetingPage />} />
+                        <Route path="/book-meeting" element={<BookMeetingPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />

@@ -67,15 +67,7 @@ const Navbar = () => {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <li>
-                        <NavigationMenuLink asChild>
-                          <Link to="/va-network" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                            <Network size={16} />
-                            <div className="text-sm font-medium leading-none">VA Network</div>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                    </ul>
+                                          </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 
@@ -153,10 +145,7 @@ const Navbar = () => {
                 <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <BookOpen size={16} /> Thông tin khóa học VAP
                 </Link>
-                <Link to="/va-network" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-                  <Network size={16} /> VA Network
-                </Link>
-              </div>
+                              </div>
             </details>
             
             <details className="group">
