@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dog, Home, Utensils, BookOpen } from 'lucide-react';
+import { Dog, Home, Utensils, BookOpen, Briefcase, Building, Globe, Users, GraduationCap, Award, Quote } from 'lucide-react';
 import profileImage from '/images/duyen/profile_1.jpg';
 
 const QuickFacts = () => (
@@ -11,24 +11,30 @@ const QuickFacts = () => (
       <div className="md:w-1/2 text-center md:text-left">
         <h2 className="text-3xl font-bold text-navy mb-8">Vài nét nhanh về <span className="text-sunflower">Duyên</span></h2>
         <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
-          Tôi tin rằng cách tốt nhất để phát triển là đặt mình vào những tình huống mới. Tư duy đó đã định hình kinh nghiệm của tôi trong nhiều lĩnh vực và ngành nghề khác nhau. Một số trong đó có vẻ không liên quan đến chuyên ngành của tôi nhưng tất cả đều bổ trợ và tiếp tục mang lại lợi ích cho tôi và công việc kinh doanh của tôi ngày nay.
+          Mình tin rằng cách phát triển nhanh và toàn diện nhất chính là bước ra khỏi vùng an toàn, tự đặt bản thân vào những tình huống và môi trường mới. Càng va chạm nhiều, mình càng học hỏi, trau dồi và khám phá ra những khía cạnh thú vị của bản thân mà trước đây chưa từng nhận ra. Tuy nhiên, việc bước ra vùng an toàn cần được làm một cách kĩ lưỡng, có trách nhiệm và chiến lược.
+        </p>
+        <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
+          Với mình, nghề Virtual Assistant chính là cánh cửa để đến gần hơn với sự đa dạng đó. Mình thích được đồng hành cùng nhiều khách hàng khác nhau, lắng nghe cách họ nhìn nhận và giải quyết vấn đề, rồi từ đó tìm cách hỗ trợ phù hợp cho từng người. Mỗi dự án, mỗi con người đều mang lại cho mình một trải nghiệm mới, đôi khi vượt xa khỏi giới hạn và lối mòn cũ.
+        </p>
+        <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
+          Là người mang tinh thần phụng sự, mình luôn mong muốn được dùng hết sức – tâm – lực để hỗ trợ khách hàng, đồng hành cùng học viên và đóng góp cho cộng đồng.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="flex flex-col items-center">
             <Dog className="w-12 h-12 text-sunflower mb-3" />
-            <p className="text-navy/80 text-center">Tôi hơi "cuồng" các chú cún</p>
+            <p className="text-navy/80 text-center">Một tình yêu nồng nhiệt dành cho các em cún</p>
           </div>
           <div className="flex flex-col items-center">
             <Home className="w-12 h-12 text-sunflower mb-3" />
-            <p className="text-navy/80 text-center">Cô gái quê yêu cuộc sống thành thị</p>
+            <p className="text-navy/80 text-center">Người Hội An, sống ở Sài Gòn</p>
           </div>
           <div className="flex flex-col items-center">
             <Utensils className="w-12 h-12 text-sunflower mb-3" />
-            <p className="text-navy/80 text-center">Tôi không ngờ mình lại yêu nấu ăn đến thế</p>
+            <p className="text-navy/80 text-center">Mình thích nấu ăn hơn mình nghĩ</p>
           </div>
           <div className="flex flex-col items-center">
             <BookOpen className="w-12 h-12 text-sunflower mb-3" />
-            <p className="text-navy/80 text-center">Kindle hay sách giấy – Bạn chọn cái nào?</p>
+            <p className="text-navy/80 text-center">Thích đọc sách giấy hơn đọc kindle</p>
           </div>
         </div>
       </div>
@@ -36,41 +42,84 @@ const QuickFacts = () => (
   </section>
 );
 
-const milestones = [
+const careerHighlights = [
   {
-    year: '2011-2015',
-    description: 'Học tập và làm việc bán thời gian trong ngành khách sạn và dịch vụ tại Đà Nẵng',
+    title: 'Business Development Manager',
+    subtitle: 'FMCG - Retail & Wholesale',
+    description: 'Thành công đưa Sukin Australian Natural Skincare – thương hiệu chăm sóc da thuần chay số 1 tại Úc (2017) vào thị trường Việt Nam. Trong 2 năm đầu, doanh số tăng hơn 200%, thương hiệu mở rộng sự hiện diện mạnh mẽ trên các kênh bán sỉ, bán lẻ và online.',
+    icon: Briefcase
   },
   {
-    year: '2015 - 2020',
-    description: 'Làm việc với khách hàng từ xa trên các nền tảng trực tuyến khác nhau như Fiverr, Upwork, tạo nền tảng kinh nghiệm cho sự nghiệp VA.',
+    title: 'Co-Founder – War & Peace Homestay',
+    subtitle: 'Hospitality',
+    description: 'Xây dựng homestay độc bản với phong cách chiến tranh và hiện vật sưu tầm trong nhiều năm. Đạt hơn 400 review 5 sao, giữ danh hiệu Superhost 10+ quý liên tiếp, trở thành đối tác chiến lược của Airbnb tại miền Trung (2020).',
+    icon: Building
   },
   {
-    year: '2020',
-    description: 'Chuyển đến TP.HCM - Hành trình mới bắt đầu',
+    title: 'Virtual Assistant – Fiverr',
+    subtitle: 'Freelancing',
+    description: 'Thực hiện hơn 200 dự án cho khách hàng toàn cầu, đạt 100+ đánh giá 5 sao trên Fiverr. Kinh nghiệm hỗ trợ đa lĩnh vực: giáo dục, bán lẻ, công nghệ, thương mại điện tử.',
+    icon: Globe
   },
   {
-    year: '2022-2025',
-    description: 'Xây dựng cộng đồng VA, giảng dạy các khóa học VA trực tuyến.',
+    title: 'E-commerce Seller',
+    subtitle: 'Amazon, Etsy, Shopify, Shopee, Tiki, Lazada',
+    description: 'Vận hành và phát triển nhiều gian hàng trong và ngoài nước, hỗ trợ công ty/ đối tác bán hàng nghìn đơn hàng. Đồng thời tự xây dựng dòng sản phẩm riêng và xuất khẩu sang thị trường quốc tế.',
+    icon: Award
   },
+  {
+    title: 'Community Builder – Virtual Assistant Việt Nam',
+    subtitle: '14,000+ thành viên',
+    description: 'Cộng đồng VA - Virtual Assistant Việt Nam là một trong 3 cộng đồng VA lớn nhất Việt Nam, nơi chia sẻ tài nguyên, cơ hội việc làm và kiến thức chuyên sâu hoàn toàn miễn phí cho thành viên.',
+    icon: Users
+  },
+  {
+    title: 'Coaching – Virtual Assistant Pro',
+    subtitle: '150+ học viên',
+    description: 'Thiết kế và trực tiếp giảng dạy khóa học chuyên sâu giúp học viên nắm toàn cảnh về nghề VA, từ xây dựng thương hiệu cá nhân, chọn ngách, đến hướng dẫn 1:1. Hơn 150 học viên đã được hướng dẫn về nghề và một số đã thành công.',
+    icon: GraduationCap
+  },
+  {
+    title: 'Founder Assistiv Agency',
+    subtitle: 'Service',
+    description: 'Assistiv Agency giúp hỗ trợ kết nối VA Việt Nam với khách hàng quốc tế tìm kiếm nguồn lực tại thị trường Việt Nam, hỗ trợ VA Việt Nam vươn xa trên thị trường nước ngoài.',
+    icon: Building
+  }
 ];
 
 const MyJourney = () => (
   <section className="py-12 bg-gray-50">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-bold text-navy text-center mb-12">Hành Trình Trở Thành VA Của Tôi</h2>
-      <div className="relative border-l-4 border-sunflower ml-4 md:ml-12">
-        {milestones.map((milestone, index) => (
-          <div key={index} className="mb-8 flex items-start w-full">
-            <div className="flex-shrink-0 w-8 h-8 bg-sunflower rounded-full absolute -left-4 flex items-center justify-center text-white font-bold text-sm">
-              {index + 1}
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold text-navy mb-4">HÀNH TRÌNH SỰ NGHIỆP VÀ NHỮNG DẤU ẤN TIÊU BIỂU</h2>
+        <p className="text-lg text-navy/70 italic">Hành trình đa sắc, định hình một bản sắc.</p>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        {careerHighlights.map((highlight, index) => {
+          const IconComponent = highlight.icon;
+          return (
+            <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-sunflower/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <IconComponent className="w-6 h-6 text-navy" />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-lg font-bold text-navy mb-1">{highlight.title}</h3>
+                  <p className="text-sm text-sunflower font-medium mb-3">({highlight.subtitle})</p>
+                  <p className="text-navy/80 text-sm leading-relaxed">{highlight.description}</p>
+                </div>
+              </div>
             </div>
-            <div className="ml-8 md:ml-12 p-6 bg-white rounded-lg shadow-md flex-grow">
-              <h3 className="text-xl font-semibold text-navy mb-2">{milestone.year}</h3>
-              <p className="text-navy/80">{milestone.description}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
+      </div>
+      
+      <div className="bg-sunflower/10 rounded-xl p-8 text-center">
+        <Quote className="w-8 h-8 text-sunflower mx-auto mb-4" />
+        <p className="text-lg text-navy italic font-medium">
+          "Niềm vui của tôi đơn giản là nhìn thấy bản thân biến hóa ở những phiên bản khác nhau và sống hết mình với những phiên bản đó"
+        </p>
       </div>
     </div>
   </section>
