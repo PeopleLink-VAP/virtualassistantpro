@@ -15,7 +15,7 @@ const HeroLanding = () => {
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-['Roboto_Condensed'] text-navy leading-tight mb-6 animate-fade-in">
             Build Your Dream Career as a
-            <span className="text-sunflower font-['Big_Shoulders_Stencil'] block">Virtual Assistant</span>
+            <span className="text-sunflower font-condensed block">Virtual Assistant</span>
           </h1>
           
           <p className="text-xl text-navy/80 mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.1s' }}>

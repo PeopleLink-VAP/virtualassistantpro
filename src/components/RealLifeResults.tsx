@@ -64,7 +64,7 @@ const RealLifeResults = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-4">
-            Kết Quả <span className="text-sunflower font-['Big_Shoulders_Stencil']">Thực Tế</span>
+            Kết Quả <span className="text-sunflower font-condensed">Thực Tế</span>
           </h2>
           <p className="text-lg text-navy/70 max-w-2xl mx-auto">
             Khám phá những câu chuyện thành công của các học viên đã hoàn thành khóa học

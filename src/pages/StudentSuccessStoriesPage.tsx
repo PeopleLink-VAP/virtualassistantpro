@@ -114,7 +114,7 @@ const StudentSuccessStoriesPage = () => {
                   <img 
                     src={story.image} 
                     alt={story.name}
-                    className="w-full max-w-sm mx-auto rounded-lg shadow-lg"
+                    className="w-full max-w-sm mx-auto"
                   />
                 </div>
                 

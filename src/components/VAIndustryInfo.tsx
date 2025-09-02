@@ -11,7 +11,7 @@ const VAIndustryInfo = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-4">
-            <span className="text-sunflower font-['Big_Shoulders_Stencil']">Tổng quan nghành Virtual Assistant</span>
+            <span className="text-sunflower font-condensed">Tổng quan nghành Virtual Assistant</span>
           </h2>
           <p className="text-lg text-navy/70 max-w-2xl mx-auto">
             Khám phá cơ hội nghề nghiệp và cộng đồng Virtual Assistant Việt Nam

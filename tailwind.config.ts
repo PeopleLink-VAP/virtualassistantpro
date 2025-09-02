@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -24,7 +25,7 @@ export default {
 				condensed: ['Roboto Condensed', 'sans-serif'],
 			},
 			colors: {
-				// Custom color palette for VAP-Hub
+				// Original color palette
 				sunflower: "#FFD700",
 				navy: "#1B365D",
 				warmWhite: "#FFFAF0",
@@ -142,5 +143,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

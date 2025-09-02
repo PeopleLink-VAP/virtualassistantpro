@@ -66,99 +66,98 @@ const TrainingPage = () => {
     <div className="min-h-screen bg-warmWhite">
       <Navbar />
       
-      {/* Enhanced Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20">
-        {/* Animated Background Elements */}
+      {/* Modern Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-warmWhite via-softGray to-primaryLight/10">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-60 h-60 bg-sunflower/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-72 h-72 bg-leafGreen/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 bg-lightBlue/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+          <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-accentYellow/20 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-earthGreen/20 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-primaryViolet/20 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float animation-delay-4000"></div>
           
-          {/* Floating Icons */}
+          {/* Clean Floating Icons */}
           <div className="absolute top-20 left-10 animate-float">
-            <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-              <BookOpen className="h-6 w-6 text-sunflower" />
+            <div className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+              <BookOpen className="h-6 w-6 text-accentYellow" />
             </div>
           </div>
           <div className="absolute top-40 right-20 animate-float animation-delay-1000">
-            <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-              <Award className="h-8 w-8 text-leafGreen" />
+            <div className="w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+              <Award className="h-8 w-8 text-earthGreen" />
             </div>
           </div>
           <div className="absolute bottom-40 left-20 animate-float animation-delay-2000">
-            <div className="w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg">
-              <Users className="h-7 w-7 text-navy" />
+            <div className="w-14 h-14 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+              <Users className="h-7 w-7 text-primaryViolet" />
             </div>
           </div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            {/* Enhanced Title with Gradient Text */}
+            {/* Modern Title with Clean Typography */}
             <div className="animate-fade-in">
-              <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight">
-                <span className="bg-gradient-to-r from-slate-800 via-slate-700 to-blue-800 bg-clip-text text-transparent animate-gradient-x">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-primaryViolet via-primaryDark to-warmBrown bg-clip-text text-transparent">
                   Khóa học
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-800 via-indigo-700 to-slate-800 bg-clip-text text-transparent animate-gradient-x animation-delay-500">
+                <span className="bg-gradient-to-r from-warmBrown via-accentYellow to-earthGreen bg-clip-text text-transparent">
                   Virtual Assistant Pro
                 </span>
               </h1>
             </div>
             
-            {/* Enhanced Description with Typewriter Effect */}
+            {/* Clean Description */}
             <div className="animate-fade-in-up animation-delay-300">
-              <p className="text-slate-700 text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed">
+              <p className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
                 Trở thành Virtual Assistant chuyên nghiệp và 
-                <span className="font-bold text-blue-700 animate-pulse">&nbsp;bứt phá thu nhập&nbsp;</span> 
+                <span className="font-semibold text-primaryViolet">&nbsp;bứt phá thu nhập&nbsp;</span> 
                 với khóa học độc quyền từ A-Z về Fiverr.
               </p>
             </div>
             
-            {/* Interactive Course Info Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-              <div className="group bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/30 transform hover:scale-105 hover:rotate-1 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            {/* Clean Course Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+              <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-primaryLight transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center shadow-lg group-hover:animate-bounce">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primaryViolet to-primaryDark rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Calendar className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="font-bold text-navy mb-2">Khai Giảng</h3>
-                <p className="text-navy/70">Cuối tháng 9/2025</p>
+                <h3 className="font-semibold text-gray-800 mb-2">Khai Giảng</h3>
+                <p className="text-gray-600">Cuối tháng 9/2025</p>
               </div>
               
-              <div className="group bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/30 transform hover:scale-105 hover:-rotate-1 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-accentLight transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-slate-600 rounded-full flex items-center justify-center shadow-lg group-hover:animate-bounce">
+                  <div className="w-16 h-16 bg-gradient-to-br from-accentYellow to-warmBrown rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Clock className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="font-bold text-navy mb-2">Lịch Học</h3>
-                <p className="text-navy/70">Thứ 3 & Thứ 5<br />(19:45-21:15)</p>
+                <h3 className="font-semibold text-gray-800 mb-2">Lịch Học</h3>
+                <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45-21:15)</p>
               </div>
               
-              <div className="group bg-white/60 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/30 transform hover:scale-105 hover:rotate-1 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-softGreen transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
                 <div className="flex items-center justify-center mb-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-blue-600 rounded-full flex items-center justify-center shadow-lg group-hover:animate-bounce">
+                  <div className="w-16 h-16 bg-gradient-to-br from-earthGreen to-warmBrown rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Hourglass className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="font-bold text-navy mb-2">Thời Lượng</h3>
-                <p className="text-navy/70 text-sm">7 buổi VA + 3 buổi tiếng Anh + 2 buổi coaching 1:1</p>
+                <h3 className="font-semibold text-gray-800 mb-2">Thời Lượng</h3>
+                <p className="text-gray-600 text-sm">7 buổi VA + 3 buổi tiếng Anh + 2 buổi coaching 1:1</p>
               </div>
             </div>
             
-            {/* Enhanced CTA Button */}
+            {/* Modern CTA Button */}
             <div className="animate-fade-in-up animation-delay-700">
               <Link to="/register">
-                <Button className="group relative bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-600 hover:to-slate-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300 overflow-hidden">
+                <Button className="group relative bg-gradient-to-r from-primaryViolet to-primaryDark hover:from-primaryDark hover:to-warmBrown text-white font-semibold py-4 px-8 rounded-2xl text-lg border border-primaryLight/20 hover:border-accentLight/40 transform hover:scale-105 transition-all duration-300">
                   <span className="relative z-10 flex items-center gap-3">
-                    <Star className="h-6 w-6 group-hover:animate-spin" />
+                    <Star className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                     Đăng Ký Ngay - Ưu Đãi Đặc Biệt
-                    <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Button>
               </Link>
             </div>
@@ -182,135 +181,117 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      {/* Enhanced Course Features Showcase */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-blue-50/20 relative overflow-hidden">
-        {/* Background decorative elements */}
+      {/* Modern Course Features Showcase */}
+      <section className="py-20 bg-gradient-to-b from-softGray to-warmWhite relative overflow-hidden">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-sunflower/10 rounded-full animate-float"></div>
-          <div className="absolute bottom-20 right-20 w-24 h-24 bg-leafGreen/15 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-lightBlue/20 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute top-10 left-10 w-24 h-24 bg-accentYellow/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-20 right-20 w-20 h-20 bg-earthGreen/10 rounded-full animate-float animation-delay-1000"></div>
+          <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-primaryViolet/10 rounded-full animate-float animation-delay-2000"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-slate-800 mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-slate-800 to-blue-700 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6 animate-fade-in">
+              <span className="bg-gradient-to-r from-primaryViolet to-warmBrown bg-clip-text text-transparent">
                 Điểm Nổi Bật Khóa Học
               </span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               Khám phá những tính năng độc đáo và giá trị vượt trội mà khóa học mang lại
             </p>
           </div>
           
-          {/* Interactive Feature Grid */}
+          {/* Clean Feature Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Feature 1 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:-rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <Star className="h-10 w-10 text-white group-hover:animate-spin" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-blue-700 transition-colors duration-300">Hướng dẫn Fiverr từ A-Z</h3>
-                <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">Học cách thiết lập, tối ưu và phát triển sự nghiệp trên nền tảng freelance Fiverr một cách bài bản và chuyên nghiệp.</p>
-                <div className="mt-6 flex items-center text-sm text-blue-600 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Tìm hiểu thêm
-                </div>
+            {/* Feature 1 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-primaryLight/30 transition-all duration-300 animate-fade-in-up">
+              <div className="w-16 h-16 bg-gradient-to-br from-primaryViolet to-primaryDark rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Star className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-primaryViolet transition-colors duration-300">Hướng dẫn Fiverr từ A-Z</h3>
+              <p className="text-gray-600 leading-relaxed">Học cách thiết lập, tối ưu và phát triển sự nghiệp trên nền tảng freelance Fiverr một cách bài bản và chuyên nghiệp.</p>
+              <div className="mt-6 flex items-center text-sm text-primaryViolet font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Tìm hiểu thêm
               </div>
             </div>
             
-            {/* Feature 2 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.1s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-indigo-600 to-slate-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <BookOpen className="h-10 w-10 text-white group-hover:animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-indigo-700 transition-colors duration-300">10 Ngách Nghề VA Đa Dạng</h3>
-                <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">Khám phá 10 lĩnh vực chuyên môn khác nhau với ví dụ thực tế và tình huống ứng dụng cụ thể, giúp bạn chọn đúng hướng đi.</p>
-                <div className="mt-6 flex items-center text-sm text-indigo-600 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Khám phá ngay
-                </div>
+            {/* Feature 2 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-accentLight/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <div className="w-16 h-16 bg-gradient-to-br from-accentYellow to-warmBrown rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <BookOpen className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-accentYellow transition-colors duration-300">10 Ngách Nghề VA Đa Dạng</h3>
+              <p className="text-gray-600 leading-relaxed">Khám phá 10 lĩnh vực chuyên môn khác nhau với ví dụ thực tế và tình huống ứng dụng cụ thể, giúp bạn chọn đúng hướng đi.</p>
+              <div className="mt-6 flex items-center text-sm text-accentYellow font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Khám phá ngay
               </div>
             </div>
             
-            {/* Feature 3 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:-rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.2s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-slate-600 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <FileText className="h-10 w-10 text-white group-hover:animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 group-hover:text-slate-700 transition-colors duration-300">Portfolio Chuẩn Chỉnh</h3>
-                <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">"Cầm tay chỉ việc" hướng dẫn bạn tạo dựng portfolio chuyên nghiệp, gây ấn tượng mạnh với khách hàng.</p>
-                <div className="mt-6 flex items-center text-sm text-slate-600 font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
+            {/* Feature 3 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-softGreen/50 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="w-16 h-16 bg-gradient-to-br from-earthGreen to-warmBrown rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <FileText className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-earthGreen transition-colors duration-300">Portfolio Chuẩn Chỉnh</h3>
+              <p className="text-gray-600 leading-relaxed">"Cầm tay chỉ việc" hướng dẫn bạn tạo dựng portfolio chuyên nghiệp, gây ấn tượng mạnh với khách hàng.</p>
+              <div className="mt-6 flex items-center text-sm text-earthGreen font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
                   Xem mẫu
                 </div>
               </div>
-            </div>
             
-            {/* Feature 4 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.3s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-sunflower/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-sunflower to-leafGreen rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <Video className="h-10 w-10 text-white group-hover:animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Thực Hành Tài Khoản Thật</h3>
-                <p className="text-navy/70 leading-relaxed group-hover:text-navy/90 transition-colors duration-300">Trải nghiệm học tập trực tiếp trên tài khoản thật của giảng viên với các tình huống thực tế.</p>
-                <div className="mt-6 flex items-center text-sm text-sunflower font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Trải nghiệm
-                </div>
+            {/* Feature 4 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-primaryLight/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <div className="w-16 h-16 bg-gradient-to-br from-primaryViolet to-accentYellow rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Video className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-primaryViolet transition-colors duration-300">Thực Hành Tài Khoản Thật</h3>
+              <p className="text-gray-600 leading-relaxed">Trải nghiệm học tập trực tiếp trên tài khoản thật của giảng viên với các tình huống thực tế.</p>
+              <div className="mt-6 flex items-center text-sm text-primaryViolet font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Trải nghiệm
               </div>
             </div>
             
-            {/* Feature 5 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:-rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.4s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-leafGreen/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-leafGreen to-lightBlue rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <Users className="h-10 w-10 text-white group-hover:animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-leafGreen transition-colors duration-300">Lớp Học Nhỏ Thân Mật</h3>
-                <p className="text-navy/70 leading-relaxed group-hover:text-navy/90 transition-colors duration-300">Môi trường học tập lý tưởng với lớp học nhỏ từ 10-15 thành viên, tăng cường tương tác và hỗ trợ cá nhân.</p>
-                <div className="mt-6 flex items-center text-sm text-leafGreen font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Tham gia ngay
-                </div>
+            {/* Feature 5 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-softGreen/50 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="w-16 h-16 bg-gradient-to-br from-earthGreen to-primaryViolet rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-earthGreen transition-colors duration-300">Lớp Học Nhỏ Thân Mật</h3>
+              <p className="text-gray-600 leading-relaxed">Môi trường học tập lý tưởng với lớp học nhỏ từ 10-15 thành viên, tăng cường tương tác và hỗ trợ cá nhân.</p>
+              <div className="mt-6 flex items-center text-sm text-earthGreen font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Tham gia ngay
               </div>
             </div>
             
-            {/* Feature 6 - Enhanced */}
-            <div className="group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-white/30 transform hover:scale-105 hover:rotate-1 transition-all duration-500 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.5s" }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-lightBlue/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="w-20 h-20 bg-gradient-to-br from-lightBlue to-sunflower rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:animate-bounce group-hover:shadow-2xl transition-all duration-300">
-                  <MessageSquare className="h-10 w-10 text-white group-hover:animate-pulse" />
-                </div>
-                <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-lightBlue transition-colors duration-300">Tư Vấn Không Giới Hạn</h3>
-                <p className="text-navy/70 leading-relaxed group-hover:text-navy/90 transition-colors duration-300">Nhận sự hỗ trợ và tư vấn trực tiếp từ giảng viên trong suốt quá trình học và sau khóa học.</p>
-                <div className="mt-6 flex items-center text-sm text-lightBlue font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  <ArrowRight className="h-4 w-4 mr-2" />
-                  Liên hệ ngay
-                </div>
+            {/* Feature 6 - Modern */}
+            <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-accentLight/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="w-16 h-16 bg-gradient-to-br from-accentYellow to-earthGreen rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <MessageSquare className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4 group-hover:text-accentYellow transition-colors duration-300">Tư Vấn Không Giới Hạn</h3>
+              <p className="text-gray-600 leading-relaxed">Nhận sự hỗ trợ và tư vấn trực tiếp từ giảng viên trong suốt quá trình học và sau khóa học.</p>
+              <div className="mt-6 flex items-center text-sm text-accentYellow font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <ArrowRight className="h-4 w-4 mr-2" />
+                Liên hệ ngay
               </div>
             </div>
           </div>
           
-          {/* Call to Action */}
+          {/* Modern Call to Action */}
           <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
-            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 backdrop-blur-sm border border-white/30 shadow-xl">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">Sẵn sàng bắt đầu hành trình?</h3>
-              <p className="text-slate-600 mb-6 max-w-2xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp với mức thu nhập ổn định</p>
+            <div className="bg-gradient-to-r from-primaryLight/20 to-accentLight/20 rounded-3xl p-8 backdrop-blur-sm border border-gray-200">
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Sẵn sàng bắt đầu hành trình?</h3>
+              <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp với mức thu nhập ổn định</p>
               <Link to="/register">
-              <Button className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-indigo-600 hover:to-slate-600 text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300">
+              <Button className="group bg-gradient-to-r from-primaryViolet to-primaryDark hover:from-primaryDark hover:to-warmBrown text-white font-semibold py-4 px-8 rounded-2xl text-lg border border-primaryLight/20 transform hover:scale-105 transition-all duration-300">
                 <span className="flex items-center gap-3">
-                  <Award className="h-6 w-6 group-hover:animate-spin" />
+                  <Award className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                   Đăng Ký Khóa Học Ngay
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
                 </span>
@@ -321,143 +302,143 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      {/* Animated Statistics Counter Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-800 to-slate-700 relative overflow-hidden">
-        {/* Background Effects */}
+      {/* Modern Statistics Section */}
+      <section className="py-20 bg-gradient-to-br from-primaryViolet to-primaryDark relative overflow-hidden">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-10 right-10 w-40 h-40 bg-sunflower/10 rounded-full animate-float"></div>
-          <div className="absolute bottom-20 left-20 w-32 h-32 bg-leafGreen/10 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/2 right-1/4 w-24 h-24 bg-lightBlue/10 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute top-10 right-10 w-32 h-32 bg-accentYellow/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-20 left-20 w-28 h-28 bg-earthGreen/10 rounded-full animate-float animation-delay-1000"></div>
+          <div className="absolute top-1/2 right-1/4 w-20 h-20 bg-primaryLight/20 rounded-full animate-float animation-delay-2000"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-white mb-6 animate-fade-in">
+              <span className="bg-gradient-to-r from-accentLight to-softGreen bg-clip-text text-transparent">
                 Thành Tựu Ấn Tượng
               </span>
             </h2>
-            <p className="text-white/80 text-xl max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            <p className="text-white/90 text-lg max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               Những con số biết nói về chất lượng và hiệu quả của khóa học VAP
             </p>
           </div>
           
-          {/* Statistics Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Clean Statistics Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Stat 1 */}
             <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce">
-                  <Users className="h-10 w-10 text-white" />
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-accentYellow to-warmBrown rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-blue-400 mb-2 group-hover:animate-pulse">
+                <div className="text-3xl font-bold text-accentLight mb-2">
                   500+
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Học Viên</h3>
-                <p className="text-white/70 text-sm">Đã tham gia và hoàn thành khóa học thành công</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Học Viên</h3>
+                <p className="text-white/80 text-sm">Đã tham gia và hoàn thành khóa học thành công</p>
               </div>
             </div>
             
             {/* Stat 2 */}
             <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-slate-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce">
-                  <Award className="h-10 w-10 text-white" />
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-earthGreen to-primaryViolet rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Award className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-indigo-400 mb-2 group-hover:animate-pulse">
+                <div className="text-3xl font-bold text-softGreen mb-2">
                   95%
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Tỷ Lệ Thành Công</h3>
-                <p className="text-white/70 text-sm">Học viên tìm được việc làm VA sau khóa học</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Tỷ Lệ Thành Công</h3>
+                <p className="text-white/80 text-sm">Học viên tìm được việc làm VA sau khóa học</p>
               </div>
             </div>
             
             {/* Stat 3 */}
             <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="w-20 h-20 bg-gradient-to-br from-slate-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce">
-                  <Star className="h-10 w-10 text-white" />
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-primaryLight to-accentYellow rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Star className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-slate-300 mb-2 group-hover:animate-pulse">
+                <div className="text-3xl font-bold text-primaryLight mb-2">
                   4.9/5
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Đánh Giá</h3>
-                <p className="text-white/70 text-sm">Điểm đánh giá trung bình từ học viên</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Đánh Giá</h3>
+                <p className="text-white/80 text-sm">Điểm đánh giá trung bình từ học viên</p>
               </div>
             </div>
             
             {/* Stat 4 */}
             <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:animate-bounce">
-                  <Clock className="h-10 w-10 text-white" />
+              <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-br from-warmBrown to-earthGreen rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-8 w-8 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-blue-400 mb-2 group-hover:animate-pulse">
+                <div className="text-3xl font-bold text-accentLight mb-2">
                   15+
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">Khóa Học</h3>
-                <p className="text-white/70 text-sm">Đã được tổ chức với chất lượng cao</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Khóa Học</h3>
+                <p className="text-white/80 text-sm">Đã được tổ chức với chất lượng cao</p>
               </div>
             </div>
           </div>
           
-          {/* Success Stories Preview */}
+          {/* Clean Success Stories Preview */}
           <div className="mt-16 text-center animate-fade-in-up animation-delay-700">
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-white mb-6">💼 Thu Nhập Trung Bình Của Học Viên</h3>
+            <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-8 border border-white/20 max-w-3xl mx-auto">
+              <h3 className="text-xl font-bold text-white mb-6">💼 Thu Nhập Trung Bình Của Học Viên</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-400 mb-2">$500-800</div>
-                  <p className="text-white/70">Tháng đầu tiên</p>
+                  <div className="text-2xl font-bold text-accentLight mb-2">$500-800</div>
+                  <p className="text-white/80">Tháng đầu tiên</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-indigo-400 mb-2">$1000-1500</div>
-                  <p className="text-white/70">Sau 3 tháng</p>
+                  <div className="text-2xl font-bold text-softGreen mb-2">$1000-1500</div>
+                  <p className="text-white/80">Sau 3 tháng</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-slate-300 mb-2">$2000+</div>
-                  <p className="text-white/70">Sau 6 tháng</p>
+                  <div className="text-2xl font-bold text-primaryLight mb-2">$2000+</div>
+                  <p className="text-white/80">Sau 6 tháng</p>
                 </div>
               </div>
-              <p className="text-white/60 text-sm mt-4 italic">*Dựa trên khảo sát thực tế từ học viên đã hoàn thành khóa học</p>
+              <p className="text-white/70 text-sm mt-4 italic">*Dựa trên khảo sát thực tế từ học viên đã hoàn thành khóa học</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Creative Course Timeline Section */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-blue-50/20 relative overflow-hidden">
-        {/* Background decorative elements */}
+      {/* Modern Learning Path Section */}
+      <section className="py-20 bg-gradient-to-b from-softGray to-warmWhite relative overflow-hidden">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-28 h-28 bg-sunflower/10 rounded-full animate-float"></div>
-          <div className="absolute bottom-40 right-20 w-36 h-36 bg-leafGreen/10 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/2 right-10 w-20 h-20 bg-lightBlue/15 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute top-20 left-10 w-24 h-24 bg-accentYellow/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-40 right-20 w-28 h-28 bg-earthGreen/10 rounded-full animate-float animation-delay-1000"></div>
+          <div className="absolute top-1/2 right-10 w-20 h-20 bg-primaryViolet/10 rounded-full animate-float animation-delay-2000"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-slate-800 mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-slate-800 to-blue-700 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6 animate-fade-in">
+              <span className="bg-gradient-to-r from-primaryViolet to-warmBrown bg-clip-text text-transparent">
                 Lộ Trình Học Tập
               </span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               Hành trình từ người mới bắt đầu đến Virtual Assistant chuyên nghiệp
             </p>
           </div>
           
-          {/* Course Overview Card */}
-          <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30 mb-16 animate-fade-in-up animation-delay-500">
+          {/* Modern Course Overview Card */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 mb-16 animate-fade-in-up animation-delay-500">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                   alt="Khóa học Virtual Assistant Pro" 
-                  className="w-full h-80 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-500" 
+                  className="w-full h-80 object-cover rounded-2xl hover:scale-105 transition-transform duration-500" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent rounded-2xl flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-primaryViolet/60 to-transparent rounded-2xl flex items-end p-6">
                   <div className="text-white">
-                    <span className="bg-gradient-to-r from-sunflower to-leafGreen text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+                    <span className="bg-gradient-to-r from-accentYellow to-earthGreen text-white text-sm font-semibold px-4 py-2 rounded-full">
                       Cơ Bản đến Trung Cấp
                     </span>
                   </div>
@@ -466,8 +447,8 @@ const TrainingPage = () => {
               
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-3xl font-bold text-slate-800 mb-4">Khóa học Virtual Assistant Pro</h3>
-                  <p className="text-slate-600 text-lg leading-relaxed mb-4">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">Khóa học Virtual Assistant Pro</h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
                     Virtual Assistant Pro không chỉ là một khóa học nghề - đây là nơi bạn được trang bị kiến thức thực tế, 
                     thực hành trực tiếp, và tiếp cận những câu chuyện thật từ khách hàng và học viên đi trước.
                   </p>
@@ -476,59 +457,59 @@ const TrainingPage = () => {
                 {/* Key Benefits */}
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-accentYellow to-earthGreen rounded-full flex items-center justify-center">
                       <Check className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-slate-600">Bước vào thế giới freelancer toàn cầu</span>
+                    <span className="text-gray-600">Bước vào thế giới freelancer toàn cầu</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-leafGreen to-lightBlue rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-earthGreen to-primaryViolet rounded-full flex items-center justify-center">
                       <Check className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-slate-600">Xây dựng sự nghiệp ổn định và lâu dài</span>
+                    <span className="text-gray-600">Xây dựng sự nghiệp ổn định và lâu dài</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-lightBlue to-sunflower rounded-full flex items-center justify-center">
+                    <div className="w-8 h-8 bg-gradient-to-r from-primaryViolet to-accentYellow rounded-full flex items-center justify-center">
                       <Check className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-slate-600">Có mentor đồng hành không đi một mình</span>
+                    <span className="text-gray-600">Có mentor đồng hành không đi một mình</span>
                   </div>
                 </div>
                 
                 {/* Course Stats */}
-                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
+                <div className="grid grid-cols-3 gap-4 pt-6 border-t border-gray-200">
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-2">
-                      <Clock className="h-5 w-5 text-blue-600" />
-                      <span className="font-bold text-slate-800">4 tuần</span>
+                      <Clock className="h-5 w-5 text-primaryViolet" />
+                      <span className="font-bold text-gray-800">4 tuần</span>
                     </div>
-                    <p className="text-sm text-slate-600">Thời lượng</p>
+                    <p className="text-sm text-gray-600">Thời lượng</p>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-2">
-                      <Users className="h-5 w-5 text-indigo-600" />
-                      <span className="font-bold text-slate-800">10-15</span>
+                      <Users className="h-5 w-5 text-accentYellow" />
+                      <span className="font-bold text-gray-800">10-15</span>
                     </div>
-                    <p className="text-sm text-slate-600">Học viên</p>
+                    <p className="text-sm text-gray-600">Học viên</p>
                   </div>
                   <div className="text-center">
                     <div className="flex items-center justify-center gap-2 mb-2">
-                      <Award className="h-5 w-5 text-slate-600" />
-                      <span className="font-bold text-slate-800">100%</span>
+                      <Award className="h-5 w-5 text-earthGreen" />
+                      <span className="font-bold text-gray-800">100%</span>
                     </div>
-                    <p className="text-sm text-slate-600">Chứng chỉ</p>
+                    <p className="text-sm text-gray-600">Chứng chỉ</p>
                   </div>
                 </div>
                 
                 {/* Price and CTA */}
-                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 mt-6">
+                <div className="bg-gradient-to-r from-primaryLight/20 to-accentLight/20 rounded-2xl p-6 mt-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-slate-600 mb-1">Học phí trọn gói</p>
-                      <p className="text-3xl font-bold text-slate-800">8,000,000 VNĐ</p>
+                      <p className="text-sm text-gray-600 mb-1">Học phí trọn gói</p>
+                      <p className="text-2xl font-bold text-gray-800">8,000,000 VNĐ</p>
                     </div>
                     <Link to="/register">
-                  <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <Button className="group bg-gradient-to-r from-primaryViolet to-primaryDark hover:from-primaryDark hover:to-warmBrown text-white font-semibold py-3 px-6 rounded-2xl border border-primaryLight/20 transform hover:scale-105 transition-all duration-300">
                     <span className="flex items-center gap-2">
                       <BookOpen className="h-5 w-5" />
                       Đăng Ký Ngay
@@ -764,77 +745,77 @@ const TrainingPage = () => {
         </div>
       </section>
       
-      {/* Enhanced Testimonials Section */}
-      <section className="py-20 bg-gradient-to-b from-warmWhite to-lightYellow/20 relative overflow-hidden">
-        {/* Background decorative elements */}
+      {/* Modern Testimonials Section */}
+      <section className="py-20 bg-gradient-to-b from-warmWhite to-softGray relative overflow-hidden">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 right-10 w-32 h-32 bg-sunflower/10 rounded-full animate-float"></div>
-          <div className="absolute bottom-40 left-20 w-28 h-28 bg-leafGreen/10 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/2 left-10 w-20 h-20 bg-lightBlue/15 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute top-20 right-10 w-24 h-24 bg-accentYellow/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-40 left-20 w-20 h-20 bg-earthGreen/10 rounded-full animate-float animation-delay-1000"></div>
+          <div className="absolute top-1/2 left-10 w-16 h-16 bg-primaryViolet/10 rounded-full animate-float animation-delay-2000"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-navy mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-navy to-sunflower bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6 animate-fade-in">
+              <span className="bg-gradient-to-r from-primaryViolet to-accentYellow bg-clip-text text-transparent">
                 Câu Chuyện Thành Công
               </span>
             </h2>
-            <p className="text-xl text-navy/80 max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               Những chia sẻ chân thật từ học viên đã thành công với khóa học VAP
             </p>
           </div>
           
-          {/* Featured Testimonial */}
-          <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30 mb-16 animate-fade-in-up animation-delay-500">
+          {/* Clean Featured Testimonial */}
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 mb-16 animate-fade-in-up animation-delay-500">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
               <div className="lg:col-span-1 text-center">
                 <div className="relative inline-block">
                   <img 
                     src="https://randomuser.me/api/portraits/women/32.jpg" 
                     alt="Nguyễn Thị Hương" 
-                    className="w-32 h-32 rounded-full object-cover shadow-xl border-4 border-sunflower/30" 
+                    className="w-24 h-24 rounded-full object-cover border-4 border-primaryLight/30" 
                   />
-                  <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center shadow-lg">
-                    <Star className="h-6 w-6 text-white" />
+                  <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-accentYellow to-earthGreen rounded-full flex items-center justify-center">
+                    <Star className="h-5 w-5 text-white" />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-navy mt-4">Nguyễn Thị Hương</h3>
-                <p className="text-navy/70 mb-2">Virtual Assistant</p>
+                <h3 className="text-lg font-bold text-gray-800 mt-4">Nguyễn Thị Hương</h3>
+                <p className="text-gray-600 mb-2">Virtual Assistant</p>
                 <div className="flex justify-center items-center gap-1 mb-4">
                    {[...Array(5)].map((_, i) => (
-                     <Star key={`featured-star-${i}`} className="h-4 w-4 text-sunflower fill-current" />
+                     <Star key={`featured-star-${i}`} className="h-4 w-4 text-accentYellow fill-current" />
                    ))}
                 </div>
-                <div className="bg-gradient-to-r from-sunflower/10 to-leafGreen/10 rounded-full px-4 py-2">
-                  <span className="text-sm font-semibold text-navy">Thu nhập: $2,500/tháng</span>
+                <div className="bg-gradient-to-r from-accentLight/20 to-softGreen/20 rounded-full px-4 py-2">
+                  <span className="text-sm font-semibold text-gray-800">Thu nhập: $2,500/tháng</span>
                 </div>
               </div>
               
               <div className="lg:col-span-2">
                 <div className="relative">
-                  <div className="absolute -top-4 -left-4 text-6xl text-sunflower/30 font-serif">"</div>
-                  <blockquote className="text-lg text-navy/80 leading-relaxed italic pl-8">
+                  <div className="absolute -top-4 -left-4 text-5xl text-accentYellow/30 font-serif">"</div>
+                  <blockquote className="text-base text-gray-700 leading-relaxed italic pl-8">
                     Trước khi tham gia khóa học VAP, tôi chỉ là một nhân viên văn phòng với mức lương cố định. 
                     Sau 4 tuần học tập và 3 tháng thực hành, giờ đây tôi đã có thu nhập ổn định $2,500/tháng 
                     từ việc làm Virtual Assistant cho các khách hàng quốc tế. Điều tuyệt vời nhất là tôi có thể 
                     làm việc từ nhà và có thời gian linh hoạt cho gia đình.
                   </blockquote>
-                  <div className="absolute -bottom-4 -right-4 text-6xl text-leafGreen/30 font-serif transform rotate-180">"</div>
+                  <div className="absolute -bottom-4 -right-4 text-5xl text-earthGreen/30 font-serif transform rotate-180">"</div>
                 </div>
                 
                 <div className="mt-6 grid grid-cols-3 gap-4">
-                  <div className="text-center p-4 bg-white/50 rounded-xl">
-                    <div className="text-2xl font-bold text-sunflower">3 tháng</div>
-                    <p className="text-sm text-navy/70">Thời gian thành công</p>
+                  <div className="text-center p-4 bg-gray-50 rounded-2xl">
+                    <div className="text-xl font-bold text-accentYellow">3 tháng</div>
+                    <p className="text-sm text-gray-600">Thời gian thành công</p>
                   </div>
-                  <div className="text-center p-4 bg-white/50 rounded-xl">
-                    <div className="text-2xl font-bold text-leafGreen">5 khách hàng</div>
-                    <p className="text-sm text-navy/70">Đang hợp tác</p>
+                  <div className="text-center p-4 bg-gray-50 rounded-2xl">
+                    <div className="text-xl font-bold text-earthGreen">5 khách hàng</div>
+                    <p className="text-sm text-gray-600">Đang hợp tác</p>
                   </div>
-                  <div className="text-center p-4 bg-white/50 rounded-xl">
-                    <div className="text-2xl font-bold text-lightBlue">100%</div>
-                    <p className="text-sm text-navy/70">Hài lòng</p>
+                  <div className="text-center p-4 bg-gray-50 rounded-2xl">
+                    <div className="text-xl font-bold text-primaryViolet">100%</div>
+                    <p className="text-sm text-gray-600">Hài lòng</p>
                   </div>
                 </div>
               </div>
@@ -1058,16 +1039,16 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      {/* Học phí khóa học Section */}
-      <section className="py-20 bg-warmWhite">
+      {/* Modern Pricing Section */}
+      <section className="py-20 bg-gradient-to-br from-warmWhite to-softGray">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold text-navy mb-12 animate-fade-in">Học Phí Khóa Học</h2>
-          <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 max-w-md mx-auto animate-fade-in-up">
-            <p className="text-navy/70 text-lg mb-4">TRỌN GÓI KHÓA HỌC VIRTUAL ASSISTANT PRO TỪ A-Z</p>
-            <p className="text-5xl font-extrabold text-sunflower mb-6">8,000,000 VND</p>
-            <p className="text-navy/80 mb-6">Bao gồm toàn bộ nội dung học, tài liệu, hỗ trợ và quyền lợi đặc biệt.</p>
+          <h2 className="text-3xl font-bold text-gray-800 mb-12 animate-fade-in">Học Phí Khóa Học</h2>
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 max-w-md mx-auto animate-fade-in-up">
+            <p className="text-gray-600 text-base mb-4">TRỌN GÓI KHÓA HỌC VIRTUAL ASSISTANT PRO TỪ A-Z</p>
+            <p className="text-4xl font-bold text-primaryViolet mb-6">8,000,000 VND</p>
+            <p className="text-gray-600 mb-6">Bao gồm toàn bộ nội dung học, tài liệu, hỗ trợ và quyền lợi đặc biệt.</p>
             <Link to="/login">
-              <Button className="btn-primary flex items-center gap-2 group mx-auto">
+              <Button className="bg-gradient-to-r from-primaryViolet to-primaryDark hover:from-primaryDark hover:to-warmBrown text-white font-semibold py-3 px-6 rounded-2xl border border-primaryLight/20 flex items-center gap-2 group mx-auto transform hover:scale-105 transition-all duration-300">
                 <BookOpen className="h-4 w-4" />
                 Đăng Ký Ngay
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -1077,23 +1058,23 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      {/* Interactive FAQ Section */}
-      <section className="py-20 bg-gradient-to-b from-lightYellow/30 to-warmWhite relative overflow-hidden">
-        {/* Background decorative elements */}
+      {/* Modern FAQ Section */}
+      <section className="py-20 bg-gradient-to-b from-softGray to-warmWhite relative overflow-hidden">
+        {/* Subtle Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-28 h-28 bg-sunflower/10 rounded-full animate-float"></div>
-          <div className="absolute bottom-40 right-20 w-32 h-32 bg-leafGreen/10 rounded-full animate-float animation-delay-1000"></div>
-          <div className="absolute top-1/2 right-10 w-24 h-24 bg-lightBlue/15 rounded-full animate-float animation-delay-2000"></div>
+          <div className="absolute top-20 left-10 w-20 h-20 bg-accentYellow/10 rounded-full animate-float"></div>
+          <div className="absolute bottom-40 right-20 w-24 h-24 bg-earthGreen/10 rounded-full animate-float animation-delay-1000"></div>
+          <div className="absolute top-1/2 right-10 w-18 h-18 bg-primaryViolet/10 rounded-full animate-float animation-delay-2000"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-navy mb-6 animate-fade-in">
-              <span className="bg-gradient-to-r from-navy to-sunflower bg-clip-text text-transparent">
+            <h2 className="text-3xl font-bold text-gray-800 mb-6 animate-fade-in">
+              <span className="bg-gradient-to-r from-primaryViolet to-accentYellow bg-clip-text text-transparent">
                 Câu Hỏi Thường Gặp
               </span>
             </h2>
-            <p className="text-xl text-navy/80 max-w-3xl mx-auto animate-fade-in-up animation-delay-300">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto animate-fade-in-up animation-delay-300">
               Tìm câu trả lời cho những thắc mắc phổ biến về khóa học VAP
             </p>
           </div>

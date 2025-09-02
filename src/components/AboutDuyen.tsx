@@ -26,7 +26,7 @@ const AboutDuyen = () => {
           {/* Content */}
           <div className="lg:w-1/2 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-6">
-              Xin chào, tôi là <span className="text-sunflower font-['Big_Shoulders_Stencil']">Duyên</span>
+              Xin chào, tôi là <span className="text-sunflower font-condensed">Duyên</span>
             </h2>
             
             <p className="text-lg text-navy/80 mb-6 leading-relaxed">

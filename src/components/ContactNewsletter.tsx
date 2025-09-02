@@ -61,7 +61,7 @@ const ContactNewsletter = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-4">
-            <span className="text-sunflower font-['Big_Shoulders_Stencil']">Liên hệ ngay!</span>
+            <span className="text-sunflower font-condensed">Liên hệ ngay!</span>
           </h2>
           <p className="text-lg text-navy/70 mb-8 max-w-2xl mx-auto">
             Đăng ký nhận newsletter để cập nhật những thông tin mới nhất về khóa học, 
