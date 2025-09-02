@@ -25,6 +25,7 @@ import ServicesPage from "./pages/ServicesPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
+import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -52,6 +53,7 @@ const App = () => (
             <Route path="/team" element={<TeamPage />} />
             <Route path="/training-program" element={<TrainingProgramPage />} />
             <Route path="/career-opportunities" element={<CareerOpportunitiesPage />} />
+            <Route path="/success-stories" element={<StudentSuccessStoriesPage />} />
                         <Route path="/book-meeting" element={<BookMeetingPage />} />
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/terms" element={<TermsPage />} />
