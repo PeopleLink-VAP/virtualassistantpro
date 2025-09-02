@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -20,7 +21,13 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Seo
+        title="Admin Dashboard - Virtual Assistant Pro"
+        description="Admin dashboard for Virtual Assistant Pro"
+        noIndex={true}
+      />
+      <div className="min-h-screen bg-background">
       <header className="border-b sticky top-0 z-50 bg-background">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
@@ -169,6 +176,7 @@ export default function AdminDashboard() {
           </div>
         </Tabs>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -74,7 +75,13 @@ export default function MembersDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Seo
+        title="Members Dashboard - Virtual Assistant Pro"
+        description="Members dashboard for Virtual Assistant Pro"
+        noIndex={true}
+      />
+      <div className="min-h-screen bg-background">
       <header className="border-b">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold">Member Dashboard</h1>
@@ -241,6 +248,7 @@ export default function MembersDashboard() {
           </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

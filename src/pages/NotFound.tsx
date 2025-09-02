@@ -1,6 +1,7 @@
 
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import Seo from '@/components/Seo';
 
 const NotFound = () => {
   const location = useLocation();
@@ -13,7 +14,14 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <>
+      <Seo
+        title="404 - Trang Không Tìm Thấy | Virtual Assistant Pro"
+        description="Trang bạn đang tìm kiếm không tồn tại. Quay lại trang chủ Virtual Assistant Pro để khám phá các khóa học VA chuyên nghiệp."
+        keywords="404, trang không tìm thấy, virtual assistant pro, lỗi trang"
+        noIndex={true}
+      />
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center max-w-md p-8 bg-white rounded-lg shadow-md">
         <h1 className="text-4xl font-bold mb-4 text-navy">404</h1>
         <p className="text-xl text-gray-600 mb-4">Trang không tìm thấy</p>
@@ -22,7 +30,8 @@ const NotFound = () => {
           Về Trang Chủ
         </Link>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -30,8 +31,16 @@ const BookMeetingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-warmWhite">
-      <Navbar />
+    <>
+      <Seo
+        title="Đặt Lịch Tư Vấn - Virtual Assistant Pro | Consultation Miễn Phí"
+        description="Đặt lịch tư vấn miễn phí với chuyên gia Virtual Assistant Pro. Nhận tư vấn cá nhân về khóa học VA, định hướng nghề nghiệp và giải pháp kinh doanh online."
+        keywords="đặt lịch tư vấn VA, consultation virtual assistant, tư vấn miễn phí, meeting VA expert, book consultation online"
+        canonicalUrl="https://virtualassistantpro.vn/book-meeting"
+        type="website"
+      />
+      <div className="min-h-screen bg-warmWhite">
+        <Navbar />
       <section className="pt-28 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -226,7 +235,8 @@ const BookMeetingPage = () => {
         </div>
       </section>
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Helmet } from 'react-helmet';
+import Seo from '@/components/Seo';
 import { Check, Clock, Calendar, Users, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -111,10 +111,13 @@ const programs = [
 const TrainingProgramPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Chương Trình Đào Tạo - Virtual Assistant Pro</title>
-        <meta name="description" content="Khám phá chương trình đào tạo Trợ Lý Ảo chuyên nghiệp tại Virtual Assistant Pro - nơi đào tạo kỹ năng thiết yếu để bạn thành công trong nghề VA." />
-      </Helmet>
+      <Seo
+        title="Chương Trình Đào Tạo VA - Virtual Assistant Pro | 5 Module Chuyên Sâu"
+        description="Chương trình đào tạo Virtual Assistant chuyên nghiệp với 5 module từ cơ bản đến nâng cao. Học Fiverr, Upwork, quản lý khách hàng và xây dựng thương hiệu cá nhân. Đăng ký ngay!"
+        keywords="chương trình đào tạo VA, module học virtual assistant, curriculum VA course, học trợ lý ảo chuyên nghiệp, training program Vietnam"
+        canonicalUrl="https://virtualassistantpro.vn/training-program"
+        type="course"
+      />
       
       <div className="min-h-screen bg-warmWhite">
         <Navbar />

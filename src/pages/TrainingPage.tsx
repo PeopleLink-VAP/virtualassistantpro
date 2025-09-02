@@ -13,11 +13,51 @@ import CoursePricing from '@/components/training/CoursePricing';
 import CourseFAQ from '@/components/training/CourseFAQ';
 
 const TrainingPage = () => {
+  const courseStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Khóa Học Virtual Assistant Pro - Đào Tạo VA Chuyên Nghiệp",
+    "description": "Khóa học toàn diện từ cơ bản đến nâng cao, giúp bạn trở thành Virtual Assistant chuyên nghiệp với thu nhập ổn định 10-50 triệu/tháng. Học Fiverr, Upwork từ A-Z với mentor giàu kinh nghiệm.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Virtual Assistant Pro",
+      "url": "https://virtualassistantpro.vn"
+    },
+    "courseMode": "online",
+    "inLanguage": "vi",
+    "teaches": [
+      "Virtual Assistant Skills",
+      "Fiverr Marketing",
+      "Upwork Freelancing",
+      "Client Management",
+      "Online Business Development"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "4500000",
+      "priceCurrency": "VND",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2024-01-01"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "online",
+      "instructor": {
+        "@type": "Person",
+        "name": "Virtual Assistant Pro Team"
+      }
+    }
+  };
+
   return (
     <>
       <Seo
-        title="Khóa Học Virtual Assistant Pro - Đào Tạo VA Chuyên Nghiệp"
-        description="Tham gia khóa học Virtual Assistant Pro để trở thành VA chuyên nghiệp với thu nhập ổn định. Học Fiverr từ A-Z với mentor giàu kinh nghiệm."
+        title="Khóa Học Virtual Assistant Pro - Đào Tạo VA Chuyên Nghiệp #1 Việt Nam"
+        description="Khóa học Virtual Assistant toàn diện từ A-Z. Học cách kiếm tiền 10-50 triệu/tháng với Fiverr, Upwork. Đào tạo VA chuyên nghiệp với mentor giàu kinh nghiệm. Đăng ký ngay!"
+        keywords="khóa học virtual assistant, đào tạo VA chuyên nghiệp, học Fiverr Upwork, kiếm tiền online, freelancer course Vietnam, VA training, trợ lý ảo online"
+        canonicalUrl="https://virtualassistantpro.vn/training"
+        type="course"
+        structuredData={courseStructuredData}
       />
       <Navbar />
       <ScrollToTop />
