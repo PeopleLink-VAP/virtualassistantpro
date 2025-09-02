@@ -111,7 +111,7 @@ const TrainingPage = () => {
             <div className="animate-fade-in-up animation-delay-300">
               <p className="text-slate-700 text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed">
                 Trở thành Virtual Assistant chuyên nghiệp và 
-                <span className="font-bold text-blue-700 animate-pulse">bứt phá thu nhập</span> 
+                <span className="font-bold text-blue-700 animate-pulse">&nbsp;bứt phá thu nhập&nbsp;</span> 
                 với khóa học độc quyền từ A-Z về Fiverr.
               </p>
             </div>
