@@ -41,6 +41,7 @@ const Footer = () => {
             <ul className="space-y-2 font-['Roboto_Condensed']">
               <li><Link to="/vap-course" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Giới thiệu khóa học</Link></li>
               <li><Link to="/career-opportunities" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Cơ hội nghề nghiệp</Link></li>
+              <li><Link to="/success-stories" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Câu chuyện thành công</Link></li>
               <li><Link to="/free-resources" className="text-warmWhite/80 hover:text-sunflower transition-colors hover:translate-x-1 inline-block">Tài liệu VA</Link></li>
             </ul>
           </div>

@@ -7,19 +7,19 @@ const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: '[Email của bạn]',
+    value: 'contact@virtualassistantpro.vn',
     description: 'Liên hệ chung và thông tin'
   },
   {
     icon: Phone,
     title: 'Điện thoại/Zalo',
-    value: '[Số của bạn]',
+    value: '+84 932548082',
     description: 'Liên hệ trực tiếp qua điện thoại hoặc Zalo'
   },
   {
     icon: MessageSquare,
     title: 'Facebook Messenger',
-    value: '[Link]',
+    value: '',
     description: 'Nhắn tin qua Facebook Messenger'
   }
 ];
@@ -96,7 +96,7 @@ const Contact = () => {
               <div className="mt-6 pt-6 border-t border-navy/20">
                 <p className="text-sm text-navy/70 flex items-center gap-2">
                   <span className="text-sunflower">👉</span>
-                  Cam kết phản hồi trong vòng 24 giờ (ngày làm việc).
+                  Đội ngũ chúng tôi sẽ phản hồi trong vòng 24 giờ (ngày làm việc).
                 </p>
               </div>
             </div>

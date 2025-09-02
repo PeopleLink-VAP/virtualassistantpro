@@ -77,6 +77,14 @@ const Navbar = () => {
                       </li>
                       <li>
                         <NavigationMenuLink asChild>
+                          <Link to="/career-opportunities" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <Briefcase size={16} />
+                            <div className="text-sm font-medium leading-none">Cơ hội nghề nghiệp</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
                           <Link to="/success-stories" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <Users size={16} />
                             <div className="text-sm font-medium leading-none">Câu Chuyện Thành Công</div>
@@ -163,6 +171,9 @@ const Navbar = () => {
                 </Link>
                 <Link to="/free-resources" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <BookOpen size={16} /> Tài Liệu & Công Cụ Miễn Phí
+                </Link>
+                <Link to="/career-opportunities" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <Briefcase size={16} /> Cơ hội nghề nghiệp
                 </Link>
                 <Link to="/success-stories" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <Users size={16} /> Câu Chuyện Thành Công

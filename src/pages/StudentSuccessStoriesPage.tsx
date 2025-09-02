@@ -182,7 +182,7 @@ const StudentSuccessStoriesPage = () => {
                 to="/vap-course" 
                 className="bg-sunflower text-navy px-8 py-3 rounded-lg font-semibold hover:bg-sunflower/90 transition duration-300"
               >
-                Xem Các Khóa Học
+                Xem Khóa Học
               </Link>
               <Link 
                 to="/contact" 
