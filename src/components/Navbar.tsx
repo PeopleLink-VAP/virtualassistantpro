@@ -61,7 +61,7 @@ const Navbar = () => {
                     <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
                       <li>
                         <NavigationMenuLink asChild>
-                          <Link to="/training" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                          <Link to="/vap-course" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <BookOpen size={16} />
                             <div className="text-sm font-medium leading-none">Thông tin khóa học VAP</div>
                           </Link>
@@ -158,7 +158,7 @@ const Navbar = () => {
                 <ChevronDown size={16} className="transform transition-transform group-open:rotate-180" />
               </summary>
               <div className="pl-4 space-y-2">
-                <Link to="/training" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                <Link to="/vap-course" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <BookOpen size={16} /> Thông tin khóa học VAP
                 </Link>
                 <Link to="/free-resources" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
