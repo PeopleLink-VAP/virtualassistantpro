@@ -125,19 +125,18 @@ const RealLifeResults = () => {
           <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
             <div className="grid md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold text-sunflower mb-2">95%</div>
-                <p className="text-navy/80">Học viên tìm được việc</p>
-                <p className="text-sm text-navy/60">trong vòng 6 tháng</p>
+                <div className="text-3xl font-bold text-sunflower mb-2">100%</div>
+                <p className="text-navy/80">học viên được hướng dẫn từ A-Z về nghề VA</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-leafGreen mb-2">$650+</div>
-                <p className="text-navy/80">Thu nhập trung bình</p>
-                <p className="text-sm text-navy/60">sau 3 tháng học</p>
+                <div className="text-3xl font-bold text-leafGreen mb-2">55-75%</div>
+                <p className="text-navy/80">học viên tìm được việc trong vòng 6 tháng</p>
+                <p className="text-sm text-navy/60">quyết liệt làm</p>
               </div>
               <div>
                 <div className="text-3xl font-bold text-navy mb-2">4.9/5</div>
                 <p className="text-navy/80">Đánh giá khóa học</p>
-                <p className="text-sm text-navy/60">từ 200+ học viên</p>
+                <p className="text-sm text-navy/60">từ 150+ học viên</p>
               </div>
             </div>
           </div>

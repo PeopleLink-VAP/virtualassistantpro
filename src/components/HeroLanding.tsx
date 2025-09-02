@@ -37,19 +37,17 @@ const HeroLanding = () => {
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <CheckCircle className="text-sunflower" size={24} />
-                <span className="text-3xl font-bold text-navy">150+</span>
+                <span className="text-3xl font-bold text-sunflower">150+</span>
               </div>
-              <p className="text-navy/80 font-medium">Trained VAs</p>
-              <p className="text-sm text-navy/60">Thriving across the globe</p>
+              <p className="text-navy/80 font-medium">Học viên VA toàn quốc</p>
             </div>
             
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <CheckCircle className="text-sunflower" size={24} />
-                <span className="text-3xl font-bold text-navy">10+</span>
+                <span className="text-3xl font-bold text-sunflower">10+</span>
               </div>
-              <p className="text-navy/80 font-medium">Years of Experience</p>
-              <p className="text-sm text-navy/60">In VA training & coaching</p>
+              <p className="text-navy/80 font-medium">Năm kinh nghiệm trong ngành VA và VA coaching</p>
             </div>
           </div>
         </div>

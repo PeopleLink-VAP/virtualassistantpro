@@ -11,7 +11,7 @@ const VAIndustryInfo = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-4">
-            Về Ngành <span className="text-sunflower font-['Big_Shoulders_Stencil']">Virtual Assistant</span>
+            <span className="text-sunflower font-['Big_Shoulders_Stencil']">Tổng quan nghành Virtual Assistant</span>
           </h2>
           <p className="text-lg text-navy/70 max-w-2xl mx-auto">
             Khám phá cơ hội nghề nghiệp và cộng đồng Virtual Assistant Việt Nam
@@ -30,24 +30,33 @@ const VAIndustryInfo = () => {
             </h3>
             
             <p className="text-navy/80 leading-relaxed mb-6">
-              Ngành Virtual Assistant đang phát triển mạnh mẽ trên toàn cầu với nhu cầu ngày càng tăng cao. 
-              Đây là cơ hội vàng cho những người muốn làm việc từ xa, linh hoạt thời gian và phát triển kỹ năng đa dạng. 
-              Virtual Assistant không chỉ là công việc hỗ trợ đơn thuần mà còn là đối tác chiến lược của doanh nghiệp.
+              Trên thế giới, Virtual Assistant (VA) không còn xa lạ. Nhưng tại Việt Nam, đây lại là một lĩnh vực đang lên mạnh mẽ nhờ những yếu tố sau:
             </p>
             
-            <div className="space-y-2">
+            <div className="space-y-2 mb-6">
               {[
-                "Thị trường toàn cầu trị giá hàng tỷ USD",
-                "Tăng trưởng 25% mỗi năm",
-                "Cơ hội làm việc với khách hàng quốc tế",
-                "Thu nhập ổn định và có thể tăng theo kinh nghiệm"
+                "Việt Nam nổi bật trên bản đồ toàn cầu nhờ chính sách cởi mở, lực lượng lao động trẻ, dồi dào cùng hạ tầng công nghệ ngày càng hiện đại.",
+                "Thị trường VA còn mới, mức độ cạnh tranh thấp hơn so với Ấn Độ hay Philippines, tạo điều kiện để khách quốc tế dễ dàng tìm được VA gắn bó lâu dài.",
+                "Xu hướng làm việc từ xa bùng nổ sau Covid-19, thúc đẩy giới trẻ Việt Nam tìm kiếm cơ hội online.",
+                "Chi phí nhân sự cạnh tranh, trong khi kỹ năng ngoại ngữ, công nghệ và công cụ số ngày càng tốt.",
+                "Thế hệ trẻ yêu thích sự tự do, mong muốn công việc linh hoạt về thời gian và địa điểm."
               ].map((point, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-sunflower rounded-full"></span>
+                <div key={idx} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-sunflower rounded-full mt-2 flex-shrink-0"></span>
                   <span className="text-sm text-navy/70">{point}</span>
                 </div>
               ))}
             </div>
+            
+            <p className="text-navy/80 leading-relaxed mb-6">
+              Đây chính là thời điểm vàng cho những ai muốn bắt đầu sự nghiệp trực tuyến, phát triển kỹ năng đa dạng và kết nối toàn cầu. Virtual Assistant không chỉ là người hỗ trợ tác vụ, mà còn trở thành đối tác chiến lược đồng hành cùng doanh nghiệp.
+            </p>
+            
+            <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 hover:scale-105 transition-all">
+              <Users size={18} />
+              Hiểu thêm về nghề và ngành Virtual Assistant
+              <ExternalLink size={16} />
+            </Button>
           </div>
           
           {/* Vietnamese VA Community */}
@@ -61,14 +70,12 @@ const VAIndustryInfo = () => {
             </h3>
             
             <p className="text-navy/80 leading-relaxed mb-6">
-              Cộng đồng Virtual Assistant Việt Nam đang ngày càng phát triển và kết nối. 
-              Chúng tôi tạo ra một môi trường hỗ trợ lẫn nhau, chia sẻ kinh nghiệm và cùng nhau 
-              vươn tới thành công. Tham gia cộng đồng để không bỏ lỡ những cơ hội tuyệt vời.
+              Cộng đồng Virtual Assistant Việt Nam đang ngày càng phát triển và kết nối. Chúng tôi tạo ra một môi trường hỗ trợ lẫn nhau, chia sẻ kinh nghiệm và cùng nhau vươn tới thành công. Tham gia cộng đồng để cùng phát triển trong ngành.
             </p>
             
             <div className="space-y-2 mb-6">
               {[
-                "Hơn 5000+ thành viên tích cực",
+                "Hơn 14,000 thành viên tích cực",
                 "Chia sẻ kinh nghiệm và cơ hội việc làm",
                 "Hỗ trợ kỹ thuật và tư vấn nghề nghiệp",
                 "Networking với VA chuyên nghiệp"
