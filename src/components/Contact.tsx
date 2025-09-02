@@ -1,26 +1,34 @@
 
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageSquare, Calendar, Download, HelpCircle } from 'lucide-react';
 import ContactForm from './ContactForm';
+import { Link } from 'react-router-dom';
 
 const contactMethods = [
   {
     icon: Mail,
     title: 'Email',
-    value: 'hello@virtualassistantpro.vn',
+    value: '[Email của bạn]',
     description: 'Liên hệ chung và thông tin'
   },
   {
     icon: Phone,
-    title: 'Điện Thoại',
-    value: '+84 932548082',
-    description: 'Thứ 2-6 từ 9h đến 18h (GMT+7 Vietnam)'
+    title: 'Điện thoại/Zalo',
+    value: '[Số của bạn]',
+    description: 'Liên hệ trực tiếp qua điện thoại hoặc Zalo'
   },
   {
-    icon: MapPin,
-    title: 'Địa Chỉ',
-    value: 'TP. Hồ Chí Minh, Việt Nam',
-    description: '19 Tố Hữu, Thủ Thiêm, Quận 2'
+    icon: MessageSquare,
+    title: 'Facebook Messenger',
+    value: '[Link]',
+    description: 'Nhắn tin qua Facebook Messenger'
   }
+];
+
+const commonQuestions = [
+  'Khóa học này có phù hợp với nền tảng của mình không?',
+  'Làm sao để đăng ký nhanh chóng và thuận tiện?',
+  'Thông tin về học phí, lịch học, chứng chỉ sau khi hoàn thành?',
+  'Muốn nói chuyện trực tiếp để hiểu rõ hơn trước khi quyết định.'
 ];
 
 const Contact = () => {
@@ -33,16 +41,42 @@ const Contact = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="section-title">Liên Hệ</h2>
+          <h2 className="section-title flex items-center justify-center gap-2">
+            <Mail className="h-8 w-8 text-sunflower" />
+            Liên hệ với chúng tôi
+          </h2>
           <p className="section-subtitle">
-            Bạn có câu hỏi hoặc sẵn sàng bắt đầu? Hãy liên hệ với chúng tôi, chúng tôi sẽ hỗ trợ bạn.
+            Bạn đang quan tâm đến Khóa học Trợ lý Ảo (Virtual Assistant) nhưng còn thắc mắc? Đừng ngần ngại, chúng tôi luôn sẵn sàng hỗ trợ bạn.
           </p>
+        </div>
+        
+        {/* Common Questions Section */}
+        <div className="mb-16">
+          <div className="bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-8 max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-navy">
+              <HelpCircle className="h-6 w-6 text-sunflower" />
+              Thường thì học viên sẽ hỏi:
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {commonQuestions.map((question, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-4 bg-sunflower/10 rounded-lg">
+                  <div className="w-6 h-6 bg-sunflower rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-white text-sm font-bold">{idx + 1}</span>
+                  </div>
+                  <p className="text-navy">{question}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6">
-              <h3 className="text-xl font-bold mb-6">Thông Tin Liên Hệ</h3>
+              <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                <Phone className="h-5 w-5 text-sunflower" />
+                Thông tin liên hệ
+              </h3>
               
               <div className="space-y-6">
                 {contactMethods.map((method, idx) => (
@@ -58,42 +92,47 @@ const Contact = () => {
                   </div>
                 ))}
               </div>
-            </div>
-            
-            <div className="bg-gradient-to-br from-sunflower/30 to-navy/20 backdrop-blur-md rounded-2xl p-6">
-              <h3 className="text-xl font-bold mb-4">Giờ Làm Việc</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="font-medium">Thứ Hai - Thứ Sáu:</span>
-                  <span>9:00 - 18:00 (GMT+7)</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Thứ Bảy:</span>
-                  <span>9:00 - 13:00 (GMT+7)</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="font-medium">Chủ Nhật:</span>
-                  <span>Nghỉ</span>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t border-navy/20">
-                <p className="text-sm">
-                  Chúng tôi cũng có lịch linh hoạt để phù hợp với các học viên khác nhau.
+              
+              <div className="mt-6 pt-6 border-t border-navy/20">
+                <p className="text-sm text-navy/70 flex items-center gap-2">
+                  <span className="text-sunflower">👉</span>
+                  Cam kết phản hồi trong vòng 24 giờ (ngày làm việc).
                 </p>
               </div>
             </div>
             
-            <div className="overflow-hidden rounded-2xl navy-shadow h-64">
-              <img 
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
-                alt="Địa điểm văn phòng"
-                className="w-full h-full object-cover"
-              />
+            <div className="bg-gradient-to-br from-sunflower/30 to-navy/20 backdrop-blur-md rounded-2xl p-6">
+              <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                <Calendar className="h-5 w-5 text-navy" />
+                Bước tiếp theo
+              </h3>
+              <p className="text-navy mb-4">
+                Chưa sẵn sàng liên hệ?
+              </p>
+              <div className="space-y-3">
+                <Link 
+                  to="/free-resources" 
+                  className="flex items-center gap-2 p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors"
+                >
+                  <Download className="h-4 w-4 text-sunflower" />
+                  <span className="text-sm font-medium">Tải tài liệu miễn phí dành cho người mới bắt đầu làm VA</span>
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className="flex items-center gap-2 p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors"
+                >
+                  <Calendar className="h-4 w-4 text-sunflower" />
+                  <span className="text-sm font-medium">Đặt lịch tư vấn 15 phút miễn phí</span>
+                </Link>
+              </div>
             </div>
           </div>
           
           <div className="lg:col-span-3 bg-white/70 backdrop-blur-md rounded-2xl navy-shadow p-6 md:p-8">
-            <h3 className="text-xl font-bold mb-6">Gửi Tin Nhắn</h3>
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <MessageSquare className="h-5 w-5 text-sunflower" />
+              Gửi tin nhắn nhanh
+            </h3>
             <ContactForm />
           </div>
         </div>
