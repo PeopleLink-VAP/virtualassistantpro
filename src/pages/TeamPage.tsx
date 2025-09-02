@@ -2,7 +2,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet';
-import { Briefcase, Award, GraduationCap, Heart, CalendarClock } from 'lucide-react';
+import { Briefcase, Award, GraduationCap, Heart, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const TeamPage = () => {
@@ -87,7 +87,7 @@ const TeamPage = () => {
                 </div>
                 <div className="p-8 md:w-2/3">
                   <h3 className="text-2xl font-bold text-navy mb-1">Duyen Pham</h3>
-                  <p className="text-sunflower font-medium mb-4">Founder</p>
+                  <p className="text-sunflower font-medium mb-4">Founder/ Coach</p>
                   <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực hành chính văn phòng và phát triển kinh doanh quốc tế. Duyên đã đào tạo hơn 60 VA chuyên nghiệp và điều hành cộng đồng VA Việt Nam với hơn 10,000 thành viên.</p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -103,19 +103,25 @@ const TeamPage = () => {
                     <div>
                       <h4 className="font-semibold text-navy mb-2">Kinh Nghiệm:</h4>
                       <ul className="list-disc list-inside text-navy/70 space-y-1">
-                        <li className="hover:translate-x-1 transition-transform">Founder Virtual Assistant Việt Nam</li>
-                        <li className="hover:translate-x-1 transition-transform">Hoàn thành gần 200 đơn hàng trên Fiverr</li>
-                        <li className="hover:translate-x-1 transition-transform">Fiverr's Choice Seller</li>
+                        <li className="hover:translate-x-1 transition-transform">Đào tạo 150+ VA chuyên nghiệp</li>
+                        <li className="hover:translate-x-1 transition-transform">Hoàn thành hơn 200 đơn hàng trên Fiverr</li>
+                        <li className="hover:translate-x-1 transition-transform">Founder cộng đồng VA - Virtual assistant Việt Nam</li>
                         <li className="hover:translate-x-1 transition-transform">Co-founder War & Peace Homestay</li>
                       </ul>
                     </div>
                   </div>
                   
-                  <div className="mt-8">
-                    <a href="https://cal.com/duyenpham93/vap-coaching" target="_blank" rel="noopener noreferrer">
+                  <div className="mt-8 flex flex-wrap gap-4">
+                    <a href="https://zalo.me/0932548082" target="_blank" rel="noopener noreferrer">
                       <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
-                        <CalendarClock className="h-5 w-5" />
-                        Đặt Lịch hẹn Coaching
+                        <MessageSquare className="h-5 w-5" />
+                        Contact Duyen - Zalo
+                      </Button>
+                    </a>
+                    <a href="https://www.facebook.com/duyen.pham.1048" target="_blank" rel="noopener noreferrer">
+                      <Button className="btn-secondary flex items-center gap-2 hover:scale-105 transition-transform">
+                        <MessageSquare className="h-5 w-5" />
+                        Contact Duyen - Facebook
                       </Button>
                     </a>
                   </div>

@@ -37,7 +37,7 @@ const TrainingPage = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h1 className="text-5xl font-extrabold text-navy mb-6 leading-tight">
-              Khóa Học <span className="text-sunflower">Fiverr Từ A-Z</span>
+              Khóa học <span className="text-sunflower">Virtual Assistant Pro</span>
             </h1>
             <p className="text-navy/80 text-xl max-w-3xl mx-auto mb-10">
               Trở thành Virtual Assistant chuyên nghiệp và bứt phá thu nhập với khóa học độc quyền từ A-Z về Fiverr.
@@ -45,15 +45,15 @@ const TrainingPage = () => {
             <div className="flex justify-center items-center space-x-8 text-navy/90 text-lg font-medium">
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-5 py-2 shadow-lg animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 <Calendar className="h-6 w-6 text-sunflower" />
-                <span>Khai giảng: Tháng 9/2025</span>
+                <span>Khai giảng: Cuối tháng 9/2025</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-5 py-2 shadow-lg animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <Clock className="h-6 w-6 text-sunflower" />
-                <span>Lịch học: Thứ 3 & Thứ 5 (19:30-21:30)</span>
+                <span>Lịch học: Thứ 3 & Thứ 5 (19:45-21:15)</span>
               </div>
               <div className="flex items-center gap-2 bg-white/50 backdrop-blur-sm rounded-full px-5 py-2 shadow-lg animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
                 <Hourglass className="h-6 w-6 text-sunflower" />
-                <span>Thời lượng: 10 buổi + 1 buổi 1:1 coaching</span>
+                <span>Thời lượng: 7 buổi học VA + Bonus: 3 buổi học tiếng Anh miễn phí + 2 buổi coaching 1:1</span>
               </div>
             </div>
           </div>
@@ -80,8 +80,8 @@ const TrainingPage = () => {
               <div className="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mb-4 shadow-inner">
                 <BookOpen className="h-8 w-8 text-navy" />
               </div>
-              <h3 className="text-xl font-semibold text-navy mb-3">Kiến thức & Khái niệm mới</h3>
-              <p className="text-navy/70">Tiếp cận những kiến thức và khái niệm hoàn toàn mới, giúp bạn đi trước đón đầu thị trường.</p>
+              <h3 className="text-xl font-semibold text-navy mb-3">Khám phá 10 ngách nghề VA đa dạng</h3>
+              <p className="text-navy/70">Virtual Assistant không chỉ dừng lại ở vài công việc quen thuộc. Khóa học giúp bạn tiếp cận 10 ngách nghề khác nhau với ví dụ thực tế, tình huống ứng dụng cụ thể và nội dung bám sát nhu cầu khách hàng. Nhờ đó, bạn sẽ hiểu nhanh, nắm rõ và có chiều sâu để chọn đúng hướng đi phù hợp cho mình.</p>
             </div>
             <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
               <div className="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mb-4 shadow-inner">
@@ -90,12 +90,19 @@ const TrainingPage = () => {
               <h3 className="text-xl font-semibold text-navy mb-3">Xây dựng Portfolio chuẩn chỉnh</h3>
               <p className="text-navy/70">"Cầm tay chỉ việc" hướng dẫn bạn tạo dựng một portfolio chuyên nghiệp, gây ấn tượng mạnh.</p>
             </div>
+            <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mb-4 shadow-inner">
+                <FileText className="h-8 w-8 text-navy" />
+              </div>
+              <h3 className="text-xl font-semibold text-navy mb-3">Thực hành trên tài khoản thật</h3>
+              <p className="text-navy/70">Trải nghiệm học tập trực tiếp trên tài khoản thật của giảng viên với các tình huống thực tế.</p>
+            </div>
             <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
               <div className="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mb-4 shadow-inner">
                 <Users className="h-8 w-8 text-navy" />
               </div>
               <h3 className="text-xl font-semibold text-navy mb-3">Lớp học nhỏ thân mật</h3>
-              <p className="text-navy/70">Môi trường học tập lý tưởng với lớp học nhỏ chỉ từ 8-12 thành viên, tăng cường tương tác.</p>
+              <p className="text-navy/70">Môi trường học tập lý tưởng với lớp học nhỏ từ 10-15 thành viên, tăng cường tương tác.</p>
             </div>
             <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
               <div className="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mb-4 shadow-inner">
@@ -129,74 +136,64 @@ const TrainingPage = () => {
         </div>
       </section>
 
-      {/* Các Khóa Học Nổi Bật Section (Updated to reflect single course) */}
+      {/* Nội dung khóa học Section */}
       <section className="py-20 bg-warmWhite">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-navy text-center mb-12 animate-fade-in">Nội Dung Khóa Học</h2>
           <div className="space-y-12">
-            {courses.map((course, index) => (
-              <div 
-                key={course.id} 
-                className={`bg-white/70 backdrop-blur-sm rounded-xl navy-shadow overflow-hidden ${index % 2 === 1 ? 'md:flex-row-reverse' : ''} md:flex animate-fade-in hover:shadow-lg transition-shadow`}
-                style={{ animationDelay: `${0.5 + index * 0.1}s` }}
-              >
-                <div className="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                  <img src={course.image} alt={course.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent flex items-end p-4">
-                    <div className="text-white">
-                      <span className="bg-sunflower text-navy text-xs font-bold px-2 py-1 rounded-full">{course.level}</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="p-6 md:w-3/5">
-                  <h3 className="text-xl font-bold text-navy mb-2">{course.title}</h3>
-                  <p className="text-navy/70 mb-4">{course.description}</p>
-                  
-                  <div className="flex flex-wrap gap-4 mb-4">
-                    <div className="flex items-center gap-1 text-sm text-navy/70">
-                      <Clock className="h-4 w-4 text-sunflower" />
-                      {course.duration}
-                    </div>
-                    <div className="flex items-center gap-1 text-sm text-navy/70">
-                      <Users className="h-4 w-4 text-sunflower" />
-                      {course.students} học viên
-                    </div>
-                    <div className="flex items-center gap-1 text-sm font-medium text-navy">
-                      <Award className="h-4 w-4 text-sunflower" />
-                      Cấp chứng chỉ
-                    </div>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-navy mb-2">Bạn sẽ học được:</h4>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                      {course.features.map((feature, idx) => (
-                        <li key={feature} className="flex items-start gap-2 group">
-                          <Check className="h-5 w-5 text-sunflower flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                          <span className="text-navy/80 text-sm group-hover:text-navy transition-colors">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div>
-                      <span className="text-sm text-navy/70">Học phí</span>
-                      <p className="text-xl font-bold text-navy">{course.price}</p>
-                    </div>
-                    
-                    <Link to="/login">
-                      <Button className="btn-primary flex items-center gap-2 group">
-                        <BookOpen className="h-4 w-4" />
-                        Đăng Ký Ngay
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+            <div className="bg-white/70 backdrop-blur-sm rounded-xl navy-shadow overflow-hidden md:flex animate-fade-in hover:shadow-lg transition-shadow" style={{ animationDelay: "0.5s" }}>
+              <div className="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Khóa học Virtual Assistant Pro" className="w-full h-full object-cover hover:scale-110 transition-transform duration-1000" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent flex items-end p-4">
+                  <div className="text-white">
+                    <span className="bg-sunflower text-navy text-xs font-bold px-2 py-1 rounded-full">Cơ Bản đến Trung Cấp</span>
                   </div>
                 </div>
               </div>
-            ))}
+              
+              <div className="p-6 md:w-3/5">
+                <h3 className="text-xl font-bold text-navy mb-2">Khóa học Virtual Assistant Pro</h3>
+                <p className="text-navy/70 mb-4">Virtual Assistant Pro không chỉ là một khóa học nghề.</p>
+                <p className="text-navy/70 mb-4">Đây là nơi bạn được trang bị kiến thức thực tế, thực hành trực tiếp, và tiếp cận những câu chuyện thật từ khách hàng và học viên đi trước – để bạn hình dung rõ ràng con đường của chính mình.</p>
+                <p className="text-navy/70 mb-4">Sau hơn 15 khóa được tổ chức chuyên nghiệp với nhiều tâm huyết, VAP đã trở thành lựa chọn hàng đầu cho những ai muốn:</p>
+                <ul className="text-navy/70 mb-4 space-y-1">
+                  <li>• Bước vào thế giới freelancer toàn cầu.</li>
+                  <li>• Tìm kiếm một công việc phụ ổn định hoặc xây dựng sự nghiệp chính thức lâu dài.</li>
+                  <li>• Có mentor đồng hành để không đi một mình.</li>
+                </ul>
+                <p className="text-navy/70 mb-6">👉 Nếu bạn đang tìm một lộ trình rõ ràng, thiết thực và có thể áp dụng ngay, đây chính là điểm khởi đầu dành cho bạn.</p>
+                
+                <div className="flex flex-wrap gap-4 mb-4">
+                  <div className="flex items-center gap-1 text-sm text-navy/70">
+                    <Clock className="h-4 w-4 text-sunflower" />
+                    4 tuần
+                  </div>
+                  <div className="flex items-center gap-1 text-sm text-navy/70">
+                    <Users className="h-4 w-4 text-sunflower" />
+                    10~15 học viên
+                  </div>
+                  <div className="flex items-center gap-1 text-sm font-medium text-navy">
+                    <Award className="h-4 w-4 text-sunflower" />
+                    Cấp chứng chỉ nếu bạn hoàn thành 100% khóa học
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <span className="text-sm text-navy/70">Học phí</span>
+                    <p className="text-xl font-bold text-navy">8,000,000 VNĐ</p>
+                  </div>
+                  
+                  <Link to="/login">
+                    <Button className="btn-primary flex items-center gap-2 group">
+                      <BookOpen className="h-4 w-4" />
+                      Đăng Ký Ngay
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div className="mt-16 bg-gradient-to-r from-sunflower/20 to-leafGreen/20 rounded-xl p-8 navy-shadow text-center animate-fade-in" style={{ animationDelay: "0.9s" }}>
@@ -348,8 +345,8 @@ const TrainingPage = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-navy mb-12 animate-fade-in">Học Phí Khóa Học</h2>
           <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 max-w-md mx-auto animate-fade-in-up">
-            <p className="text-navy/70 text-lg mb-4">Trọn gói khóa học Fiverr từ A-Z</p>
-            <p className="text-5xl font-extrabold text-sunflower mb-6">9.500.000 VNĐ</p>
+            <p className="text-navy/70 text-lg mb-4">TRỌN GÓI KHÓA HỌC VIRTUAL ASSISTANT PRO TỪ A-Z</p>
+            <p className="text-5xl font-extrabold text-sunflower mb-6">8,000,000 VND</p>
             <p className="text-navy/80 mb-6">Bao gồm toàn bộ nội dung học, tài liệu, hỗ trợ và quyền lợi đặc biệt.</p>
             <Link to="/login">
               <Button className="btn-primary flex items-center gap-2 group mx-auto">
