@@ -60,7 +60,7 @@ const CourseFAQ = () => {
           {faqData.map((faq, index) => (
             <div 
               key={index} 
-              className="group bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-2xl shadow-xl border border-white/30 overflow-hidden animate-fade-in-up"
+              className="group bg-white/80 rounded-2xl shadow-xl border border-gray-200 overflow-hidden animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <button
@@ -70,7 +70,7 @@ const CourseFAQ = () => {
                 <h3 className="text-xl font-bold text-navy group-hover:text-sunflower transition-colors duration-300 pr-4">
                   {faq.question}
                 </h3>
-                <div className={`flex-shrink-0 w-10 h-10 bg-gradient-to-r from-sunflower to-navy rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 ${
+                <div className={`flex-shrink-0 w-10 h-10 bg-navy rounded-full flex items-center justify-center shadow-lg transform transition-all duration-300 ${
                   openFAQ === index ? 'rotate-180 scale-110' : 'group-hover:scale-110'
                 }`}>
                   <ChevronDown className="h-5 w-5 text-white" />
@@ -101,14 +101,14 @@ const CourseFAQ = () => {
         
         {/* FAQ CTA */}
         <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
-          <div className="bg-gradient-to-r from-sunflower/20 to-navy/10 rounded-2xl p-8 backdrop-blur-sm border border-white/30 shadow-xl max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-navy mb-4">Vẫn còn thắc mắc?</h3>
-            <p className="text-gray-600 mb-6">
+          <div className="bg-transparent rounded-2xl p-8 border border-gray-300 shadow-xl max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Vẫn còn thắc mắc?</h3>
+            <p className="text-gray-700 mb-6">
               Đội ngũ tư vấn của chúng tôi luôn sẵn sàng giải đáp mọi câu hỏi của bạn
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
-                <Button className="group bg-gradient-to-r from-sunflower to-navy hover:from-navy hover:to-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                <Button className="group bg-sunflower hover:bg-navy text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                   <span className="flex items-center gap-2">
                     <MessageSquare className="h-5 w-5 group-hover:animate-bounce" />
                     Liên Hệ Tư Vấn
@@ -117,7 +117,7 @@ const CourseFAQ = () => {
                 </Button>
               </Link>
               <Link to="/register">
-                <Button className="group bg-gradient-to-r from-navy to-sunflower hover:from-sunflower hover:to-navy text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                <Button className="group bg-navy hover:bg-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                   <span className="flex items-center gap-2">
                     <BookOpen className="h-5 w-5 group-hover:animate-pulse" />
                     Đăng Ký Ngay

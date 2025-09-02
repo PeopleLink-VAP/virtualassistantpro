@@ -151,15 +151,15 @@ const TrainingPage = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-navy text-center mb-12 animate-fade-in">Quyền Lợi Đặc Biệt</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
                 <h3 className="text-xl font-semibold text-navy mb-3">Cộng đồng hỗ trợ trọn đời</h3>
                 <p className="text-gray-600">Tham gia vào cộng đồng học viên năng động, nhận hỗ trợ và chia sẻ kinh nghiệm không giới hạn.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Cập nhật kiến thức định kỳ</h3>
                 <p className="text-gray-600">Luôn được tiếp cận những kiến thức mới nhất, cập nhật xu hướng thị trường VA.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Cơ hội việc làm</h3>
                 <p className="text-gray-600">Kết nối với các đối tác và khách hàng tiềm năng, mở ra cơ hội việc làm sau khóa học.</p>
               </div>

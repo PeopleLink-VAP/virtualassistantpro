@@ -26,7 +26,7 @@ const CourseStats = () => {
           {/* Stat 1 */}
           <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
@@ -40,7 +40,7 @@ const CourseStats = () => {
           {/* Stat 2 */}
           <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Award className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
@@ -54,7 +54,7 @@ const CourseStats = () => {
           {/* Stat 3 */}
           <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Star className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
@@ -68,7 +68,7 @@ const CourseStats = () => {
           {/* Stat 4 */}
           <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
