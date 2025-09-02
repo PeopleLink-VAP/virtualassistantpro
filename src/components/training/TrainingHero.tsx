@@ -36,12 +36,10 @@ const TrainingHero = () => {
         <div className="text-center mb-16">
           {/* Modern Title with Clean Typography */}
           <div className="animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-navy via-navy to-sunflower bg-clip-text text-transparent">
-                Khóa học
-              </span>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-navy">
+              Khóa học
               <br />
-              <span className="bg-gradient-to-r from-sunflower via-navy to-sunflower bg-clip-text text-transparent">
+              <span className="text-sunflower">
                 Virtual Assistant Pro
               </span>
             </h1>
@@ -58,9 +56,9 @@ const TrainingHero = () => {
           
           {/* Clean Course Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Calendar className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -68,19 +66,19 @@ const TrainingHero = () => {
               <p className="text-gray-600">Cuối tháng 9/2025</p>
             </div>
             
-            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Clock className="h-8 w-8 text-white" />
+                <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-8 w-8 text-leafGreen" />
                 </div>
               </div>
               <h3 className="font-semibold text-navy mb-2">Lịch Học</h3>
               <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45-21:15)</p>
             </div>
             
-            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
               <div className="flex items-center justify-center mb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Hourglass className="h-8 w-8 text-white" />
                 </div>
               </div>
@@ -92,7 +90,7 @@ const TrainingHero = () => {
           {/* Modern CTA Button */}
           <div className="animate-fade-in-up animation-delay-700">
             <Link to="/register">
-              <Button className="group relative bg-gradient-to-r from-navy to-sunflower hover:from-sunflower hover:to-navy text-white font-semibold py-4 px-8 rounded-2xl text-lg border border-sunflower/20 hover:border-navy/40 transform hover:scale-105 transition-all duration-300">
+              <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="relative z-10 flex items-center gap-3">
                   <Star className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                   Đăng Ký Ngay - Ưu Đãi Đặc Biệt

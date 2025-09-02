@@ -78,7 +78,7 @@ const TrainingPage = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-100 group-hover:opacity-100 transition-opacity duration-300">
-                <button className="w-20 h-20 bg-white/30 backdrop-blur-sm rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 focus:outline-none focus:ring-4 focus:ring-sunflower/50">
+                <button className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center transform transition-all duration-300 group-hover:scale-110 focus:outline-none focus:ring-4 focus:ring-sunflower/50">
                   <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
@@ -94,27 +94,27 @@ const TrainingPage = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold text-navy text-center mb-12 animate-fade-in">Điều Gì Khiến Khóa Học Khác Biệt?</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
                 <h3 className="text-xl font-semibold text-navy mb-3">Truyền nghề 10 ngách mới lạ</h3>
                 <p className="text-gray-600">Khám phá 10 lĩnh vực ngách độc đáo, không phải ai cũng dạy, mở rộng cơ hội nghề nghiệp.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Phân tích Use Case thực tế</h3>
                 <p className="text-gray-600">Học hỏi từ những tình huống thực tế, phân tích chi tiết từ chính tài khoản của Duyên.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Học Zoom Live tương tác</h3>
                 <p className="text-gray-600">Tham gia các buổi học trực tiếp qua Zoom, không phải video quay sẵn, tăng cường tương tác.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Xây dựng Portfolio ngay cả khi chưa có kinh nghiệm</h3>
                 <p className="text-gray-600">Hướng dẫn cách tạo portfolio chuyên nghiệp, ấn tượng dù bạn chưa có kinh nghiệm viết.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">2 buổi Live Coaching 1:1</h3>
                 <p className="text-gray-600">Nhận 2 buổi huấn luyện trực tiếp 1:1, giải đáp mọi thắc mắc và định hướng cá nhân.</p>
               </div>
-              <div className="bg-white/60 backdrop-blur-md rounded-xl p-8 shadow-lg border border-white border-opacity-30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
                 <h3 className="text-xl font-semibold text-navy mb-3">Lớp tiếng Anh BONUS</h3>
                 <p className="text-gray-600">Tăng cường tự tin phỏng vấn với lớp tiếng Anh bổ trợ đặc biệt dành cho học viên.</p>
               </div>

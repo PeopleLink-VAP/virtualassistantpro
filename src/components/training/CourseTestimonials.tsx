@@ -24,7 +24,7 @@ const CourseTestimonials = () => {
         </div>
         
         {/* Clean Featured Testimonial */}
-        <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 mb-16 animate-fade-in-up animation-delay-500">
+        <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 mb-16 animate-fade-in-up animation-delay-500">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1 text-center">
               <div className="relative inline-block">
@@ -33,7 +33,7 @@ const CourseTestimonials = () => {
                   alt="Nguyễn Thị Hương" 
                   className="w-24 h-24 rounded-full object-cover border-4 border-sunflower/30" 
                 />
-                <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-r from-sunflower to-navy rounded-full flex items-center justify-center">
+                <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
                   <Star className="h-5 w-5 text-white" />
                 </div>
               </div>
@@ -44,8 +44,8 @@ const CourseTestimonials = () => {
                    <Star key={`featured-star-${i}`} className="h-4 w-4 text-sunflower fill-current" />
                  ))}
               </div>
-              <div className="bg-gradient-to-r from-sunflower/20 to-navy/10 rounded-full px-4 py-2">
-                <span className="text-sm font-semibold text-navy">Thu nhập: $2,500/tháng</span>
+              <div className="bg-leafGreen/20 rounded-full px-4 py-2">
+                <span className="text-sm font-semibold text-leafGreen">Thu nhập: $2,500/tháng</span>
               </div>
             </div>
             
@@ -175,7 +175,7 @@ const CourseTestimonials = () => {
             <h3 className="text-3xl font-bold text-navy mb-4">Bạn sẽ là câu chuyện thành công tiếp theo?</h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">Tham gia cùng hàng trăm học viên đã thành công và bắt đầu hành trình VA của bạn ngay hôm nay</p>
             <Link to="/register">
-              <Button className="group bg-gradient-to-r from-sunflower to-navy hover:from-navy hover:to-sunflower text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300">
+              <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
                   <Users className="h-6 w-6 group-hover:animate-bounce" />
                   Tham Gia Ngay - Ưu Đãi Đặc Biệt

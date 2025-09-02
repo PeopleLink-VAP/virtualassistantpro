@@ -55,19 +55,19 @@ const LearningPath = () => {
               {/* Key Benefits */}
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-sunflower to-navy rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                   <span className="text-gray-600">Bước vào thế giới freelancer toàn cầu</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-navy to-sunflower rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-sunflower rounded-full flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                   <span className="text-gray-600">Xây dựng sự nghiệp ổn định và lâu dài</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-gradient-to-r from-sunflower to-navy rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-navy rounded-full flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                   <span className="text-gray-600">Có mentor đồng hành không đi một mình</span>
@@ -133,13 +133,13 @@ const LearningPath = () => {
             {/* Week 1 */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
               <div className="flex items-center justify-center">
-                <div className="bg-gradient-to-r from-navy to-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
+                <div className="bg-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">1</span>
                 </div>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     <h4 className="text-xl font-bold text-navy mb-3">Tuần 1: Nền Tảng VA</h4>
                     <ul className="text-gray-600 space-y-2">
                       <li>• Tổng quan ngành VA và xu hướng thị trường</li>
@@ -160,7 +160,7 @@ const LearningPath = () => {
             {/* Week 2 */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
               <div className="flex items-center justify-center">
-                <div className="bg-gradient-to-r from-sunflower to-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
+                <div className="bg-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">2</span>
                 </div>
               </div>
@@ -171,7 +171,7 @@ const LearningPath = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     <h4 className="text-xl font-bold text-navy mb-3">Tuần 2: Kỹ Năng & Công Cụ</h4>
                     <ul className="text-gray-600 space-y-2">
                       <li>• Google Workspace: Drive, Docs, Sheets, Slides</li>
@@ -187,14 +187,14 @@ const LearningPath = () => {
             {/* Week 3 */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
               <div className="flex items-center justify-center">
-                <div className="bg-gradient-to-r from-navy to-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
+                <div className="bg-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">3</span>
                 </div>
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-navy mb-3">Tuần 3: Marketing & Thương Hiệu</h4>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                     <h4 className="text-xl font-bold text-navy mb-3">Tuần 3: Marketing & Thương Hiệu</h4>
                     <ul className="text-gray-600 space-y-2">
                       <li>• Xây dựng portfolio VA chuyên nghiệp</li>
                       <li>• Thiết kế hồ sơ Fiverr/Upwork thu hút</li>
@@ -214,7 +214,7 @@ const LearningPath = () => {
             {/* Week 4 */}
             <div className="relative animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
               <div className="flex items-center justify-center">
-                <div className="bg-gradient-to-r from-sunflower to-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
+                <div className="bg-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">4</span>
                 </div>
               </div>
@@ -225,8 +225,8 @@ const LearningPath = () => {
                   </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-navy mb-3">Tuần 4: Thực Hành & Khởi Nghiệp</h4>
+                  <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/30 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                     <h4 className="text-xl font-bold text-navy mb-3">Tuần 4: Thực Hành & Khởi Nghiệp</h4>
                     <ul className="text-gray-600 space-y-2">
                       <li>• Hackathon 21 ngày: Dự án thực tế</li>
                       <li>• Phản hồi từ chuyên gia</li>
@@ -241,13 +241,13 @@ const LearningPath = () => {
         </div>
          
          {/* Consultation CTA */}
-         <div className="mt-16 bg-gradient-to-r from-sunflower/20 to-navy/10 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{ animationDelay: "0.9s" }}>
+         <div className="mt-16 bg-sunflower/20 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{ animationDelay: "0.9s" }}>
            <h3 className="text-2xl font-bold text-navy mb-4">Bạn cần tư vấn thêm?</h3>
            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
              Đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ bạn chọn khóa học phù hợp nhất với mục tiêu nghề nghiệp của bạn
            </p>
            <Link to="/contact">
-             <Button className="bg-gradient-to-r from-navy to-sunflower hover:from-sunflower hover:to-navy text-white font-semibold py-3 px-6 rounded-2xl flex items-center gap-2 group hover:scale-105 transition-transform mx-auto">
+             <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 hover:scale-105 transition-all mx-auto">
                <MessageSquare className="h-5 w-5" />
                Liên Hệ Tư Vấn
                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

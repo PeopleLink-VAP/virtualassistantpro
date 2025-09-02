@@ -3,7 +3,7 @@ import { Users, Award, Star, Clock } from 'lucide-react';
 
 const CourseStats = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-navy to-navy/90 relative overflow-hidden">
+    <section className="py-20 bg-navy relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 w-32 h-32 bg-sunflower/10 rounded-full animate-float"></div>

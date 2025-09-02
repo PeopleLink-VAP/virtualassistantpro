@@ -28,9 +28,9 @@ const CourseFeatures = () => {
         {/* Clean Feature Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Feature 1 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up">
-            <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Star className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up">
+            <div className="w-16 h-16 bg-sunflower/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Star className="h-8 w-8 text-sunflower" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Hướng dẫn Fiverr từ A-Z</h3>
             <p className="text-gray-600 leading-relaxed">Học cách thiết lập, tối ưu và phát triển sự nghiệp trên nền tảng freelance Fiverr một cách bài bản và chuyên nghiệp.</p>
@@ -41,9 +41,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 2 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-            <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <BookOpen className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+            <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <BookOpen className="h-8 w-8 text-leafGreen" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">10 Ngách Nghề VA Đa Dạng</h3>
             <p className="text-gray-600 leading-relaxed">Khám phá 10 lĩnh vực chuyên môn khác nhau với ví dụ thực tế và tình huống ứng dụng cụ thể, giúp bạn chọn đúng hướng đi.</p>
@@ -54,9 +54,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 3 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <FileText className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <div className="w-16 h-16 bg-sunflower/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <FileText className="h-8 w-8 text-sunflower" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Portfolio Chuẩn Chỉnh</h3>
             <p className="text-gray-600 leading-relaxed">"Cầm tay chỉ việc" hướng dẫn bạn tạo dựng portfolio chuyên nghiệp, gây ấn tượng mạnh với khách hàng.</p>
@@ -67,9 +67,9 @@ const CourseFeatures = () => {
           </div>
         
           {/* Feature 4 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-            <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Video className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+            <div className="w-16 h-16 bg-navy/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Video className="h-8 w-8 text-navy" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Thực Hành Tài Khoản Thật</h3>
             <p className="text-gray-600 leading-relaxed">Trải nghiệm học tập trực tiếp trên tài khoản thật của giảng viên với các tình huống thực tế.</p>
@@ -80,9 +80,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 5 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <Users className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="w-16 h-16 bg-navy/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <Users className="h-8 w-8 text-navy" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Lớp Học Nhỏ Thân Mật</h3>
             <p className="text-gray-600 leading-relaxed">Môi trường học tập lý tưởng với lớp học nhỏ từ 10-15 thành viên, tăng cường tương tác và hỗ trợ cá nhân.</p>
@@ -93,9 +93,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 6 */}
-          <div className="group bg-white/95 backdrop-blur-sm rounded-3xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-            <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-              <MessageSquare className="h-8 w-8 text-white" />
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <MessageSquare className="h-8 w-8 text-leafGreen" />
             </div>
             <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Tư Vấn Không Giới Hạn</h3>
             <p className="text-gray-600 leading-relaxed">Nhận sự hỗ trợ và tư vấn trực tiếp từ giảng viên trong suốt quá trình học và sau khóa học.</p>
@@ -108,11 +108,11 @@ const CourseFeatures = () => {
         
         {/* Modern Call to Action */}
         <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
-          <div className="bg-gradient-to-r from-sunflower/20 to-navy/10 rounded-3xl p-8 backdrop-blur-sm border border-gray-200">
+          <div className="bg-sunflower/20 rounded-3xl p-8 backdrop-blur-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-navy mb-4">Sẵn sàng bắt đầu hành trình?</h3>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp với mức thu nhập ổn định</p>
             <Link to="/register">
-              <Button className="group bg-gradient-to-r from-navy to-sunflower hover:from-sunflower hover:to-navy text-white font-semibold py-4 px-8 rounded-2xl text-lg border border-sunflower/20 transform hover:scale-105 transition-all duration-300">
+              <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
                   <Award className="h-5 w-5 group-hover:rotate-12 transition-transform" />
                   Đăng Ký Khóa Học Ngay
