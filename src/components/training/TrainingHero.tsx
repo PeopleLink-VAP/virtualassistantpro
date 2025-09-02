@@ -1,0 +1,126 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { 
+  BookOpen, Award, Calendar, Clock, Hourglass, Star, ArrowRight
+} from 'lucide-react';
+
+const TrainingHero = () => {
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden bg-warmWhite">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-sunflower/20 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-48 h-48 bg-navy/10 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-sunflower/10 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float animation-delay-4000"></div>
+        
+        {/* Clean Floating Icons */}
+        <div className="absolute top-20 left-10 animate-float">
+          <div className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+            <BookOpen className="h-6 w-6 text-sunflower" />
+          </div>
+        </div>
+        <div className="absolute top-40 right-20 animate-float animation-delay-1000">
+          <div className="w-16 h-16 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+            <Award className="h-8 w-8 text-navy" />
+          </div>
+        </div>
+        <div className="absolute bottom-40 left-20 animate-float animation-delay-2000">
+          <div className="w-14 h-14 bg-white/80 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/40">
+            <BookOpen className="h-7 w-7 text-sunflower" />
+          </div>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          {/* Modern Title with Clean Typography */}
+          <div className="animate-fade-in">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <span className="bg-gradient-to-r from-navy via-navy to-sunflower bg-clip-text text-transparent">
+                Khóa học
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-sunflower via-navy to-sunflower bg-clip-text text-transparent">
+                Virtual Assistant Pro
+              </span>
+            </h1>
+          </div>
+          
+          {/* Clean Description */}
+          <div className="animate-fade-in-up animation-delay-300">
+            <p className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+              Trở thành Virtual Assistant chuyên nghiệp và 
+              <span className="font-semibold text-navy">&nbsp;bứt phá thu nhập&nbsp;</span> 
+              với khóa học độc quyền từ A-Z về Fiverr.
+            </p>
+          </div>
+          
+          {/* Clean Course Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Calendar className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-navy mb-2">Khai Giảng</h3>
+              <p className="text-gray-600">Cuối tháng 9/2025</p>
+            </div>
+            
+            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-navy mb-2">Lịch Học</h3>
+              <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45-21:15)</p>
+            </div>
+            
+            <div className="group bg-white/90 backdrop-blur-sm rounded-3xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-navy to-sunflower rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Hourglass className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-navy mb-2">Thời Lượng</h3>
+              <p className="text-gray-600 text-sm">7 buổi VA + 3 buổi tiếng Anh + 2 buổi coaching 1:1</p>
+            </div>
+          </div>
+          
+          {/* Modern CTA Button */}
+          <div className="animate-fade-in-up animation-delay-700">
+            <Link to="/register">
+              <Button className="group relative bg-gradient-to-r from-navy to-sunflower hover:from-sunflower hover:to-navy text-white font-semibold py-4 px-8 rounded-2xl text-lg border border-sunflower/20 hover:border-navy/40 transform hover:scale-105 transition-all duration-300">
+                <span className="relative z-10 flex items-center gap-3">
+                  <Star className="h-5 w-5 group-hover:rotate-12 transition-transform" />
+                  Đăng Ký Ngay - Ưu Đãi Đặc Biệt
+                  <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+      
+      {/* Animated Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={`particle-${i}`}
+            className={`absolute w-2 h-2 bg-sunflower/30 rounded-full animate-float`}
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${3 + Math.random() * 4}s`
+            }}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default TrainingHero;
