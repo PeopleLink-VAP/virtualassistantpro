@@ -80,11 +80,11 @@ const RegisterPage = () => {
         />
         <Navbar />
         <ScrollToTop />
-        <div className="min-h-screen bg-gradient-to-br from-warmWhite via-lightYellow/50 to-sunflower/20 flex items-center justify-center py-20">
+        <div className="min-h-screen bg-warmWhite flex items-center justify-center py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-3xl p-12 shadow-2xl border border-white/30">
-                <div className="w-20 h-20 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="bg-white/90 rounded-3xl p-12 shadow-2xl border border-gray-200">
+                <div className="w-20 h-20 bg-sunflower rounded-full flex items-center justify-center mx-auto mb-6">
                   <Check className="h-10 w-10 text-white" />
                 </div>
                 <h1 className="text-4xl font-bold text-navy mb-6">Đăng Ký Thành Công!</h1>
@@ -103,7 +103,7 @@ const RegisterPage = () => {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/vap-course">
-                    <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <Button className="group bg-sunflower hover:bg-leafGreen text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                       <span className="flex items-center gap-2">
                         <BookOpen className="h-5 w-5" />
                         Xem Chi Tiết Khóa Học
@@ -112,7 +112,7 @@ const RegisterPage = () => {
                     </Button>
                   </Link>
                   <Link to="/">
-                    <Button className="group bg-gradient-to-r from-navy to-lightBlue hover:from-lightBlue hover:to-navy text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <Button className="group bg-navy hover:bg-lightBlue text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                       Về Trang Chủ
                     </Button>
                   </Link>
@@ -134,7 +134,7 @@ const RegisterPage = () => {
       />
       <Navbar />
       <ScrollToTop />
-      <div className="min-h-screen bg-gradient-to-br from-warmWhite via-lightYellow/50 to-sunflower/20 relative overflow-hidden">
+      <div className="min-h-screen bg-warmWhite relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-32 h-32 bg-sunflower/10 rounded-full animate-float"></div>
@@ -162,10 +162,10 @@ const RegisterPage = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Registration Form */}
-            <div className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30">
+            <div className="bg-white/90 rounded-3xl p-8 shadow-2xl border border-gray-200">
               <div className="text-center mb-8">
                 <h1 className="text-4xl font-bold text-navy mb-4">
-                  <span className="bg-gradient-to-r from-navy to-sunflower bg-clip-text text-transparent">
+                  <span className="text-navy">
                     Đăng Ký Khóa Học VAP
                   </span>
                 </h1>
@@ -269,7 +269,7 @@ const RegisterPage = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full group hover:bg-sunflower bg-leafGreen text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -302,7 +302,7 @@ const RegisterPage = () => {
             <div className="space-y-8">
               <div className="text-center">
                 <h2 className="text-3xl font-bold text-navy mb-4">
-                  <span className="bg-gradient-to-r from-navy to-sunflower bg-clip-text text-transparent">
+                  <span className="text-navy">
                     Câu Chuyện Thành Công
                   </span>
                 </h2>
@@ -313,22 +313,22 @@ const RegisterPage = () => {
               
               {/* Statistics */}
               <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center bg-white/60 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                  <div className="w-12 h-12 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center mx-auto mb-2">
+                <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
+                  <div className="w-12 h-12 bg-sunflower rounded-full flex items-center justify-center mx-auto mb-2">
                     <Users className="h-6 w-6 text-white" />
                   </div>
                   <div className="text-2xl font-bold text-navy">500+</div>
                   <div className="text-sm text-navy/70">Học viên</div>
                 </div>
-                <div className="text-center bg-white/60 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                  <div className="w-12 h-12 bg-gradient-to-r from-leafGreen to-lightBlue rounded-full flex items-center justify-center mx-auto mb-2">
-                    <TrendingUp className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-navy">85%</div>
-                  <div className="text-sm text-navy/70">Thành công</div>
-                </div>
-                <div className="text-center bg-white/60 backdrop-blur-md rounded-xl p-4 border border-white/30">
-                  <div className="w-12 h-12 bg-gradient-to-r from-lightBlue to-sunflower rounded-full flex items-center justify-center mx-auto mb-2">
+                <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
+                   <div className="w-12 h-12 bg-leafGreen rounded-full flex items-center justify-center mx-auto mb-2">
+                     <TrendingUp className="h-6 w-6 text-white" />
+                   </div>
+                   <div className="text-2xl font-bold text-navy">85%</div>
+                   <div className="text-sm text-navy/70">Thành công</div>
+                 </div>
+                 <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
+                  <div className="w-12 h-12 bg-lightBlue rounded-full flex items-center justify-center mx-auto mb-2">
                     <DollarSign className="h-6 w-6 text-white" />
                   </div>
                   <div className="text-2xl font-bold text-navy">30M+</div>
@@ -339,7 +339,7 @@ const RegisterPage = () => {
               {/* Success Stories Cards */}
               <div className="space-y-6">
                 {successStories.map((story, index) => (
-                  <div key={story.id} className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl border border-white/30 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                  <div key={story.id} className="bg-white/90 rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                     <div className="flex items-start gap-4">
                       <img 
                         src={story.image} 
@@ -370,7 +370,7 @@ const RegisterPage = () => {
               
               <div className="text-center">
                 <Link to="/success-stories">
-                  <Button className="group bg-gradient-to-r from-navy to-lightBlue hover:from-lightBlue hover:to-navy text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <Button className="group bg-navy hover:bg-lightBlue text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                     <span className="flex items-center gap-2">
                       Xem Thêm Câu Chuyện
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
