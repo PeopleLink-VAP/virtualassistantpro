@@ -151,7 +151,7 @@ const TrainingPage = () => {
             
             {/* Enhanced CTA Button */}
             <div className="animate-fade-in-up animation-delay-700">
-              <Link to="/login">
+              <Link to="/register">
                 <Button className="group relative bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300 overflow-hidden">
                   <span className="relative z-10 flex items-center gap-3">
                     <Star className="h-6 w-6 group-hover:animate-spin" />
@@ -307,15 +307,15 @@ const TrainingPage = () => {
             <div className="bg-gradient-to-r from-sunflower/20 to-leafGreen/20 rounded-2xl p-8 backdrop-blur-sm border border-white/30 shadow-xl">
               <h3 className="text-3xl font-bold text-navy mb-4">Sẵn sàng bắt đầu hành trình?</h3>
               <p className="text-navy/80 mb-6 max-w-2xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp với mức thu nhập ổn định</p>
-              <Link to="/login">
-                <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300">
-                  <span className="flex items-center gap-3">
-                    <Award className="h-6 w-6 group-hover:animate-spin" />
-                    Đăng Ký Khóa Học Ngay
-                    <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
-                  </span>
-                </Button>
-              </Link>
+              <Link to="/register">
+              <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300">
+                <span className="flex items-center gap-3">
+                  <Award className="h-6 w-6 group-hover:animate-spin" />
+                  Đăng Ký Khóa Học Ngay
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
+                </span>
+              </Button>
+            </Link>
             </div>
           </div>
         </div>
@@ -527,15 +527,15 @@ const TrainingPage = () => {
                       <p className="text-sm text-navy/70 mb-1">Học phí trọn gói</p>
                       <p className="text-3xl font-bold text-navy">8,000,000 VNĐ</p>
                     </div>
-                    <Link to="/login">
-                      <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                        <span className="flex items-center gap-2">
-                          <BookOpen className="h-5 w-5" />
-                          Đăng Ký Ngay
-                          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                      </Button>
-                    </Link>
+                    <Link to="/register">
+                  <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+                    <span className="flex items-center gap-2">
+                      <BookOpen className="h-5 w-5" />
+                      Đăng Ký Ngay
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </Button>
+                </Link>
                   </div>
                 </div>
               </div>
@@ -731,7 +731,7 @@ const TrainingPage = () => {
             </div>
           </div>
           <div className="text-center mt-12 animate-fade-in-up">
-            <Link to="/login">
+            <Link to="/register">
               <Button className="btn-primary flex items-center gap-2 group">
                 <BookOpen className="h-4 w-4" />
                 Đăng Ký Ngay
@@ -1023,7 +1023,7 @@ const TrainingPage = () => {
             <div className="bg-gradient-to-r from-sunflower/20 to-leafGreen/20 rounded-2xl p-8 backdrop-blur-sm border border-white/30 shadow-xl">
               <h3 className="text-3xl font-bold text-navy mb-4">Bạn sẽ là câu chuyện thành công tiếp theo?</h3>
               <p className="text-navy/80 mb-6 max-w-2xl mx-auto">Tham gia cùng hàng trăm học viên đã thành công và bắt đầu hành trình VA của bạn ngay hôm nay</p>
-              <Link to="/login">
+              <Link to="/register">
                 <Button className="group bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-bold py-4 px-8 rounded-full text-lg shadow-2xl transform hover:scale-110 transition-all duration-300">
                   <span className="flex items-center gap-3">
                     <Users className="h-6 w-6 group-hover:animate-bounce" />
@@ -1158,7 +1158,7 @@ const TrainingPage = () => {
                     </span>
                   </Button>
                 </Link>
-                <Link to="/login">
+                <Link to="/register">
                   <Button className="group bg-gradient-to-r from-lightBlue to-navy hover:from-navy hover:to-lightBlue text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
                     <span className="flex items-center gap-2">
                       <BookOpen className="h-5 w-5 group-hover:animate-pulse" />

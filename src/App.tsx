@@ -26,6 +26,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
+import RegisterPage from "./pages/RegisterPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/courses-view" element={<CoursesViewPage />} />
             <Route path="/free-resources" element={<FreeResourcesPage />} />
             <Route path="/e-learning" element={<CoursesViewPage />} />
