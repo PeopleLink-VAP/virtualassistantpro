@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     name: "Ngô Thanh Nguyên",
     role: "Học viên VA8",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/431726a0-a59f-4f9e-8cc6-3e44864a43ac.png",
     content: "Đi cùng chị Duyên từ lớp VA8, đến giờ mỗi khi có gì khó em vẫn nhắn chị hỗ trợ, đây không chỉ là một khóa học mà là nơi mở ra bước ngoặt mới cho rất nhiều người. Chúc VAP 14 tiếp tục dc truyền lửa và tạo ra thêm nhiều hành trình đẹp nhé",
     rating: 5
   },
