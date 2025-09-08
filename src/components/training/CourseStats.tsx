@@ -1,9 +1,7 @@
 import React from 'react';
 import { Users, Award, Star, Clock } from 'lucide-react';
-
 const CourseStats = () => {
-  return (
-    <section className="py-20 bg-navy relative overflow-hidden">
+  return <section className="py-20 bg-navy relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 right-10 w-32 h-32 bg-sunflower/10 rounded-full animate-float"></div>
@@ -24,7 +22,9 @@ const CourseStats = () => {
         {/* Clean Statistics Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Stat 1 */}
-          <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div className="group text-center animate-fade-in-up" style={{
+          animationDelay: "0.4s"
+        }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Users className="h-8 w-8 text-white" />
@@ -38,7 +38,9 @@ const CourseStats = () => {
           </div>
           
           {/* Stat 2 */}
-          <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          <div className="group text-center animate-fade-in-up" style={{
+          animationDelay: "0.5s"
+        }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Award className="h-8 w-8 text-white" />
@@ -52,7 +54,9 @@ const CourseStats = () => {
           </div>
           
           {/* Stat 3 */}
-          <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+          <div className="group text-center animate-fade-in-up" style={{
+          animationDelay: "0.6s"
+        }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-sunflower rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Star className="h-8 w-8 text-white" />
@@ -66,7 +70,9 @@ const CourseStats = () => {
           </div>
           
           {/* Stat 4 */}
-          <div className="group text-center animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
+          <div className="group text-center animate-fade-in-up" style={{
+          animationDelay: "0.7s"
+        }}>
             <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
               <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Clock className="h-8 w-8 text-white" />
@@ -87,7 +93,11 @@ const CourseStats = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-sunflower mb-2">$100-250</div>
-                <p className="text-white/80">Pocket money - Tiền tiêu vặt. Giai đoạn đầu: Thời lượng làm việc ít - Task nhỏ lẻ.</p>
+                <p className="text-white/80">Giai đoạn 1: 
+
+Thời lượng làm việc ít - Task nhỏ lẻ.
+
+Pocket money - Tiền tiêu vặt. </p>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-sunflower mb-2">$300-900</div>
@@ -102,8 +112,6 @@ const CourseStats = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CourseStats;
