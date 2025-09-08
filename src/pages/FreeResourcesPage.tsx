@@ -330,9 +330,9 @@ const FreeResourcesPage = () => {
                   <div className="bg-sunflower/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Mail className="w-8 h-8 text-sunflower" />
                   </div>
-                  <h3 className="text-2xl font-bold text-navy mb-2">Nhận Tài Liệu Miễn Phí</h3>
+                  <h3 className="text-2xl font-bold text-navy mb-2">Nhận Tài Liệu Miễn Phí & Tham Gia Cộng Đồng VA</h3>
                   <p className="text-gray-600">
-                    Đăng ký để nhận ngay các tài liệu VA miễn phí và cập nhật mới nhất từ chúng tôi.
+                    Đăng ký để nhận ngay các tài liệu VA miễn phí, tham gia cộng đồng Virtual Assistant và nhận cập nhật mới nhất về nghề VA tại Việt Nam.
                   </p>
                 </div>
 
