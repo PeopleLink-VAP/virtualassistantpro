@@ -22,15 +22,19 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Roboto', 'sans-serif'],
-				condensed: ['Roboto Condensed', 'sans-serif'],
+				condensed: ['Farro', 'sans-serif'],
+				farro: ['Farro', 'sans-serif'],
 			},
 			colors: {
-				// Original color palette
-				sunflower: "#FFD700",
+				// New designer color palette
 				navy: "#1B365D",
-				warmWhite: "#FFFAF0",
-				leafGreen: "#228B22",
-				indochine: "#3C4B3C",
+				crimson: "#AA001D",
+				warmWhite: "#FFFBF1",
+				gold: "#F2A906",
+				brown: "#8A491B",
+				// Legacy colors for backward compatibility
+				sunflower: "#F2A906",
+				leafGreen: "#8A491B",
 				
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

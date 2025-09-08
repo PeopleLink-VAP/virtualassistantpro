@@ -110,7 +110,7 @@ const CourseFeatures = () => {
         <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
           <div className="bg-sunflower/20 rounded-3xl p-8 backdrop-blur-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-navy mb-4">Sẵn sàng bắt đầu hành trình?</h3>
-            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp với mức thu nhập ổn định</p>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp<br/>với mức thu nhập ổn định</p>
             <Link to="/register">
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
