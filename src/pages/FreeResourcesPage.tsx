@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, X, Mail, User, Download, Lock } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
 
 const FreeResourcesPage = () => {
+  const [showEmailPopup, setShowEmailPopup] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tài liệu miễn phí qua email.');
+    setShowEmailPopup(false);
+    setFormData({ name: '', email: '' });
+    setIsSubmitting(false);
+  };
+
+  const handleFreeResourceClick = () => {
+    setShowEmailPopup(true);
+  };
+
   return (
     <>
       <Seo
@@ -38,8 +57,16 @@ const FreeResourcesPage = () => {
             </p>
           </div>
 
-          {/* Free Resources Grid */}
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Free Resources Section */}
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold text-navy font-condensed">Tài Liệu Miễn Phí</h2>
+              <div className="flex items-center text-green-600">
+                <Download className="w-5 h-5 mr-2" />
+                <span className="font-semibold">100% Miễn Phí</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Red Flags Guide */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-red-500">
               <div className="p-6">
@@ -57,7 +84,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 1 trang</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
                 </div>
               </div>
             </div>
@@ -79,7 +106,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Word + PDF • 2 files</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
                 </div>
               </div>
             </div>
@@ -101,7 +128,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 2 trang</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
                 </div>
               </div>
             </div>
@@ -123,7 +150,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Google Form Template</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Sao chép template &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Sao chép template &rarr;</button>
                 </div>
               </div>
             </div>
@@ -145,7 +172,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Excel • 50 items</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
                 </div>
               </div>
             </div>
@@ -167,7 +194,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Notion Template</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Sao chép template &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Sao chép template &rarr;</button>
                 </div>
               </div>
             </div>
@@ -189,7 +216,92 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 5 trang</span>
-                  <a href="#" className="text-sunflower hover:underline font-semibold">Đọc ngay &rarr;</a>
+                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Đọc ngay &rarr;</button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </section>
+
+          {/* Paid Resources Section */}
+          <section className="mb-16">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-3xl font-bold text-navy font-condensed">Tài Liệu Chuyên Sâu</h2>
+              <div className="flex items-center text-sunflower">
+                <Lock className="w-5 h-5 mr-2" />
+                <span className="font-semibold">Có Phí</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Advanced VA Playbook */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-sunflower">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-sunflower/10 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-sunflower" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-xl text-navy">Advanced VA Playbook</h3>
+                  </div>
+                  <p className="text-gray-700 text-base mb-4">
+                    Hệ thống đầy đủ từ A-Z: Sales scripts, onboarding process, pricing strategies, và client management system.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">PDF + Templates • 50+ trang</span>
+                    <span className="text-sunflower font-bold text-lg">$49</span>
+                  </div>
+                  <button className="w-full mt-4 bg-sunflower text-white py-2 px-4 rounded-lg hover:bg-sunflower/90 transition-colors">
+                    Mua ngay
+                  </button>
+                </div>
+              </div>
+
+              {/* VA Business Accelerator */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-leafGreen">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-leafGreen/10 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-leafGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-xl text-navy">VA Business Accelerator</h3>
+                  </div>
+                  <p className="text-gray-700 text-base mb-4">
+                    Khóa học video 6 tuần với mentoring 1-1, bao gồm live Q&A sessions và access vào private community.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">Video Course + Mentoring</span>
+                    <span className="text-leafGreen font-bold text-lg">$299</span>
+                  </div>
+                  <button className="w-full mt-4 bg-leafGreen text-white py-2 px-4 rounded-lg hover:bg-leafGreen/90 transition-colors">
+                    Đăng ký ngay
+                  </button>
+                </div>
+              </div>
+
+              {/* Premium VA Toolkit */}
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-navy">
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-navy/10 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-xl text-navy">Premium VA Toolkit</h3>
+                  </div>
+                  <p className="text-gray-700 text-base mb-4">
+                    Bộ công cụ hoàn chỉnh: 20+ templates, automation scripts, client portal setup, và lifetime updates.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-gray-500">Complete Toolkit + Updates</span>
+                    <span className="text-navy font-bold text-lg">$149</span>
+                  </div>
+                  <button className="w-full mt-4 bg-navy text-white py-2 px-4 rounded-lg hover:bg-navy/90 transition-colors">
+                    Mua toolkit
+                  </button>
                 </div>
               </div>
             </div>
@@ -199,10 +311,71 @@ const FreeResourcesPage = () => {
           <div className="mt-16 bg-gradient-to-r from-navy to-navy/90 text-white p-12 rounded-lg text-center">
             <h2 className="text-3xl font-bold mb-4 font-condensed">Muốn Có Hệ Thống Đầy Đủ?</h2>
             <p className="text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-              Các tài liệu miễn phí này chỉ là khởi đầu. Để có được hệ thống hoàn chỉnh, 
-              quy trình chuyên nghiệp và hỗ trợ 1-1, hãy tham gia Virtual Assistant Pro Program.
+              Nhận thêm các bài viết, tài liệu miễn phí về nghề VA và hành trình Freelance qua email.
             </p>
           </div>
+
+          {/* Email Popup Modal */}
+          {showEmailPopup && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+              <div className="bg-white rounded-xl max-w-md w-full p-6 relative">
+                <button 
+                  onClick={() => setShowEmailPopup(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+                
+                <div className="text-center mb-6">
+                  <div className="bg-sunflower/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Mail className="w-8 h-8 text-sunflower" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-navy mb-2">Nhận Tài Liệu Miễn Phí</h3>
+                  <p className="text-gray-600">
+                    Đăng ký để nhận ngay các tài liệu VA miễn phí và cập nhật mới nhất từ chúng tôi.
+                  </p>
+                </div>
+
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="text"
+                      placeholder="Họ và tên"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                    <input
+                      type="email"
+                      placeholder="Email của bạn"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-sunflower text-white py-3 px-6 rounded-lg font-semibold hover:bg-sunflower/90 transition-colors disabled:opacity-50"
+                  >
+                    {isSubmitting ? 'Đang gửi...' : 'Nhận tài liệu miễn phí'}
+                  </button>
+                </form>
+
+                <p className="text-xs text-gray-500 text-center mt-4">
+                  Chúng tôi tôn trọng quyền riêng tư của bạn. Không spam, chỉ gửi nội dung hữu ích.
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <Footer />
