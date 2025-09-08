@@ -4,50 +4,50 @@ import { Star, Quote } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    name: "Minh Anh",
-    role: "Freelance VA",
-    avatar: "MA",
-    content: "Sau khóa học của chị Duyên, tôi đã có thể kiếm được $800/tháng chỉ sau 3 tháng. Lộ trình học rất chi tiết và thực tế.",
+    name: "Ngô Thanh Nguyên",
+    role: "Học viên VA8",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+    content: "Đi cùng chị Duyên từ lớp VA8, đến giờ mỗi khi có gì khó em vẫn nhắn chị hỗ trợ, đây không chỉ là một khóa học mà là nơi mở ra bước ngoặt mới cho rất nhiều người. Chúc VAP 14 tiếp tục dc truyền lửa và tạo ra thêm nhiều hành trình đẹp nhé",
     rating: 5
   },
   {
     id: 2,
-    name: "Thanh Hoa",
-    role: "Full-time VA",
-    avatar: "TH",
-    content: "Khóa học giúp tôi xây dựng được portfolio chuyên nghiệp và tự tin khi giao tiếp với khách hàng nước ngoài.",
+    name: "Khánh Linh",
+    role: "Học viên VA9",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    content: "Mới đó mà đã đến khoá 14 rồi, e cứ tưởng như mới học xong khoá 9 mới đây thôi. Học xong mới thấy, nếu mình học sớm hơn thì chặng đường đi với VA đã dài hơn nhiều. Đăng ký sớm để đến gần với giấc mơ VA nào. Vừa có mentor đồng hành vừa chinh phục được ước mơ có gì tuyệt hơn nữa đâu nhỉ!",
     rating: 5
   },
   {
     id: 3,
-    name: "Duc Minh",
-    role: "Part-time VA",
-    avatar: "DM",
-    content: "Tôi có thể làm việc từ xa và vẫn chăm sóc gia đình. Thu nhập ổn định $500/tháng làm part-time.",
+    name: "Nguyễn Ngọc",
+    role: "VA Professional",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    content: "Cảm ơn chị đã truyền lại những kinh nghiệm tâm huyết mà chị đã đúc kết được qua nhiều năm trong nghề. Một khoá học tuyệt vời - một người mentor nhiệt huyết, tận tâm với nghề. VA khó - đã có chị Duyên",
     rating: 5
   },
   {
     id: 4,
-    name: "Lan Huong",
-    role: "VA Team Lead",
-    avatar: "LH",
-    content: "Từ một người hoàn toàn mới, giờ tôi đã quản lý team 5 VA và thu nhập $1200/tháng. Cảm ơn chị Duyên!",
+    name: "Rosy Nguyen",
+    role: "Data Research VA",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    content: "Tối hôm qua em mới interview VA data research mà client coi portfolio xong được offer vị trí khác rate cao hơn luôn, có cái là làm giờ Mỹ nên chắc em không nhận thui ạ, ôi khó tả cái cảm giác tự thấy mình thay đổi theo thời gian luôn. Em cám ơn chị Duyen Pham, vẫn vậy, hơn cả mentor, là 1 người chị thân thiết với tất cả những đứa em như em haha",
     rating: 5
   },
   {
     id: 5,
-    name: "Quoc Bao",
-    role: "Social Media VA",
-    avatar: "QB",
-    content: "Chuyên môn sâu về social media marketing giúp tôi trở thành VA được nhiều client tin tưởng.",
+    name: "Thùy Trang",
+    role: "VA Graduate",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    content: "Học xong từ năm ngoái nay mới trồi lên feedback vì hết khóa bận đi khách liền 😄 Duyên là một người làm nghề giỏi nên kiến thức Duyên truyền đạt rất sát với thực tế và cô đọng.",
     rating: 5
   },
   {
     id: 6,
-    name: "Thuy Linh",
-    role: "Admin VA",
-    avatar: "TL",
-    content: "Kỹ năng tổ chức và quản lý thời gian từ khóa học giúp tôi xử lý được nhiều client cùng lúc.",
+    name: "Xuân Trang",
+    role: "VA Professional",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    content: "Học xong là thấy ngộ ra nhiều thứ hay ho lắm. Đặc biệt là cách nói chuyện với khách sao cho khéo. Chưa nói tới cách đánh ngách sao cho hợp lý. Học xong tự tin hẳn. Ước gì e biết đến chị sớm hơn. Cảm ơn chị đã support e rất nhiều. Và e vẫn sẽ còn hành chị nữa ạ",
     rating: 5
   }
 ];
@@ -84,8 +84,12 @@ const RealLifeResults = () => {
                   animation: `float 3s ease-in-out infinite ${index * 0.5}s`
                 }}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-sunflower to-leafGreen rounded-full flex items-center justify-center text-white font-bold shadow-lg hover:shadow-xl transition-shadow">
-                  {testimonial.avatar}
+                <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                  <img 
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Testimonial Popup */}
@@ -94,8 +98,12 @@ const RealLifeResults = () => {
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white/95 rotate-45"></div>
                     
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-br from-sunflower to-leafGreen rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                        {testimonial.avatar}
+                      <div className="w-10 h-10 rounded-full overflow-hidden">
+                        <img 
+                          src={testimonial.avatar} 
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <div>
                         <h4 className="font-semibold text-navy">{testimonial.name}</h4>
@@ -129,8 +137,8 @@ const RealLifeResults = () => {
                 <p className="text-navy/80">học viên được hướng dẫn từ A-Z về nghề VA</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-leafGreen mb-2">55-75%</div>
-                <p className="text-navy/80">học viên tìm được việc trong vòng 6 tháng</p>
+                <div className="text-3xl font-bold text-leafGreen mb-2">60 ~ 75%</div>
+                <p className="text-navy/80">học viên có khách hàng khi quyết liệt đầu tư vào VA trong vòng ít nhất 4 tháng</p>
                 <p className="text-sm text-navy/60">quyết liệt làm</p>
               </div>
               <div>

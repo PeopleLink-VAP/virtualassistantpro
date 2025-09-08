@@ -31,16 +31,18 @@ const CoursesSection = () => {
             </h3>
             
             <p className="text-navy/80 leading-relaxed mb-6 text-center">
-              Lớp học trực tiếp qua Zoom với sự tương tác cao cùng giảng viên và học viên khác. 
-              Được thiết kế cho những ai muốn có trải nghiệm học tập sống động và hỗ trợ tức thì.
+              Lớp học trực tiếp qua Zoom, tương tác với giảng viên và các học viên. 
+              Lớp học được thiết kế để phù hợp với các bạn muốn hiểu đủ, hiểu đúng và hiểu sâu về nghề VA.
             </p>
             
             <div className="grid md:grid-cols-2 gap-4 mb-6">
               {[
-                { icon: Video, text: "Học trực tiếp với giảng viên" },
-                { icon: Users, text: "Lớp học nhỏ 8-12 người" },
-                { icon: Star, text: "Tương tác và Q&A thời gian thực" },
-                { icon: Clock, text: "Lịch học linh hoạt" }
+                { icon: Users, text: "Giảng viên hỗ trợ 1:1 (không qua trợ lý)" },
+                { icon: Users, text: "Lớp học nhỏ 10 - 15 người" },
+                { icon: Star, text: "Hướng dẫn 10 ngách đang có nhu cầu cao trên thị trường, phù hợp với VA Việt Nam" },
+                { icon: Video, text: "Lớp tiếng Anh bổ trợ miễn phí (học với giáo viên nước ngoài)" },
+                { icon: Star, text: "Cơ hội được giới thiệu công việc nếu bạn hoàn thành việc học tốt và đầy đủ" },
+                { icon: Clock, text: "Tập trung vào thị trường nước ngoài và các platform như Fiverr, Upwork" }
               ].map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-3 hover:translate-x-1 transition-transform">
                   <feature.icon className="text-leafGreen" size={18} />
@@ -120,14 +122,14 @@ const CoursesSection = () => {
               </h4>
               
               <p className="text-navy/80 leading-relaxed mb-6">
-                Công cụ và tài liệu cao cấp dành cho học viên khóa học.
+                Công cụ và tài liệu chuyên sâu (có trả phí)
               </p>
               
               <div className="space-y-3 mb-6">
                 {[
-                  { icon: Star, text: "Công cụ quản lý dự án" },
-                  { icon: Users, text: "1:1 Mentoring" },
-                  { icon: Clock, text: "Hỗ trợ 24/7" }
+                  { icon: Star, text: "Công cụ & công nghệ thông dụng" },
+                  { icon: Users, text: "Buổi coaching 1:1 - Thời lượng: 1 tiếng" },
+                  { icon: Clock, text: "Bài đọc đánh giá, phân tích chuyên sâu" }
                 ].map((feature, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <feature.icon className="text-leafGreen" size={16} />
@@ -135,14 +137,7 @@ const CoursesSection = () => {
                   </div>
                 ))}
               </div>
-              
-              <Link to="/vap-course">
-                <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 w-full hover:scale-105 transition-all">
-                  <Star size={18} />
-                  Tham Gia Khóa Học
-                  <ArrowRight size={16} />
-                </Button>
-              </Link>
+
             </div>
           </div>
         </div>

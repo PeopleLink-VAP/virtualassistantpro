@@ -10,7 +10,7 @@ const TeamPage = () => {
     <>
       <Helmet>
         <title>Đội Ngũ Đào Tạo - Virtual Assistant Pro</title>
-        <meta name="description" content="Gặp gỡ Duyên Pham, người sáng lập và giảng viên của Virtual Assistant Pro, người sẽ đồng hành cùng bạn trên hành trình trở thành Trợ Lý Ảo chuyên nghiệp." />
+        <meta name="description" content="Gặp gỡ Duyên Phạm, người sáng lập và giảng viên của Virtual Assistant Pro, người sẽ đồng hành cùng bạn trên hành trình trở thành Trợ Lý Ảo chuyên nghiệp." />
       </Helmet>
       
       <div className="min-h-screen bg-warmWhite">
@@ -27,7 +27,7 @@ const TeamPage = () => {
             <div className="text-center mb-16 animate-fade-in">
               <h1 className="text-4xl font-bold text-navy mb-4">Đội Ngũ Đào Tạo</h1>
               <p className="text-navy/70 max-w-2xl mx-auto">
-                Gặp gỡ Duyên Pham, người sẽ đồng hành cùng bạn trên hành trình trở thành Trợ Lý Ảo chuyên nghiệp
+                Gặp gỡ Duyên Phạm, người sẽ đồng hành cùng bạn trên hành trình trở thành Trợ&nbsp;Lý&nbsp;Ảo&nbsp;chuyên&nbsp;nghiệp
               </p>
             </div>
             
@@ -40,7 +40,6 @@ const TeamPage = () => {
                       <Briefcase className="h-8 w-8 text-navy" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Kinh Nghiệm Thực Tế</h3>
-                    <p className="text-navy/70">Đội ngũ giảng viên là những người đang làm việc thực tế trong ngành VA</p>
                   </div>
                   
                   <div className="flex flex-col items-center text-center p-4 hover:scale-105 transition-transform">
@@ -48,7 +47,6 @@ const TeamPage = () => {
                       <Award className="h-8 w-8 text-navy" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Chuyên Môn Đa Dạng</h3>
-                    <p className="text-navy/70">Nhiều năm kinh nghiệm trong nhiều lĩnh vực khác nhau của ngành VA</p>
                   </div>
                   
                   <div className="flex flex-col items-center text-center p-4 hover:scale-105 transition-transform">
@@ -56,7 +54,6 @@ const TeamPage = () => {
                       <GraduationCap className="h-8 w-8 text-navy" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Phương Pháp Thực Tiễn</h3>
-                    <p className="text-navy/70">Học thông qua thực hành và các dự án thực tế, không chỉ lý thuyết suông</p>
                   </div>
                   
                   <div className="flex flex-col items-center text-center p-4 hover:scale-105 transition-transform">
@@ -64,7 +61,6 @@ const TeamPage = () => {
                       <Heart className="h-8 w-8 text-navy" />
                     </div>
                     <h3 className="text-lg font-semibold mb-2">Hỗ Trợ Liên Tục</h3>
-                    <p className="text-navy/70">Được hỗ trợ và tư vấn cá nhân trong suốt quá trình học và sau khi tốt nghiệp</p>
                   </div>
                 </div>
               </div>
@@ -88,15 +84,16 @@ const TeamPage = () => {
                 <div className="p-8 md:w-2/3">
                   <h3 className="text-2xl font-bold text-navy mb-1">Duyen Pham</h3>
                   <p className="text-sunflower font-medium mb-4">Founder/ Coach</p>
-                  <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực hành chính văn phòng và phát triển kinh doanh quốc tế. Duyên đã đào tạo hơn 60 VA chuyên nghiệp và điều hành cộng đồng VA Việt Nam với hơn 10,000 thành viên.</p>
+                  <p className="text-navy/80 mb-6">Hơn 10 năm kinh nghiệm trong lĩnh vực VA, VA coaching và đối tác chiến lược của nhiều startup/ doanh nghiệp ở Việt Nam và Quốc tế, Duyên đã đào tạo hơn 150 học viên VA và điều hành cộng động VA - Virtual Assistant Việt Nam.</p>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                       <h4 className="font-semibold text-navy mb-2">Chuyên Môn:</h4>
                       <ul className="list-disc list-inside text-navy/70 space-y-1">
-                        <li className="hover:translate-x-1 transition-transform">Chiến lược phát triển VA</li>
-                        <li className="hover:translate-x-1 transition-transform">Marketing cá nhân</li>
-                        <li className="hover:translate-x-1 transition-transform">Quản lý khách hàng quốc tế</li>
+                        <li className="hover:translate-x-1 transition-transform">Chiến lược phát triển VA toàn diện</li>
+                        <li className="hover:translate-x-1 transition-transform">Xây dựng thương hiệu trên thị trường quốc tế</li>
+                        <li className="hover:translate-x-1 transition-transform">Hỗ trợ set up/ vận hành/ tư vấn chiến lược cho startup và SMEs</li>
+                        <li className="hover:translate-x-1 transition-transform">Xây dựng cộng đồng</li>
                       </ul>
                     </div>
                     
@@ -104,7 +101,7 @@ const TeamPage = () => {
                       <h4 className="font-semibold text-navy mb-2">Kinh Nghiệm:</h4>
                       <ul className="list-disc list-inside text-navy/70 space-y-1">
                         <li className="hover:translate-x-1 transition-transform">Đào tạo 150+ VA chuyên nghiệp</li>
-                        <li className="hover:translate-x-1 transition-transform">Hoàn thành hơn 200 đơn hàng trên Fiverr</li>
+                        <li className="hover:translate-x-1 transition-transform">Hoàn thành 200+ đơn hàng trên Fiverr với hơn 100+ review 5 sao</li>
                         <li className="hover:translate-x-1 transition-transform">Founder cộng đồng VA - Virtual assistant Việt Nam</li>
                         <li className="hover:translate-x-1 transition-transform">Co-founder War & Peace Homestay</li>
                       </ul>

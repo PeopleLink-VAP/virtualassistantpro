@@ -63,7 +63,8 @@ const TrainingHero = () => {
                 </div>
               </div>
               <h3 className="font-semibold text-navy mb-2">Khai Giảng</h3>
-              <p className="text-gray-600">Cuối tháng 9/2025</p>
+              <p className="text-gray-600">Dự kiến tuần cuối tháng 9/2025</p>
+              <p className="text-gray-600">Đóng tuyển sinh ngay khi đủ số lượng đăng ký</p>
             </div>
             
             <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
@@ -73,7 +74,7 @@ const TrainingHero = () => {
                 </div>
               </div>
               <h3 className="font-semibold text-navy mb-2">Lịch Học</h3>
-              <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45-21:15)</p>
+              <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45 - 21:15)</p>
             </div>
             
             <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
@@ -93,7 +94,7 @@ const TrainingHero = () => {
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="relative z-10 flex items-center gap-3">
                   <Star className="h-5 w-5 group-hover:rotate-12 transition-transform" />
-                  Đăng Ký Ngay - Ưu Đãi Đặc Biệt
+                  Đăng ký ngay hoặc Nhận tư vấn thêm
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Button>

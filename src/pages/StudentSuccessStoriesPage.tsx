@@ -77,8 +77,8 @@ const StudentSuccessStoriesPage = () => {
               Câu Chuyện Thành Công Của Học Viên
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-              Khám phá những hành trình đầy cảm hứng từ các học viên Virtual Assistant Pro. 
-              Mỗi câu chuyện là một minh chứng cho sức mạnh của việc học tập và quyết tâm thay đổi cuộc sống.
+              Khám phá những hành trình đầy cảm hứng của các học viên Virtual Assistant Pro. 
+              Mỗi câu chuyện là một hành trình không ngừng cố gắng và học hỏi trên hành trình VA đầy mới mẻ.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -135,14 +135,6 @@ const StudentSuccessStoriesPage = () => {
                         Bối Cảnh
                       </h3>
                       <p className="text-gray-700">{story.background}</p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
-                        <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Khóa Học Tham Gia
-                      </h3>
-                      <p className="text-gray-700">{story.courseTaken}</p>
                     </div>
                     
                     <div className="bg-white p-6 rounded-lg shadow-md">

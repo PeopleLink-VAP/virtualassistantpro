@@ -30,7 +30,7 @@ const CourseStats = () => {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
-                500+
+                150+
               </div>
               <h3 className="text-lg font-semibold text-white mb-2">Học Viên</h3>
               <p className="text-white/80 text-sm">Đã tham gia và hoàn thành khóa học thành công</p>
@@ -44,10 +44,10 @@ const CourseStats = () => {
                 <Award className="h-8 w-8 text-white" />
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">
-                95%
+                70~85%
               </div>
-              <h3 className="text-lg font-semibold text-white mb-2">Tỷ Lệ Thành Công</h3>
-              <p className="text-white/80 text-sm">Học viên tìm được việc làm VA sau khóa học</p>
+              <h3 className="text-lg font-semibold text-white mb-2">Đồng hành với nghề VA</h3>
+              <p className="text-white/80 text-sm">Học viên quyết định theo đuổi nghề VA, dù mỗi bạn chọn một thời điểm bắt đầu khác nhau</p>
             </div>
           </div>
           
@@ -83,22 +83,22 @@ const CourseStats = () => {
         {/* Clean Success Stories Preview */}
         <div className="mt-16 text-center animate-fade-in-up animation-delay-700">
           <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-8 border border-white/20 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-white mb-6">💼 Thu Nhập Trung Bình Của Học Viên</h3>
+            <h3 className="text-xl font-bold text-white mb-6">💼 Các cấp thu nhập của Học Viên</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$500-800</div>
-                <p className="text-white/80">Tháng đầu tiên</p>
+                <div className="text-2xl font-bold text-sunflower mb-2">$100-250</div>
+                <p className="text-white/80">Pocket money - Tiền tiêu vặt. Giai đoạn đầu: Thời lượng làm việc ít - Task nhỏ lẻ.</p>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$1000-1500</div>
-                <p className="text-white/80">Sau 3 tháng</p>
+                <div className="text-2xl font-bold text-sunflower mb-2">$300-900</div>
+                <p className="text-white/80">Giai đoạn tiếp theo: Khối lượng công việc nâng cao - Tìm được ngách & tệp khách phù hợp</p>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$2000+</div>
-                <p className="text-white/80">Sau 6 tháng</p>
+                <div className="text-2xl font-bold text-sunflower mb-2">$1000-4000</div>
+                <p className="text-white/80">Giai đoạn phát triển: Mở rộng tệp khách - Hiểu và cân bằng task lâu dài và ngắn hạn - Bắt đầu phát triển đội nhóm</p>
               </div>
             </div>
-            <p className="text-white/70 text-sm mt-4 italic">*Dựa trên khảo sát thực tế từ học viên đã hoàn thành khóa học</p>
+            <p className="text-white/70 text-sm mt-4 italic">*Tùy thuộc vào ngách, khối lượng công việc và đối tượng khách hàng</p>
           </div>
         </div>
       </div>

@@ -34,15 +34,8 @@ const FreeResourcesPage = () => {
               Tài Liệu & Công Cụ Miễn Phí
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-              Bộ sưu tập các tài liệu thiết yếu giúp bạn khởi đầu hành trình trở thành Virtual Assistant chuyên nghiệp. 
-              Tất cả đều miễn phí và được thiết kế đặc biệt cho thị trường Việt Nam.
+              Tổng hợp tài liệu giúp bạn khởi đầu với nghề Virtual Assistant.
             </p>
-            <div className="bg-sunflower/10 border border-sunflower/20 rounded-lg p-4 max-w-2xl mx-auto">
-              <p className="text-sm text-gray-600">
-                <strong>Lưu ý:</strong> Các tài liệu này là phiên bản cơ bản. Để có được hệ thống đầy đủ và chuyên sâu, 
-                hãy tham gia <strong>Virtual Assistant Pro Program</strong>.
-              </p>
-            </div>
           </div>
 
           {/* Free Resources Grid */}
@@ -209,20 +202,6 @@ const FreeResourcesPage = () => {
               Các tài liệu miễn phí này chỉ là khởi đầu. Để có được hệ thống hoàn chỉnh, 
               quy trình chuyên nghiệp và hỗ trợ 1-1, hãy tham gia Virtual Assistant Pro Program.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/vap-course" 
-                className="bg-sunflower text-navy px-8 py-3 rounded-lg font-semibold hover:bg-sunflower/90 transition duration-300"
-              >
-                Xem Chương Trình VAP
-              </Link>
-              <Link 
-                to="/contact" 
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-navy transition duration-300"
-              >
-                Tư Vấn Miễn Phí
-              </Link>
-            </div>
           </div>
         </div>
       </div>

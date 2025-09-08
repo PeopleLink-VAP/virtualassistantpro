@@ -80,7 +80,7 @@ const BlogPage = () => {
         
         // Extract unique categories
         if (categoriesData) {
-          const uniqueCategories = [...new Set(categoriesData.map(item => item.category).filter(Boolean))];
+          const uniqueCategories = [...new Set(categoriesData.map(item => item.category).filter(Boolean))] as string[];
           setAvailableCategories(uniqueCategories);
         }
         
@@ -118,8 +118,7 @@ const BlogPage = () => {
           <div className="container mx-auto px-4 text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-navy bg-gradient-to-r from-navy to-navy/80 bg-clip-text">Blog & Insights</h1>
             <p className="text-xl text-navy/70 max-w-4xl mx-auto leading-relaxed">
-              Discover valuable articles about virtual assistant careers, skill development, 
-              and the latest industry trends for creative professionals.
+              Mở ra những góc nhìn mới về nghề VA nói riêng và cộng đồng Freelancer Việt Nam nói chung với những bài viết chất lượng và thực tế.
             </p>
           </div>
 
@@ -192,7 +191,7 @@ const BlogPage = () => {
                           className="inline-flex items-center bg-sunflower hover:bg-sunflower/90 text-navy font-bold px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
                           <BookOpen className="w-5 h-5 mr-2" />
-                          Read Full Story
+                          Đọc thêm
                         </Link>
                       </div>
                     </div>
@@ -213,7 +212,7 @@ const BlogPage = () => {
                     }`}
                   >
                     <Filter className="w-4 h-4 mr-2" />
-                    All Articles ({posts.length})
+                    Tất cả ({posts.length})
                   </Button>
                   {availableCategories.map((category) => {
                     const config = CATEGORIES[category as keyof typeof CATEGORIES] || CATEGORIES['General'];
@@ -254,12 +253,12 @@ const BlogPage = () => {
                     <div className="text-center py-16">
                       <BookOpen className="w-16 h-16 mx-auto text-navy/30 mb-4" />
                       <h3 className="text-xl font-semibold text-navy mb-2">
-                        No articles found{selectedCategory !== 'All' && ` in ${selectedCategory}`}
+                        Không tìm thấy bài viết{selectedCategory !== 'All' && ` trong danh mục ${selectedCategory}`}
                       </h3>
                       <p className="text-navy/60">
                         {selectedCategory === 'All' 
-                          ? 'Check back soon for new content!' 
-                          : 'Try selecting a different category or view all articles.'}
+                          ? 'Hãy quay lại sau để xem nội dung mới!' 
+                          : 'Thử chọn danh mục khác hoặc xem tất cả bài viết.'}
                       </p>
                     </div>
                   );
@@ -329,7 +328,7 @@ const BlogPage = () => {
                                     {/* Reading Time */}
                                     <div className="absolute top-4 right-4">
                                       <Badge variant="secondary" className="bg-white/90 text-navy border-0">
-                                        5 min read
+                                        5 phút đọc
                                       </Badge>
                                     </div>
                                   </div>
@@ -427,7 +426,7 @@ const BlogPage = () => {
                                   {/* Reading Time */}
                                   <div className="absolute top-4 right-4">
                                     <Badge variant="secondary" className="bg-white/90 text-navy border-0">
-                                      5 min read
+                                      5 phút đọc
                                     </Badge>
                                   </div>
                                 </div>

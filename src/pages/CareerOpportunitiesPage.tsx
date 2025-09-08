@@ -105,30 +105,6 @@ const CareerOpportunitiesPage = () => {
               Khám phá những cơ hội nghề nghiệp đầy hứa hẹn trong lĩnh vực Trợ Lý Ảo. 
               Thị trường đang bùng nổ với mức tăng trưởng 27% hàng năm và thu nhập hấp dẫn.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="bg-sunflower/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <TrendingUpIcon className="h-8 w-8 text-sunflower" />
-                </div>
-                <h3 className="font-bold text-xl text-navy mb-2">27% Tăng Trưởng</h3>
-                <p className="text-gray-600">Thị trường VA hàng năm</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-sunflower/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <DollarSign className="h-8 w-8 text-sunflower" />
-                </div>
-                <h3 className="font-bold text-xl text-navy mb-2">$1,500-$5,000</h3>
-                <p className="text-gray-600">Thu nhập trung bình hàng tháng</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-sunflower/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <GlobeIcon className="h-8 w-8 text-sunflower" />
-                </div>
-                <h3 className="font-bold text-xl text-navy mb-2">Toàn Cầu</h3>
-                <p className="text-gray-600">Cơ hội làm việc từ xa</p>
-              </div>
-            </div>
           </div>
 
           {/* Career Opportunities */}
@@ -205,28 +181,6 @@ const CareerOpportunitiesPage = () => {
             ))}
           </div>
           
-          {/* Call to Action */}
-          <div className="text-center mt-16 bg-navy text-white p-12 rounded-lg">
-            <h2 className="text-3xl font-bold mb-4 font-condensed">Sẵn Sàng Bắt Đầu Sự Nghiệp Trợ Lý Ảo?</h2>
-            <p className="text-lg mb-8 opacity-90">
-              Tham gia cùng hàng trăm chuyên gia VA đang thành công trong lĩnh vực này. 
-              Nhận tư vấn miễn phí và khám phá cơ hội nghề nghiệp phù hợp với bạn.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/vap-course" 
-                className="bg-sunflower text-navy px-8 py-3 rounded-lg font-semibold hover:bg-sunflower/90 transition duration-300"
-              >
-                Xem Khóa Học
-              </Link>
-              <Link 
-                to="/contact" 
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-navy transition duration-300"
-              >
-                Tư Vấn Miễn Phí
-              </Link>
-            </div>
-          </div>
         </div>
       </div>
       <Footer />

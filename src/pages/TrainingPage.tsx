@@ -9,7 +9,6 @@ import CourseFeatures from '@/components/training/CourseFeatures';
 import CourseStats from '@/components/training/CourseStats';
 import LearningPath from '@/components/training/LearningPath';
 import CourseTestimonials from '@/components/training/CourseTestimonials';
-import CoursePricing from '@/components/training/CoursePricing';
 import CourseFAQ from '@/components/training/CourseFAQ';
 
 const TrainingPage = () => {
@@ -89,39 +88,6 @@ const TrainingPage = () => {
           </div>
         </section>
         
-        {/* Điều gì khiến khóa học khác biệt Section */}
-        <section className="py-20 bg-warmWhite">
-          <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-bold text-navy text-center mb-12 animate-fade-in">Điều Gì Khiến Khóa Học Khác Biệt?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up">
-                <h3 className="text-xl font-semibold text-navy mb-3">Truyền nghề 10 ngách mới lạ</h3>
-                <p className="text-gray-600">Khám phá 10 lĩnh vực ngách độc đáo, không phải ai cũng dạy, mở rộng cơ hội nghề nghiệp.</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
-                <h3 className="text-xl font-semibold text-navy mb-3">Phân tích Use Case thực tế</h3>
-                <p className="text-gray-600">Học hỏi từ những tình huống thực tế, phân tích chi tiết từ chính tài khoản của Duyên.</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-                <h3 className="text-xl font-semibold text-navy mb-3">Học Zoom Live tương tác</h3>
-                <p className="text-gray-600">Tham gia các buổi học trực tiếp qua Zoom, không phải video quay sẵn, tăng cường tương tác.</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-                <h3 className="text-xl font-semibold text-navy mb-3">Xây dựng Portfolio ngay cả khi chưa có kinh nghiệm</h3>
-                <p className="text-gray-600">Hướng dẫn cách tạo portfolio chuyên nghiệp, ấn tượng dù bạn chưa có kinh nghiệm viết.</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-sunflower/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-                <h3 className="text-xl font-semibold text-navy mb-3">2 buổi Live Coaching 1:1</h3>
-                <p className="text-gray-600">Nhận 2 buổi huấn luyện trực tiếp 1:1, giải đáp mọi thắc mắc và định hướng cá nhân.</p>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg border border-gray-100 hover:border-leafGreen/30 transform hover:scale-105 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-                <h3 className="text-xl font-semibold text-navy mb-3">Lớp tiếng Anh BONUS</h3>
-                <p className="text-gray-600">Tăng cường tự tin phỏng vấn với lớp tiếng Anh bổ trợ đặc biệt dành cho học viên.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-        
         {/* Hình ảnh nhóm Section - Flow Gallery */}
         <section className="py-20 bg-warmWhite overflow-hidden">
           <div className="container mx-auto px-4">
@@ -167,7 +133,6 @@ const TrainingPage = () => {
           </div>
         </section>
         
-        <CoursePricing />
         <CourseFAQ />
       </div>
       <Footer />

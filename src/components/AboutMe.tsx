@@ -11,13 +11,13 @@ const QuickFacts = () => (
       <div className="md:w-1/2 text-center md:text-left">
         <h2 className="text-3xl font-bold text-navy mb-8">Vài nét nhanh về <span className="text-sunflower">Duyên</span></h2>
         <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
-          Mình tin rằng cách phát triển nhanh và toàn diện nhất chính là bước ra khỏi vùng an toàn, tự đặt bản thân vào những tình huống và môi trường mới. Càng va chạm nhiều, mình càng học hỏi, trau dồi và khám phá ra những khía cạnh thú vị của bản thân mà trước đây chưa từng nhận ra. Tuy nhiên, việc bước ra vùng an toàn cần được làm một cách kĩ lưỡng, có trách nhiệm và chiến lược.
+          Mình tin rằng cách phát triển nhanh và toàn diện nhất chính là <b>bước ra khỏi vùng an toàn, tự đặt bản thân vào những tình huống và môi trường mới</b>. Càng va chạm nhiều, mình càng học hỏi, trau dồi và khám phá ra những khía cạnh thú vị của bản thân mà trước đây chưa từng nhận ra. Tuy nhiên, việc bước ra vùng an toàn cần được làm một cách kĩ lưỡng, có trách nhiệm và chiến lược.
         </p>
         <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
           Với mình, nghề Virtual Assistant chính là cánh cửa để đến gần hơn với sự đa dạng đó. Mình thích được đồng hành cùng nhiều khách hàng khác nhau, lắng nghe cách họ nhìn nhận và giải quyết vấn đề, rồi từ đó tìm cách hỗ trợ phù hợp cho từng người. Mỗi dự án, mỗi con người đều mang lại cho mình một trải nghiệm mới, đôi khi vượt xa khỏi giới hạn và lối mòn cũ.
         </p>
         <p className="text-lg text-navy/80 max-w-3xl mx-auto mb-12">
-          Là người mang tinh thần phụng sự, mình luôn mong muốn được dùng hết sức – tâm – lực để hỗ trợ khách hàng, đồng hành cùng học viên và đóng góp cho cộng đồng.
+          Là người mang tinh thần <b>phụng sự</b>, mình luôn mong muốn được dùng hết sức – tâm – lực để hỗ trợ khách hàng, đồng hành cùng học viên và đóng góp cho cộng đồng.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="flex flex-col items-center">
@@ -81,7 +81,7 @@ const careerHighlights = [
   },
   {
     title: 'Founder Assistiv Agency',
-    subtitle: 'Service',
+    subtitle: 'BPO Service',
     description: 'Assistiv Agency giúp hỗ trợ kết nối VA Việt Nam với khách hàng quốc tế tìm kiếm nguồn lực tại thị trường Việt Nam, hỗ trợ VA Việt Nam vươn xa trên thị trường nước ngoài.',
     icon: Building
   }

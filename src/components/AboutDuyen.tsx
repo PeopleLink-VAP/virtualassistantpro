@@ -16,7 +16,7 @@ const AboutDuyen = () => {
             <div className="relative">
               <div className="absolute -top-4 -left-4 w-full h-full bg-sunflower/10 rounded-2xl"></div>
               <img 
-                src="/images/duyen/profile_2.jpg" 
+                src="/images/duyen/profile_4.jpg" 
                 alt="Duyen - Virtual Assistant Pro"
                 className="relative rounded-2xl shadow-lg w-full max-w-md mx-auto object-cover"
               />
@@ -26,19 +26,19 @@ const AboutDuyen = () => {
           {/* Content */}
           <div className="lg:w-1/2 animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <h2 className="text-3xl md:text-4xl font-['Roboto_Condensed'] text-navy mb-6">
-              Xin chào, tôi là <span className="text-sunflower font-condensed">Duyên</span>
+              Xin chào, mình là <span className="text-sunflower font-condensed">Duyên</span>
             </h2>
             
             <p className="text-lg text-navy/80 mb-6 leading-relaxed">
-              Với hơn 10 năm kinh nghiệm trong Virtual Assistant, Coaching và hỗ trợ doanh nghiệp quốc tế, tôi đã trực tiếp đồng hành cùng hàng trăm cá nhân và công ty ở nhiều thị trường khác nhau để xây dựng hệ thống, tối ưu quy trình và mở rộng kinh doanh.
+              Với hơn 10 năm kinh nghiệm trong Virtual Assistant, Coaching và hỗ trợ doanh nghiệp quốc tế, mình đã đồng hành cùng hàng trăm cá nhân, công ty ở nhiều thị trường để xây dựng hệ thống, tối ưu quy trình và mở rộng kinh doanh.
             </p>
             
             <p className="text-lg text-navy/80 mb-6 leading-relaxed">
-              Điều tôi học được sau từng dự án là: mọi doanh nghiệp – từ startup đến tập đoàn – đều cần người hỗ trợ đáng tin cậy. Virtual Assistant không chỉ làm dịch vụ theo yêu cầu, mà còn trở thành người đồng hành chiến lược, lắng nghe và góp phần biến ý tưởng thành kết quả thực tế.
+              Mình nhận ra rằng các chủ doanh nghiệp – từ startup đến tập đoàn – đều cần một người hỗ trợ đáng tin cậy, không chỉ làm dịch vụ theo yêu cầu mà còn đồng hành chiến lược, biến ý tưởng thành kết quả. Tuy nhiên, không phải ai cũng tìm được người phù hợp.
             </p>
             
             <p className="text-lg text-navy/80 mb-8 leading-relaxed">
-              Với tôi, giá trị lớn nhất không nằm ở số lượng dự án đã hoàn thành, mà là ở việc được chứng kiến khách hàng chuyển mình, phát triển và thành công bền vững – dù tại Việt Nam hay bất kỳ nơi nào trên thế giới.
+              Mong rằng, mình có thể dùng kiến thức, kĩ năng, kinh nghiệm để hỗ trợ bạn trở thành một VA chuyên nghiệp, hỗ trợ đối tác tìm được đội ngũ VA đáng tin cậy.
             </p>
             
             <div className="bg-sunflower/10 rounded-lg p-6 mb-8">
@@ -47,18 +47,18 @@ const AboutDuyen = () => {
                 Lộ trình học cá nhân hóa – thiết kế cho bạn
               </h3>
               <p className="text-navy/80 mb-4">
-                Từ nhiều năm kinh nghiệm trong vai trò Virtual Assistant, tuyển dụng VA và đào tạo VA, tôi đã xây dựng một chương trình học cá nhân hóa, bám sát thực tế và phù hợp với năng lực cũng như mục tiêu riêng của từng học viên.
-              </p>
-              <p className="text-navy/80 mb-4">
                 Thay vì gò bó trong một ngách duy nhất, khóa học VAP – Virtual Assistant Pro mở ra toàn cảnh ngành VA, với lộ trình A–Z, từ cơ bản đến nâng cao. Bạn sẽ được tiếp cận nhiều mảng công việc khác nhau để hiểu rõ bức tranh toàn diện và chọn hướng đi phù hợp nhất cho mình.
               </p>
+              <p className="text-navy/80 mb-4">
+                Điểm khác biệt quan trọng: bạn sẽ không học một mình. Luôn có mentor đồng hành 1:1, hỗ trợ, định hướng và giúp bạn vượt qua những trở ngại ban đầu.
+              </p>
               <p className="text-navy/80">
-                Điểm khác biệt quan trọng: bạn sẽ không học một mình. Luôn có mentor đồng hành 1:1, hỗ trợ, định hướng và giúp bạn vượt qua những trở ngại ban đầu. Bạn sẽ không còn cảm giác đơn độc trên hành trình trở thành một Virtual Assistant chuyên nghiệp.
+                Hành trình trở thành VA chuyên nghiệp sẽ không còn quá đơn độc và mơ hồ nữa.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/blog">
+              <Link to="/about">
                 <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 w-full sm:w-auto hover:scale-105 transition-all">
                   <BookOpen size={18} />
                   Tìm hiểu thêm về Duyên

@@ -140,12 +140,9 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 1: Nền Tảng VA</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">Module 1: Tổng quan về nghề Virtual Assistant</h4>
                     <ul className="text-gray-700 space-y-2">
-                      <li>• Tổng quan ngành VA và xu hướng thị trường</li>
-                      <li>• Xác định thế mạnh cá nhân</li>
-                      <li>• Thiết lập môi trường làm việc chuyên nghiệp</li>
-                      <li>• Kỹ năng giao tiếp qua email & chat</li>
+                      <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
                   </div>
                 </div>
@@ -172,12 +169,9 @@ const LearningPath = () => {
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 2: Kỹ Năng & Công Cụ</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">Module 1 2: Chuẩn bị tốt và đầy đủ cho nghề</h4>
                     <ul className="text-gray-700 space-y-2">
-                      <li>• Google Workspace: Drive, Docs, Sheets, Slides</li>
-                      <li>• Quản lý lịch và cuộc hẹn chuyên nghiệp</li>
-                      <li>• Công cụ quản lý dự án: Trello, Asana, ClickUp</li>
-                      <li>• Tự động hóa với Zapier</li>
+                      <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
                   </div>
                 </div>
@@ -194,12 +188,9 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 3: Marketing & Thương Hiệu</h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">5 ngách đầu tiên của nghề VA</h4>
                     <ul className="text-gray-700 space-y-2">
-                      <li>• Xây dựng portfolio VA chuyên nghiệp</li>
-                      <li>• Thiết kế hồ sơ Fiverr/Upwork thu hút</li>
-                      <li>• Chiến lược định giá dịch vụ hiệu quả</li>
-                      <li>• Tối ưu LinkedIn để thu hút khách hàng</li>
+                      <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
                   </div>
                 </div>
@@ -226,12 +217,9 @@ const LearningPath = () => {
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 4: Thực Hành & Khởi Nghiệp</h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">Giải quyết tình huống</h4>
                     <ul className="text-gray-700 space-y-2">
-                      <li>• Hackathon 21 ngày: Dự án thực tế</li>
-                      <li>• Phản hồi từ chuyên gia</li>
-                      <li>• Hoàn thiện portfolio và chiến lược</li>
-                      <li>• Tư vấn cá nhân với giảng viên</li>
+                      <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
                   </div>
                 </div>

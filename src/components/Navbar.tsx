@@ -108,7 +108,7 @@ const Navbar = () => {
                         <NavigationMenuLink asChild>
                           <Link to="/about" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <User size={16} />
-                            <div className="text-sm font-medium leading-none">Duyên xin chào</div>
+                            <div className="text-sm font-medium leading-none">Vài nét về Duyên</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
@@ -188,7 +188,7 @@ const Navbar = () => {
               </summary>
               <div className="pl-4 space-y-2">
                 <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-                  <User size={16} /> Duyên xin chào
+                  <User size={16} /> DVài nét về Duyên
                 </Link>
                 <Link to="/team" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <Users size={16} /> Đội Ngũ Đào Tạo

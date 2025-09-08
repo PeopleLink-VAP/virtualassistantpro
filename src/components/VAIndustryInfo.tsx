@@ -35,10 +35,10 @@ const VAIndustryInfo = () => {
             
             <div className="space-y-2 mb-6">
               {[
-                "Việt Nam nổi bật trên bản đồ toàn cầu nhờ chính sách cởi mở, lực lượng lao động trẻ, dồi dào cùng hạ tầng công nghệ ngày càng hiện đại.",
-                "Thị trường VA còn mới, mức độ cạnh tranh thấp hơn so với Ấn Độ hay Philippines, tạo điều kiện để khách quốc tế dễ dàng tìm được VA gắn bó lâu dài.",
-                "Xu hướng làm việc từ xa bùng nổ sau Covid-19, thúc đẩy giới trẻ Việt Nam tìm kiếm cơ hội online.",
-                "Chi phí nhân sự cạnh tranh, trong khi kỹ năng ngoại ngữ, công nghệ và công cụ số ngày càng tốt.",
+                "Việt Nam nổi bật với chính sách cởi mở, lực lượng lao động dồi dào, hạ tầng công nghệ hiện đại.",
+                "Thị trường VA còn mới, mức độ cạnh tranh thấp hơn so với Ấn Độ hay Philippines.",
+                "Xu hướng làm việc từ xa bùng nổ sau Covid-19.",
+                "Chi phí nhân sự cạnh tranh với nhân lực có kỹ năng ngoại ngữ, công nghệ tốt.",
                 "Thế hệ trẻ yêu thích sự tự do, mong muốn công việc linh hoạt về thời gian và địa điểm."
               ].map((point, idx) => (
                 <div key={idx} className="flex items-start gap-2">
@@ -49,14 +49,18 @@ const VAIndustryInfo = () => {
             </div>
             
             <p className="text-navy/80 leading-relaxed mb-6">
-              Đây chính là thời điểm vàng cho những ai muốn bắt đầu sự nghiệp trực tuyến, phát triển kỹ năng đa dạng và kết nối toàn cầu. Virtual Assistant không chỉ là người hỗ trợ tác vụ, mà còn trở thành đối tác chiến lược đồng hành cùng doanh nghiệp.
+              Đây chính là thời điểm phù hợp cho những ai muốn bắt đầu sự nghiệp trực tuyến, phát triển kỹ năng đa dạng và kết nối toàn cầu.
+              <br />
+              Virtual Assistant không chỉ là người hỗ trợ đơn thuần, mà còn trở thành đối tác chiến lược đồng hành cùng doanh nghiệp.
             </p>
             
-            <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 hover:scale-105 transition-all">
-              <Users size={18} />
-              Hiểu thêm về nghề và ngành Virtual Assistant
-              <ExternalLink size={16} />
-            </Button>
+            <Link to="/blog">
+              <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 hover:scale-105 transition-all">
+                <Users size={18} />
+                Hiểu thêm về nghề và ngành Virtual Assistant
+                <ExternalLink size={16} />
+              </Button>
+            </Link>
           </div>
           
           {/* Vietnamese VA Community */}
@@ -70,12 +74,12 @@ const VAIndustryInfo = () => {
             </h3>
             
             <p className="text-navy/80 leading-relaxed mb-6">
-              Cộng đồng Virtual Assistant Việt Nam đang ngày càng phát triển và kết nối. Chúng tôi tạo ra một môi trường hỗ trợ lẫn nhau, chia sẻ kinh nghiệm và cùng nhau vươn tới thành công. Tham gia cộng đồng để cùng phát triển trong ngành.
+              Cộng đồng Virtual Assistant Việt Nam đang ngày càng phát triển và kết nối. Bạn có thể tham gia cộng đồng để học hỏi, chia sẻ kinh nghiệm phát triển trong ngành:
             </p>
             
             <div className="space-y-2 mb-6">
               {[
-                "Hơn 14,000 thành viên tích cực",
+                "Hơn 14,000 thành viên",
                 "Chia sẻ kinh nghiệm và cơ hội việc làm",
                 "Hỗ trợ kỹ thuật và tư vấn nghề nghiệp",
                 "Networking với VA chuyên nghiệp"
