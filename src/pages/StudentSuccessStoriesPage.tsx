@@ -57,11 +57,9 @@ const StudentSuccessStoriesPage = () => {
           {/* Success Stories */}
           <div className="space-y-16">
             {successStories.map((story, index) => <div key={story.id} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                {story.image && (
-                  <div className="lg:w-1/3">
+                {story.image && <div className="lg:w-1/3">
                     <img src={story.image} alt={story.name} className="w-full max-w-sm mx-auto" />
-                  </div>
-                )}
+                  </div>}
                 
                 <div className={`space-y-6 ${story.image ? 'lg:w-2/3' : 'w-full'}`}>
                   <div className="text-center lg:text-left">
@@ -91,14 +89,10 @@ const StudentSuccessStoriesPage = () => {
           
           {/* Call to Action */}
           <div className="text-center mt-16 bg-navy text-white p-12 rounded-lg">
-            <h2 className="text-3xl font-bold mb-4 font-condensed">Bạn Có Muốn Trở Thành Câu Chuyện Thành Công Tiếp Theo?</h2>
-            <p className="text-lg mb-8 opacity-90">
-              Tham gia cùng hàng trăm học viên khác đã thay đổi cuộc sống thông qua các khóa học Virtual Assistant Pro.
-            </p>
+            <h2 className="text-3xl font-bold mb-4 font-condensed">Mỗi VA một hành trình, chúc bạn sớm tìm được con đường riêng cho mình!</h2>
+            
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/vap-course" className="bg-sunflower text-navy px-8 py-3 rounded-lg font-semibold hover:bg-sunflower/90 transition duration-300">
-                Xem Khóa Học
-              </Link>
+              <Link to="/vap-course" className="bg-sunflower text-navy px-8 py-3 rounded-lg font-semibold hover:bg-sunflower/90 transition duration-300">Tham khảo chương trình học</Link>
               <Link to="/contact" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-navy transition duration-300">
                 Tư Vấn Miễn Phí
               </Link>
