@@ -4,51 +4,11 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
-import { ArrowRight, BriefcaseIcon, TrendingUpIcon, UsersIcon, GlobeIcon, ChevronRight, Star, DollarSign, MapPin, Clock } from 'lucide-react';
+import { ChevronRight, BriefcaseIcon, Clock, Sparkles, Rocket, Users, TrendingUp } from 'lucide-react';
+
 const CareerOpportunitiesPage = () => {
-  const careerOpportunities = [{
-    id: 1,
-    title: "Trợ Lý Ảo Hành Chính",
-    image: "/images/sunflower.png",
-    description: "Quản lý lịch trình, email và các công việc hành chính cho các CEO và doanh nhân thành công.",
-    responsibilities: ["Quản lý lịch trình và cuộc họp", "Xử lý email và thư từ chuyên nghiệp", "Chuẩn bị tài liệu và báo cáo", "Hỗ trợ các thủ tục hành chính"],
-    salary: "$1,500 - $3,000/tháng",
-    requirements: "Tiếng Anh tốt, kỹ năng tổ chức cao",
-    growth: "Tăng trưởng 25% hàng năm",
-    demand: "Rất cao"
-  }, {
-    id: 2,
-    title: "Trợ Lý Ảo Marketing",
-    image: "/images/sunflower.png",
-    description: "Phát triển và thực hiện các chiến lược marketing digital cho thương hiệu quốc tế.",
-    responsibilities: ["Quản lý mạng xã hội và content", "Phân tích dữ liệu và báo cáo", "Tạo chiến dịch marketing", "SEO và quảng cáo trực tuyến"],
-    salary: "$2,000 - $4,000/tháng",
-    requirements: "Kiến thức marketing, kỹ năng sáng tạo",
-    growth: "Tăng trưởng 30% hàng năm",
-    demand: "Cực cao"
-  }, {
-    id: 3,
-    title: "Trợ Lý Ảo Dịch Vụ Khách Hàng",
-    image: "/images/sunflower.png",
-    description: "Cung cấp dịch vụ hỗ trợ khách hàng xuất sắc qua nhiều kênh liên lạc khác nhau.",
-    responsibilities: ["Hỗ trợ khách hàng qua email và chat", "Xử lý khiếu nại và phản hồi", "Quản lý cơ sở dữ liệu khách hàng", "Tạo quy trình dịch vụ tối ưu"],
-    salary: "$1,800 - $3,500/tháng",
-    requirements: "Kỹ năng giao tiếp tốt, kiên nhẫn cao",
-    growth: "Tăng trưởng 22% hàng năm",
-    demand: "Cao"
-  }, {
-    id: 4,
-    title: "Trợ Lý Ảo Chuyên Ngành",
-    image: "/images/sunflower.png",
-    description: "Hỗ trợ chuyên sâu trong các lĩnh vực y tế, luật, bất động sản và tài chính.",
-    responsibilities: ["Nghiên cứu và phân tích chuyên sâu", "Hỗ trợ quy trình chuyên ngành", "Quản lý tài liệu pháp lý", "Tư vấn kỹ thuật chuyên môn"],
-    salary: "$2,500 - $5,000/tháng",
-    requirements: "Kiến thức chuyên ngành, chứng chỉ liên quan",
-    growth: "Tăng trưởng 35% hàng năm",
-    demand: "Rất cao"
-  }];
   return <>
-      <Seo title="Cơ Hội Nghề Nghiệp - Virtual Assistant Pro" description="Khám phá cơ hội nghề nghiệp đầy hứa hẹn trong lĩnh vực Trợ Lý Ảo với Virtual Assistant Pro. Thu nhập hấp dẫn và cơ hội phát triển không giới hạn." />
+      <Seo title="Cơ Hội Nghề Nghiệp - Virtual Assistant Pro" description="Sắp ra mắt - Nền tảng kết nối việc làm Virtual Assistant toàn diện nhất Việt Nam. Khám phá cơ hội nghề nghiệp đầy hứa hẹn trong lĩnh vực VA." />
       <Navbar />
       <ScrollToTop />
       <div className="relative bg-warmWhite py-20 pt-40">
@@ -65,73 +25,119 @@ const CareerOpportunitiesPage = () => {
             </ol>
           </nav>
           
-          <div className="text-center mb-16">
-            <h1 className="text-5xl font-bold text-navy mb-6 font-condensed">Cơ Hội Nghề Nghiệp Virtual Assistant</h1>
-            <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">Trang việc làm dành cho các doanh nghiệp và cá nhân đăng tin tuyển dụng và VA có thể tìm cơ hội việc làm phù hợp</p>
+          {/* Coming Soon Hero */}
+          <div className="text-center mb-20">
+            <div className="relative inline-block mb-6">
+              <h1 className="text-6xl font-bold text-navy font-condensed mb-4">
+                Cơ Hội Nghề Nghiệp
+                <span className="block text-sunflower">Virtual Assistant</span>
+              </h1>
+              <Sparkles className="absolute -top-4 -right-4 h-8 w-8 text-sunflower animate-pulse" />
+            </div>
+            
+            <div className="bg-gradient-to-r from-sunflower/20 via-navy/10 to-sunflower/20 p-8 rounded-2xl border-2 border-sunflower/30 mb-12 max-w-4xl mx-auto">
+              <Rocket className="h-16 w-16 text-sunflower mx-auto mb-4" />
+              <h2 className="text-3xl font-bold text-navy mb-4">Sắp Ra Mắt!</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Nền tảng kết nối việc làm Virtual Assistant toàn diện nhất Việt Nam đang được xây dựng! 
+                Đây sẽ là nơi các doanh nghiệp đăng tin tuyển dụng và VA tìm kiếm cơ hội việc làm phù hợp.
+              </p>
+              <div className="bg-white/50 p-4 rounded-lg mb-6">
+                <p className="text-navy font-semibold">🚀 Đang hoàn thiện để mang đến trải nghiệm tốt nhất cho bạn!</p>
+              </div>
+            </div>
           </div>
 
-          {/* Career Opportunities */}
-          <div className="space-y-16">
-            {careerOpportunities.map((opportunity, index) => <div key={opportunity.id} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="lg:w-1/3">
-                  <img src={opportunity.image} alt={opportunity.title} className="w-full max-w-sm mx-auto" />
+          {/* What to Expect */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-sunflower hover:transform hover:scale-105 transition-all duration-300">
+              <BriefcaseIcon className="h-12 w-12 text-sunflower mb-4" />
+              <h3 className="text-xl font-bold text-navy mb-3">Việc Làm Chất Lượng</h3>
+              <p className="text-gray-600">
+                Kết nối với các cơ hội việc làm VA từ các doanh nghiệp uy tín trong và ngoài nước. 
+                Thu nhập hấp dẫn từ $1,500 - $5,000/tháng.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-navy hover:transform hover:scale-105 transition-all duration-300">
+              <Users className="h-12 w-12 text-navy mb-4" />
+              <h3 className="text-xl font-bold text-navy mb-3">Cộng Đồng Hỗ Trợ</h3>
+              <p className="text-gray-600">
+                Tham gia cộng đồng VA Việt Nam, chia sẻ kinh nghiệm, học hỏi từ những chuyên gia 
+                và phát triển sự nghiệp cùng nhau.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-sunflower hover:transform hover:scale-105 transition-all duration-300">
+              <TrendingUp className="h-12 w-12 text-sunflower mb-4" />
+              <h3 className="text-xl font-bold text-navy mb-3">Phát Triển Sự Nghiệp</h3>
+              <p className="text-gray-600">
+                Được hướng dẫn phát triển kỹ năng, xây dựng portfolio chuyên nghiệp 
+                và định hướng lộ trình sự nghiệp rõ ràng.
+              </p>
+            </div>
+          </div>
+
+          {/* Coming Soon Features */}
+          <div className="bg-gradient-to-r from-navy/5 to-sunflower/5 p-8 rounded-2xl border border-navy/20">
+            <h2 className="text-3xl font-bold text-navy text-center mb-8 font-condensed">Tính Năng Sắp Ra Mắt</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
+                  <span className="text-gray-700">💼 Bảng tin việc làm VA cập nhật 24/7</span>
                 </div>
-                
-                <div className="lg:w-2/3 space-y-6">
-                  <div className="text-center lg:text-left">
-                    <h2 className="text-3xl font-bold text-navy mb-2 font-condensed">{opportunity.title}</h2>
-                    <div className="flex justify-center lg:justify-start mb-4">
-                      {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 text-sunflower fill-current" />)}
-                    </div>
-                    <p className="text-gray-700 text-lg mb-6">{opportunity.description}</p>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
-                        <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Trách Nhiệm Chính
-                      </h3>
-                      <ul className="space-y-2">
-                        {opportunity.responsibilities.map((responsibility, idx) => <li key={idx} className="text-gray-700 flex items-start">
-                            <span className="text-sunflower mr-2">•</span>
-                            {responsibility}
-                          </li>)}
-                      </ul>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="font-bold text-navy mb-2 flex items-center">
-                          <DollarSign className="h-4 w-4 text-sunflower mr-2" />
-                          Thu Nhập
-                        </h3>
-                        <p className="text-sunflower font-semibold">{opportunity.salary}</p>
-                      </div>
-                      
-                      <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="font-bold text-navy mb-2 flex items-center">
-                          <TrendingUpIcon className="h-4 w-4 text-sunflower mr-2" />
-                          Tăng Trưởng
-                        </h3>
-                        <p className="text-gray-700">{opportunity.growth}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-sunflower/10 to-navy/10 p-6 rounded-lg border-l-4 border-sunflower">
-                      <h3 className="font-bold text-lg text-navy mb-2">Yêu Cầu & Nhu Cầu Thị Trường</h3>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <p className="text-gray-700"><strong>Yêu cầu:</strong> {opportunity.requirements}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-700"><strong>Nhu cầu:</strong> <span className="text-sunflower font-semibold">{opportunity.demand}</span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
+                  <span className="text-gray-700">🎯 Hệ thống matching thông minh</span>
                 </div>
-              </div>)}
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
+                  <span className="text-gray-700">📊 Dashboard theo dõi ứng tuyển</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
+                  <span className="text-gray-700">⭐ Hệ thống đánh giá và review</span>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-navy rounded-full"></div>
+                  <span className="text-gray-700">💬 Chat trực tiếp với nhà tuyển dụng</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-navy rounded-full"></div>
+                  <span className="text-gray-700">📚 Thư viện khóa học nâng cao kỹ năng</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-navy rounded-full"></div>
+                  <span className="text-gray-700">🏆 Chương trình certification VA Pro</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-3 h-3 bg-navy rounded-full"></div>
+                  <span className="text-gray-700">🌟 Cộng đồng networking chuyên nghiệp</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-16">
+            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border-2 border-sunflower/20">
+              <Clock className="h-12 w-12 text-sunflower mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-navy mb-4">Đừng Bỏ Lỡ Cơ Hội!</h3>
+              <p className="text-gray-600 mb-6">
+                Hãy đăng ký khóa học Virtual Assistant Pro ngay hôm nay để được ưu tiên 
+                truy cập sớm khi nền tảng việc làm chính thức ra mắt!
+              </p>
+              <Link 
+                to="/training" 
+                className="inline-flex items-center bg-gradient-to-r from-sunflower to-sunflower/80 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
+              >
+                Đăng Ký Khóa Học Ngay
+                <Sparkles className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
           
         </div>
