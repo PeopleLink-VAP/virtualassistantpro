@@ -113,8 +113,8 @@ từ A-Z về nghề VA</p>
               </div>
               <div>
                 <div className="text-3xl font-bold text-navy mb-2">4.9/5</div>
-                <p className="text-navy/80">Đánh giá khóa học
-từ 150 học viên</p>
+                <p className="text-navy/80">Đánh giá khóa học từ 
+150 học viên</p>
                 <p className="text-sm text-navy/60">
               </p>
               </div>
