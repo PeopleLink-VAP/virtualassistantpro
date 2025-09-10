@@ -15,7 +15,7 @@ const StudentSuccessStoriesPage = () => {
   }, {
     id: 2,
     name: "Phương Thảo",
-    image: "/images/sunflower.png",
+    image: "/lovable-uploads/86dd9d70-9db7-4de8-a8ae-0901d7238dd3.png",
     background: "Thảo đến với VAP sau hơn 1 năm tự lặn ngụp với nghề, dù là một người thông thạo tiếng Anh và tiếng Nhật nhưng vẫn chưa tìm được con đường phù hợp. Em mong có thể tìm được một công việc để khi có gia đình nhỏ thì có thời gian ở gần con hơn.",
     mentorInsight: "Mình còn nhớ ngày coaching 1:1, Thảo đã chuẩn bị 40 câu hỏi, mất gần 3 tiếng để xong buổi coach nhưng cả 2 đều rất hào hứng. Đối với mình, Thảo là một học viên rất đặc biệt từ lớp VAP 04. Đặc biệt bởi mỗi lần Thảo hỏi sẽ là những câu rất dài, rất thông minh, có cảm giác nếu mình mà trả lời lơ tơ mơ là không yên với em í đâu."
   }, {
