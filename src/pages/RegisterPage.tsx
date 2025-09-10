@@ -294,17 +294,17 @@ const RegisterPage = () => {
               {/* Contact Methods */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Zalo Contact */}
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-300 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-sunflower/10 to-leafGreen/10 rounded-2xl p-6 border-2 border-sunflower/30 hover:border-sunflower/50 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <Phone className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">Zalo</h3>
                     <p className="text-navy/70 mb-4">Liên hệ nhanh chóng qua Zalo</p>
                     <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
-                      <p className="font-bold text-blue-600 text-lg">+84 932548082</p>
+                      <p className="font-bold text-leafGreen text-lg">+84 932548082</p>
                     </div>
-                    <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Button className="w-full bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                       <span className="flex items-center justify-center gap-2">
                         <Phone className="h-4 w-4" />
                         Nhắn tin Zalo
@@ -314,9 +314,9 @@ const RegisterPage = () => {
                 </div>
                 
                 {/* Messenger Contact */}
-                <div className="bg-gradient-to-br from-purple-50 to-pink-100/50 rounded-2xl p-6 border-2 border-purple-200 hover:border-purple-300 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-navy/5 to-lightBlue/10 rounded-2xl p-6 border-2 border-navy/20 hover:border-lightBlue/40 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-r from-navy to-lightBlue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <MessageSquare className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">Messenger</h3>
@@ -325,11 +325,11 @@ const RegisterPage = () => {
                       <img 
                         src="/src/assets/facebook-qr-code.png" 
                         alt="Facebook QR Code" 
-                        className="w-24 h-24 mx-auto rounded-lg border border-purple-200"
+                        className="w-24 h-24 mx-auto rounded-lg border border-navy/20"
                       />
                       <p className="text-xs text-navy/60 mt-2">Quét QR để kết nối</p>
                     </div>
-                    <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Button className="w-full bg-gradient-to-r from-navy to-lightBlue hover:from-lightBlue hover:to-navy text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                       <span className="flex items-center justify-center gap-2">
                         <MessageSquare className="h-4 w-4" />
                         Chat Messenger
