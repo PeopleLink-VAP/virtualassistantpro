@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
 import { ChevronRight, BriefcaseIcon, Clock, Sparkles, Rocket, Users, TrendingUp } from 'lucide-react';
-
 const CareerOpportunitiesPage = () => {
   return <>
       <Seo title="Cơ Hội Nghề Nghiệp - Virtual Assistant Pro" description="Sắp ra mắt - Nền tảng kết nối việc làm Virtual Assistant toàn diện nhất Việt Nam. Khám phá cơ hội nghề nghiệp đầy hứa hẹn trong lĩnh vực VA." />
@@ -38,10 +37,7 @@ const CareerOpportunitiesPage = () => {
             <div className="bg-gradient-to-r from-sunflower/20 via-navy/10 to-sunflower/20 p-8 rounded-2xl border-2 border-sunflower/30 mb-12 max-w-4xl mx-auto">
               <Rocket className="h-16 w-16 text-sunflower mx-auto mb-4" />
               <h2 className="text-3xl font-bold text-navy mb-4">Sắp Ra Mắt!</h2>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Nền tảng kết nối việc làm Virtual Assistant toàn diện nhất Việt Nam đang được xây dựng! 
-                Đây sẽ là nơi các doanh nghiệp đăng tin tuyển dụng và VA tìm kiếm cơ hội việc làm phù hợp.
-              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">Nơi giúp các doanh nghiệp đăng tin tuyển dụng và VA tìm kiếm cơ hội việc làm phù hợp.</p>
               <div className="bg-white/50 p-4 rounded-lg mb-6">
                 <p className="text-navy font-semibold">🚀 Đang hoàn thiện để mang đến trải nghiệm tốt nhất cho bạn!</p>
               </div>
@@ -79,47 +75,7 @@ const CareerOpportunitiesPage = () => {
           </div>
 
           {/* Coming Soon Features */}
-          <div className="bg-gradient-to-r from-navy/5 to-sunflower/5 p-8 rounded-2xl border border-navy/20">
-            <h2 className="text-3xl font-bold text-navy text-center mb-8 font-condensed">Tính Năng Sắp Ra Mắt</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
-                  <span className="text-gray-700">💼 Bảng tin việc làm VA cập nhật 24/7</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
-                  <span className="text-gray-700">🎯 Hệ thống matching thông minh</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
-                  <span className="text-gray-700">📊 Dashboard theo dõi ứng tuyển</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-sunflower rounded-full"></div>
-                  <span className="text-gray-700">⭐ Hệ thống đánh giá và review</span>
-                </div>
-              </div>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-navy rounded-full"></div>
-                  <span className="text-gray-700">💬 Chat trực tiếp với nhà tuyển dụng</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-navy rounded-full"></div>
-                  <span className="text-gray-700">📚 Thư viện khóa học nâng cao kỹ năng</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-navy rounded-full"></div>
-                  <span className="text-gray-700">🏆 Chương trình certification VA Pro</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="w-3 h-3 bg-navy rounded-full"></div>
-                  <span className="text-gray-700">🌟 Cộng đồng networking chuyên nghiệp</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          
 
           {/* Call to Action */}
           <div className="text-center mt-16">
@@ -130,10 +86,7 @@ const CareerOpportunitiesPage = () => {
                 Hãy đăng ký khóa học Virtual Assistant Pro ngay hôm nay để được ưu tiên 
                 truy cập sớm khi nền tảng việc làm chính thức ra mắt!
               </p>
-              <Link 
-                to="/training" 
-                className="inline-flex items-center bg-gradient-to-r from-sunflower to-sunflower/80 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105"
-              >
+              <Link to="/training" className="inline-flex items-center bg-gradient-to-r from-sunflower to-sunflower/80 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
                 Đăng Ký Khóa Học Ngay
                 <Sparkles className="ml-2 h-5 w-5" />
               </Link>
