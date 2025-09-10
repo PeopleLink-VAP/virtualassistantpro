@@ -21,7 +21,7 @@ const StudentSuccessStoriesPage = () => {
   }, {
     id: 3,
     name: "Ngọc Mai",
-    image: "/images/sunflower.png",
+    image: null,
     background: "Mai là một trong những học viên đầu tiên đủ tin tưởng mình để tham gia khóa VAP 01. Mai đến với khóa học vì muốn tìm một công việc bổ trợ việc chính. Thời điểm đó em đang làm điều phối cho một công ty logistic.",
     mentorInsight: "Sau khóa học, Mai đã nhắn mình: \"Chắc em dành thời gian để trau dồi thêm, vì học xong em thấy mình cần phải cố gắng nhiều hơn nữa trước khi nhận job chị ạ\". Những tưởng Mai đã bỏ cuộc nhưng không, gần 3 tháng sau, em đã có job đầu tiên và giờ đây đã trở thành Fiverr Level 2 Seller, đã bước ra được chiếc kén của mình và phát triển hơn."
   }];
@@ -57,11 +57,13 @@ const StudentSuccessStoriesPage = () => {
           {/* Success Stories */}
           <div className="space-y-16">
             {successStories.map((story, index) => <div key={story.id} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="lg:w-1/3">
-                  <img src={story.image} alt={story.name} className="w-full max-w-sm mx-auto" />
-                </div>
+                {story.image && (
+                  <div className="lg:w-1/3">
+                    <img src={story.image} alt={story.name} className="w-full max-w-sm mx-auto" />
+                  </div>
+                )}
                 
-                <div className="lg:w-2/3 space-y-6">
+                <div className={`space-y-6 ${story.image ? 'lg:w-2/3' : 'w-full'}`}>
                   <div className="text-center lg:text-left">
                     <h2 className="text-3xl font-bold text-navy mb-2 font-condensed">{story.name}</h2>
                     <div className="flex justify-center lg:justify-start mb-4">
