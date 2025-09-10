@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
+import facebookQrCode from '@/assets/facebook-qr-code.png';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -323,7 +324,7 @@ const RegisterPage = () => {
                     <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
                     <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
                       <img 
-                        src="/src/assets/facebook-qr-code.png" 
+                        src={facebookQrCode} 
                         alt="Facebook QR Code" 
                         className="w-24 h-24 mx-auto rounded-lg border border-navy/20"
                       />
