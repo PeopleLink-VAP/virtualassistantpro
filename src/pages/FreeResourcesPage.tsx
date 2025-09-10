@@ -219,76 +219,70 @@ const FreeResourcesPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Advanced VA Playbook */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-sunflower">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-gray-300 opacity-75">
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="bg-sunflower/10 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-sunflower" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="bg-gray-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-xl text-navy">Advanced VA Playbook</h3>
+                    <h3 className="font-bold text-xl text-gray-600">Advanced VA Playbook</h3>
                   </div>
-                  <p className="text-gray-700 text-base mb-4">
+                  <p className="text-gray-500 text-base mb-4">
                     Hệ thống đầy đủ từ A-Z: Sales scripts, onboarding process, pricing strategies, và client management system.
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">PDF + Templates • 50+ trang</span>
-                    <span className="text-sunflower font-bold text-lg">
-                  </span>
+                    <span className="text-sm text-gray-400">PDF + Templates • 50+ trang</span>
                   </div>
-                  <button className="w-full mt-4 bg-sunflower text-white py-2 px-4 rounded-lg hover:bg-sunflower/90 transition-colors">
-                    Mua ngay
+                  <button disabled className="w-full mt-4 bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed">
+                    Sắp ra mắt
                   </button>
                 </div>
               </div>
 
               {/* VA Business Accelerator */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-leafGreen">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-gray-300 opacity-75">
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="bg-leafGreen/10 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-leafGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="bg-gray-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-xl text-navy">VA Business Accelerator</h3>
+                    <h3 className="font-bold text-xl text-gray-600">VA Business Accelerator</h3>
                   </div>
-                  <p className="text-gray-700 text-base mb-4">
+                  <p className="text-gray-500 text-base mb-4">
                     Khóa học video 6 tuần với mentoring 1-1, bao gồm live Q&A sessions và access vào private community.
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Video Course + Mentoring</span>
-                    <span className="text-leafGreen font-bold text-lg">
-                  </span>
+                    <span className="text-sm text-gray-400">Video Course + Mentoring</span>
                   </div>
-                  <button className="w-full mt-4 bg-leafGreen text-white py-2 px-4 rounded-lg hover:bg-leafGreen/90 transition-colors">
-                    Đăng ký ngay
+                  <button disabled className="w-full mt-4 bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed">
+                    Sắp ra mắt
                   </button>
                 </div>
               </div>
 
               {/* Premium VA Toolkit */}
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 border-l-4 border-navy">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden border-l-4 border-gray-300 opacity-75">
                 <div className="p-6">
                   <div className="flex items-center mb-4">
-                    <div className="bg-navy/10 p-3 rounded-full mr-4">
-                      <svg className="w-6 h-6 text-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="bg-gray-100 p-3 rounded-full mr-4">
+                      <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                       </svg>
                     </div>
-                    <h3 className="font-bold text-xl text-navy">Premium VA Toolkit</h3>
+                    <h3 className="font-bold text-xl text-gray-600">Premium VA Toolkit</h3>
                   </div>
-                  <p className="text-gray-700 text-base mb-4">
+                  <p className="text-gray-500 text-base mb-4">
                     Bộ công cụ hoàn chỉnh: 20+ templates, automation scripts, client portal setup, và lifetime updates.
                   </p>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">Complete Toolkit + Updates</span>
-                    <span className="text-navy font-bold text-lg">
-                  </span>
+                    <span className="text-sm text-gray-400">Complete Toolkit + Updates</span>
                   </div>
-                  <button className="w-full mt-4 bg-navy text-white py-2 px-4 rounded-lg hover:bg-navy/90 transition-colors">
-                    Mua toolkit
+                  <button disabled className="w-full mt-4 bg-gray-300 text-gray-500 py-2 px-4 rounded-lg cursor-not-allowed">
+                    Sắp ra mắt
                   </button>
                 </div>
               </div>
