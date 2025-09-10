@@ -1,13 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  Clock, Check, Users, BookOpen, ArrowRight, Award, MessageSquare
-} from 'lucide-react';
-
+import { Clock, Check, Users, BookOpen, ArrowRight, Award, MessageSquare } from 'lucide-react';
 const LearningPath = () => {
-  return (
-    <section className="py-20 bg-transparent relative overflow-hidden">
+  return <section className="py-20 bg-transparent relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-24 h-24 bg-transparent rounded-full animate-float"></div>
@@ -29,11 +25,7 @@ const LearningPath = () => {
         <div className="bg-transparent rounded-3xl p-8 border border-gray-300 mb-16 animate-fade-in-up animation-delay-500">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                alt="Khóa học Virtual Assistant Pro" 
-                className="w-full h-80 object-cover rounded-2xl hover:scale-105 transition-transform duration-500" 
-              />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Khóa học Virtual Assistant Pro" className="w-full h-80 object-cover rounded-2xl hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-transparent rounded-2xl flex items-end p-6">
                 <div className="text-gray-900">
                   <span className="bg-navy text-white text-sm font-semibold px-4 py-2 rounded-full">
@@ -70,7 +62,7 @@ const LearningPath = () => {
                   <div className="w-8 h-8 bg-navy rounded-full flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
-                  <span className="text-gray-700">Có mentor đồng hành không đi một mình</span>
+                  <span className="text-gray-700">Có mentor đồng hành, không đi một mình</span>
                 </div>
               </div>
               
@@ -131,7 +123,9 @@ const LearningPath = () => {
           {/* Timeline Items */}
           <div className="space-y-16">
             {/* Week 1 */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+            <div className="relative animate-fade-in-up" style={{
+            animationDelay: "0.6s"
+          }}>
               <div className="flex items-center justify-center">
                 <div className="bg-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">1</span>
@@ -140,7 +134,7 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">Module 1: Tổng quan về nghề Virtual Assistant</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 1: Hiểu nghề & Hiểu mình & Checklist làm VA</h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -155,7 +149,9 @@ const LearningPath = () => {
             </div>
             
             {/* Week 2 */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: "0.7s" }}>
+            <div className="relative animate-fade-in-up" style={{
+            animationDelay: "0.7s"
+          }}>
               <div className="flex items-center justify-center">
                 <div className="bg-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">2</span>
@@ -169,7 +165,7 @@ const LearningPath = () => {
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">Module 1 2: Chuẩn bị tốt và đầy đủ cho nghề</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 2: 10 ngách phổ biến và có nhu cầu cao cVA</h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -179,7 +175,9 @@ const LearningPath = () => {
             </div>
             
             {/* Week 3 */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: "0.8s" }}>
+            <div className="relative animate-fade-in-up" style={{
+            animationDelay: "0.8s"
+          }}>
               <div className="flex items-center justify-center">
                 <div className="bg-navy w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">3</span>
@@ -188,7 +186,7 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">5 ngách đầu tiên của nghề VA</h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 3: Hiểu về platform (Fiverr, Upwork, Linkedin, Facebook, etc.)</h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -203,7 +201,9 @@ const LearningPath = () => {
             </div>
             
             {/* Week 4 */}
-            <div className="relative animate-fade-in-up" style={{ animationDelay: "0.9s" }}>
+            <div className="relative animate-fade-in-up" style={{
+            animationDelay: "0.9s"
+          }}>
               <div className="flex items-center justify-center">
                 <div className="bg-sunflower w-16 h-16 rounded-full flex items-center justify-center shadow-lg z-10">
                   <span className="text-white font-bold text-lg">4</span>
@@ -217,7 +217,7 @@ const LearningPath = () => {
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">Giải quyết tình huống</h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 4: Thương hiệu cá nhân </h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -229,7 +229,9 @@ const LearningPath = () => {
         </div>
          
          {/* Consultation CTA */}
-         <div className="mt-16 bg-gray-100 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{ animationDelay: "0.9s" }}>
+         <div className="mt-16 bg-gray-100 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{
+        animationDelay: "0.9s"
+      }}>
            <h3 className="text-2xl font-bold text-gray-900 mb-4">Bạn cần tư vấn thêm?</h3>
            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
              Đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ bạn chọn khóa học phù hợp nhất với mục tiêu nghề nghiệp của bạn
@@ -243,8 +245,6 @@ const LearningPath = () => {
            </Link>
          </div>
        </div>
-     </section>
-  );
+     </section>;
 };
-
 export default LearningPath;

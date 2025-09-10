@@ -1,13 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  Star, BookOpen, FileText, Video, Users, MessageSquare, ArrowRight, Award
-} from 'lucide-react';
-
+import { Star, BookOpen, FileText, Video, Users, MessageSquare, ArrowRight, Award } from 'lucide-react';
 const CourseFeatures = () => {
-  return (
-    <section className="py-20 bg-warmWhite relative overflow-hidden">
+  return <section className="py-20 bg-warmWhite relative overflow-hidden">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-24 h-24 bg-sunflower/10 rounded-full animate-float"></div>
@@ -32,8 +28,8 @@ const CourseFeatures = () => {
             <div className="w-16 h-16 bg-sunflower/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Star className="h-8 w-8 text-sunflower" />
             </div>
-            <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Hướng dẫn Fiverr từ A-Z</h3>
-            <p className="text-gray-600 leading-relaxed">Học cách thiết lập, tối ưu và phát triển sự nghiệp trên nền tảng freelance Fiverr một cách bài bản và chuyên nghiệp.</p>
+            <h3 className="text-xl font-semibold text-navy mb-4 group-hover:text-sunflower transition-colors duration-300">Hướng dẫn nền tảng từ A-Z</h3>
+            <p className="text-gray-600 leading-relaxed">Học cách thiết lập, tối ưu và phát triển sự nghiệp trên nền tảng freelance Fiverr, Upwork và Linkedin một cách bài bản và chuyên nghiệp.</p>
             <div className="mt-6 flex items-center text-sm text-sunflower font-medium opacity-0 group-hover:opacity-100 transition-all duration-300">
               <ArrowRight className="h-4 w-4 mr-2" />
               Tìm hiểu thêm
@@ -41,7 +37,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 2 */}
-          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.1s" }}>
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+          animationDelay: "0.1s"
+        }}>
             <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <BookOpen className="h-8 w-8 text-leafGreen" />
             </div>
@@ -54,7 +52,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 3 */}
-          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+          animationDelay: "0.2s"
+        }}>
             <div className="w-16 h-16 bg-sunflower/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <FileText className="h-8 w-8 text-sunflower" />
             </div>
@@ -67,7 +67,9 @@ const CourseFeatures = () => {
           </div>
         
           {/* Feature 4 */}
-          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+          animationDelay: "0.3s"
+        }}>
             <div className="w-16 h-16 bg-navy/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Video className="h-8 w-8 text-navy" />
             </div>
@@ -80,7 +82,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 5 */}
-          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+          animationDelay: "0.4s"
+        }}>
             <div className="w-16 h-16 bg-navy/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <Users className="h-8 w-8 text-navy" />
             </div>
@@ -93,7 +97,9 @@ const CourseFeatures = () => {
           </div>
           
           {/* Feature 6 */}
-          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-8 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+          animationDelay: "0.5s"
+        }}>
             <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
               <MessageSquare className="h-8 w-8 text-leafGreen" />
             </div>
@@ -110,7 +116,7 @@ const CourseFeatures = () => {
         <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
           <div className="bg-sunflower/20 rounded-3xl p-8 backdrop-blur-sm border border-gray-200">
             <h3 className="text-2xl font-bold text-navy mb-4">Sẵn sàng bắt đầu hành trình?</h3>
-            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp<br/>với mức thu nhập ổn định</p>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto">Đừng bỏ lỡ cơ hội trở thành Virtual Assistant chuyên nghiệp<br />với mức thu nhập ổn định</p>
             <Link to="/register">
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
@@ -123,8 +129,6 @@ const CourseFeatures = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CourseFeatures;
