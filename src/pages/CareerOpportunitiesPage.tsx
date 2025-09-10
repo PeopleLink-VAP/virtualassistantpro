@@ -102,83 +102,107 @@ const CareerOpportunitiesPage = () => {
               Cơ Hội Nghề Nghiệp Trợ Lý Ảo
             </h1>
             <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
-              Khám phá những cơ hội nghề nghiệp đầy hứa hẹn trong lĩnh vực Trợ Lý Ảo. 
-              Thị trường đang bùng nổ với mức tăng trưởng 27% hàng năm và thu nhập hấp dẫn.
+              🚀 Trang này đang được xây dựng để mang đến cho bạn cái nhìn toàn diện nhất về thế giới Trợ Lý Ảo!
             </p>
           </div>
 
-          {/* Career Opportunities */}
-          <div className="space-y-16">
-            {careerOpportunities.map((opportunity, index) => (
-              <div key={opportunity.id} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                <div className="lg:w-1/3">
-                  <img 
-                    src={opportunity.image} 
-                    alt={opportunity.title}
-                    className="w-full max-w-sm mx-auto"
-                  />
+          {/* Coming Soon Section */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-sunflower/10 via-warmWhite to-navy/5 p-12 rounded-2xl shadow-lg text-center border border-sunflower/20">
+              <div className="mb-8">
+                <div className="inline-block bg-sunflower/20 p-4 rounded-full mb-6">
+                  <BriefcaseIcon className="h-12 w-12 text-sunflower" />
+                </div>
+                <h2 className="text-3xl font-bold text-navy mb-4 font-condensed">
+                  🎯 Sắp Ra Mắt - Kho Tàng Cơ Hội Nghề Nghiệp!
+                </h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  Chúng tôi đang chuẩn bị một bộ sưu tập đầy đủ và chi tiết về các cơ hội nghề nghiệp trong lĩnh vực Trợ Lý Ảo
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <TrendingUpIcon className="h-8 w-8 text-sunflower mx-auto mb-3" />
+                  <h3 className="font-bold text-navy mb-2">Phân Tích Thị Trường</h3>
+                  <p className="text-gray-600 text-sm">Xu hướng tăng trưởng, mức lương và nhu cầu tuyển dụng mới nhất</p>
                 </div>
                 
-                <div className="lg:w-2/3 space-y-6">
-                  <div className="text-center lg:text-left">
-                    <h2 className="text-3xl font-bold text-navy mb-2 font-condensed">{opportunity.title}</h2>
-                    <div className="flex justify-center lg:justify-start mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-sunflower fill-current" />
-                      ))}
-                    </div>
-                    <p className="text-gray-700 text-lg mb-6">{opportunity.description}</p>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
-                        <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Trách Nhiệm Chính
-                      </h3>
-                      <ul className="space-y-2">
-                        {opportunity.responsibilities.map((responsibility, idx) => (
-                          <li key={idx} className="text-gray-700 flex items-start">
-                            <span className="text-sunflower mr-2">•</span>
-                            {responsibility}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="font-bold text-navy mb-2 flex items-center">
-                          <DollarSign className="h-4 w-4 text-sunflower mr-2" />
-                          Thu Nhập
-                        </h3>
-                        <p className="text-sunflower font-semibold">{opportunity.salary}</p>
-                      </div>
-                      
-                      <div className="bg-white p-4 rounded-lg shadow-md">
-                        <h3 className="font-bold text-navy mb-2 flex items-center">
-                          <TrendingUpIcon className="h-4 w-4 text-sunflower mr-2" />
-                          Tăng Trưởng
-                        </h3>
-                        <p className="text-gray-700">{opportunity.growth}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-sunflower/10 to-navy/10 p-6 rounded-lg border-l-4 border-sunflower">
-                      <h3 className="font-bold text-lg text-navy mb-2">Yêu Cầu & Nhu Cầu Thị Trường</h3>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <p className="text-gray-700"><strong>Yêu cầu:</strong> {opportunity.requirements}</p>
-                        </div>
-                        <div>
-                          <p className="text-gray-700"><strong>Nhu cầu:</strong> <span className="text-sunflower font-semibold">{opportunity.demand}</span></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <UsersIcon className="h-8 w-8 text-sunflower mx-auto mb-3" />
+                  <h3 className="font-bold text-navy mb-2">Chuyên Ngành Hot</h3>
+                  <p className="text-gray-600 text-sm">Các lĩnh vực VA đang "thịnh hành" với thu nhập hấp dẫn</p>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-md">
+                  <GlobeIcon className="h-8 w-8 text-sunflower mx-auto mb-3" />
+                  <h3 className="font-bold text-navy mb-2">Thị Trường Quốc Tế</h3>
+                  <p className="text-gray-600 text-sm">Cơ hội làm việc với khách hàng từ khắp nơi trên thế giới</p>
                 </div>
               </div>
-            ))}
+
+              <div className="bg-white/50 p-6 rounded-lg mb-8">
+                <h3 className="text-xl font-bold text-navy mb-4">🔍 Nội dung sắp có:</h3>
+                <div className="grid md:grid-cols-2 gap-4 text-left">
+                  <ul className="space-y-2">
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      10+ chuyên ngành VA phổ biến nhất
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      Bảng lương chi tiết theo kinh nghiệm
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      Kỹ năng cần thiết cho từng vị trí
+                    </li>
+                  </ul>
+                  <ul className="space-y-2">
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      Lộ trình phát triển sự nghiệp
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      Câu chuyện thành công thực tế
+                    </li>
+                    <li className="flex items-center text-gray-700">
+                      <span className="text-sunflower mr-2">✨</span>
+                      Tips tìm việc và phỏng vấn
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-gray-600">
+                  <Clock className="inline h-4 w-4 mr-1" />
+                  Dự kiến ra mắt: <strong className="text-navy">Cuối tháng này</strong>
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    to="/training" 
+                    className="inline-flex items-center px-6 py-3 bg-sunflower text-white font-semibold rounded-lg hover:bg-sunflower/90 transition-colors"
+                  >
+                    Tham Gia Khóa Học Ngay
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                  
+                  <Link 
+                    to="/contact" 
+                    className="inline-flex items-center px-6 py-3 border-2 border-navy text-navy font-semibold rounded-lg hover:bg-navy hover:text-white transition-colors"
+                  >
+                    Nhận Thông Báo Cập Nhật
+                  </Link>
+                </div>
+              </div>
+
+              <div className="mt-8 text-sm text-gray-500">
+                <p>💡 <strong>Tip:</strong> Trong thời gian chờ đợi, hãy khám phá các khóa học của chúng tôi để chuẩn bị tốt nhất cho sự nghiệp VA!</p>
+              </div>
+            </div>
           </div>
           
         </div>
