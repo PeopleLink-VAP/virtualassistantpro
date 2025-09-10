@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Rosy Nguyen",
     role: "VAP Graduate",
-    avatar: "/lovable-uploads/199bb506-e1d2-4a07-a9d9-e1e17e83a04e.png",
+    avatar: "/lovable-uploads/186159ef-cd80-4822-9e82-7520bedddde5.png",
     content: "Tối hôm qua em mới interview VA data research mà client coi portfolio xong được offer vị trí khác rate cao hơn luôn, có cái là làm giờ Mỹ nên chắc em không nhận thui ạ, ôi khó tả cái cảm giác tự thấy mình thay đổi theo thời gian luôn. Em cám ơn chị Duyen Pham, vẫn vậy, hơn cả mentor, là 1 người chị thân thiết với tất cả những đứa em như em haha",
     rating: 5
   },
@@ -46,7 +46,7 @@ const testimonials = [
     id: 6,
     name: "Khánh Linh",
     role: "VAP Graduate",
-    avatar: "/lovable-uploads/186159ef-cd80-4822-9e82-7520bedddde5.png",
+    avatar: "/lovable-uploads/4aa41190-ca09-421a-b0f1-95ecedcb6a18.png",
     content: "Mới đó mà đã đến khoá 14 rồi, e cứ tưởng như mới học xong khoá 9 mới đây thôi. Học xong mới thấy, nếu mình học sớm hơn thì chặng đường đi với VA đã dài hơn nhiều. Đăng ký sớm để đến gần với giấc mơ VA nào. Vừa có mentor đồng hành vừa chinh phục được ước mơ có gì tuyệt hơn nữa đâu nhỉ!",
     rating: 5
   }
