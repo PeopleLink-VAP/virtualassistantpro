@@ -142,8 +142,7 @@ const LearningPath = () => {
                 </div>
                 <div className="lg:pl-8">
                   <div className="text-gray-600 italic">
-                    "Xây dựng nền tảng vững chắc cho sự nghiệp VA của bạn"
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -160,12 +159,11 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:pr-8 order-2 lg:order-1">
                   <div className="text-gray-600 italic">
-                    "Thành thạo các công cụ thiết yếu của VA chuyên nghiệp"
-                  </div>
+                </div>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 2: 10 ngách phổ biến và có nhu cầu cao cVA</h4>
+                    <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 2: 10 ngách VA phổ biến và có nhu cầu cao </h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -186,7 +184,7 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:text-right">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 3: Hiểu về platform (Fiverr, Upwork, Linkedin, Facebook, etc.)</h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 3: Hiểu về khách hàng và platform (Fiverr, Upwork, Linkedin, Facebook, etc.)</h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>
@@ -194,8 +192,7 @@ const LearningPath = () => {
                 </div>
                 <div className="lg:pl-8">
                   <div className="text-gray-600 italic">
-                    "Tạo dựng thương hiệu cá nhân nổi bật và thu hút khách hàng"
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -212,12 +209,11 @@ const LearningPath = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:pr-8 order-2 lg:order-1">
                   <div className="text-gray-600 italic">
-                    "Sẵn sàng khởi nghiệp và phát triển sự nghiệp VA thành công"
-                  </div>
+                </div>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 4: Thương hiệu cá nhân </h4>
+                     <h4 className="text-xl font-bold text-gray-900 mb-3">Tuần 4: Xây dựng thương hiệu cá nhân và tư vấn 1:1</h4>
                     <ul className="text-gray-700 space-y-2">
                       <li>• Liên hệ để nhận Module chi tiết</li>
                     </ul>

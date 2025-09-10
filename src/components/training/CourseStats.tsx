@@ -91,18 +91,17 @@ const CourseStats = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="text-2xl font-bold text-sunflower mb-2">$100 - $250</div>
-                <p className="text-white/80">Giai đoạn 1:
- Thời lượng làm việc ít.
-Task nhỏ lẻ. </p>
+                <p className="text-white/80">Giai đoạn 1:  
+Thời lượng làm việc ít. Task nhỏ lẻ. </p>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-sunflower mb-2">$300-900</div>
-                <p className="text-white/80">Giai đoạn 2: 
+                <p className="text-white/80">Giai đoạn 2:  
 Khối lượng công việc tăng. Tìm được ngách & tệp khách phù hợp</p>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$1000-4000</div>
-                <p className="text-white/80">Giai đoạn 3:
+                <div className="text-2xl font-bold text-sunflower mb-2">$1k - $4k & more</div>
+                <p className="text-white/80">Giai đoạn 3: 
 Mở rộng tệp khách. Hiểu và cân bằng task lâu dài và ngắn hạn. Bắt đầu phát triển đội nhóm</p>
               </div>
             </div>
