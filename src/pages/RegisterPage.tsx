@@ -7,7 +7,6 @@ import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import facebookQrCode from '@/assets/facebook-qr-code.png';
-
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -16,36 +15,30 @@ const RegisterPage = () => {
     experience: '',
     motivation: ''
   });
-  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
-    
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
-
   if (isSubmitted) {
-    return (
-      <>
-        <Seo
-          title="Đăng Ký Thành Công - Virtual Assistant Pro"
-          description="Cảm ơn bạn đã đăng ký khóa học Virtual Assistant Pro. Chúng tôi sẽ liên hệ với bạn sớm nhất."
-        />
+    return <>
+        <Seo title="Đăng Ký Thành Công - Virtual Assistant Pro" description="Cảm ơn bạn đã đăng ký khóa học Virtual Assistant Pro. Chúng tôi sẽ liên hệ với bạn sớm nhất." />
         <Navbar />
         <ScrollToTop />
         <div className="min-h-screen bg-warmWhite flex items-center justify-center py-20">
@@ -90,16 +83,10 @@ const RegisterPage = () => {
           </div>
         </div>
         <Footer />
-      </>
-    );
+      </>;
   }
-
-  return (
-    <>
-      <Seo
-        title="Đăng Ký Khóa Học - Virtual Assistant Pro"
-        description="Đăng ký ngay khóa học Virtual Assistant Pro để bắt đầu hành trình trở thành VA chuyên nghiệp với thu nhập ổn định."
-      />
+  return <>
+      <Seo title="Đăng Ký Khóa Học - Virtual Assistant Pro" description="Đăng ký ngay khóa học Virtual Assistant Pro để bắt đầu hành trình trở thành VA chuyên nghiệp với thu nhập ổn định." />
       <Navbar />
       <ScrollToTop />
       <div className="min-h-screen bg-warmWhite relative overflow-hidden">
@@ -158,16 +145,7 @@ const RegisterPage = () => {
                   </label>
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
-                      placeholder="Nhập họ và tên của bạn"
-                    />
+                    <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="Nhập họ và tên của bạn" />
                   </div>
                 </div>
                 
@@ -177,16 +155,7 @@ const RegisterPage = () => {
                   </label>
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
-                      placeholder="example@email.com"
-                    />
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="example@email.com" />
                   </div>
                 </div>
                 
@@ -196,16 +165,7 @@ const RegisterPage = () => {
                   </label>
                   <div className="relative">
                     <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
-                      placeholder="0123 456 789"
-                    />
+                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="0123 456 789" />
                   </div>
                 </div>
                 
@@ -213,13 +173,7 @@ const RegisterPage = () => {
                   <label htmlFor="experience" className="block text-sm font-semibold text-navy mb-2">
                     Kinh nghiệm làm việc
                   </label>
-                  <select
-                    id="experience"
-                    name="experience"
-                    value={formData.experience}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
-                  >
+                  <select id="experience" name="experience" value={formData.experience} onChange={handleInputChange} className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md">
                     <option value="">Chọn mức độ kinh nghiệm</option>
                     <option value="beginner">Mới bắt đầu (0-1 năm)</option>
                     <option value="intermediate">Trung cấp (1-3 năm)</option>
@@ -232,34 +186,18 @@ const RegisterPage = () => {
                   <label htmlFor="motivation" className="block text-sm font-semibold text-navy mb-2">
                     Lý do muốn tham gia khóa học
                   </label>
-                  <textarea
-                    id="motivation"
-                    name="motivation"
-                    value={formData.motivation}
-                    onChange={handleInputChange}
-                    rows={4}
-                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 resize-none hover:shadow-md"
-                    placeholder="Chia sẻ lý do bạn muốn trở thành Virtual Assistant..."
-                  />
+                  <textarea id="motivation" name="motivation" value={formData.motivation} onChange={handleInputChange} rows={4} className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 resize-none hover:shadow-md" placeholder="Chia sẻ lý do bạn muốn trở thành Virtual Assistant..." />
                 </div>
                 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full group hover:bg-sunflower bg-gradient-to-r from-leafGreen to-sunflower text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center gap-2">
+                <Button type="submit" disabled={isSubmitting} className="w-full group hover:bg-sunflower bg-gradient-to-r from-leafGreen to-sunflower text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                  {isSubmitting ? <span className="flex items-center justify-center gap-2">
                       <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                       Đang xử lý...
-                    </span>
-                  ) : (
-                    <span className="flex items-center justify-center gap-2">
+                    </span> : <span className="flex items-center justify-center gap-2">
                       <BookOpen className="h-5 w-5" />
                       Đăng Ký Ngay
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  )}
+                    </span>}
                 </Button>
               </form>
             </div>
@@ -273,12 +211,8 @@ const RegisterPage = () => {
                   </div>
                   Bạn còn phân vân?
                 </h2>
-                <p className="text-navy/80 text-lg mb-2">
-                  Hãy liên hệ với chúng tôi ngay qua Zalo hoặc Messenger
-                </p>
-                <p className="text-navy/60 text-sm">
-                  Đội ngũ tư vấn của chúng tôi sẵn sàng giải đáp mọi thắc mắc 24/7
-                </p>
+                <p className="text-navy/80 text-lg mb-2">Liên hệ qua Zalo hoặc Messenger</p>
+                
               </div>
               
               {/* Contact Methods */}
@@ -291,9 +225,7 @@ const RegisterPage = () => {
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">Zalo</h3>
                     <p className="text-navy/70 mb-4">Liên hệ nhanh chóng qua Zalo</p>
-                    <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
-                      <p className="font-bold text-leafGreen text-lg">+84 932548082</p>
-                    </div>
+                    
                     <Button className="w-full bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
                       <span className="flex items-center justify-center gap-2">
                         <Phone className="h-4 w-4" />
@@ -313,11 +245,7 @@ const RegisterPage = () => {
                     <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
                     <div className="bg-gradient-to-br from-lightBlue/20 to-sunflower/10 rounded-xl p-4 mb-4 shadow-inner border-2 border-gradient-to-r from-lightBlue/40 to-sunflower/40">
                       <div className="bg-white/95 p-3 rounded-lg shadow-md">
-                        <img 
-                          src={facebookQrCode} 
-                          alt="Facebook QR Code" 
-                          className="w-24 h-24 mx-auto rounded-lg border-2 border-sunflower/50 shadow-lg"
-                        />
+                        <img src={facebookQrCode} alt="Facebook QR Code" className="w-24 h-24 mx-auto rounded-lg border-2 border-sunflower/50 shadow-lg" />
                       </div>
                       <p className="text-xs text-navy/70 mt-3 font-medium bg-gradient-to-r from-lightBlue to-sunflower bg-clip-text text-transparent">Quét QR để kết nối</p>
                     </div>
@@ -361,8 +289,6 @@ const RegisterPage = () => {
         </div>
       </div>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default RegisterPage;
