@@ -129,14 +129,14 @@ const CourseTestimonials = () => {
                 </div>
               </div>
               <div className="ml-4">
-                <h4 className="font-bold text-navy">Xuân Trang</h4>
+                <h4 className="font-bold text-navy">Quang Huy</h4>
                 <p className="text-sm text-gray-600">Social Media VA</p>
                 <div className="flex items-center gap-1 mt-1">
                    {[...Array(5)].map((_, i) => <Star key={`testimonial-3-star-${i}`} className="h-3 w-3 text-sunflower fill-current" />)}
                 </div>
               </div>
             </div>
-            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">Chỉ sau một thời gian ngắn, Trang đã nhận nhiều job đa dạng – từ nhỏ đến lớn, từ khách lẻ đến cả tập đoàn. Dù background là HR, Trang vẫn dám nhận dự án Airbnb, vì biết luôn có Duyên đứng sau backup.</blockquote>
+            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">Huy là 1 trong 3 học viên nam của lớp và có lẽ là người kiệm lời nhất lớp. Ít nói nhưng lại rất quyết liệt khi làm việc, Huy đã hỗ trợ nhiều khách hàng trong việc quản lý các kênh OTA, làm nhiều ngách VA khác nhau chỉ trong thời gian ngắn sau khi học. </blockquote>
             <div className="mt-4 flex items-center justify-between">
               <span className="text-sm font-semibold text-sunflower">
             </span>
