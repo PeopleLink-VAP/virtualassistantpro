@@ -32,7 +32,7 @@ const CourseTestimonials = () => {
                 </div>
               </div>
               <h3 className="text-lg font-bold text-navy mt-4">Hồng Nhựt</h3>
-              <p className="text-gray-600 mb-2">Virtual Assistant</p>
+              <p className="text-gray-600 mb-2">Customer Service</p>
               <div className="flex justify-center items-center gap-1 mb-4">
                  {[...Array(5)].map((_, i) => <Star key={`featured-star-${i}`} className="h-4 w-4 text-sunflower fill-current" />)}
               </div>
@@ -75,20 +75,18 @@ const CourseTestimonials = () => {
                 </div>
               </div>
               <div className="ml-4">
-                <h4 className="font-bold text-navy">Trần Minh Anh</h4>
-                <p className="text-sm text-gray-600">Content VA</p>
+                <h4 className="font-bold text-navy">Trúc Viên</h4>
+                <p className="text-sm text-gray-600">Remote Personal Assistant</p>
                 <div className="flex items-center gap-1 mt-1">
                    {[...Array(5)].map((_, i) => <Star key={`testimonial-1-star-${i}`} className="h-3 w-3 text-sunflower fill-current" />)}
                 </div>
               </div>
             </div>
-            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">
-              "Từ một người hoàn toàn mới với VA, giờ tôi đã có thu nhập $1,800/tháng. 
-              Khóa học rất thực tế và mentor luôn hỗ trợ nhiệt tình!"
-            </blockquote>
+            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">Trúc Viên luôn lắng nghe feedback, nhanh nhạy trong việc scan job và đặc biệt hành động rốt rẻng. Nhờ vậy, Viên đã có được vị trí trợ lý giám đốc full-time remote ngay khi vừa xong khóa.</blockquote>
             <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-sunflower">$1,800/tháng</span>
-              <span className="text-xs text-gray-600">Sau 2 tháng</span>
+              <span className="text-sm font-semibold text-sunflower">
+            </span>
+              <span className="text-xs text-gray-600">Sau 1.5 tháng</span>
             </div>
           </div>
           
@@ -104,20 +102,18 @@ const CourseTestimonials = () => {
                 </div>
               </div>
               <div className="ml-4">
-                <h4 className="font-bold text-navy">Lê Văn Đức</h4>
-                <p className="text-sm text-gray-600">Admin VA</p>
+                <h4 className="font-bold text-navy">Quỳnh Lai</h4>
+                <p className="text-sm text-gray-600">Project Manager</p>
                 <div className="flex items-center gap-1 mt-1">
                    {[...Array(5)].map((_, i) => <Star key={`testimonial-2-star-${i}`} className="h-3 w-3 text-navy fill-current" />)}
                 </div>
               </div>
             </div>
-            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">
-              "Khóa học đã mở ra cơ hội nghề nghiệp mới cho tôi. Từ việc làm part-time, 
-              giờ tôi đã có thể làm full-time VA với thu nhập ổn định."
-            </blockquote>
+            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">Hơn 10 năm làm trong ngành ngân hàng – một môi trường “cứng nhắc” – nhưng chỉ sau vài tháng, Lai đã trở thành một freelancer dày dạn trên Upwork, quản lý nhiều dự án cho khách quốc tế và còn hỗ trợ lại cho các bạn VA khác trong cộng đồng.</blockquote>
             <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-navy">$2,200/tháng</span>
-              <span className="text-xs text-gray-600">Sau 4 tháng</span>
+              <span className="text-sm font-semibold text-navy">
+            </span>
+              <span className="text-xs text-gray-600">Sau 2 tháng</span>
             </div>
           </div>
           
@@ -133,19 +129,17 @@ const CourseTestimonials = () => {
                 </div>
               </div>
               <div className="ml-4">
-                <h4 className="font-bold text-navy">Phạm Thị Lan</h4>
+                <h4 className="font-bold text-navy">Xuân Trang</h4>
                 <p className="text-sm text-gray-600">Social Media VA</p>
                 <div className="flex items-center gap-1 mt-1">
                    {[...Array(5)].map((_, i) => <Star key={`testimonial-3-star-${i}`} className="h-3 w-3 text-sunflower fill-current" />)}
                 </div>
               </div>
             </div>
-            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">
-              "Tôi đặc biệt ấn tượng với phần thực hành trên tài khoản thật. 
-              Điều này giúp tôi hiểu rõ quy trình và tự tin khi làm việc với khách hàng."
-            </blockquote>
+            <blockquote className="text-gray-700 italic leading-relaxed group-hover:text-navy transition-colors duration-300">Chỉ sau một thời gian ngắn, Trang đã nhận nhiều job đa dạng – từ nhỏ đến lớn, từ khách lẻ đến cả tập đoàn. Dù background là HR, Trang vẫn dám nhận dự án Airbnb, vì biết luôn có Duyên đứng sau backup.</blockquote>
             <div className="mt-4 flex items-center justify-between">
-              <span className="text-sm font-semibold text-sunflower">$1,500/tháng</span>
+              <span className="text-sm font-semibold text-sunflower">
+            </span>
               <span className="text-xs text-gray-600">Sau 1.5 tháng</span>
             </div>
           </div>
@@ -155,7 +149,8 @@ const CourseTestimonials = () => {
         <div className="text-center mt-16 animate-fade-in-up animation-delay-700">
           <div className="bg-gradient-to-r from-sunflower/20 to-navy/10 rounded-2xl p-8 backdrop-blur-sm border border-white/30 shadow-xl">
             <h3 className="text-3xl font-bold text-navy mb-4">Bạn sẽ là câu chuyện thành công tiếp theo?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">Tham gia cùng hàng trăm học viên đã thành công và bắt đầu hành trình VA của bạn ngay hôm nay</p>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">Tham gia cùng hàng trăm học viên đã thành công và bắt đầu
+ hành trình VA của bạn ngay hôm nay</p>
             <Link to="/register">
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
