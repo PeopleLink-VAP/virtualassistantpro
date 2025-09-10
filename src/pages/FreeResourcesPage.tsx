@@ -78,7 +78,7 @@ const FreeResourcesPage = () => {
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn giúp bạn nhận biết các tín hiệu cảnh báo từ khách hàng scam, điều khoản thanh toán đáng ngờ và các nguyên tắc cơ bản về khi làm việc online.</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 7 trang</span>
-                  <a href="/downloads/red-flags-guide.pdf" download className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <a href="public/downloads/VAP-4-hinh-thuc-lua-dao-online.pdf" download className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@ const FreeResourcesPage = () => {
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế. </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 11 trang</span>
-                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
+                  <a href="public/downloads/VAP-7-luu-y-va-mau-cau-cho-discovery-call.pdf" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
                 </div>
               </div>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Dog, Home, Utensils, BookOpen, Briefcase, Building, Globe, Users, GraduationCap, Award, Quote } from 'lucide-react';
+import { Dog, Home, Utensils, BookOpen, Briefcase, Building, Globe, Users, GraduationCap, Award, Quote, MessageSquare } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import profileImage from '/images/duyen/profile_1.jpg';
 
 const QuickFacts = () => (
@@ -36,6 +37,22 @@ const QuickFacts = () => (
             <BookOpen className="w-12 h-12 text-sunflower mb-3" />
             <p className="text-navy/80 text-center">Thích đọc sách giấy hơn đọc kindle</p>
           </div>
+        </div>
+        
+        {/* Contact Buttons */}
+        <div className="mt-12 flex flex-wrap justify-center gap-4">
+          <a href="https://zalo.me/0932548082" target="_blank" rel="noopener noreferrer">
+            <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
+              <MessageSquare className="h-5 w-5" />
+              Contact Duyen - Zalo
+            </Button>
+          </a>
+          <a href="https://www.facebook.com/duyen.pham.1048" target="_blank" rel="noopener noreferrer">
+            <Button className="btn-secondary flex items-center gap-2 hover:scale-105 transition-transform">
+              <MessageSquare className="h-5 w-5" />
+              Contact Duyen - Facebook
+            </Button>
+          </a>
         </div>
       </div>
     </div>

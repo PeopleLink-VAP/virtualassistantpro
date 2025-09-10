@@ -211,60 +211,12 @@ const RegisterPage = () => {
                   </div>
                   Bạn còn phân vân?
                 </h2>
-                <p className="text-navy/80 text-lg mb-2">Liên hệ qua Zalo hoặc Messenger</p>
                 
               </div>
               
-              {/* Contact Methods */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Zalo Contact */}
-                <div className="bg-gradient-to-br from-sunflower/10 to-leafGreen/10 rounded-2xl p-6 border-2 border-sunflower/30 hover:border-sunflower/50 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <Phone className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-navy mb-2">Zalo</h3>
-                    <p className="text-navy/70 mb-4">Liên hệ nhanh chóng qua Zalo</p>
-                    
-                    <Button className="w-full bg-gradient-to-r from-sunflower to-leafGreen hover:from-leafGreen hover:to-sunflower text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
-                      <span className="flex items-center justify-center gap-2">
-                        <Phone className="h-4 w-4" />
-                        Nhắn tin Zalo
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-                
-                {/* Messenger Contact */}
-                <div className="bg-gradient-to-br from-lightBlue/20 to-sunflower/15 rounded-2xl p-6 border-2 border-lightBlue/40 hover:border-sunflower/50 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-lightBlue to-sunflower rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-sunflower/50">
-                      <MessageSquare className="h-8 w-8 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-navy mb-2">Messenger</h3>
-                    <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
-                    <div className="bg-gradient-to-br from-lightBlue/20 to-sunflower/10 rounded-xl p-4 mb-4 shadow-inner border-2 border-gradient-to-r from-lightBlue/40 to-sunflower/40">
-                      <div className="bg-white/95 p-3 rounded-lg shadow-md">
-                        <img src={facebookQrCode} alt="Facebook QR Code" className="w-24 h-24 mx-auto rounded-lg border-2 border-sunflower/50 shadow-lg" />
-                      </div>
-                      <p className="text-xs text-navy/70 mt-3 font-medium bg-gradient-to-r from-lightBlue to-sunflower bg-clip-text text-transparent">Quét QR để kết nối</p>
-                    </div>
-                    <Button className="w-full bg-gradient-to-r from-lightBlue to-sunflower hover:from-sunflower hover:to-leafGreen text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-                      <span className="flex items-center justify-center gap-2">
-                        <MessageSquare className="h-4 w-4" />
-                        Chat Messenger
-                      </span>
-                    </Button>
-                  </div>
-                </div>
-              </div>
               
               {/* Quick Questions */}
               <div className="bg-gradient-to-br from-sunflower/10 to-leafGreen/10 rounded-2xl p-6 border border-sunflower/20 shadow-lg">
-                <h3 className="text-xl font-bold text-navy mb-4 text-center flex items-center justify-center gap-2">
-                  <Check className="h-5 w-5 text-leafGreen" />
-                  Câu hỏi thường gặp:
-                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                   <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
                     <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
@@ -282,6 +234,22 @@ const RegisterPage = () => {
                     <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
                     <span>Cơ hội việc làm sau khóa học?</span>
                   </div>
+                </div>
+
+                {/* Contact Buttons */}
+                <div className="mt-12 flex flex-wrap justify-center gap-4">
+                  <a href="https://zalo.me/0932548082" target="_blank" rel="noopener noreferrer">
+                    <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
+                      <MessageSquare className="h-5 w-5" />
+                      Contact Duyen - Zalo
+                    </Button>
+                  </a>
+                  <a href="https://www.facebook.com/duyen.pham.1048" target="_blank" rel="noopener noreferrer">
+                    <Button className="btn-secondary flex items-center gap-2 hover:scale-105 transition-transform">
+                      <MessageSquare className="h-5 w-5" />
+                      Contact Duyen - Facebook
+                    </Button>
+                  </a>
                 </div>
               </div>
             </div>
