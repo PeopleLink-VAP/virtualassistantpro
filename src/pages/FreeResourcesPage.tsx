@@ -73,7 +73,7 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">4 hình thức lừa đảo phổ bie</h3>
+                  <h3 className="font-bold text-xl text-navy">4 hình thức lừa đảo phổ biến</h3>
                 </div>
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn giúp bạn nhận biết các tín hiệu cảnh báo từ khách hàng scam, điều khoản thanh toán đáng ngờ và các nguyên tắc cơ bản về khi làm việc online.</p>
                 <div className="flex items-center justify-between">
@@ -111,7 +111,7 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">T</h3>
+                  <h3 className="font-bold text-xl text-navy">Top 7 lưu ý và mẫu câu cho Discovery call</h3>
                 </div>
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế. </p>
                 <div className="flex items-center justify-between">
