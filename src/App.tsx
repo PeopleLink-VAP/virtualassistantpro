@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
+import { AdminAuthProvider } from "./hooks/useAdminAuth";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import Seo from "./components/Seo";
 import ScrollToTop from "./components/ScrollToTop";
@@ -27,7 +28,12 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
 import RegisterPage from "./pages/RegisterPage";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboardHome from "./pages/admin/AdminDashboardHome";
+import AdminBlogPage from "./pages/admin/AdminBlogPage";
+import AdminUsersPage from "./pages/admin/AdminUsersPage";
+import AdminNewsletterPage from "./pages/admin/AdminNewsletterPage";
+import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import MembersDashboard from "./pages/MembersDashboard";
 
 const queryClient = new QueryClient();
@@ -35,7 +41,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <TooltipProvider>
+      <AdminAuthProvider>
+        <TooltipProvider>
         <Seo />
         <Toaster />
         <Sonner />
@@ -67,18 +74,16 @@ const App = () => (
               path="/admin" 
               element={
                 <ProtectedRoute requireAdmin>
-                  <AdminDashboard />
+                  <AdminLayout />
                 </ProtectedRoute>
-              } 
-            />
-            <Route 
-              path="/admin/*" 
-              element={
-                <ProtectedRoute requireAdmin>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              } 
-            />
+              }
+            >
+              <Route index element={<AdminDashboardHome />} />
+              <Route path="blog" element={<AdminBlogPage />} />
+              <Route path="users" element={<AdminUsersPage />} />
+              <Route path="newsletter" element={<AdminNewsletterPage />} />
+              <Route path="settings" element={<AdminSettingsPage />} />
+            </Route>
             <Route 
               path="/members" 
               element={
@@ -90,7 +95,8 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </TooltipProvider>
+        </TooltipProvider>
+      </AdminAuthProvider>
     </AuthProvider>
   </QueryClientProvider>
 );

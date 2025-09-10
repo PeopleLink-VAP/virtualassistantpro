@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { AdminLogin } from '@/components/admin/AdminLogin';
 import { Loader2 } from 'lucide-react';
 
 interface ProtectedRouteProps {
@@ -10,6 +12,7 @@ interface ProtectedRouteProps {
 
 export const ProtectedRoute = ({ children, requireAdmin = false }: ProtectedRouteProps) => {
   const { user, profile, isLoading } = useAuth();
+  const { isAdminAuthenticated } = useAdminAuth();
 
   // Show loading state while authentication is being determined
   if (isLoading) {
@@ -28,8 +31,13 @@ export const ProtectedRoute = ({ children, requireAdmin = false }: ProtectedRout
     return <Navigate to="/login" replace />;
   }
 
-  // If admin is required but user is not admin, redirect to home or members dashboard
+  // If admin is required, check both Supabase admin role and basic auth
   if (requireAdmin) {
+    // If user is not authenticated at all, show login
+    if (!user) {
+      return <AdminLogin />;
+    }
+    
     // Wait for profile to be loaded before checking role
     if (!profile) {
       return (
@@ -42,8 +50,9 @@ export const ProtectedRoute = ({ children, requireAdmin = false }: ProtectedRout
       );
     }
     
-    if (profile.role !== 'admin') {
-      return <Navigate to="/members" replace />;
+    // Check if user has admin access through either method
+    if (!isAdminAuthenticated) {
+      return <AdminLogin />;
     }
   }
 

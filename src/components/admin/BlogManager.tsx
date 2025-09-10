@@ -6,8 +6,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { BlogPostsTable } from '@/components/admin/BlogPostsTable';
-import { PlateEditorComponent } from '@/components/admin/PlateEditor';
+import { EnhancedBlogPostsTable } from '@/components/admin/EnhancedBlogPostsTable';
+import { EnhancedBlogEditor } from '@/components/admin/EnhancedBlogEditor';
 import { useToast } from '@/hooks/use-toast';
 import { Plus, FileText, Search, Filter } from 'lucide-react';
 
@@ -368,15 +368,16 @@ export const BlogManager = () => {
       </div>
 
       {/* Enhanced Blog Posts Table */}
-      <BlogPostsTable 
-        posts={posts} 
+      <EnhancedBlogPostsTable 
+        posts={filteredPosts} 
         onEdit={handleEdit} 
         onDelete={handleDelete} 
+        onRefresh={fetchPosts}
       />
       
       {/* WYSIWYG Editor */}
       {isEditorOpen && editingPost && (
-        <PlateEditorComponent
+        <EnhancedBlogEditor
           post={editingPost}
           onClose={handleEditorClose}
           onSave={handleEditorSave}
