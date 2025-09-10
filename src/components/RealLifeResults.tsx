@@ -94,7 +94,7 @@ const RealLifeResults = () => {
                 
                 {/* Testimonial Popup */}
                 {hoveredTestimonial === testimonial.id && (
-                  <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-80 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-2xl z-10 animate-fade-in">
+                  <div className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 w-80 max-w-[90vw] bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-2xl z-20 animate-fade-in">
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white/95 rotate-45"></div>
                     
                     <div className="flex items-center gap-3 mb-3">
