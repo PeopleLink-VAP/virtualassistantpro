@@ -26,7 +26,7 @@ const CourseTestimonials = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             <div className="lg:col-span-1 text-center">
               <div className="relative inline-block">
-                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Nguyễn Thị Hương" className="w-24 h-24 rounded-full object-cover border-4 border-sunflower/30" />
+                <img src="/lovable-uploads/453845bd-d65a-4bac-a31a-bee0a562c330.png" alt="Hồng Nhựt" className="w-24 h-24 rounded-full object-cover border-4 border-sunflower/30" />
                 <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
                   <Star className="h-5 w-5 text-white" />
                 </div>
