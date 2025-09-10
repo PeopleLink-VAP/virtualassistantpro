@@ -5,12 +5,13 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
-
 const FreeResourcesPage = () => {
   const [showEmailPopup, setShowEmailPopup] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: ''
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -18,21 +19,17 @@ const FreeResourcesPage = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tài liệu miễn phí qua email.');
     setShowEmailPopup(false);
-    setFormData({ name: '', email: '' });
+    setFormData({
+      name: '',
+      email: ''
+    });
     setIsSubmitting(false);
   };
-
   const handleFreeResourceClick = () => {
     setShowEmailPopup(true);
   };
-
-  return (
-    <>
-      <Seo
-        title="Tài Nguyên Miễn Phí - Virtual Assistant Pro"
-        description="Khám phá các khóa học, cộng đồng và hỗ trợ dành cho Trợ lý ảo."
-
-      />
+  return <>
+      <Seo title="Tài Nguyên Miễn Phí - Virtual Assistant Pro" description="Khám phá các khóa học, cộng đồng và hỗ trợ dành cho Trợ lý ảo." />
       <Navbar />
       <ScrollToTop />
       <div className="relative bg-warmWhite py-20 pt-40">
@@ -76,14 +73,11 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">"Red Flags" Guide</h3>
+                  <h3 className="font-bold text-xl text-navy">4 hình thức lừa đảo phổ bie</h3>
                 </div>
-                <p className="text-gray-700 text-base mb-4">
-                  Hướng dẫn 1 trang giúp bạn nhận biết các tín hiệu cảnh báo từ khách hàng tiềm năng, 
-                  điều khoản thanh toán đáng ngờ và các nguyên tắc cơ bản về kill-fee.
-                </p>
+                <p className="text-gray-700 text-base mb-4">Hướng dẫn giúp bạn nhận biết các tín hiệu cảnh báo từ khách hàng scam, điều khoản thanh toán đáng ngờ và các nguyên tắc cơ bản về khi làm việc online.</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">PDF • 1 trang</span>
+                  <span className="text-sm text-gray-500">PDF • 7 trang</span>
                   <a href="/downloads/red-flags-guide.pdf" download className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
                 </div>
               </div>
@@ -100,10 +94,7 @@ const FreeResourcesPage = () => {
                   </div>
                   <h3 className="font-bold text-xl text-navy">Invoice + Contract Starter</h3>
                 </div>
-                <p className="text-gray-700 text-base mb-4">
-                  Mẫu hóa đơn và hợp đồng cơ bản phù hợp với thị trường Việt Nam. 
-                  Bao gồm disclaimer khuyến nghị tìm kiếm tư vấn pháp lý chuyên nghiệp.
-                </p>
+                <p className="text-gray-700 text-base mb-4">Mẫu hóa đơn và hợp đồng cơ bản phù hợp với thị trường Việt Nam. Tuy vậy, vẫn khuyến nghị tìm kiếm tư vấn pháp lý chuyên nghiệp.</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Word + PDF • 2 files</span>
                   <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
@@ -120,14 +111,11 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">Client Discovery Script Lite</h3>
+                  <h3 className="font-bold text-xl text-navy">T</h3>
                 </div>
-                <p className="text-gray-700 text-base mb-4">
-                  7 câu hỏi đơn giản giúp bạn đánh giá và phân loại khách hàng tiềm năng. 
-                  Phiên bản cơ bản không bao gồm đào tạo sales chuyên sâu.
-                </p>
+                <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế. </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-500">PDF • 2 trang</span>
+                  <span className="text-sm text-gray-500">PDF • 11 trang</span>
                   <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
                 </div>
               </div>
@@ -166,10 +154,7 @@ const FreeResourcesPage = () => {
                   </div>
                   <h3 className="font-bold text-xl text-navy">Industry Tag Library</h3>
                 </div>
-                <p className="text-gray-700 text-base mb-4">
-                  50 ý tưởng dịch vụ được phân loại theo ngành (ecom, SaaS, creators) để khơi gợi định vị. 
-                  Playbook chi tiết chỉ có trong VAP.
-                </p>
+                <p className="text-gray-700 text-base mb-4">20 ý tưởng dịch vụ được phân loại theo ngành (ecom, SaaS, creators) dành cho các VA, đặc biệt tại thị trường Việt Nam.</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">Excel • 50 items</span>
                   <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
@@ -186,7 +171,7 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">First 30 Days Habit Tracker</h3>
+                  <h3 className="font-bold text-xl text-navy">First 30 Days Habit Tracker for VA</h3>
                 </div>
                 <p className="text-gray-700 text-base mb-4">
                   Tracker đơn giản trên Notion để theo dõi hoạt động outreach hàng ngày, 
@@ -208,7 +193,7 @@ const FreeResourcesPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                  <h3 className="font-bold text-xl text-navy">FAQ cho Virtual Assistants</h3>
+                  <h3 className="font-bold text-xl text-navy">FAQ cho VA</h3>
                 </div>
                 <p className="text-gray-700 text-base mb-4">
                   Tổng hợp các câu hỏi thường gặp nhất từ người mới bắt đầu, 
@@ -249,7 +234,8 @@ const FreeResourcesPage = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">PDF + Templates • 50+ trang</span>
-                    <span className="text-sunflower font-bold text-lg">$49</span>
+                    <span className="text-sunflower font-bold text-lg">
+                  </span>
                   </div>
                   <button className="w-full mt-4 bg-sunflower text-white py-2 px-4 rounded-lg hover:bg-sunflower/90 transition-colors">
                     Mua ngay
@@ -273,7 +259,8 @@ const FreeResourcesPage = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">Video Course + Mentoring</span>
-                    <span className="text-leafGreen font-bold text-lg">$299</span>
+                    <span className="text-leafGreen font-bold text-lg">
+                  </span>
                   </div>
                   <button className="w-full mt-4 bg-leafGreen text-white py-2 px-4 rounded-lg hover:bg-leafGreen/90 transition-colors">
                     Đăng ký ngay
@@ -297,7 +284,8 @@ const FreeResourcesPage = () => {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-gray-500">Complete Toolkit + Updates</span>
-                    <span className="text-navy font-bold text-lg">$149</span>
+                    <span className="text-navy font-bold text-lg">
+                  </span>
                   </div>
                   <button className="w-full mt-4 bg-navy text-white py-2 px-4 rounded-lg hover:bg-navy/90 transition-colors">
                     Mua toolkit
@@ -316,13 +304,9 @@ const FreeResourcesPage = () => {
           </div>
 
           {/* Email Popup Modal */}
-          {showEmailPopup && (
-            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          {showEmailPopup && <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
               <div className="bg-white rounded-xl max-w-md w-full p-6 relative">
-                <button 
-                  onClick={() => setShowEmailPopup(false)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-                >
+                <button onClick={() => setShowEmailPopup(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
                   <X className="w-6 h-6" />
                 </button>
                 
@@ -339,33 +323,21 @@ const FreeResourcesPage = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="relative">
                     <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                      type="text"
-                      placeholder="Họ và tên"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent"
-                      required
-                    />
+                    <input type="text" placeholder="Họ và tên" value={formData.name} onChange={e => setFormData({
+                  ...formData,
+                  name: e.target.value
+                })} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent" required />
                   </div>
                   
                   <div className="relative">
                     <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                    <input
-                      type="email"
-                      placeholder="Email của bạn"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent"
-                      required
-                    />
+                    <input type="email" placeholder="Email của bạn" value={formData.email} onChange={e => setFormData({
+                  ...formData,
+                  email: e.target.value
+                })} className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sunflower focus:border-transparent" required />
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-sunflower text-white py-3 px-6 rounded-lg font-semibold hover:bg-sunflower/90 transition-colors disabled:opacity-50"
-                  >
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-sunflower text-white py-3 px-6 rounded-lg font-semibold hover:bg-sunflower/90 transition-colors disabled:opacity-50">
                     {isSubmitting ? 'Đang gửi...' : 'Nhận tài liệu miễn phí'}
                   </button>
                 </form>
@@ -374,13 +346,10 @@ const FreeResourcesPage = () => {
                   Chúng tôi tôn trọng quyền riêng tư của bạn. Không spam, chỉ gửi nội dung hữu ích.
                 </p>
               </div>
-            </div>
-          )}
+            </div>}
         </div>
       </div>
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default FreeResourcesPage;
