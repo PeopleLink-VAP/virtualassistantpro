@@ -14,7 +14,7 @@ const testimonials = [
     id: 2,
     name: "Khánh Linh",
     role: "Học viên VA9",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/186159ef-cd80-4822-9e82-7520bedddde5.png",
     content: "Mới đó mà đã đến khoá 14 rồi, e cứ tưởng như mới học xong khoá 9 mới đây thôi. Học xong mới thấy, nếu mình học sớm hơn thì chặng đường đi với VA đã dài hơn nhiều. Đăng ký sớm để đến gần với giấc mơ VA nào. Vừa có mentor đồng hành vừa chinh phục được ước mơ có gì tuyệt hơn nữa đâu nhỉ!",
     rating: 5
   },
@@ -22,7 +22,7 @@ const testimonials = [
     id: 3,
     name: "Nguyễn Ngọc",
     role: "VA Professional",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/355e183c-7248-4dac-b6f6-155251b8c21d.png",
     content: "Cảm ơn chị đã truyền lại những kinh nghiệm tâm huyết mà chị đã đúc kết được qua nhiều năm trong nghề. Một khoá học tuyệt vời - một người mentor nhiệt huyết, tận tâm với nghề. VA khó - đã có chị Duyên",
     rating: 5
   },
@@ -30,7 +30,7 @@ const testimonials = [
     id: 4,
     name: "Rosy Nguyen",
     role: "Data Research VA",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/199bb506-e1d2-4a07-a9d9-e1e17e83a04e.png",
     content: "Tối hôm qua em mới interview VA data research mà client coi portfolio xong được offer vị trí khác rate cao hơn luôn, có cái là làm giờ Mỹ nên chắc em không nhận thui ạ, ôi khó tả cái cảm giác tự thấy mình thay đổi theo thời gian luôn. Em cám ơn chị Duyen Pham, vẫn vậy, hơn cả mentor, là 1 người chị thân thiết với tất cả những đứa em như em haha",
     rating: 5
   },
@@ -38,7 +38,7 @@ const testimonials = [
     id: 5,
     name: "Thùy Trang",
     role: "VA Graduate",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/be8d8154-fff6-4b9e-a02d-c7e083bb734e.png",
     content: "Học xong từ năm ngoái nay mới trồi lên feedback vì hết khóa bận đi khách liền 😄 Duyên là một người làm nghề giỏi nên kiến thức Duyên truyền đạt rất sát với thực tế và cô đọng.",
     rating: 5
   },
@@ -46,7 +46,7 @@ const testimonials = [
     id: 6,
     name: "Xuân Trang",
     role: "VA Professional",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    avatar: "/lovable-uploads/4aa41190-ca09-421a-b0f1-95ecedcb6a18.png",
     content: "Học xong là thấy ngộ ra nhiều thứ hay ho lắm. Đặc biệt là cách nói chuyện với khách sao cho khéo. Chưa nói tới cách đánh ngách sao cho hợp lý. Học xong tự tin hẳn. Ước gì e biết đến chị sớm hơn. Cảm ơn chị đã support e rất nhiều. Và e vẫn sẽ còn hành chị nữa ạ",
     rating: 5
   }
@@ -137,9 +137,8 @@ const RealLifeResults = () => {
                 <p className="text-navy/80">học viên được hướng dẫn từ A-Z về nghề VA</p>
               </div>
               <div>
-                <div className="text-3xl font-bold text-leafGreen mb-2">60 ~ 75%</div>
-                <p className="text-navy/80">học viên có khách hàng khi quyết liệt đầu tư vào VA trong vòng ít nhất 4 tháng</p>
-                <p className="text-sm text-navy/60">quyết liệt làm</p>
+                <div className="text-3xl font-bold text-leafGreen mb-2">70 - 85%</div>
+                <p className="text-navy/80">học viên có khách hàng</p>
               </div>
               <div>
                 <div className="text-3xl font-bold text-navy mb-2">4.9/5</div>

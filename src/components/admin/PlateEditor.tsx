@@ -326,7 +326,7 @@ export const PlateEditorComponent = ({ post, onClose, onSave }: PlateEditorProps
                 </Button>
                 <Button
                   size="sm"
-                  onClick={handleSave}
+                  onClick={() => handleSave()}
                   className="flex items-center gap-2"
                 >
                   <Save className="w-4 h-4" />

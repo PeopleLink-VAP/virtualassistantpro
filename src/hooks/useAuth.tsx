@@ -55,7 +55,18 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         .single();
       
       if (error) throw error;
-      setProfile(data);
+      setProfile(data ? {
+        id: data.id,
+        user_id: data.user_id,
+        email: data.email,
+        full_name: data.full_name,
+        role: data.role,
+        membership_tier: data.membership_tier,
+        bio: data.bio,
+        skills: data.skills,
+        avatar_url: null,
+        country_of_origin: null
+      } : null);
     } catch (error) {
       console.error('Error fetching profile:', error);
       setProfile(null);
