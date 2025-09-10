@@ -21,6 +21,7 @@ import {
 const formSchema = z.object({
   name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
   email: z.string().email("Email không hợp lệ"),
+  phone: z.string().min(10, "Số điện thoại phải có ít nhất 10 số"),
   inquiryType: z.string().min(1, "Vui lòng chọn loại yêu cầu"),
   message: z.string().min(10, "Tin nhắn phải có ít nhất 10 ký tự"),
 });
@@ -47,6 +48,7 @@ const ContactForm = ({
     defaultValues: {
       name: "",
       email: "",
+      phone: "",
       inquiryType: "",
       message: "",
     },
@@ -116,6 +118,20 @@ const ContactForm = ({
             )}
           />
         </div>
+        
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Số điện thoại</FormLabel>
+              <FormControl>
+                <Input {...field} type="tel" placeholder="Nhập số điện thoại của bạn" className="bg-white/50" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         
         {showInquiryType && (
           <FormField

@@ -88,7 +88,9 @@ const Contact = () => {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold">{method.title}</h4>
-                      <p className="text-navy font-medium">{method.value}</p>
+                      {method.title !== 'Facebook Messenger' && (
+                        <p className="text-navy font-medium">{method.value}</p>
+                      )}
                       <p className="text-sm text-navy/70">{method.description}</p>
                       {method.qrCode && (
                         <div className="mt-3">
