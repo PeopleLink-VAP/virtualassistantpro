@@ -70,11 +70,6 @@ const StudentSuccessStoriesPage = () => {
               Mỗi câu chuyện là một hành trình không ngừng cố gắng và học hỏi trên hành trình VA đầy mới mẻ.
             </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              
-              
-              
-            </div>
           </div>
 
           {/* Success Stories */}
