@@ -9,7 +9,7 @@ const StudentSuccessStoriesPage = () => {
   const successStories = [{
     id: 1,
     name: "Thanh Thủy",
-    image: "/images/sunflower.png",
+    image: "/lovable-uploads/ec144fed-0973-4179-912f-e6c05998c435.png",
     background: "Thủy nghỉ công việc BA (business analysis) rồi bay từ Hà Nội vào để học một khóa video editing, theo đoàn làm phim đi quay MV, cùng lúc học VA và 1 khóa Shopee. 3 bộ kĩ năng hoàn toàn khác, học từ 3 người khác nhau để giờ đây Thủy trở thành VA, một Fiverr seller level 2, một người vừa có thể edit video, vừa quản lý sàn Shopee, vừa hiểu về Amazon và có những thán cao điểm làm mức lương lên đến 4,000 USD.",
     mentorInsight: "Mình chứng kiến hành trình của Thủy từ những ngày đầu, cả những nốt cao khi công việc thuận lợi, hay những nốt trầm khi mọi thứ không như ý. Dù mọi việc có ra sao, Thủy vẫn luôn cố gắng, nỗ lực hơn cả giới hạn của bản thân để tìm được lối đi cho mình. Những thành tựu em có ngày hôm nay là hoàn toàn xứng đáng."
   }, {
