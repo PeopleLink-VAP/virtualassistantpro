@@ -261,17 +261,6 @@ const RegisterPage = () => {
                     </span>
                   )}
                 </Button>
-                
-                <p className="text-sm text-navy/60 text-center">
-                  Bằng cách đăng ký, bạn đồng ý với{' '}
-                  <Link to="/terms" className="text-sunflower hover:underline">
-                    Điều khoản dịch vụ
-                  </Link>{' '}
-                  và{' '}
-                  <Link to="/privacy" className="text-sunflower hover:underline">
-                    Chính sách bảo mật
-                  </Link>
-                </p>
               </form>
             </div>
             
@@ -322,13 +311,15 @@ const RegisterPage = () => {
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">Messenger</h3>
                     <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
-                    <div className="bg-white/90 rounded-xl p-4 mb-4 shadow-inner border border-lightBlue/20">
-                      <img 
-                        src={facebookQrCode} 
-                        alt="Facebook QR Code" 
-                        className="w-24 h-24 mx-auto rounded-lg border-2 border-lightBlue/30 shadow-md"
-                      />
-                      <p className="text-xs text-navy/60 mt-2 font-medium">Quét QR để kết nối</p>
+                    <div className="bg-gradient-to-br from-lightBlue/20 to-sunflower/10 rounded-xl p-4 mb-4 shadow-inner border-2 border-gradient-to-r from-lightBlue/40 to-sunflower/40">
+                      <div className="bg-white/95 p-3 rounded-lg shadow-md">
+                        <img 
+                          src={facebookQrCode} 
+                          alt="Facebook QR Code" 
+                          className="w-24 h-24 mx-auto rounded-lg border-2 border-sunflower/50 shadow-lg"
+                        />
+                      </div>
+                      <p className="text-xs text-navy/70 mt-3 font-medium bg-gradient-to-r from-lightBlue to-sunflower bg-clip-text text-transparent">Quét QR để kết nối</p>
                     </div>
                     <Button className="w-full bg-gradient-to-r from-lightBlue to-sunflower hover:from-sunflower hover:to-leafGreen text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                       <span className="flex items-center justify-center gap-2">
@@ -362,33 +353,6 @@ const RegisterPage = () => {
                   <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
                     <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
                     <span>Cơ hội việc làm sau khóa học?</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Trust Indicators */}
-              <div className="bg-white/70 rounded-2xl p-6 border border-navy/10 shadow-lg">
-                <div className="grid grid-cols-3 gap-4 text-center">
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    <div className="w-12 h-12 bg-sunflower/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Users className="h-6 w-6 text-sunflower" />
-                    </div>
-                    <div className="text-2xl font-bold text-navy">500+</div>
-                    <div className="text-sm text-navy/70">Học viên tin tưởng</div>
-                  </div>
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    <div className="w-12 h-12 bg-leafGreen/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <Star className="h-6 w-6 text-leafGreen" />
-                    </div>
-                    <div className="text-2xl font-bold text-navy">4.9/5</div>
-                    <div className="text-sm text-navy/70">Đánh giá tuyệt vời</div>
-                  </div>
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    <div className="w-12 h-12 bg-lightBlue/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                      <TrendingUp className="h-6 w-6 text-lightBlue" />
-                    </div>
-                    <div className="text-2xl font-bold text-navy">85%</div>
-                    <div className="text-sm text-navy/70">Tỷ lệ thành công</div>
                   </div>
                 </div>
               </div>
