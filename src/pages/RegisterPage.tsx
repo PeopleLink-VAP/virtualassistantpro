@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Star, TrendingUp, Users, DollarSign, Mail, User, Phone, MapPin, BookOpen, ArrowRight, Check } from 'lucide-react';
+import { ChevronRight, Star, TrendingUp, Users, MessageSquare, Mail, User, Phone, MapPin, BookOpen, ArrowRight, Check } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -37,39 +37,6 @@ const RegisterPage = () => {
     setIsSubmitting(false);
     setIsSubmitted(true);
   };
-
-  const successStories = [
-    {
-      id: 1,
-      name: "Nguyễn Thị Mai",
-      image: "/images/sunflower.png",
-      background: "Mai là một nhân viên văn phòng với 3 năm kinh nghiệm trong lĩnh vực hành chính. Cô ấy muốn tìm kiếm một công việc linh hoạt hơn để có thể cân bằng giữa công việc và cuộc sống gia đình.",
-      courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Quản lý Dự án & Hỗ trợ Hành chính",
-      currentJob: "Trợ lý ảo chuyên về quản lý dự án cho 3 startup công nghệ tại Mỹ",
-      monthlyIncome: "25-30 triệu VNĐ",
-      mentorInsight: "Mai đã thể hiện sự kiên trì đáng ngưỡng mộ trong việc học hỏi các công cụ quản lý dự án. Điều tôi ấn tượng nhất là cách cô ấy áp dụng kiến thức vào thực tế và không ngừng cải thiện quy trình làm việc. Thành công của Mai chứng minh rằng với đam mê và nỗ lực, bạn hoàn toàn có thể chuyển đổi sự nghiệp thành công."
-    },
-    {
-      id: 2,
-      name: "Trần Văn Hùng",
-      image: "/images/sunflower.png",
-      background: "Hùng là sinh viên mới tốt nghiệp ngành Marketing, chưa có nhiều kinh nghiệm làm việc thực tế. Anh ấy muốn tìm hiểu về lĩnh vực Digital Marketing và xây dựng sự nghiệp từ xa.",
-      courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Marketing Digital & Social Media",
-      currentJob: "Chuyên gia Social Media Marketing cho các thương hiệu thời trang quốc tế",
-      monthlyIncome: "20-25 triệu VNĐ",
-      mentorInsight: "Hùng là một ví dụ điển hình cho thấy tuổi trẻ và sự nhiệt huyết có thể bù đắp cho kinh nghiệm. Anh ấy luôn chủ động tìm hiểu xu hướng mới và không ngại thử nghiệm. Khả năng sáng tạo content và hiểu biết về Gen Z của Hùng đã giúp anh ấy nhanh chóng tìm được vị trí trong lĩnh vực cạnh tranh này."
-    },
-    {
-      id: 3,
-      name: "Lê Thị Hương",
-      image: "/images/sunflower.png",
-      background: "Hương là một bà mẹ đơn thân với hai con nhỏ, trước đây làm kế toán tại một công ty nhỏ. Cô ấy cần tìm một công việc có thể làm tại nhà để chăm sóc con cái.",
-      courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Kế toán & Quản lý Tài chính",
-      currentJob: "Chuyên gia Kế toán & Quản lý Tài chính cho các doanh nghiệp vừa và nhỏ",
-      monthlyIncome: "30-35 triệu VNĐ",
-      mentorInsight: "Câu chuyện của Hương luôn khiến tôi xúc động. Với trách nhiệm nặng nề của một bà mẹ đơn thân, cô ấy vẫn kiên trì học tập và phát triển kỹ năng. Sự tỉ mỉ và trách nhiệm trong công việc kế toán của Hương đã giúp cô ấy xây dựng được danh tiếng vững chắc. Thành công của cô ấy là nguồn cảm hứng cho nhiều phụ nữ khác."
-    }
-  ];
 
   if (isSubmitted) {
     return (
@@ -162,16 +129,25 @@ const RegisterPage = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Registration Form */}
-            <div className="bg-white/90 rounded-3xl p-8 shadow-2xl border border-gray-200">
+            <div className="bg-white/90 rounded-3xl p-8 shadow-2xl border border-gray-200 hover:shadow-3xl transition-all duration-500">
               <div className="text-center mb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-sunflower via-leafGreen to-lightBlue rounded-full mx-auto mb-6 flex items-center justify-center animate-pulse">
+                  <BookOpen className="h-10 w-10 text-white" />
+                </div>
                 <h1 className="text-4xl font-bold text-navy mb-4">
-                  <span className="text-navy">
+                  <span className="bg-gradient-to-r from-sunflower to-leafGreen bg-clip-text text-transparent">
                     Đăng Ký Khóa Học VAP
                   </span>
                 </h1>
                 <p className="text-navy/80 text-lg">
                   Bắt đầu hành trình trở thành Virtual Assistant chuyên nghiệp
                 </p>
+                <div className="mt-4 flex justify-center">
+                  <div className="flex items-center gap-2 bg-leafGreen/10 px-4 py-2 rounded-full">
+                    <Star className="h-4 w-4 text-sunflower fill-current" />
+                    <span className="text-sm font-medium text-navy">Được 500+ học viên tin tưởng</span>
+                  </div>
+                </div>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -188,7 +164,7 @@ const RegisterPage = () => {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300"
+                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
                       placeholder="Nhập họ và tên của bạn"
                     />
                   </div>
@@ -207,7 +183,7 @@ const RegisterPage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300"
+                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
                       placeholder="example@email.com"
                     />
                   </div>
@@ -226,7 +202,7 @@ const RegisterPage = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300"
+                      className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
                       placeholder="0123 456 789"
                     />
                   </div>
@@ -241,7 +217,7 @@ const RegisterPage = () => {
                     name="experience"
                     value={formData.experience}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300"
+                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md"
                   >
                     <option value="">Chọn mức độ kinh nghiệm</option>
                     <option value="beginner">Mới bắt đầu (0-1 năm)</option>
@@ -261,7 +237,7 @@ const RegisterPage = () => {
                     value={formData.motivation}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 resize-none"
+                    className="w-full px-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 resize-none hover:shadow-md"
                     placeholder="Chia sẻ lý do bạn muốn trở thành Virtual Assistant..."
                   />
                 </div>
@@ -269,7 +245,7 @@ const RegisterPage = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full group hover:bg-sunflower bg-leafGreen text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full group hover:bg-sunflower bg-gradient-to-r from-leafGreen to-sunflower text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -298,85 +274,122 @@ const RegisterPage = () => {
               </form>
             </div>
             
-            {/* Success Stories */}
+            {/* Contact Us Section */}
             <div className="space-y-8">
               <div className="text-center">
-                <h2 className="text-3xl font-bold text-navy mb-4">
-                  <span className="text-navy">
-                    Câu Chuyện Thành Công
-                  </span>
+                <h2 className="text-3xl font-bold text-navy mb-4 flex items-center justify-center gap-3">
+                  <div className="w-12 h-12 bg-gradient-to-r from-sunflower to-leafGreen rounded-full flex items-center justify-center animate-bounce">
+                    <MessageSquare className="h-6 w-6 text-white" />
+                  </div>
+                  Bạn còn phân vân?
                 </h2>
-                <p className="text-navy/80">
-                  Những học viên đã thay đổi cuộc sống với khóa học VAP
+                <p className="text-navy/80 text-lg mb-2">
+                  Hãy liên hệ với chúng tôi ngay qua Zalo hoặc Messenger
+                </p>
+                <p className="text-navy/60 text-sm">
+                  Đội ngũ tư vấn của chúng tôi sẵn sàng giải đáp mọi thắc mắc 24/7
                 </p>
               </div>
               
-              {/* Statistics */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
-                  <div className="w-12 h-12 bg-sunflower rounded-full flex items-center justify-center mx-auto mb-2">
-                    <Users className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-navy">500+</div>
-                  <div className="text-sm text-navy/70">Học viên</div>
-                </div>
-                <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
-                   <div className="w-12 h-12 bg-leafGreen rounded-full flex items-center justify-center mx-auto mb-2">
-                     <TrendingUp className="h-6 w-6 text-white" />
-                   </div>
-                   <div className="text-2xl font-bold text-navy">85%</div>
-                   <div className="text-sm text-navy/70">Thành công</div>
-                 </div>
-                 <div className="text-center bg-white/60 rounded-xl p-4 border border-gray-200">
-                  <div className="w-12 h-12 bg-lightBlue rounded-full flex items-center justify-center mx-auto mb-2">
-                    <DollarSign className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-navy">30M+</div>
-                  <div className="text-sm text-navy/70">Thu nhập</div>
-                </div>
-              </div>
-              
-              {/* Success Stories Cards */}
-              <div className="space-y-6">
-                {successStories.map((story, index) => (
-                  <div key={story.id} className="bg-white/90 rounded-2xl p-6 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-                    <div className="flex items-start gap-4">
-                      <img 
-                        src={story.image} 
-                        alt={story.name}
-                        className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-sunflower/30"
-                      />
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3 className="font-bold text-lg text-navy">{story.name}</h3>
-                          <div className="flex">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={`story-${story.id}-star-${i}`} className="h-4 w-4 text-sunflower fill-current" />
-                            ))}
-                          </div>
-                        </div>
-                        <p className="text-navy/70 text-sm mb-3 line-clamp-3">{story.background}</p>
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-semibold text-sunflower">{story.monthlyIncome}</span>
-                          <span className="text-xs text-navy/60 bg-sunflower/10 px-2 py-1 rounded-full">
-                            {story.currentJob.split(' ')[0]} VA
-                          </span>
-                        </div>
-                      </div>
+              {/* Contact Methods */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Zalo Contact */}
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-6 border-2 border-blue-200 hover:border-blue-300 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <Phone className="h-8 w-8 text-white" />
                     </div>
+                    <h3 className="text-xl font-bold text-navy mb-2">Zalo</h3>
+                    <p className="text-navy/70 mb-4">Liên hệ nhanh chóng qua Zalo</p>
+                    <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
+                      <p className="font-bold text-blue-600 text-lg">+84 932548082</p>
+                    </div>
+                    <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                      <span className="flex items-center justify-center gap-2">
+                        <Phone className="h-4 w-4" />
+                        Nhắn tin Zalo
+                      </span>
+                    </Button>
                   </div>
-                ))}
+                </div>
+                
+                {/* Messenger Contact */}
+                <div className="bg-gradient-to-br from-purple-50 to-pink-100/50 rounded-2xl p-6 border-2 border-purple-200 hover:border-purple-300 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <MessageSquare className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-navy mb-2">Messenger</h3>
+                    <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
+                    <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
+                      <img 
+                        src="/src/assets/facebook-qr-code.png" 
+                        alt="Facebook QR Code" 
+                        className="w-24 h-24 mx-auto rounded-lg border border-purple-200"
+                      />
+                      <p className="text-xs text-navy/60 mt-2">Quét QR để kết nối</p>
+                    </div>
+                    <Button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                      <span className="flex items-center justify-center gap-2">
+                        <MessageSquare className="h-4 w-4" />
+                        Chat Messenger
+                      </span>
+                    </Button>
+                  </div>
+                </div>
               </div>
               
-              <div className="text-center">
-                <Link to="/success-stories">
-                  <Button className="group bg-navy hover:bg-lightBlue text-white font-bold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
-                    <span className="flex items-center gap-2">
-                      Xem Thêm Câu Chuyện
-                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </span>
-                  </Button>
-                </Link>
+              {/* Quick Questions */}
+              <div className="bg-gradient-to-br from-sunflower/10 to-leafGreen/10 rounded-2xl p-6 border border-sunflower/20 shadow-lg">
+                <h3 className="text-xl font-bold text-navy mb-4 text-center flex items-center justify-center gap-2">
+                  <Check className="h-5 w-5 text-leafGreen" />
+                  Câu hỏi thường gặp:
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                  <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
+                    <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
+                    <span>Khóa học có phù hợp với người mới?</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
+                    <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
+                    <span>Thời gian học và lịch trình ra sao?</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
+                    <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
+                    <span>Học phí và hỗ trợ trả góp?</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-navy/80 p-2 bg-white/50 rounded-lg">
+                    <Check className="h-4 w-4 text-leafGreen flex-shrink-0" />
+                    <span>Cơ hội việc làm sau khóa học?</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Trust Indicators */}
+              <div className="bg-white/70 rounded-2xl p-6 border border-navy/10 shadow-lg">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div className="transform hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-sunflower/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Users className="h-6 w-6 text-sunflower" />
+                    </div>
+                    <div className="text-2xl font-bold text-navy">500+</div>
+                    <div className="text-sm text-navy/70">Học viên tin tưởng</div>
+                  </div>
+                  <div className="transform hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-leafGreen/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <Star className="h-6 w-6 text-leafGreen" />
+                    </div>
+                    <div className="text-2xl font-bold text-navy">4.9/5</div>
+                    <div className="text-sm text-navy/70">Đánh giá tuyệt vời</div>
+                  </div>
+                  <div className="transform hover:scale-105 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-lightBlue/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                      <TrendingUp className="h-6 w-6 text-lightBlue" />
+                    </div>
+                    <div className="text-2xl font-bold text-navy">85%</div>
+                    <div className="text-sm text-navy/70">Tỷ lệ thành công</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
