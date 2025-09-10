@@ -315,22 +315,22 @@ const RegisterPage = () => {
                 </div>
                 
                 {/* Messenger Contact */}
-                <div className="bg-gradient-to-br from-navy/5 to-lightBlue/10 rounded-2xl p-6 border-2 border-navy/20 hover:border-lightBlue/40 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
+                <div className="bg-gradient-to-br from-lightBlue/20 to-sunflower/15 rounded-2xl p-6 border-2 border-lightBlue/40 hover:border-sunflower/50 transition-all duration-300 group cursor-pointer hover:shadow-xl transform hover:-translate-y-1">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-navy to-lightBlue rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="w-16 h-16 bg-gradient-to-r from-lightBlue to-sunflower rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-sunflower/50">
                       <MessageSquare className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">Messenger</h3>
                     <p className="text-navy/70 mb-4">Chat trực tiếp qua Facebook</p>
-                    <div className="bg-white/80 rounded-xl p-3 mb-4 shadow-inner">
+                    <div className="bg-white/90 rounded-xl p-4 mb-4 shadow-inner border border-lightBlue/20">
                       <img 
                         src={facebookQrCode} 
                         alt="Facebook QR Code" 
-                        className="w-24 h-24 mx-auto rounded-lg border border-navy/20"
+                        className="w-24 h-24 mx-auto rounded-lg border-2 border-lightBlue/30 shadow-md"
                       />
-                      <p className="text-xs text-navy/60 mt-2">Quét QR để kết nối</p>
+                      <p className="text-xs text-navy/60 mt-2 font-medium">Quét QR để kết nối</p>
                     </div>
-                    <Button className="w-full bg-gradient-to-r from-navy to-lightBlue hover:from-lightBlue hover:to-navy text-white font-semibold py-2 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl">
+                    <Button className="w-full bg-gradient-to-r from-lightBlue to-sunflower hover:from-sunflower hover:to-leafGreen text-white font-semibold py-3 px-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
                       <span className="flex items-center justify-center gap-2">
                         <MessageSquare className="h-4 w-4" />
                         Chat Messenger
