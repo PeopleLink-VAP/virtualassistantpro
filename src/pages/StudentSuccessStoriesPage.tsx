@@ -8,40 +8,22 @@ import Seo from '@/components/Seo';
 const StudentSuccessStoriesPage = () => {
   const successStories = [{
     id: 1,
-    name: "Nguyễn Thị Mai",
+    name: "Thanh Thủy",
     image: "/images/sunflower.png",
-    background: "Mai là một nhân viên văn phòng với 3 năm kinh nghiệm trong lĩnh vực hành chính. Cô ấy muốn tìm kiếm một công việc linh hoạt hơn để có thể cân bằng giữa công việc và cuộc sống gia đình.",
-    courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Quản lý Dự án & Hỗ trợ Hành chính",
-    currentJob: "Trợ lý ảo chuyên về quản lý dự án cho 3 startup công nghệ tại Mỹ",
-    monthlyIncome: "25-30 triệu VNĐ",
-    mentorInsight: "Mai đã thể hiện sự kiên trì đáng ngưỡng mộ trong việc học hỏi các công cụ quản lý dự án. Điều tôi ấn tượng nhất là cách cô ấy áp dụng kiến thức vào thực tế và không ngừng cải thiện quy trình làm việc. Thành công của Mai chứng minh rằng với đam mê và nỗ lực, bạn hoàn toàn có thể chuyển đổi sự nghiệp thành công."
+    background: "Thủy nghỉ công việc BA (business analysis) rồi bay từ Hà Nội vào để học một khóa video editing, theo đoàn làm phim đi quay MV, cùng lúc học VA và 1 khóa Shopee. 3 bộ kĩ năng hoàn toàn khác, học từ 3 người khác nhau để giờ đây Thủy trở thành VA, một Fiverr seller level 2, một người vừa có thể edit video, vừa quản lý sàn Shopee, vừa hiểu về Amazon và có những thán cao điểm làm mức lương lên đến 4,000 USD.",
+    mentorInsight: "Mình chứng kiến hành trình của Thủy từ những ngày đầu, cả những nốt cao khi công việc thuận lợi, hay những nốt trầm khi mọi thứ không như ý. Dù mọi việc có ra sao, Thủy vẫn luôn cố gắng, nỗ lực hơn cả giới hạn của bản thân để tìm được lối đi cho mình. Những thành tựu em có ngày hôm nay là hoàn toàn xứng đáng."
   }, {
     id: 2,
-    name: "Trần Văn Hùng",
+    name: "Phương Thảo",
     image: "/images/sunflower.png",
-    background: "Hùng là sinh viên mới tốt nghiệp ngành Marketing, chưa có nhiều kinh nghiệm làm việc thực tế. Anh ấy muốn tìm hiểu về lĩnh vực Digital Marketing và xây dựng sự nghiệp từ xa.",
-    courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Marketing Digital & Social Media",
-    currentJob: "Chuyên gia Social Media Marketing cho các thương hiệu thời trang quốc tế",
-    monthlyIncome: "20-25 triệu VNĐ",
-    mentorInsight: "Hùng là một ví dụ điển hình cho thấy tuổi trẻ và sự nhiệt huyết có thể bù đắp cho kinh nghiệm. Anh ấy luôn chủ động tìm hiểu xu hướng mới và không ngại thử nghiệm. Khả năng sáng tạo content và hiểu biết về Gen Z của Hùng đã giúp anh ấy nhanh chóng tìm được vị trí trong lĩnh vực cạnh tranh này."
+    background: "Thảo đến với VAP sau hơn 1 năm tự lặn ngụp với nghề, dù là một người thông thạo tiếng Anh và tiếng Nhật nhưng vẫn chưa tìm được con đường phù hợp. Em mong có thể tìm được một công việc để khi có gia đình nhỏ thì có thời gian ở gần con hơn.",
+    mentorInsight: "Mình còn nhớ ngày coaching 1:1, Thảo đã chuẩn bị 40 câu hỏi, mất gần 3 tiếng để xong buổi coach nhưng cả 2 đều rất hào hứng. Đối với mình, Thảo là một học viên rất đặc biệt từ lớp VAP 04. Đặc biệt bởi mỗi lần Thảo hỏi sẽ là những câu rất dài, rất thông minh, có cảm giác nếu mình mà trả lời lơ tơ mơ là không yên với em í đâu."
   }, {
     id: 3,
-    name: "Lê Thị Hương",
+    name: "Ngọc Mai",
     image: "/images/sunflower.png",
-    background: "Hương là một bà mẹ đơn thân với hai con nhỏ, trước đây làm kế toán tại một công ty nhỏ. Cô ấy cần tìm một công việc có thể làm tại nhà để chăm sóc con cái.",
-    courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Kế toán & Quản lý Tài chính",
-    currentJob: "Chuyên gia Kế toán & Quản lý Tài chính cho các doanh nghiệp vừa và nhỏ",
-    monthlyIncome: "30-35 triệu VNĐ",
-    mentorInsight: "Câu chuyện của Hương luôn khiến tôi xúc động. Với trách nhiệm nặng nề của một bà mẹ đơn thân, cô ấy vẫn kiên trì học tập và phát triển kỹ năng. Sự tỉ mỉ và trách nhiệm trong công việc kế toán của Hương đã giúp cô ấy xây dựng được danh tiếng vững chắc. Thành công của cô ấy là nguồn cảm hứng cho nhiều phụ nữ khác."
-  }, {
-    id: 4,
-    name: "Phạm Minh Tuấn",
-    image: "/images/sunflower.png",
-    background: "Tuấn là một kỹ sư IT với 5 năm kinh nghiệm, nhưng cảm thấy kiệt sức với môi trường công sở áp lực cao. Anh ấy muốn tìm kiếm một hướng đi mới kết hợp kỹ năng kỹ thuật với tính linh hoạt.",
-    courseTaken: "Khóa học Trợ lý ảo Toàn diện - Module Hỗ trợ Kỹ thuật & Automation",
-    currentJob: "Chuyên gia Automation & Technical Support cho các công ty SaaS",
-    monthlyIncome: "40-50 triệu VNĐ",
-    mentorInsight: "Tuấn đã chứng minh rằng việc chuyển đổi sự nghiệp không có nghĩa là từ bỏ những gì bạn đã học. Anh ấy đã khéo léo kết hợp kiến thức kỹ thuật với kỹ năng trợ lý ảo để tạo ra một niche độc đáo. Khả năng tự động hóa quy trình và giải quyết vấn đề kỹ thuật của Tuấn đã giúp anh ấy trở thành một VA có giá trị cao trong thị trường."
+    background: "Mai là một trong những học viên đầu tiên đủ tin tưởng mình để tham gia khóa VAP 01. Mai đến với khóa học vì muốn tìm một công việc bổ trợ việc chính. Thời điểm đó em đang làm điều phối cho một công ty logistic.",
+    mentorInsight: "Sau khóa học, Mai đã nhắn mình: \"Chắc em dành thời gian để trau dồi thêm, vì học xong em thấy mình cần phải cố gắng nhiều hơn nữa trước khi nhận job chị ạ\". Những tưởng Mai đã bỏ cuộc nhưng không, gần 3 tháng sau, em đã có job đầu tiên và giờ đây đã trở thành Fiverr Level 2 Seller, đã bước ra được chiếc kén của mình và phát triển hơn."
   }];
   return <>
       <Seo title="Câu Chuyện Thành Công - Virtual Assistant Pro" description="Khám phá những câu chuyện thành công đầy cảm hứng từ các học viên Virtual Assistant Pro." />
@@ -91,25 +73,9 @@ const StudentSuccessStoriesPage = () => {
                     <div className="bg-white p-6 rounded-lg shadow-md">
                       <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
                         <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Bối Cảnh
+                        Hành Trình Của {story.name}
                       </h3>
                       <p className="text-gray-700">{story.background}</p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
-                        <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Công Việc Hiện Tại
-                      </h3>
-                      <p className="text-gray-700">{story.currentJob}</p>
-                    </div>
-                    
-                    <div className="bg-white p-6 rounded-lg shadow-md">
-                      <h3 className="font-bold text-lg text-navy mb-2 flex items-center">
-                        <div className="w-2 h-2 bg-sunflower rounded-full mr-3"></div>
-                        Thu Nhập Trung Bình Hàng Tháng
-                      </h3>
-                      <p className="text-gray-700 font-semibold text-sunflower">{story.monthlyIncome}</p>
                     </div>
                     
                     <div className="bg-gradient-to-r from-sunflower/10 to-navy/10 p-6 rounded-lg border-l-4 border-sunflower">
