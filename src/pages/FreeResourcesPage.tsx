@@ -84,7 +84,7 @@ const FreeResourcesPage = () => {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 1 trang</span>
-                  <button onClick={handleFreeResourceClick} className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</button>
+                  <a href="/downloads/red-flags-guide.pdf" download className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
                 </div>
               </div>
             </div>
