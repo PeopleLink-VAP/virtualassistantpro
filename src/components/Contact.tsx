@@ -2,6 +2,7 @@
 import { Mail, Phone, MapPin, MessageSquare, Calendar, Download, HelpCircle } from 'lucide-react';
 import ContactForm from './ContactForm';
 import { Link } from 'react-router-dom';
+import facebookQrCode from '@/assets/facebook-qr-code.png';
 
 const contactMethods = [
   {
@@ -19,8 +20,9 @@ const contactMethods = [
   {
     icon: MessageSquare,
     title: 'Facebook Messenger',
-    value: '',
-    description: 'Nhắn tin qua Facebook Messenger'
+    value: 'https://www.facebook.com/duyen.pham.1048',
+    description: 'Nhắn tin qua Facebook Messenger',
+    qrCode: facebookQrCode
   }
 ];
 
@@ -84,10 +86,20 @@ const Contact = () => {
                     <div className="w-10 h-10 bg-sunflower/20 rounded-full flex items-center justify-center mr-4">
                       <method.icon className="h-5 w-5 text-navy" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <h4 className="font-semibold">{method.title}</h4>
                       <p className="text-navy font-medium">{method.value}</p>
                       <p className="text-sm text-navy/70">{method.description}</p>
+                      {method.qrCode && (
+                        <div className="mt-3">
+                          <img 
+                            src={method.qrCode} 
+                            alt="Facebook QR Code" 
+                            className="w-24 h-24 border border-navy/20 rounded-lg"
+                          />
+                          <p className="text-xs text-navy/60 mt-1">Quét QR để kết nối Facebook</p>
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -116,13 +128,6 @@ const Contact = () => {
                 >
                   <Download className="h-4 w-4 text-sunflower" />
                   <span className="text-sm font-medium">Tải tài liệu miễn phí dành cho người mới bắt đầu làm VA</span>
-                </Link>
-                <Link 
-                  to="/contact" 
-                  className="flex items-center gap-2 p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors"
-                >
-                  <Calendar className="h-4 w-4 text-sunflower" />
-                  <span className="text-sm font-medium">Đặt lịch tư vấn 15 phút miễn phí</span>
                 </Link>
               </div>
             </div>
