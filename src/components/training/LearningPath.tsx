@@ -117,6 +117,26 @@ const LearningPath = () => {
         <div className="relative">
           <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 animate-fade-in">Chi Tiết Chương Trình Học</h3>
           
+          {/* Dual Track Headers */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div className="text-center">
+              <div className="bg-navy rounded-2xl p-4 shadow-lg">
+                <h4 className="text-xl font-bold text-white flex items-center justify-center gap-2">
+                  <BookOpen className="h-6 w-6" />
+                  Lộ Trình VA Training
+                </h4>
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="bg-leafGreen rounded-2xl p-4 shadow-lg">
+                <h4 className="text-xl font-bold text-white flex items-center justify-center gap-2">
+                  <MessageSquare className="h-6 w-6" />
+                  Hỗ Trợ Tiếng Anh Miễn Phí
+                </h4>
+              </div>
+            </div>
+          </div>
+          
           {/* Timeline Line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-400 rounded-full opacity-30"></div>
           
@@ -141,8 +161,18 @@ const LearningPath = () => {
                   </div>
                 </div>
                 <div className="lg:pl-8">
-                  <div className="text-gray-600 italic">
-                </div>
+                  <div className="bg-leafGreen/10 rounded-xl p-6 border-2 border-leafGreen/20">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
+                        <MessageSquare className="h-4 w-4 text-white" />
+                      </div>
+                      <h5 className="font-bold text-leafGreen">Buổi Tiếng Anh Miễn Phí</h5>
+                    </div>
+                    <ul className="text-gray-700 space-y-2 text-sm">
+                      <li>• <strong>Luyện phỏng vấn tiếng Anh:</strong> Chuẩn bị cho interview với client nước ngoài</li>
+                      <li>• <strong>Kỹ năng giao tiếp:</strong> Học cách tương tác chuyên nghiệp với giáo viên bản xứ</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -158,8 +188,17 @@ const LearningPath = () => {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:pr-8 order-2 lg:order-1">
-                  <div className="text-gray-600 italic">
-                </div>
+                  <div className="bg-leafGreen/10 rounded-xl p-6 border-2 border-leafGreen/20">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                      <h5 className="font-bold text-leafGreen">Tiếp Tục Hỗ Trợ</h5>
+                    </div>
+                    <p className="text-gray-700 text-sm">
+                      Các buổi trao đổi bổ sung và Q&A về tiếng Anh chuyên ngành VA
+                    </p>
+                  </div>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -191,8 +230,17 @@ const LearningPath = () => {
                   </div>
                 </div>
                 <div className="lg:pl-8">
-                  <div className="text-gray-600 italic">
-                </div>
+                  <div className="bg-leafGreen/10 rounded-xl p-6 border-2 border-leafGreen/20">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
+                        <Check className="h-4 w-4 text-white" />
+                      </div>
+                      <h5 className="font-bold text-leafGreen">Thực Hành Giao Tiếp</h5>
+                    </div>
+                    <p className="text-gray-700 text-sm">
+                      Luyện tập các câu hỏi phỏng vấn và tình huống giao tiếp thực tế
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,8 +256,17 @@ const LearningPath = () => {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:pr-8 order-2 lg:order-1">
-                  <div className="text-gray-600 italic">
-                </div>
+                  <div className="bg-leafGreen/10 rounded-xl p-6 border-2 border-leafGreen/20">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
+                        <Award className="h-4 w-4 text-white" />
+                      </div>
+                      <h5 className="font-bold text-leafGreen">Tổng Kết & Feedback</h5>
+                    </div>
+                    <p className="text-gray-700 text-sm">
+                      Đánh giá tiến bộ và nhận feedback cá nhân từ giáo viên tiếng Anh
+                    </p>
+                  </div>
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
@@ -223,6 +280,36 @@ const LearningPath = () => {
             </div>
           </div>
         </div>
+          
+          {/* Special Highlight Box */}
+          <div className="mt-16 bg-gradient-to-r from-leafGreen/10 to-sunflower/10 rounded-2xl p-8 border-2 border-leafGreen/20">
+            <div className="text-center">
+              <div className="flex justify-center mb-4">
+                <div className="bg-leafGreen w-16 h-16 rounded-full flex items-center justify-center">
+                  <MessageSquare className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">Đặc Biệt: 1 Buổi Học Tiếng Anh Miễn Phí</h4>
+              <p className="text-gray-700 max-w-3xl mx-auto mb-6">
+                Mỗi học viên được tặng <strong>1 buổi học tiếng Anh miễn phí</strong> với giáo viên bản xứ, 
+                tập trung vào kỹ năng phỏng vấn và giao tiếp chuyên nghiệp trong môi trường làm việc quốc tế.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
+                    <MessageSquare className="h-5 w-5 text-white" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Luyện phỏng vấn tiếng Anh</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
+                    <Users className="h-5 w-5 text-white" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Tương tác với giáo viên bản xứ</span>
+                </div>
+              </div>
+            </div>
+          </div>
          
          {/* Consultation CTA */}
          <div className="mt-16 bg-gray-100 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{
