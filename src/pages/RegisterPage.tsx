@@ -10,7 +10,9 @@ import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
 import facebookQrCode from '@/assets/facebook-qr-code.png';
 const RegisterPage = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -33,17 +35,18 @@ const RegisterPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
       // Use the handle_course_registration function from the database
-      const { data, error } = await supabase.rpc('handle_course_registration', {
+      const {
+        data,
+        error
+      } = await supabase.rpc('handle_course_registration', {
         p_full_name: formData.fullName,
         p_email: formData.email,
         p_phone: formData.phone,
         p_experience: formData.experience || null,
         p_motivation: formData.motivation || null
       });
-
       if (error) {
         console.error('Registration error:', error);
         toast({
@@ -55,7 +58,10 @@ const RegisterPage = () => {
       }
 
       // Check if registration was successful
-      const result = data as { success: boolean; message?: string } | null;
+      const result = data as {
+        success: boolean;
+        message?: string;
+      } | null;
       if (result && result.success) {
         setIsSubmitted(true);
         toast({
@@ -178,7 +184,7 @@ const RegisterPage = () => {
                 <div className="mt-4 flex justify-center">
                   <div className="flex items-center gap-2 bg-leafGreen/10 px-4 py-2 rounded-full">
                     <Star className="h-4 w-4 text-sunflower fill-current" />
-                    <span className="text-sm font-medium text-navy">Được 500+ học viên tin tưởng</span>
+                    <span className="text-sm font-medium text-navy">Được 150+ học viên tin tưởng</span>
                   </div>
                 </div>
               </div>
