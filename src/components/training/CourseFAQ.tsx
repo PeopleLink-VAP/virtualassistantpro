@@ -17,7 +17,7 @@ const CourseFAQ = () => {
     },
     {
       question: "Tôi có cần kinh nghiệm trước không?",
-      answer: "Không, khóa học được thiết kế từ cơ bản đến nâng cao, phù hợp cho cả người mới bắt đầu và những người đã có kinh nghiệm nhưng muốn nâng cao kỹ năng."
+      answer: "Thật ra mọi người đã có kinh nghiệm trong quá trình đi làm, đi học, hành chính văn phòng hoặc thực hành các dự án lớn nhỏ, nên không thể nói là không có kinh nghiệm được. Điều bạn chưa có chính là sự va chạm với vai trò là một trợ lý online, cách bán dịch vụ trên thị trường quốc tế và phát triển thương hiệu cá nhân của bản thân. Khóa học tập trung tối ưu vào background, lợi thế của bạn; từ đó giúp bạn viết ra lộ trình phù hợp hơn."
     },
     {
       question: "Làm thế nào để đăng ký khóa học?",
@@ -25,15 +25,15 @@ const CourseFAQ = () => {
     },
     {
       question: "Học phí có bao gồm tài liệu học tập không?",
-      answer: "Có, học phí đã bao gồm toàn bộ tài liệu học tập, công cụ hỗ trợ, và quyền truy cập vào cộng đồng học viên trọn đời."
+      answer: "Có, học phí đã bao gồm toàn bộ tài liệu học tập, công cụ hỗ trợ, và quyền truy cập các nội dung trọn đời."
     },
     {
       question: "Tôi có thể học online hoàn toàn không?",
-      answer: "Có, khóa học được tổ chức 100% online qua Zoom với lịch học linh hoạt. Bạn cũng sẽ có quyền truy cập vào các buổi học đã ghi lại."
+      answer: "Có, khóa học được tổ chức 100% online qua Zoom với lịch học linh hoạt."
     },
     {
       question: "Sau khóa học tôi có được hỗ trợ tìm việc không?",
-      answer: "Có, chúng tôi có mạng lưới đối tác và sẽ giới thiệu cơ hội việc làm phù hợp. Ngoài ra, bạn sẽ được hỗ trợ xây dựng hồ sơ và chuẩn bị phỏng vấn."
+      answer: "Khóa học cam kết hướng dẫn bạn hiểu về nghề VA, đồng hành cùng bạn trước - sau khi học và luôn cố gắng kết nối bạn với khách hàng tiềm năng. Tuy nhiên, sự kết nối/ giới thiệu đó chỉ là một phần hỗ trợ (nếu có), chúng tôi không hứa hỗ trợ tìm việc trong phạm vi của khóa học này."
     }
   ];
 
