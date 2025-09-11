@@ -10,10 +10,10 @@ type NewsletterCampaign = Tables<'newsletter_campaigns'>;
 type NewsletterEmailList = Tables<'newsletter_email_lists'>;
 type NewsletterEmailListMember = Tables<'newsletter_email_list_members'>;
 type EmailTemplate = Tables<'email_templates'>;
-type VirtualAssistant = Tables<'virtual_assistants'>;
+type SystemEmailTemplate = Tables<'system_email_templates'>;
 
 // System Email Template type (for Supabase auth templates)
-interface SystemEmailTemplate {
+interface SystemEmailTemplateInterface {
   id: string;
   template_key: string;
   name: string;
@@ -391,77 +391,13 @@ export const emailTemplatesApi = {
   }
 };
 
-// Virtual Assistants API
-export const virtualAssistantsApi = {
-  // Get all virtual assistants
-  getAll: async (userId: string): Promise<ApiResponse<VirtualAssistant[]>> => {
-    return withAdminAccess(userId, async () => {
-      const { data, error } = await supabaseServer
-        .from('virtual_assistants')
-        .select('*')
-        .order('created_at', { ascending: false });
-      
-      if (error) throw error;
-      return data || [];
-    });
-  },
-
-  // Create virtual assistant
-  create: async (
-    userId: string,
-    vaData: Omit<VirtualAssistant, 'id' | 'created_at' | 'updated_at'>
-  ): Promise<ApiResponse<VirtualAssistant>> => {
-    return withAdminAccess(userId, async () => {
-      const { data, error } = await supabaseServer
-        .from('virtual_assistants')
-        .insert(vaData)
-        .select()
-        .single();
-      
-      if (error) throw error;
-      return data;
-    });
-  },
-
-  // Update virtual assistant
-  update: async (
-    userId: string,
-    id: string,
-    updates: Partial<VirtualAssistant>
-  ): Promise<ApiResponse<VirtualAssistant>> => {
-    return withAdminAccess(userId, async () => {
-      const { data, error } = await supabaseServer
-        .from('virtual_assistants')
-        .update({ ...updates, updated_at: new Date().toISOString() })
-        .eq('id', id)
-        .select()
-        .single();
-      
-      if (error) throw error;
-      return data;
-    });
-  },
-
-  // Delete virtual assistant
-  delete: async (userId: string, id: string): Promise<ApiResponse<void>> => {
-    return withAdminAccess(userId, async () => {
-      const { error } = await supabaseServer
-        .from('virtual_assistants')
-        .delete()
-        .eq('id', id);
-      
-      if (error) throw error;
-    });
-  }
-};
-
 // System Email Templates API (for managing Supabase auth email templates)
 export const systemEmailTemplatesApi = {
   // Get all system email templates
   getAll: async (userId: string): Promise<ApiResponse<SystemEmailTemplate[]>> => {
     return withAdminAccess(userId, async () => {
       const { data, error } = await supabaseServer
-        .from('system_email_templates' as any)
+        .from('system_email_templates')
         .select('*')
         .order('template_key');
       
@@ -474,7 +410,7 @@ export const systemEmailTemplatesApi = {
   getByKey: async (userId: string, templateKey: string): Promise<ApiResponse<SystemEmailTemplate>> => {
     return withAdminAccess(userId, async () => {
       const { data, error } = await supabaseServer
-        .from('system_email_templates' as any)
+        .from('system_email_templates')
         .select('*')
         .eq('template_key', templateKey)
         .single();
@@ -488,11 +424,11 @@ export const systemEmailTemplatesApi = {
   update: async (
     userId: string,
     id: string,
-    updates: Partial<Pick<SystemEmailTemplate, 'subject' | 'html_content' | 'is_active'>>
+    updates: Partial<Pick<SystemEmailTemplateInterface, 'subject' | 'html_content' | 'is_active'>>
   ): Promise<ApiResponse<SystemEmailTemplate>> => {
     return withAdminAccess(userId, async () => {
       const { data, error } = await supabaseServer
-        .from('system_email_templates' as any)
+        .from('system_email_templates')
         .update(updates)
         .eq('id', id)
         .select()
@@ -508,7 +444,7 @@ export const systemEmailTemplatesApi = {
     return withAdminAccess(userId, async () => {
       // First get the template to access default values
       const { data: template, error: fetchError } = await supabaseServer
-        .from('system_email_templates' as any)
+        .from('system_email_templates')
         .select('default_subject, default_html_content')
         .eq('id', id)
         .single();
@@ -519,7 +455,7 @@ export const systemEmailTemplatesApi = {
       
       // Update with default values
       const { data, error } = await supabaseServer
-        .from('system_email_templates' as any)
+        .from('system_email_templates')
         .update({
           subject: templateData.default_subject,
           html_content: templateData.default_html_content
@@ -539,7 +475,7 @@ export const systemEmailTemplatesApi = {
       // This would require additional implementation to call Supabase Management API
       // For now, we'll just return success
       // In a real implementation, this would update the Supabase auth configuration
-      // using the Management API like we did earlier
+      // using the Management API
       return;
     });
   }

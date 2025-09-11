@@ -22,12 +22,11 @@ export const subscribeToNewsletter = async (
     // Check if user already exists
     const { data: existingProfile, error: profileError } = await supabase
       .from('profiles')
-      .select('user_id, membership_tier')
+      .select('user_id, membership_tier, newsletter_subscribed')
       .eq('email', email)
-      .maybeSingle(); // Use maybeSingle() instead of single() to avoid throwing on not found
+      .maybeSingle();
 
     if (profileError) {
-      // If there's an error other than not found, throw it
       console.error('Profile lookup error:', profileError);
       throw profileError;
     }
@@ -49,7 +48,6 @@ export const subscribeToNewsletter = async (
             membership_tier: 'subscriber',
             role: 'member',
           },
-          // Don't require email redirect for newsletter signups
           emailRedirectTo: undefined
         }
       });
@@ -63,14 +61,17 @@ export const subscribeToNewsletter = async (
         userCreated = true;
         
         // The profile will be automatically created by database trigger
-        // We can update it after a short delay to ensure it's created
+        // Update it after a short delay to include newsletter subscription
         setTimeout(async () => {
           try {
             await supabase
               .from('profiles')
               .update({
                 membership_tier: 'subscriber',
-                role: 'member'
+                role: 'member',
+                newsletter_subscribed: true,
+                subscription_source: source,
+                subscribed_at: new Date().toISOString()
               })
               .eq('user_id', authData.user.id);
           } catch (updateError) {
@@ -79,23 +80,53 @@ export const subscribeToNewsletter = async (
         }, 1000);
       }
     } else {
-      // User exists, update their subscription status if needed
-      if (existingProfile.membership_tier === 'basic' || !existingProfile.membership_tier) {
-        const { error: updateError } = await supabase
-          .from('profiles')
-          .update({
-            membership_tier: 'subscriber'
-          })
-          .eq('user_id', existingProfile.user_id);
+      // User exists, update their subscription status
+      const updateData: any = {
+        newsletter_subscribed: true,
+        subscription_source: source,
+        subscribed_at: new Date().toISOString()
+      };
 
-        if (updateError) {
-          console.warn('Error updating membership tier:', updateError);
-        }
+      // Only update membership tier if they don't have a paid tier
+      if (existingProfile.membership_tier === 'basic' || !existingProfile.membership_tier) {
+        updateData.membership_tier = 'subscriber';
+      }
+
+      const { error: updateError } = await supabase
+        .from('profiles')
+        .update(updateData)
+        .eq('user_id', existingProfile.user_id);
+
+      if (updateError) {
+        console.warn('Error updating subscription status:', updateError);
+        throw updateError;
       }
     }
 
-    // Add to newsletter list (if newsletter system is implemented)
-    // This would be where you'd add the user to an email list
+    // Add to default newsletter list if it exists
+    try {
+      // Check if there's a default newsletter list
+      const { data: defaultList } = await supabase
+        .from('newsletter_email_lists')
+        .select('id')
+        .eq('name', 'Default Newsletter List')
+        .maybeSingle();
+
+      if (defaultList && existingProfile?.user_id) {
+        // Add user to newsletter list if not already added
+        await supabase
+          .from('newsletter_email_list_members')
+          .upsert({
+            list_id: defaultList.id,
+            profile_id: existingProfile.user_id
+          }, {
+            onConflict: 'list_id,profile_id'
+          });
+      }
+    } catch (listError) {
+      console.warn('Error adding to newsletter list:', listError);
+    }
+
     console.log(`User ${email} subscribed to newsletter from ${source}`);
 
     return {
@@ -138,11 +169,11 @@ export const isEmailSubscribed = async (email: string): Promise<boolean> => {
   try {
     const { data, error } = await supabase
       .from('profiles')
-      .select('user_id')
+      .select('newsletter_subscribed')
       .eq('email', email)
-      .single();
+      .maybeSingle();
 
-    return !error && !!data;
+    return !error && !!data && data.newsletter_subscribed;
   } catch (error) {
     console.error('Error checking subscription status:', error);
     return false;
