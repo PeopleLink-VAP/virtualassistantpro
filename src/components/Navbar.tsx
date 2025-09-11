@@ -22,7 +22,6 @@ const Navbar = () => {
       <div className="container mx-auto px-4 py-3">
         {/* Decorative sunflower elements */}
         <div className="absolute -top-10 right-10 w-16 h-16 bg-sunflower/20 rounded-full animate-spin-slow opacity-70"></div>
-        <div className="absolute -bottom-10 left-20 w-12 h-12 bg-sunflower/30 rounded-full animate-spin-slow opacity-60"></div>
         <div className="absolute top-1/2 -translate-y-1/2 right-1/4 w-6 h-6 bg-sunflower/20 rounded-full animate-pulse opacity-40"></div>
         
         <div className="flex justify-between items-center">
