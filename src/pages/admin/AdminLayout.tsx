@@ -46,6 +46,12 @@ const AdminLayout = () => {
       current: location.pathname.startsWith('/admin/newsletter')
     },
     {
+      name: 'Email Templates',
+      href: '/admin/email-templates',
+      icon: Mail,
+      current: location.pathname.startsWith('/admin/email-templates')
+    },
+    {
       name: 'Settings',
       href: '/admin/settings',
       icon: Settings,

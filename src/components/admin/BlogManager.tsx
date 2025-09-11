@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,9 +8,8 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { EnhancedBlogPostsTable } from '@/components/admin/EnhancedBlogPostsTable';
-import { EnhancedBlogEditor } from '@/components/admin/EnhancedBlogEditor';
 import { useToast } from '@/hooks/use-toast';
-import { Plus, FileText, Search, Filter } from 'lucide-react';
+import { Plus, FileText, Search, Filter, Edit } from 'lucide-react';
 
 interface BlogPost {
   id: string;
@@ -29,11 +29,11 @@ interface BlogPost {
 }
 
 export const BlogManager = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
-  const [isEditorOpen, setIsEditorOpen] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     slug: '',
@@ -97,8 +97,7 @@ export const BlogManager = () => {
   };
 
   const handleEdit = (post: BlogPost) => {
-    setEditingPost(post);
-    setIsEditorOpen(true);
+    navigate(`/admin/blog/edit/${post.id}`);
   };
 
   const handleEditWithDialog = (post: BlogPost) => {
@@ -119,15 +118,8 @@ export const BlogManager = () => {
     setIsDialogOpen(true);
   };
 
-  const handleEditorClose = () => {
-    setIsEditorOpen(false);
-    setEditingPost(null);
-  };
-
-  const handleEditorSave = () => {
-    setIsEditorOpen(false);
-    setEditingPost(null);
-    fetchPosts();
+  const handleCreateNew = () => {
+    navigate('/admin/blog/edit/new');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -211,11 +203,16 @@ export const BlogManager = () => {
       
       {/* Action Bar */}
       <div className="flex items-center justify-end">
+        <Button onClick={handleCreateNew} className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white shadow-lg">
+          <Plus className="w-4 h-4 mr-2" />
+          New Post
+        </Button>
+        
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger asChild>
-            <Button onClick={resetForm} className="bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white shadow-lg">
-              <Plus className="w-4 h-4 mr-2" />
-              New Post
+            <Button variant="outline" onClick={resetForm}>
+              <Edit className="w-4 h-4 mr-2" />
+              Quick Create
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -375,14 +372,7 @@ export const BlogManager = () => {
         onRefresh={fetchPosts}
       />
       
-      {/* WYSIWYG Editor */}
-      {isEditorOpen && editingPost && (
-        <EnhancedBlogEditor
-          post={editingPost}
-          onClose={handleEditorClose}
-          onSave={handleEditorSave}
-        />
-      )}
+
     </div>
   );
 };

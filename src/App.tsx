@@ -31,8 +31,10 @@ import RegisterPage from "./pages/RegisterPage";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboardHome from "./pages/admin/AdminDashboardHome";
 import AdminBlogPage from "./pages/admin/AdminBlogPage";
+import AdminBlogEditPage from "./pages/admin/AdminBlogEditPage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
 import AdminNewsletterPage from "./pages/admin/AdminNewsletterPage";
+import AdminEmailTemplatesPage from "./pages/admin/AdminEmailTemplatesPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -80,8 +82,10 @@ const App = () => (
             >
               <Route index element={<AdminDashboardHome />} />
               <Route path="blog" element={<AdminBlogPage />} />
+              <Route path="blog/edit/:id" element={<AdminBlogEditPage />} />
               <Route path="users" element={<AdminUsersPage />} />
               <Route path="newsletter" element={<AdminNewsletterPage />} />
+              <Route path="email-templates" element={<AdminEmailTemplatesPage />} />
               <Route path="settings" element={<AdminSettingsPage />} />
             </Route>
             <Route 

@@ -51,9 +51,6 @@ export const AdminLogin = ({ onSuccess }: AdminLoginProps) => {
           </div>
           <div>
             <CardTitle className="text-2xl font-bold">Admin Access</CardTitle>
-            <CardDescription className="text-muted-foreground">
-              Enter your admin credentials to access the dashboard
-            </CardDescription>
           </div>
         </CardHeader>
         <CardContent>
@@ -121,12 +118,6 @@ export const AdminLogin = ({ onSuccess }: AdminLoginProps) => {
               )}
             </Button>
           </form>
-          
-          <div className="mt-6 text-center">
-            <p className="text-xs text-muted-foreground">
-              This is a secure admin area. Unauthorized access is prohibited.
-            </p>
-          </div>
         </CardContent>
       </Card>
     </div>
