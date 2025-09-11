@@ -56,7 +56,7 @@ export default function AdminDashboard() {
                   to="/members" 
                   className="font-medium text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
                 >
-                  {authMethod === 'basic' ? 'Admin (Basic Auth)' : (profile?.full_name || profile?.email)}
+                  {authMethod === 'basic' ? 'Admin' : (profile?.full_name || profile?.email)}
                 </Link>
               </span>
               {authMethod && (

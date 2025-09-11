@@ -14,6 +14,16 @@ export const ProtectedRoute = ({ children, requireAdmin = false }: ProtectedRout
   const { user, profile, isLoading } = useAuth();
   const { isAdminAuthenticated } = useAdminAuth();
 
+  // If admin is required, use only basic auth (skip regular user auth)
+  if (requireAdmin) {
+    // Check if user has admin access through basic auth only
+    if (!isAdminAuthenticated) {
+      return <AdminLogin />;
+    }
+    return <>{children}</>;
+  }
+
+  // For non-admin routes, use regular authentication
   // Show loading state while authentication is being determined
   if (isLoading) {
     return (
@@ -29,31 +39,6 @@ export const ProtectedRoute = ({ children, requireAdmin = false }: ProtectedRout
   // Redirect to login if not authenticated
   if (!user) {
     return <Navigate to="/login" replace />;
-  }
-
-  // If admin is required, check both Supabase admin role and basic auth
-  if (requireAdmin) {
-    // If user is not authenticated at all, show login
-    if (!user) {
-      return <AdminLogin />;
-    }
-    
-    // Wait for profile to be loaded before checking role
-    if (!profile) {
-      return (
-        <div className="min-h-screen flex items-center justify-center bg-background">
-          <div className="flex flex-col items-center gap-4">
-            <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            <p className="text-muted-foreground">Loading profile...</p>
-          </div>
-        </div>
-      );
-    }
-    
-    // Check if user has admin access through either method
-    if (!isAdminAuthenticated) {
-      return <AdminLogin />;
-    }
   }
 
   return <>{children}</>;

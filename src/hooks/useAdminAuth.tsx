@@ -1,11 +1,10 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { useAuth } from './useAuth';
 
 interface AdminAuthContextType {
   isAdminAuthenticated: boolean;
   adminLogin: (username: string, password: string) => boolean;
   adminLogout: () => void;
-  authMethod: 'supabase' | 'basic' | null;
+  authMethod: 'basic' | null;
 }
 
 const AdminAuthContext = createContext<AdminAuthContextType | undefined>(undefined);
@@ -15,9 +14,8 @@ interface AdminAuthProviderProps {
 }
 
 export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
-  const { isAdmin, user } = useAuth();
   const [basicAuthAuthenticated, setBasicAuthAuthenticated] = useState(false);
-  const [authMethod, setAuthMethod] = useState<'supabase' | 'basic' | null>(null);
+  const [authMethod, setAuthMethod] = useState<'basic' | null>(null);
 
   // Check for stored basic auth session on mount
   useEffect(() => {
@@ -27,15 +25,6 @@ export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
       setAuthMethod('basic');
     }
   }, []);
-
-  // Update auth method based on Supabase auth state
-  useEffect(() => {
-    if (isAdmin && user) {
-      setAuthMethod('supabase');
-    } else if (!user && !basicAuthAuthenticated) {
-      setAuthMethod(null);
-    }
-  }, [isAdmin, user, basicAuthAuthenticated]);
 
   const adminLogin = (username: string, password: string): boolean => {
     const adminUsername = import.meta.env.VITE_ADMIN_USERNAME;
@@ -56,7 +45,7 @@ export const AdminAuthProvider = ({ children }: AdminAuthProviderProps) => {
     localStorage.removeItem('admin_basic_auth');
   };
 
-  const isAdminAuthenticated = isAdmin || basicAuthAuthenticated;
+  const isAdminAuthenticated = basicAuthAuthenticated;
 
   const value = {
     isAdminAuthenticated,

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { useAuth } from '@/hooks/useAuth';
+
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -11,18 +11,13 @@ import {
 } from 'lucide-react';
 
 const AdminLayout = () => {
-  const { signOut, profile } = useAuth();
   const { adminLogout, authMethod } = useAdminAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
 
   const handleSignOut = async () => {
-    if (authMethod === 'basic') {
-      adminLogout();
-      window.location.reload();
-    } else {
-      await signOut();
-    }
+    adminLogout();
+    window.location.reload();
   };
 
   const navigation = [
@@ -89,22 +84,10 @@ const AdminLayout = () => {
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">
                 <Shield className="w-4 h-4 inline mr-1" />
-                <Link 
-                  to="/members" 
-                  className="font-medium text-foreground hover:text-primary transition-colors underline-offset-4 hover:underline"
-                >
-                  {authMethod === 'basic' ? 'Admin (Basic Auth)' : (profile?.full_name || profile?.email)}
-                </Link>
-              </span>
-              {authMethod && (
-                <span className={`text-xs px-2 py-1 rounded-full ${
-                  authMethod === 'supabase' 
-                    ? 'bg-green-100 text-green-800' 
-                    : 'bg-blue-100 text-blue-800'
-                }`}>
-                  {authMethod === 'supabase' ? 'Supabase' : 'Basic Auth'}
+                <span className="font-medium text-foreground">
+                  Admin
                 </span>
-              )}
+              </span>
             </div>
             
             <Button variant="outline" onClick={handleSignOut}>
