@@ -34,7 +34,7 @@ const AdminLayout = () => {
       current: location.pathname.startsWith('/admin/blog')
     },
     {
-      name: 'Users',
+      name: 'Members',
       href: '/admin/users',
       icon: Users,
       current: location.pathname.startsWith('/admin/users')

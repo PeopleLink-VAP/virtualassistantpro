@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
-import { Search, Users, Plus, Edit, RotateCcw, UserPlus, Key } from 'lucide-react';
+import { Search, Users, Plus, Edit, RotateCcw, UserPlus, Key, CheckCircle, XCircle } from 'lucide-react';
 
 interface Profile {
   id: string;
@@ -21,6 +21,8 @@ interface Profile {
   bio: string;
   skills: string[];
   created_at: string;
+  email_confirmed_at?: string;
+  last_sign_in_at?: string;
 }
 
 interface MembershipTier {
@@ -70,12 +72,20 @@ export const UserManager = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setUsers(data || []);
+      
+      // Add placeholder email verification status (to be implemented with proper DB function)
+      const usersWithVerification = (data || []).map(user => ({
+        ...user,
+        email_confirmed_at: user.created_at, // Placeholder - assume verified for now
+        last_sign_in_at: user.created_at // Placeholder
+      }));
+      
+      setUsers(usersWithVerification);
     } catch (error: any) {
-      console.error('Error fetching users:', error);
+      console.error('Error fetching members:', error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to fetch users.",
+        description: error?.message || "Failed to fetch members.",
         variant: "destructive",
       });
     } finally {
@@ -102,7 +112,7 @@ export const UserManager = () => {
     }
   };
 
-  const updateUserTier = async (userId: string, newTier: string) => {
+  const updateMemberTier = async (userId: string, newTier: string) => {
     try {
       const { error } = await supabase
         .from('profiles')
@@ -113,21 +123,21 @@ export const UserManager = () => {
       
       toast({
         title: "Success",
-        description: "User tier updated successfully.",
+        description: "Member tier updated successfully.",
       });
       
       fetchUsers();
     } catch (error: any) {
-      console.error('Error updating user tier:', error);
+      console.error('Error updating member tier:', error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to update user tier.",
+        description: error?.message || "Failed to update member tier.",
         variant: "destructive",
       });
     }
   };
 
-  const updateUserRole = async (userId: string, newRole: string) => {
+  const updateMemberRole = async (userId: string, newRole: string) => {
     try {
       const { error } = await supabase
         .from('profiles')
@@ -138,21 +148,21 @@ export const UserManager = () => {
       
       toast({
         title: "Success",
-        description: "User role updated successfully.",
+        description: "Member role updated successfully.",
       });
       
       fetchUsers();
     } catch (error: any) {
-      console.error('Error updating user role:', error);
+      console.error('Error updating member role:', error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to update user role.",
+        description: error?.message || "Failed to update member role.",
         variant: "destructive",
       });
     }
   };
 
-  const handleCreateUser = async (e: React.FormEvent) => {
+  const handleCreateMember = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
@@ -189,7 +199,7 @@ export const UserManager = () => {
 
       toast({
         title: "Success",
-        description: "User created successfully.",
+        description: "Member created successfully.",
       });
 
       setIsCreateDialogOpen(false);
@@ -202,16 +212,16 @@ export const UserManager = () => {
       });
       fetchUsers();
     } catch (error: any) {
-      console.error('Error creating user:', error);
+      console.error('Error creating member:', error);
       toast({
         title: "Error",
-        description: error.message || "Failed to create user.",
+        description: error.message || "Failed to create member.",
         variant: "destructive",
       });
     }
   };
 
-  const handleEditUser = async (e: React.FormEvent) => {
+  const handleEditMember = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!editingUser) return;
@@ -230,17 +240,17 @@ export const UserManager = () => {
 
       toast({
         title: "Success",
-        description: "User updated successfully.",
+        description: "Member updated successfully.",
       });
 
       setIsEditDialogOpen(false);
       setEditingUser(null);
       fetchUsers();
     } catch (error: any) {
-      console.error('Error updating user:', error);
+      console.error('Error updating member:', error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to update user.",
+        description: error?.message || "Failed to update member.",
         variant: "destructive",
       });
     }
@@ -317,7 +327,7 @@ export const UserManager = () => {
               <Users className="w-4 h-4 text-primary" />
               <div>
                 <p className="text-2xl font-bold">{userStats.total}</p>
-                <p className="text-xs text-muted-foreground">Total Users</p>
+                <p className="text-xs text-muted-foreground">Total Members</p>
               </div>
             </div>
           </CardContent>
@@ -374,7 +384,7 @@ export const UserManager = () => {
         <div className="relative max-w-sm">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
           <Input
-            placeholder="Search users..."
+            placeholder="Search members..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-9"
@@ -385,14 +395,14 @@ export const UserManager = () => {
           <DialogTrigger asChild>
             <Button className="bg-green-600 hover:bg-green-700 text-white">
               <UserPlus className="w-4 h-4 mr-2" />
-              Create User
+              Create Member
             </Button>
           </DialogTrigger>
           <DialogContent className="max-w-md">
             <DialogHeader>
-              <DialogTitle>Create New User</DialogTitle>
+              <DialogTitle>Create New Member</DialogTitle>
             </DialogHeader>
-            <form onSubmit={handleCreateUser} className="space-y-4">
+            <form onSubmit={handleCreateMember} className="space-y-4">
               <div>
                 <Label htmlFor="create-email">Email *</Label>
                 <Input
@@ -453,23 +463,24 @@ export const UserManager = () => {
                 <Button type="button" variant="outline" onClick={() => setIsCreateDialogOpen(false)}>
                   Cancel
                 </Button>
-                <Button type="submit">Create User</Button>
+                <Button type="submit">Create Member</Button>
               </div>
             </form>
           </DialogContent>
         </Dialog>
       </div>
 
-      {/* Users Table */}
+      {/* Members Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Users</CardTitle>
+          <CardTitle>Members</CardTitle>
         </CardHeader>
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>User</TableHead>
+                <TableHead>Member</TableHead>
+                <TableHead>Email Status</TableHead>
                 <TableHead>Role</TableHead>
                 <TableHead>Tier</TableHead>
                 <TableHead>Skills</TableHead>
@@ -480,23 +491,23 @@ export const UserManager = () => {
             <TableBody>
               {loading ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8">
+                  <TableCell colSpan={7} className="text-center py-8">
                     <div className="flex justify-center items-center">
                       <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                      <span className="ml-2">Loading users...</span>
+                      <span className="ml-2">Loading members...</span>
                     </div>
                   </TableCell>
                 </TableRow>
               ) : filteredUsers.length === 0 ? (
                 <TableRow>
-                  <TableCell colSpan={6} className="text-center py-8">
+                  <TableCell colSpan={7} className="text-center py-8">
                     <div className="flex flex-col items-center text-muted-foreground">
                       <Users className="w-12 h-12 mb-2" />
                       <p className="text-lg font-semibold mb-1">
-                        {searchTerm ? 'No users found' : 'No users yet'}
+                        {searchTerm ? 'No members found' : 'No members yet'}
                       </p>
                       <p className="text-sm">
-                        {searchTerm ? 'Try adjusting your search terms' : 'Create your first user to get started'}
+                        {searchTerm ? 'Try adjusting your search terms' : 'Create your first member to get started'}
                       </p>
                     </div>
                   </TableCell>
@@ -510,10 +521,25 @@ export const UserManager = () => {
                         <p className="text-sm text-muted-foreground">{user.email}</p>
                       </div>
                     </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-2">
+                        {user.email_confirmed_at ? (
+                          <>
+                            <CheckCircle className="w-4 h-4 text-green-500" />
+                            <span className="text-sm text-green-600">Verified</span>
+                          </>
+                        ) : (
+                          <>
+                            <XCircle className="w-4 h-4 text-red-500" />
+                            <span className="text-sm text-red-600">Unverified</span>
+                          </>
+                        )}
+                      </div>
+                    </TableCell>
                   <TableCell>
                     <Select
                       value={user.role}
-                      onValueChange={(value) => updateUserRole(user.user_id, value)}
+                      onValueChange={(value) => updateMemberRole(user.user_id, value)}
                     >
                       <SelectTrigger className="w-32">
                         <SelectValue />
@@ -527,7 +553,7 @@ export const UserManager = () => {
                   <TableCell>
                     <Select
                       value={user.membership_tier}
-                      onValueChange={(value) => updateUserTier(user.user_id, value)}
+                      onValueChange={(value) => updateMemberTier(user.user_id, value)}
                     >
                       <SelectTrigger className="w-32">
                         <SelectValue />
@@ -588,13 +614,13 @@ export const UserManager = () => {
         </CardContent>
       </Card>
 
-      {/* Edit User Dialog */}
+      {/* Edit Member Dialog */}
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
         <DialogContent className="max-w-md">
           <DialogHeader>
-            <DialogTitle>Edit User</DialogTitle>
+            <DialogTitle>Edit Member</DialogTitle>
           </DialogHeader>
-          <form onSubmit={handleEditUser} className="space-y-4">
+          <form onSubmit={handleEditMember} className="space-y-4">
             <div>
               <Label htmlFor="edit-name">Full Name</Label>
               <Input

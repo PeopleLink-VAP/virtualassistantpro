@@ -8,18 +8,18 @@ const AdminUsersPage = () => {
       <div>
         <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
           <Users className="w-8 h-8" />
-          User Management
+          Member Management
         </h1>
         <p className="text-muted-foreground">
-          Manage user accounts, roles, and membership tiers.
+          Manage member accounts, roles, and membership tiers.
         </p>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle>Users & Members</CardTitle>
+          <CardTitle>Members & Accounts</CardTitle>
           <CardDescription>
-            Create, edit, and manage user accounts and their permissions.
+            Create, edit, and manage member accounts and their permissions.
           </CardDescription>
         </CardHeader>
         <CardContent>
