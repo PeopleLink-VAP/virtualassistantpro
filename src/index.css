@@ -407,4 +407,88 @@
       width: 2rem !important;
     }
   }
+
+  /* Tiptap Editor Styles */
+  .prose {
+    color: hsl(var(--foreground));
+    max-width: none;
+  }
+  
+  .prose p {
+    margin-bottom: 1.25em;
+    line-height: 1.7;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: hsl(var(--foreground));
+    font-weight: 600;
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+  
+  .prose h1 {
+    font-size: 2.25em;
+  }
+  
+  .prose h2 {
+    font-size: 1.75em;
+  }
+  
+  .prose h3 {
+    font-size: 1.5em;
+  }
+  
+  .prose ul, .prose ol {
+    margin-left: 1.5em;
+    margin-bottom: 1.25em;
+  }
+  
+  .prose li {
+    margin-bottom: 0.5em;
+  }
+  
+  .prose blockquote {
+    border-left: 4px solid hsl(var(--border));
+    padding-left: 1.5em;
+    margin: 2em 0;
+    font-style: italic;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  .prose code {
+    background-color: hsl(var(--muted));
+    padding: 0.2em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.9em;
+  }
+  
+  .prose pre {
+    background-color: hsl(var(--muted));
+    padding: 1.5em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin: 1.5em 0;
+  }
+  
+  .prose pre code {
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .tiptap-editor {
+    outline: none;
+  }
+  
+  .tiptap-editor .ProseMirror {
+    outline: none;
+  }
+  
+  .tiptap-editor .ProseMirror p.is-editor-empty:first-child::before {
+    color: hsl(var(--muted-foreground));
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+  }
 }

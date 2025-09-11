@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 
-import { EnhancedBlogEditor } from '@/components/admin/EnhancedBlogEditor';
+import { TiptapBlogEditor } from '@/components/admin/TiptapBlogEditor';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, FileText, Loader2 } from 'lucide-react';
 
@@ -146,48 +146,11 @@ const AdminBlogEditPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={handleClose}
-                className="flex items-center gap-2"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to Blog
-              </Button>
-              <div className="h-6 w-px bg-border" />
-              <div className="flex items-center gap-2">
-                <FileText className="w-5 h-5 text-muted-foreground" />
-                <h1 className="text-lg font-semibold">
-                  {isNewPost ? 'Create New Blog Post' : `Edit: ${post.title || 'Untitled Post'}`}
-                </h1>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-2">
-              <div className="text-sm text-muted-foreground">
-                {isNewPost ? 'New Draft' : `Status: ${post.status}`}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Editor Content */}
-      <div className="flex-1 flex flex-col">
-        <EnhancedBlogEditor
-          post={post}
-          onClose={handleClose}
-          onSave={handleSave}
-        />
-      </div>
-    </div>
+    <TiptapBlogEditor
+      post={post}
+      onClose={handleClose}
+      onSave={handleSave}
+    />
   );
 };
 
