@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -12,6 +11,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/hooks/use-toast';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { emailTemplatesApi } from '@/utils/adminApi';
 import { 
   Plus, Edit, Trash2, Eye, Copy, Mail, Code, Settings, 
   Search, Filter, Save, X, AlertCircle, CheckCircle 
@@ -57,6 +58,7 @@ const VARIABLE_TYPES = [
 ];
 
 export const EmailTemplateManager = () => {
+  const { user, isAdminAuthenticated } = useAdminAuth();
   const [templates, setTemplates] = useState<EmailTemplate[]>([]);
   const [variables, setVariables] = useState<TemplateVariable[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -80,19 +82,29 @@ export const EmailTemplateManager = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchTemplates();
-  }, []);
+    if (isAdminAuthenticated) {
+      fetchTemplates();
+    }
+  }, [isAdminAuthenticated]);
 
   const fetchTemplates = async () => {
+    if (!user?.id) return;
+    
     try {
       setIsLoading(true);
-      const { data, error } = await supabase
-        .from('email_templates')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const response = await emailTemplatesApi.getAll(user.id);
 
-      if (error) throw error;
-      const processedData = (data || []).map(template => ({
+      if (!response.success) {
+        console.error('Error fetching templates:', response.error);
+        toast({
+          title: 'Error',
+          description: response.error || 'Failed to fetch email templates',
+          variant: 'destructive'
+        });
+        return;
+      }
+      
+      const processedData = (response.data || []).map(template => ({
         ...template,
         variables: (() => {
           if (Array.isArray(template.variables)) {
@@ -118,48 +130,57 @@ export const EmailTemplateManager = () => {
   };
 
   const fetchTemplateVariables = async (templateId: string) => {
-    try {
-      const { data, error } = await supabase
-        .from('email_template_variables')
-        .select('*')
-        .eq('template_id', templateId)
-        .order('variable_name');
-
-      if (error) throw error;
-      setVariables(data || []);
-    } catch (error) {
-      console.error('Error fetching template variables:', error);
+    // Template variables functionality will be implemented with the API
+    // For now, we'll use the variables stored in the template itself
+    const template = templates.find(t => t.id === templateId);
+    if (template?.variables) {
+      const templateVars = template.variables.map((varName, index) => ({
+        id: `${templateId}-${index}`,
+        template_id: templateId,
+        variable_name: varName,
+        variable_type: 'text',
+        default_value: '',
+        description: '',
+        is_required: false
+      }));
+      setVariables(templateVars);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    if (!user?.id) return;
+    
     try {
       const templateData = {
-        ...formData,
-        variables: JSON.stringify(formData.variables)
+        name: formData.name,
+        description: formData.description,
+        subject: formData.subject,
+        html_content: formData.html_content,
+        text_content: formData.text_content,
+        template_type: formData.template_type,
+        is_active: formData.is_active,
+        variables: formData.variables,
+        created_by: user.id
       };
 
       if (editingTemplate) {
-        const { error } = await supabase
-          .from('email_templates')
-          .update(templateData)
-          .eq('id', editingTemplate.id);
-
-        if (error) throw error;
+        const response = await emailTemplatesApi.update(user.id, editingTemplate.id, templateData);
         
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to update template');
+        }
         toast({
           title: 'Success',
           description: 'Email template updated successfully'
         });
       } else {
-        const { error } = await supabase
-          .from('email_templates')
-          .insert([templateData]);
-
-        if (error) throw error;
+        const response = await emailTemplatesApi.create(user.id, templateData);
         
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to create template');
+        }
         toast({
           title: 'Success',
           description: 'Email template created successfully'
@@ -169,11 +190,11 @@ export const EmailTemplateManager = () => {
       setIsDialogOpen(false);
       resetForm();
       fetchTemplates();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving template:', error);
       toast({
         title: 'Error',
-        description: 'Failed to save email template',
+        description: error.message || 'Failed to save email template',
         variant: 'destructive'
       });
     }
@@ -197,14 +218,14 @@ export const EmailTemplateManager = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this email template?')) return;
+    if (!user?.id) return;
 
     try {
-      const { error } = await supabase
-        .from('email_templates')
-        .delete()
-        .eq('id', id);
+      const response = await emailTemplatesApi.delete(user.id, id);
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to delete template');
+      }
       
       toast({
         title: 'Success',
@@ -212,17 +233,19 @@ export const EmailTemplateManager = () => {
       });
       
       fetchTemplates();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error deleting template:', error);
       toast({
         title: 'Error',
-        description: 'Failed to delete email template',
+        description: error.message || 'Failed to delete email template',
         variant: 'destructive'
       });
     }
   };
 
   const handleDuplicate = async (template: EmailTemplate) => {
+    if (!user?.id) return;
+    
     try {
       const duplicateData = {
         name: `${template.name} (Copy)`,
@@ -232,14 +255,15 @@ export const EmailTemplateManager = () => {
         text_content: template.text_content,
         template_type: template.template_type,
         is_active: false,
-        variables: JSON.stringify(template.variables || [])
+        variables: template.variables || [],
+        created_by: user.id
       };
 
-      const { error } = await supabase
-        .from('email_templates')
-        .insert([duplicateData]);
+      const response = await emailTemplatesApi.create(user.id, duplicateData);
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to duplicate template');
+      }
       
       toast({
         title: 'Success',
@@ -247,31 +271,32 @@ export const EmailTemplateManager = () => {
       });
       
       fetchTemplates();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error duplicating template:', error);
       toast({
         title: 'Error',
-        description: 'Failed to duplicate email template',
+        description: error.message || 'Failed to duplicate email template',
         variant: 'destructive'
       });
     }
   };
 
   const handleToggleActive = async (id: string, isActive: boolean) => {
+    if (!user?.id) return;
+    
     try {
-      const { error } = await supabase
-        .from('email_templates')
-        .update({ is_active: isActive })
-        .eq('id', id);
+      const response = await emailTemplatesApi.update(user.id, id, { is_active: isActive });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update template status');
+      }
       
       fetchTemplates();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating template status:', error);
       toast({
         title: 'Error',
-        description: 'Failed to update template status',
+        description: error.message || 'Failed to update template status',
         variant: 'destructive'
       });
     }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { blogPostsApi } from '@/utils/adminApi';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -30,6 +31,7 @@ interface BlogPost {
 
 export const BlogManager = () => {
   const navigate = useNavigate();
+  const { user, isAdminAuthenticated } = useAdminAuth();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -50,18 +52,28 @@ export const BlogManager = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    if (isAdminAuthenticated) {
+      fetchPosts();
+    }
+  }, [isAdminAuthenticated]);
 
   const fetchPosts = async () => {
+    if (!user?.id) return;
+    
     try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('id, title, slug, excerpt, content, featured_image, author, status, category, meta_title, meta_description, tags, published_at, created_at')
-        .order('created_at', { ascending: false });
+      const response = await blogPostsApi.getAll(user.id);
 
-      if (error) throw error;
-      setPosts(data || []);
+      if (!response.success) {
+        console.error('Error fetching posts:', response.error);
+        toast({
+          title: "Error",
+          description: response.error || "Failed to fetch blog posts.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      setPosts(response.data || []);
     } catch (error) {
       console.error('Error fetching posts:', error);
       toast({
@@ -143,20 +155,21 @@ export const BlogManager = () => {
         ...(formData.status === 'published' && !editingPost && { published_at: new Date().toISOString() })
       };
 
+      if (!user?.id) return;
+      
       if (editingPost) {
-        const { error } = await supabase
-          .from('blog_posts')
-          .update(postData)
-          .eq('id', editingPost.id);
+        const response = await blogPostsApi.update(user.id, editingPost.id, postData);
         
-        if (error) throw error;
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to update post');
+        }
         toast({ title: "Success", description: "Post updated successfully." });
       } else {
-        const { error } = await supabase
-          .from('blog_posts')
-          .insert([postData]);
+        const response = await blogPostsApi.create(user.id, postData);
         
-        if (error) throw error;
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to create post');
+        }
         toast({ title: "Success", description: "Post created successfully." });
       }
 
@@ -175,14 +188,14 @@ export const BlogManager = () => {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Are you sure you want to delete this post?')) return;
+    if (!user?.id) return;
 
     try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .delete()
-        .eq('id', id);
+      const response = await blogPostsApi.delete(user.id, id);
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to delete post');
+      }
       toast({ title: "Success", description: "Post deleted successfully." });
       fetchPosts();
     } catch (error) {

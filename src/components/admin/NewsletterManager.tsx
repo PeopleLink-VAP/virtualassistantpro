@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -11,6 +10,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { newsletterApi } from '@/utils/adminApi';
 import { Mail, Plus, Eye, Send, Users, Filter, BarChart3, Calendar } from 'lucide-react';
 
 interface Campaign {
@@ -35,7 +36,59 @@ interface EmailList {
 }
 
 export const NewsletterManager = () => {
+  const { user, isAdminAuthenticated } = useAdminAuth();
+  const { toast } = useToast();
   const [activeTab, setActiveTab] = useState('campaigns');
+  const [campaigns, setCampaigns] = useState<Campaign[]>([]);
+  const [emailLists, setEmailLists] = useState<EmailList[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (isAdminAuthenticated) {
+      fetchCampaigns();
+      fetchEmailLists();
+    }
+  }, [isAdminAuthenticated]);
+
+  const fetchCampaigns = async () => {
+    if (!user?.id) return;
+    
+    try {
+      const response = await newsletterApi.getAllCampaigns(user.id);
+      if (response.success) {
+        setCampaigns(response.data || []);
+      } else {
+        toast({
+          title: "Error",
+          description: response.error || "Failed to fetch campaigns.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching campaigns:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchEmailLists = async () => {
+    if (!user?.id) return;
+    
+    try {
+      const response = await newsletterApi.getAllEmailLists(user.id);
+      if (response.success) {
+        setEmailLists(response.data || []);
+      } else {
+        toast({
+          title: "Error",
+          description: response.error || "Failed to fetch email lists.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching email lists:', error);
+    }
+  };
 
   return (
     <div className="space-y-6">

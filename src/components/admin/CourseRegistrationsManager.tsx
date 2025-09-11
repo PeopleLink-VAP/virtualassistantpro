@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { courseRegistrationsApi } from '@/utils/adminApi';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -43,6 +44,7 @@ const statusLabels = {
 };
 
 export function CourseRegistrationsManager() {
+  const { user, isAdmin, isAdminAuthenticated } = useAdminAuth();
   const { toast } = useToast();
   const [registrations, setRegistrations] = useState<CourseRegistration[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,28 +59,36 @@ export function CourseRegistrationsManager() {
   });
 
   useEffect(() => {
-    fetchRegistrations();
-  }, []);
+    if (isAdminAuthenticated) {
+      fetchRegistrations();
+    } else if (user && !isAdmin) {
+      setLoading(false);
+      toast({
+        title: "Truy cập bị từ chối",
+        description: "Bạn không có quyền truy cập trang này.",
+        variant: "destructive",
+      });
+    }
+  }, [user, isAdmin, isAdminAuthenticated]);
 
   const fetchRegistrations = async () => {
+    if (!user?.id) return;
+    
     try {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('course_registrations')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const response = await courseRegistrationsApi.getAll(user.id);
 
-      if (error) {
-        console.error('Error fetching registrations:', error);
+      if (!response.success) {
+        console.error('Error fetching registrations:', response.error);
         toast({
           title: "Lỗi tải dữ liệu",
-          description: "Không thể tải danh sách đăng ký khóa học.",
+          description: response.error || "Không thể tải danh sách đăng ký khóa học.",
           variant: "destructive"
         });
         return;
       }
 
-      setRegistrations(data || []);
+      setRegistrations(response.data || []);
     } catch (error) {
       console.error('Unexpected error:', error);
       toast({
@@ -92,26 +102,24 @@ export function CourseRegistrationsManager() {
   };
 
   const handleStatusUpdate = async (id: string, newStatus: string) => {
+    if (!user?.id) return;
+    
     try {
       const updateData: Partial<CourseRegistration> = { 
-        status: newStatus,
-        updated_at: new Date().toISOString()
+        status: newStatus
       };
       
       if (newStatus === 'contacted' && !selectedRegistration?.contacted_at) {
         updateData.contacted_at = new Date().toISOString();
       }
 
-      const { error } = await supabase
-        .from('course_registrations')
-        .update(updateData)
-        .eq('id', id);
+      const response = await courseRegistrationsApi.update(user.id, id, updateData);
 
-      if (error) {
-        console.error('Error updating status:', error);
+      if (!response.success) {
+        console.error('Error updating status:', response.error);
         toast({
           title: "Lỗi cập nhật",
-          description: "Không thể cập nhật trạng thái đăng ký.",
+          description: response.error || "Không thể cập nhật trạng thái đăng ký.",
           variant: "destructive"
         });
         return;
@@ -135,29 +143,25 @@ export function CourseRegistrationsManager() {
   };
 
   const handleEditSubmit = async () => {
-    if (!selectedRegistration) return;
+    if (!selectedRegistration || !user?.id) return;
 
     try {
       const updateData: Partial<CourseRegistration> = {
         status: editForm.status,
-        notes: editForm.notes,
-        updated_at: new Date().toISOString()
+        notes: editForm.notes
       };
 
       if (editForm.contacted_at) {
         updateData.contacted_at = editForm.contacted_at;
       }
 
-      const { error } = await supabase
-        .from('course_registrations')
-        .update(updateData)
-        .eq('id', selectedRegistration.id);
+      const response = await courseRegistrationsApi.update(user.id, selectedRegistration.id, updateData);
 
-      if (error) {
-        console.error('Error updating registration:', error);
+      if (!response.success) {
+        console.error('Error updating registration:', response.error);
         toast({
           title: "Lỗi cập nhật",
-          description: "Không thể cập nhật thông tin đăng ký.",
+          description: response.error || "Không thể cập nhật thông tin đăng ký.",
           variant: "destructive"
         });
         return;
@@ -238,6 +242,28 @@ export function CourseRegistrationsManager() {
     link.click();
     document.body.removeChild(link);
   };
+
+  // Show loading state while checking authentication
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+        <span className="ml-2">Đang tải...</span>
+      </div>
+    );
+  }
+
+  // Show access denied for non-admin users
+  if (!isAdmin) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Truy cập bị từ chối</h2>
+          <p className="text-gray-600">Bạn không có quyền truy cập trang này.</p>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (

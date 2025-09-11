@@ -12,8 +12,9 @@ import { UserManager } from '@/components/admin/UserManager';
 import { NewsletterManager } from '@/components/admin/NewsletterManager';
 import { SystemSettings } from '@/components/admin/SystemSettings';
 import { EmailTemplateManager } from '@/components/admin/EmailTemplateManager';
+import { SystemEmailTemplatesManager } from '@/components/admin/SystemEmailTemplatesManager';
 import { CourseRegistrationsManager } from '@/components/admin/CourseRegistrationsManager';
-import { Users, FileText, Settings, LogOut, Folder, User, Mail, UserCheck, MailOpen, GraduationCap } from 'lucide-react';
+import { Users, FileText, Settings, LogOut, Folder, User, Mail, UserCheck, MailOpen, GraduationCap, Shield } from 'lucide-react';
 
 export default function AdminDashboard() {
   const { signOut, profile } = useAuth();
@@ -100,6 +101,10 @@ export default function AdminDashboard() {
                   <TabsTrigger value="email-templates" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <MailOpen className="w-4 h-4 mr-2" />
                     Email Templates
+                  </TabsTrigger>
+                  <TabsTrigger value="system-email-templates" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
+                    <Shield className="w-4 h-4 mr-2" />
+                    System Email Templates
                   </TabsTrigger>
                   <TabsTrigger value="course-registrations" className="w-full justify-start data-[state=active]:bg-muted data-[state=active]:text-primary">
                     <GraduationCap className="w-4 h-4 mr-2" />
@@ -197,6 +202,10 @@ export default function AdminDashboard() {
                 <EmailTemplateManager />
               </CardContent>
             </Card>
+          </TabsContent>
+
+          <TabsContent value="system-email-templates" className="space-y-4">
+            <SystemEmailTemplatesManager />
           </TabsContent>
 
           <TabsContent value="course-registrations" className="space-y-4">

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -7,6 +6,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { usersApi } from '@/utils/adminApi';
 import { Search, Users } from 'lucide-react';
 
 interface Profile {
@@ -30,25 +31,35 @@ interface MembershipTier {
 }
 
 export const MemberManager = () => {
+  const { user, isAdminAuthenticated } = useAdminAuth();
   const [members, setMembers] = useState<Profile[]>([]);
   const [tiers, setTiers] = useState<MembershipTier[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchMembers();
-    fetchTiers();
-  }, []);
+    if (isAdminAuthenticated) {
+      fetchMembers();
+      fetchTiers();
+    }
+  }, [isAdminAuthenticated]);
 
   const fetchMembers = async () => {
+    if (!user?.id) return;
+    
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const response = await usersApi.getAll(user.id);
 
-      if (error) throw error;
-      setMembers(data || []);
+      if (!response.success) {
+        console.error('Error fetching members:', response.error);
+        toast({
+          title: "Error",
+          description: response.error || "Failed to fetch members.",
+          variant: "destructive",
+        });
+        return;
+      }
+       setMembers(response.data || []);
     } catch (error: any) {
       console.error('Error fetching members:', error);
       toast({
@@ -60,32 +71,27 @@ export const MemberManager = () => {
   };
 
   const fetchTiers = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('membership_tiers')
-        .select('*')
-        .order('name');
-
-      if (error) throw error;
-      setTiers(data || []);
-    } catch (error: any) {
-      console.error('Error fetching tiers:', error);
-      toast({
-        title: "Error",
-        description: error?.message || "Failed to fetch membership tiers.",
-        variant: "destructive",
-      });
-    }
+    // Use static membership tiers since we don't have a specific API for this
+    const staticTiers = [
+      { id: '1', name: 'free', description: 'Free tier', price: 0, features: ['Basic access'] },
+      { id: '2', name: 'subscriber', description: 'Subscriber tier', price: 10, features: ['Premium content'] },
+      { id: '3', name: 'premium', description: 'Premium tier', price: 25, features: ['All features'] }
+    ];
+    setTiers(staticTiers);
   };
 
   const updateMemberTier = async (userId: string, newTier: string) => {
+    if (!user?.id) return;
+    
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ membership_tier: newTier })
-        .eq('user_id', userId);
+      const memberToUpdate = members.find(m => m.user_id === userId);
+      if (!memberToUpdate) return;
+      
+      const response = await usersApi.update(user.id, memberToUpdate.id, { membership_tier: newTier });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update member tier');
+      }
       
       toast({
         title: "Success",
@@ -104,13 +110,17 @@ export const MemberManager = () => {
   };
 
   const updateMemberRole = async (userId: string, newRole: string) => {
+    if (!user?.id) return;
+    
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ role: newRole })
-        .eq('user_id', userId);
+      const memberToUpdate = members.find(m => m.user_id === userId);
+      if (!memberToUpdate) return;
+      
+      const response = await usersApi.update(user.id, memberToUpdate.id, { role: newRole });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update member role');
+      }
       
       toast({
         title: "Success",

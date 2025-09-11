@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { useToast } from '@/hooks/use-toast';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
+import { usersApi } from '@/utils/adminApi';
 import { Search, Users, Plus, Edit, RotateCcw, UserPlus, Key, CheckCircle, XCircle } from 'lucide-react';
 
 interface Profile {
@@ -34,6 +35,7 @@ interface MembershipTier {
 }
 
 export const UserManager = () => {
+  const { user, isAdmin, isAdminAuthenticated } = useAdminAuth();
   const [users, setUsers] = useState<Profile[]>([]);
   const [tiers, setTiers] = useState<MembershipTier[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -59,22 +61,38 @@ export const UserManager = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchUsers();
-    fetchTiers();
-  }, []);
+    if (isAdminAuthenticated) {
+      fetchUsers();
+      fetchTiers();
+    } else if (user && !isAdmin) {
+      setLoading(false);
+      toast({
+        title: "Access Denied",
+        description: "You don't have permission to access this page.",
+        variant: "destructive",
+      });
+    }
+  }, [user, isAdmin, isAdminAuthenticated]);
 
   const fetchUsers = async () => {
+    if (!user?.id) return;
+    
     try {
       setLoading(true);
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .order('created_at', { ascending: false });
+      const response = await usersApi.getAll(user.id);
 
-      if (error) throw error;
+      if (!response.success) {
+        console.error('Error fetching users:', response.error);
+        toast({
+          title: "Error",
+          description: response.error || "Failed to fetch users.",
+          variant: "destructive",
+        });
+        return;
+      }
       
       // Add placeholder email verification status (to be implemented with proper DB function)
-      const usersWithVerification = (data || []).map(user => ({
+      const usersWithVerification = (response.data || []).map(user => ({
         ...user,
         email_confirmed_at: user.created_at, // Placeholder - assume verified for now
         last_sign_in_at: user.created_at // Placeholder
@@ -82,10 +100,10 @@ export const UserManager = () => {
       
       setUsers(usersWithVerification);
     } catch (error: any) {
-      console.error('Error fetching members:', error);
+      console.error('Error fetching users:', error);
       toast({
         title: "Error",
-        description: error?.message || "Failed to fetch members.",
+        description: error?.message || "Failed to fetch users.",
         variant: "destructive",
       });
     } finally {
@@ -94,32 +112,28 @@ export const UserManager = () => {
   };
 
   const fetchTiers = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('membership_tiers')
-        .select('*')
-        .order('name');
-
-      if (error) throw error;
-      setTiers(data || []);
-    } catch (error: any) {
-      console.error('Error fetching tiers:', error);
-      toast({
-        title: "Error",
-        description: error?.message || "Failed to fetch membership tiers.",
-        variant: "destructive",
-      });
-    }
+    // For now, use static membership tiers since we don't have a specific API for this
+    // This can be extended later if needed
+    const staticTiers = [
+      { id: '1', name: 'free', description: 'Free tier', price: 0, features: ['Basic access'] },
+      { id: '2', name: 'subscriber', description: 'Subscriber tier', price: 10, features: ['Premium content'] },
+      { id: '3', name: 'premium', description: 'Premium tier', price: 25, features: ['All features'] }
+    ];
+    setTiers(staticTiers);
   };
 
   const updateMemberTier = async (userId: string, newTier: string) => {
+    if (!user?.id) return;
+    
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ membership_tier: newTier })
-        .eq('user_id', userId);
+      const userToUpdate = users.find(u => u.user_id === userId);
+      if (!userToUpdate) return;
+      
+      const response = await usersApi.update(user.id, userToUpdate.id, { membership_tier: newTier });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update member tier');
+      }
       
       toast({
         title: "Success",
@@ -138,13 +152,17 @@ export const UserManager = () => {
   };
 
   const updateMemberRole = async (userId: string, newRole: string) => {
+    if (!user?.id) return;
+    
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({ role: newRole })
-        .eq('user_id', userId);
+      const userToUpdate = users.find(u => u.user_id === userId);
+      if (!userToUpdate) return;
+      
+      const response = await usersApi.update(user.id, userToUpdate.id, { role: newRole });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update member role');
+      }
       
       toast({
         title: "Success",
@@ -166,51 +184,17 @@ export const UserManager = () => {
     e.preventDefault();
     
     try {
-      // Create user account using Supabase Auth Admin API
-      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
-        email: createFormData.email,
-        password: createFormData.password,
-        email_confirm: true,
-        user_metadata: {
-          full_name: createFormData.full_name,
-          role: createFormData.role,
-          membership_tier: createFormData.membership_tier,
-        }
-      });
-
-      if (authError) throw authError;
-
-      if (authData.user) {
-        // The profile will be automatically created by the trigger
-        // But we can update it with additional info
-        const { error: profileError } = await supabase
-          .from('profiles')
-          .update({
-            full_name: createFormData.full_name,
-            role: createFormData.role,
-            membership_tier: createFormData.membership_tier,
-          })
-          .eq('user_id', authData.user.id);
-
-        if (profileError) {
-          console.warn('Profile update error:', profileError);
-        }
-      }
-
+      // Note: User creation with server-side API would require additional implementation
+      // For now, show a message that this feature needs to be implemented
       toast({
-        title: "Success",
-        description: "Member created successfully.",
+        title: "Feature Not Available",
+        description: "User creation via admin panel requires additional server-side implementation.",
+        variant: "destructive",
       });
-
-      setIsCreateDialogOpen(false);
-      setCreateFormData({
-        email: '',
-        password: '',
-        full_name: '',
-        role: 'member',
-        membership_tier: 'subscriber',
-      });
-      fetchUsers();
+      return;
+      
+      // TODO: Implement server-side user creation API
+      // This would require additional backend implementation
     } catch (error: any) {
       console.error('Error creating member:', error);
       toast({
@@ -224,19 +208,18 @@ export const UserManager = () => {
   const handleEditMember = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!editingUser) return;
+    if (!editingUser || !user?.id) return;
 
     try {
-      const { error } = await supabase
-        .from('profiles')
-        .update({
-          full_name: editFormData.full_name,
-          role: editFormData.role,
-          membership_tier: editFormData.membership_tier,
-        })
-        .eq('user_id', editingUser.user_id);
+      const response = await usersApi.update(user.id, editingUser.id, {
+        full_name: editFormData.full_name,
+        role: editFormData.role,
+        membership_tier: editFormData.membership_tier,
+      });
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to update member');
+      }
 
       toast({
         title: "Success",
@@ -262,17 +245,15 @@ export const UserManager = () => {
     if (!resetPasswordUser || !newPassword) return;
 
     try {
-      const { error } = await supabase.auth.admin.updateUserById(
-        resetPasswordUser.user_id,
-        { password: newPassword }
-      );
-
-      if (error) throw error;
-
+      // Note: Password reset functionality requires additional server-side implementation
       toast({
-        title: "Success",
-        description: "Password reset successfully.",
+        title: "Feature Not Available",
+        description: "Password reset via admin panel requires additional server-side implementation.",
+        variant: "destructive",
       });
+      return;
+      
+      // TODO: Implement server-side password reset API
 
       setIsPasswordResetDialogOpen(false);
       setResetPasswordUser(null);
@@ -316,6 +297,28 @@ export const UserManager = () => {
     premium: users.filter(u => u.membership_tier === 'premium').length,
     vip: users.filter(u => u.membership_tier === 'vip').length,
   };
+
+  // Show loading state while checking authentication
+  if (!user) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+        <span className="ml-2">Loading...</span>
+      </div>
+    );
+  }
+
+  // Show access denied for non-admin users
+  if (!isAdmin) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12">
+        <div className="text-center">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Access Denied</h2>
+          <p className="text-gray-600">You don't have permission to access this page.</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
