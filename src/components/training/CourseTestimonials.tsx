@@ -140,7 +140,7 @@ const CourseTestimonials = () => {
             <div className="mt-4 flex items-center justify-between">
               <span className="text-sm font-semibold text-sunflower">
             </span>
-              <span className="text-xs text-gray-600">Sau 1.5 tháng</span>
+              <span className="text-xs text-gray-600">Sau 2.5 tháng</span>
             </div>
           </div>
         </div>
