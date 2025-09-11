@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,7 +23,6 @@ interface Category {
 
 export const CategoryManager = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
   const [formData, setFormData] = useState({
@@ -32,28 +32,28 @@ export const CategoryManager = () => {
     color: '#3B82F6',
   });
   const { toast } = useToast();
+  const { user } = useAdminAuth();
 
   useEffect(() => {
     fetchCategories();
   }, []);
 
   const fetchCategories = async () => {
+    if (!user) return;
+    
     try {
-      // Since we don't have a separate categories table, we'll get unique categories from blog_posts
-      interface CategorySelectResult {
-        category: string | null;
+      // Get all blog posts to extract categories
+      const response = await blogPostsApi.getAll(user.id);
+      
+      if (!response.success || !response.data) {
+        throw new Error(response.error || 'Failed to fetch blog posts');
       }
 
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('category')
-        .not('category', 'is', null);
-
-      if (error) throw error;
+      const posts = response.data;
 
       // Count posts per category
       const categoryStats: { [key: string]: number } = {};
-      (data as CategorySelectResult[])?.forEach(post => {
+      posts.forEach(post => {
         if (post.category) {
           categoryStats[post.category] = (categoryStats[post.category] || 0) + 1;
         }
@@ -130,13 +130,19 @@ export const CategoryManager = () => {
     }
 
     try {
-      // Update all posts with the old category name to use the new one
-      const { error } = await supabase
-        .from('blog_posts')
-        .update({ category: formData.name })
-        .eq('category', editingCategory.name);
+      if (!user) return;
       
-      if (error) throw error;
+      // Get all posts with the old category and update them
+      const postsResponse = await blogPostsApi.getAll(user.id);
+      if (!postsResponse.success || !postsResponse.data) {
+        throw new Error('Failed to fetch posts');
+      }
+      
+      const postsToUpdate = postsResponse.data.filter(post => post.category === editingCategory.name);
+      
+      for (const post of postsToUpdate) {
+        await blogPostsApi.update(user.id, post.id, { category: formData.name });
+      }
 
       toast({ 
         title: "Success", 
@@ -160,13 +166,19 @@ export const CategoryManager = () => {
     if (!confirm(`Are you sure you want to delete the category "${category.name}"? This will set all posts in this category to "General".`)) return;
 
     try {
-      // Update all posts in this category to "General"
-      const { error } = await supabase
-        .from('blog_posts')
-        .update({ category: 'General' })
-        .eq('category', category.name);
-
-      if (error) throw error;
+      if (!user) return;
+      
+      // Get all posts with this category and update them to "General"
+      const postsResponse = await blogPostsApi.getAll(user.id);
+      if (!postsResponse.success || !postsResponse.data) {
+        throw new Error('Failed to fetch posts');
+      }
+      
+      const postsToUpdate = postsResponse.data.filter(post => post.category === category.name);
+      
+      for (const post of postsToUpdate) {
+        await blogPostsApi.update(user.id, post.id, { category: 'General' });
+      }
 
       toast({ 
         title: "Success", 

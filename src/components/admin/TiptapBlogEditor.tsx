@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
@@ -11,7 +11,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import {
   X, Save, Eye, Settings, Maximize, Minimize, 
   Bold, Italic, List, ListOrdered, Quote, Heading1, Heading2, Heading3,
@@ -61,6 +62,7 @@ export const TiptapBlogEditor = ({ post, onClose, onSave }: TiptapBlogEditorProp
     tags: post.tags?.join(', ') || '',
   });
   const { toast } = useToast();
+  const { user } = useAdminAuth();
 
   const editor = useEditor({
     extensions: [
@@ -130,6 +132,8 @@ export const TiptapBlogEditor = ({ post, onClose, onSave }: TiptapBlogEditorProp
   };
 
   const handleSave = async () => {
+    if (!user) return;
+    
     try {
       setIsSaving(true);
 
@@ -150,24 +154,19 @@ export const TiptapBlogEditor = ({ post, onClose, onSave }: TiptapBlogEditorProp
         meta_title: formData.meta_title,
         meta_description: formData.meta_description,
         tags: tagsArray,
-        updated_at: new Date().toISOString(),
+        ...(formData.status === 'published' && !post.published_at && { published_at: new Date().toISOString() })
       };
 
-      let error;
-      if (post.id) {
-        const result = await supabase
-          .from('blog_posts')
-          .update(updateData)
-          .eq('id', post.id);
-        error = result.error;
+      let response;
+      if (!post.id || post.id === 'new') {
+        response = await blogPostsApi.create(user.id, updateData);
       } else {
-        const result = await supabase
-          .from('blog_posts')
-          .insert([{ ...updateData, id: crypto.randomUUID() }]);
-        error = result.error;
+        response = await blogPostsApi.update(user.id, post.id, updateData);
       }
 
-      if (error) throw error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to save post');
+      }
 
       toast({
         title: 'Success',

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { Button } from '@/components/ui/button';
 
 import { TiptapBlogEditor } from '@/components/admin/TiptapBlogEditor';
@@ -28,6 +29,7 @@ const AdminBlogEditPage = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const { user } = useAdminAuth();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isNewPost, setIsNewPost] = useState(false);
@@ -61,28 +63,23 @@ const AdminBlogEditPage = () => {
   }, [id, navigate]);
 
   const fetchPost = async (postId: string) => {
+    if (!user) return;
+    
     try {
       setIsLoading(true);
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('id', postId)
-        .single();
-
-      if (error) {
-        if (error.code === 'PGRST116') {
-          toast({
-            title: 'Post Not Found',
-            description: 'The blog post you are looking for does not exist.',
-            variant: 'destructive'
-          });
-          navigate('/admin/blog');
-          return;
-        }
-        throw error;
+      const response = await blogPostsApi.getById(user.id, postId);
+      
+      if (!response.success) {
+        toast({
+          title: 'Post Not Found',
+          description: 'The blog post you are looking for does not exist.',
+          variant: 'destructive'
+        });
+        navigate('/admin/blog');
+        return;
       }
 
-      setPost(data);
+      setPost(response.data);
     } catch (error) {
       console.error('Error fetching post:', error);
       toast({

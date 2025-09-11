@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi, usersApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { 
   FileText, Users, Mail, TrendingUp, Eye, Calendar, 
   BarChart3, Activity, Clock, CheckCircle
@@ -36,28 +37,29 @@ const AdminDashboardHome = () => {
     recentPosts: []
   });
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAdminAuth();
 
   useEffect(() => {
     fetchDashboardStats();
   }, []);
 
   const fetchDashboardStats = async () => {
+    if (!user) return;
+    
     try {
       // Fetch blog posts stats
-      const { data: posts, error: postsError } = await supabase
-        .from('blog_posts')
-        .select('id, title, status, created_at, published_at')
-        .order('created_at', { ascending: false });
-
-      if (postsError) throw postsError;
+      const postsResponse = await blogPostsApi.getAll(user.id);
+      if (!postsResponse.success || !postsResponse.data) {
+        throw new Error(postsResponse.error || 'Failed to fetch posts');
+      }
+      const posts = postsResponse.data;
 
       // Fetch users stats
-      const { data: users, error: usersError } = await supabase
-        .from('profiles')
-        .select('id, membership_tier')
-        .neq('role', 'admin');
-
-      if (usersError) throw usersError;
+      const usersResponse = await usersApi.getAll(user.id);
+      if (!usersResponse.success || !usersResponse.data) {
+        throw new Error(usersResponse.error || 'Failed to fetch users');
+      }
+      const users = usersResponse.data.filter(profile => profile.role !== 'admin');
 
       // Calculate stats
       const totalPosts = posts?.length || 0;

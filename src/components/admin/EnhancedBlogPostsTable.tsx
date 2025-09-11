@@ -8,7 +8,8 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { 
   Search, Eye, Edit, Trash2, SortAsc, SortDesc, Calendar, User, Tag, FileText,
   Filter, MoreHorizontal, Copy, Archive, CheckSquare, Square, Download,
@@ -53,6 +54,7 @@ export const EnhancedBlogPostsTable = ({ posts, onEdit, onDelete, onRefresh }: E
   const [bulkDeleteDialog, setBulkDeleteDialog] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
+  const { user } = useAdminAuth();
 
   // Get unique categories and authors for filters
   const categories = useMemo(() => {
@@ -155,17 +157,21 @@ export const EnhancedBlogPostsTable = ({ posts, onEdit, onDelete, onRefresh }: E
   };
 
   const handleBulkStatusChange = async (newStatus: string) => {
+    if (!user) return;
+    
     setIsLoading(true);
     try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .update({ 
-          status: newStatus,
-          ...(newStatus === 'published' && { published_at: new Date().toISOString() })
-        })
-        .in('id', Array.from(selectedPosts));
-
-      if (error) throw error;
+      const updateData = {
+        status: newStatus,
+        ...(newStatus === 'published' && { published_at: new Date().toISOString() })
+      };
+      
+      for (const postId of selectedPosts) {
+        const response = await blogPostsApi.update(user.id, postId, updateData);
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to update post');
+        }
+      }
 
       toast({
         title: "Success",
@@ -188,14 +194,16 @@ export const EnhancedBlogPostsTable = ({ posts, onEdit, onDelete, onRefresh }: E
   };
 
   const handleBulkDelete = async () => {
+    if (!user) return;
+    
     setIsLoading(true);
     try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .delete()
-        .in('id', Array.from(selectedPosts));
-
-      if (error) throw error;
+      for (const postId of selectedPosts) {
+        const response = await blogPostsApi.delete(user.id, postId);
+        if (!response.success) {
+          throw new Error(response.error || 'Failed to delete post');
+        }
+      }
 
       toast({
         title: "Success",

@@ -8,7 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import { blogPostsApi } from '@/utils/adminApi';
+import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { 
   X, Save, Eye, FileText, Calendar, User, Tag, Image, 
   Bold, Italic, Underline, List, ListOrdered, Quote,
@@ -59,6 +60,7 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
     tags: post.tags?.join(', ') || '',
   });
   const { toast } = useToast();
+  const { user } = useAdminAuth();
 
   // Calculate word count and reading time
   const updateStats = useCallback(() => {
@@ -161,6 +163,8 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
   };
 
   const handleSave = async () => {
+    if (!user) return;
+    
     try {
       const content = editorRef.current?.innerHTML || formData.content;
       const tagsArray = formData.tags
@@ -168,23 +172,7 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
         .map(tag => tag.trim())
         .filter(tag => tag.length > 0);
 
-      interface BlogPostUpdate {
-        title: string;
-        slug: string;
-        excerpt: string;
-        content: string;
-        featured_image: string;
-        author: string;
-        status: string;
-        category: string;
-        meta_title: string;
-        meta_description: string;
-        tags: string[];
-        updated_at: string;
-        published_at?: string;
-      }
-
-      const updateData: BlogPostUpdate = {
+      const updateData = {
         title: formData.title,
         slug: formData.slug,
         excerpt: formData.excerpt,
@@ -196,34 +184,21 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
         meta_title: formData.meta_title || formData.title,
         meta_description: formData.meta_description || formData.excerpt,
         tags: tagsArray,
-        updated_at: new Date().toISOString(),
+        ...(formData.status === 'published' && !post.published_at && { published_at: new Date().toISOString() })
       };
 
-      if (formData.status === 'published' && !post.published_at) {
-        updateData.published_at = new Date().toISOString();
-      }
-
-      let result;
-      if (post.id === 'new') {
+      let response;
+      if (post.id === 'new' || !post.id) {
         // Creating new post
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .insert([updateData])
-          .select()
-          .single();
-        result = { data, error };
+        response = await blogPostsApi.create(user.id, updateData);
       } else {
         // Updating existing post
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .update(updateData)
-          .eq('id', post.id)
-          .select()
-          .single();
-        result = { data, error };
+        response = await blogPostsApi.update(user.id, post.id, updateData);
       }
 
-      if (result.error) throw result.error;
+      if (!response.success) {
+        throw new Error(response.error || 'Failed to save post');
+      }
 
       toast({
         title: "Success",
