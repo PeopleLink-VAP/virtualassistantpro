@@ -40,12 +40,6 @@ const Navbar = () => {
                   </Link>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <Link to="/blog" className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
-                    <BookOpen size={16} />
-                    Blog
-                  </Link>
-                </NavigationMenuItem>
                 
                 <NavigationMenuItem>
                   <NavigationMenuTrigger className="flex items-center gap-0.5 text-navy hover:text-sunflower transition-colors px-2 py-1.5 font-condensed text-sm">
@@ -98,12 +92,20 @@ const Navbar = () => {
                     Giới thiệu
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid gap-2 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-1">
                       <li>
                         <NavigationMenuLink asChild>
                           <Link to="/about" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
                             <User size={16} />
                             <div className="text-sm font-medium leading-none">Vài nét về Duyên</div>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/va-journey" className="flex items-center gap-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <Globe size={16} />
+                            <div className="text-sm font-medium leading-none">Hành trình VA từ số 0</div>
                           </Link>
                         </NavigationMenuLink>
                       </li>
@@ -151,9 +153,6 @@ const Navbar = () => {
               <Home size={16} /> Homepage
             </Link>
 
-            <Link to="/blog" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-              <BookOpen size={16} /> Blog
-            </Link>
 
             <details className="group">
               <summary className="flex items-center justify-between py-2 text-navy hover:text-sunflower transition-colors font-condensed cursor-pointer">
@@ -183,7 +182,10 @@ const Navbar = () => {
               </summary>
               <div className="pl-4 space-y-2">
                 <Link to="/about" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
-                  <User size={16} /> DVài nét về Duyên
+                  <User size={16} /> Vài nét về Duyên
+                </Link>
+                <Link to="/va-journey" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
+                  <Globe size={16} /> Hành trình VA từ số 0
                 </Link>
                 <Link to="/team" className="block py-2 text-navy hover:text-sunflower transition-colors flex items-center gap-1 font-condensed">
                   <Users size={16} /> Đội Ngũ Đào Tạo

@@ -28,6 +28,7 @@ import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
 import RegisterPage from "./pages/RegisterPage";
+import VAJourneyPage from "./pages/VAJourneyPage";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboardHome from "./pages/admin/AdminDashboardHome";
 import AdminBlogPage from "./pages/admin/AdminBlogPage";
@@ -54,6 +55,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/va-journey" element={<VAJourneyPage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/login" element={<LoginPage />} />
