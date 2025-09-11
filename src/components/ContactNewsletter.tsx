@@ -25,22 +25,32 @@ const ContactNewsletter = () => {
     setIsLoading(true);
     
     try {
+      const { supabase } = await import('@/integrations/supabase/client');
+      
+      // Send notification email to admin
+      const emailResponse = await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'newsletter',
+          data: {
+            email: email,
+            source: 'newsletter_form'
+          }
+        }
+      });
+
+      if (emailResponse.error) {
+        throw new Error(emailResponse.error.message);
+      }
+
+      // Also subscribe to newsletter system
       const result = await subscribeToNewsletter(email, 'newsletter_form');
       
-      if (result.success) {
-        setIsSubscribed(true);
-        toast({
-          title: "Đăng ký thành công!",
-          description: result.message
-        });
-        setEmail('');
-      } else {
-        toast({
-          title: "Lỗi đăng ký",
-          description: result.message,
-          variant: "destructive"
-        });
-      }
+      setIsSubscribed(true);
+      toast({
+        title: "Đăng ký thành công!",
+        description: "Cảm ơn bạn đã đăng ký newsletter!"
+      });
+      setEmail('');
     } catch (error) {
       toast({
         title: "Lỗi",

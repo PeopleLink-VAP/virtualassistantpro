@@ -58,26 +58,28 @@ const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      // Make request to server
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          access_key: '9c6c79be-2d8e-47aa-8109-626fcf1ce000', // Replace with your Web3Forms access key
-          ...data,
-          subject: `New ${data.inquiryType} inquiry from ${data.name}`,
-        })
-      });
+      const { supabase } = await import('@/integrations/supabase/client');
       
-      if (response.ok) {
-        toast.success('Cảm ơn bạn đã gửi tin nhắn! Chúng tôi sẽ liên hệ lại sớm.');
-        form.reset();
-        if (onSuccess) onSuccess();
-      } else {
-        throw new Error('Failed to submit form');
+      const response = await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'contact',
+          data: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            inquiryType: showInquiryType ? data.inquiryType : undefined,
+            message: data.message
+          }
+        }
+      });
+
+      if (response.error) {
+        throw new Error(response.error.message);
       }
+
+      toast.success('Cảm ơn bạn đã gửi tin nhắn! Chúng tôi sẽ liên hệ lại sớm.');
+      form.reset();
+      if (onSuccess) onSuccess();
     } catch (error) {
       console.error('Form submission error:', error);
       toast.error('Có lỗi xảy ra khi gửi tin nhắn. Vui lòng thử lại sau.');

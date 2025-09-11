@@ -36,7 +36,26 @@ const RegisterPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Use the handle_course_registration function from the database
+      // Send notification email to admin
+      const emailResponse = await supabase.functions.invoke('send-notification', {
+        body: {
+          type: 'registration',
+          data: {
+            fullName: formData.fullName,
+            email: formData.email,
+            phone: formData.phone,
+            experience: formData.experience,
+            motivation: formData.motivation
+          }
+        }
+      });
+
+      if (emailResponse.error) {
+        console.error('Email notification error:', emailResponse.error);
+        // Continue with registration even if email fails
+      }
+
+      // Store registration in database
       const {
         data,
         error
