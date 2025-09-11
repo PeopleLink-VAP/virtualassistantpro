@@ -36,7 +36,7 @@ const RegisterPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Send notification email to admin
+      // Send notification email to admin using the existing Supabase Edge Function
       const emailResponse = await supabase.functions.invoke('send-notification', {
         body: {
           type: 'registration',
@@ -52,49 +52,21 @@ const RegisterPage = () => {
 
       if (emailResponse.error) {
         console.error('Email notification error:', emailResponse.error);
-        // Continue with registration even if email fails
-      }
-
-      // Store registration in database
-      const {
-        data,
-        error
-      } = await supabase.rpc('handle_course_registration', {
-        p_full_name: formData.fullName,
-        p_email: formData.email,
-        p_phone: formData.phone,
-        p_experience: formData.experience || null,
-        p_motivation: formData.motivation || null
-      });
-      if (error) {
-        console.error('Registration error:', error);
         toast({
-          title: "Lỗi đăng ký",
-          description: "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại sau.",
+          title: "Lỗi gửi email",
+          description: "Có lỗi xảy ra khi gửi email. Vui lòng thử lại sau.",
           variant: "destructive"
         });
         return;
       }
 
-      // Check if registration was successful
-      const result = data as {
-        success: boolean;
-        message?: string;
-      } | null;
-      if (result && result.success) {
-        setIsSubmitted(true);
-        toast({
-          title: "Đăng ký thành công!",
-          description: "Cảm ơn bạn đã đăng ký khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất.",
-          variant: "default"
-        });
-      } else {
-        toast({
-          title: "Thông báo",
-          description: result?.message || "Email này đã được đăng ký trước đó.",
-          variant: "default"
-        });
-      }
+      // Registration successful - show success message
+      setIsSubmitted(true);
+      toast({
+        title: "Đăng ký thành công!",
+        description: "Cảm ơn bạn đã đăng ký khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất.",
+        variant: "default"
+      });
     } catch (error) {
       console.error('Unexpected error:', error);
       toast({
