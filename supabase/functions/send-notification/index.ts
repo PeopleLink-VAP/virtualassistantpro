@@ -71,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const emailResponse = await resend.emails.send({
-      from: "Virtual Assistant Pro <noreply@virtualassistantpro.vn>",
+      from: "Virtual Assistant Pro <noreply@resend.dev>",
       to: [adminEmail],
       subject: subject,
       html: htmlContent,
