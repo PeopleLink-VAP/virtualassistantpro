@@ -282,43 +282,14 @@ const LearningPath = () => {
         </div>
           
           {/* Special Highlight Box */}
-          <div className="mt-16 bg-gradient-to-r from-leafGreen/10 to-sunflower/10 rounded-2xl p-8 border-2 border-leafGreen/20">
-            <div className="text-center">
-              <div className="flex justify-center mb-4">
-                <div className="bg-leafGreen w-16 h-16 rounded-full flex items-center justify-center">
-                  <MessageSquare className="h-8 w-8 text-white" />
-                </div>
-              </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-4">Đặc Biệt: 1 Buổi Học Tiếng Anh Miễn Phí</h4>
-              <p className="text-gray-700 max-w-3xl mx-auto mb-6">
-                Mỗi học viên được tặng <strong>1 buổi học tiếng Anh miễn phí</strong> với giáo viên bản xứ, 
-                tập trung vào kỹ năng phỏng vấn và giao tiếp chuyên nghiệp trong môi trường làm việc quốc tế.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
-                    <MessageSquare className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Luyện phỏng vấn tiếng Anh</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-leafGreen rounded-full flex items-center justify-center">
-                    <Users className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-gray-700 font-medium">Tương tác với giáo viên bản xứ</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          
          
          {/* Consultation CTA */}
          <div className="mt-16 bg-gray-100 rounded-xl p-8 shadow-lg text-center animate-fade-in" style={{
         animationDelay: "0.9s"
       }}>
            <h3 className="text-2xl font-bold text-gray-900 mb-4">Bạn cần tư vấn thêm?</h3>
-           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
-             Đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ bạn chọn khóa học phù hợp nhất với mục tiêu nghề nghiệp của bạn
-           </p>
+           <p className="text-gray-700 mb-6 max-w-2xl mx-auto">Người hướng dẫn Duyên Phạm sẽ trực tiếp trò chuyện và tư vấn, để hiểu rõ tình hình của bạn và đưa ra hướng dẫn phù hợp nhất</p>
            <Link to="/contact">
              <Button className="bg-navy hover:bg-sunflower text-white flex items-center gap-2 hover:scale-105 transition-all mx-auto">
                <MessageSquare className="h-5 w-5" />
