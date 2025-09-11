@@ -54,14 +54,6 @@ const VAIndustryInfo = () => {
               <br />
               Virtual Assistant không chỉ là người hỗ trợ đơn thuần, mà còn trở thành đối tác chiến lược đồng hành cùng doanh nghiệp.
             </p>
-            
-            <Link to="/blog">
-              <Button className="btn-secondary backdrop-blur-sm flex items-center gap-2 hover:scale-105 transition-all">
-                <Users size={18} />
-                Hiểu thêm về nghề và ngành Virtual Assistant
-                <ExternalLink size={16} />
-              </Button>
-            </Link>
           </div>
           
           {/* Vietnamese VA Community */}
