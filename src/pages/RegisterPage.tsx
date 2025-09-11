@@ -31,7 +31,8 @@ const RegisterPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Simulate form submission for now
+    // TODO: Integrate with database after running migrations
     await new Promise(resolve => setTimeout(resolve, 2000));
     setIsSubmitting(false);
     setIsSubmitted(true);
