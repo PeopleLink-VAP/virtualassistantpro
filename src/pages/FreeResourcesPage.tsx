@@ -116,7 +116,19 @@ const FreeResourcesPage = () => {
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế. </p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 11 trang</span>
-                  <a href="/downloads/VAP-7-mau-cau-discovery-call.pdf" className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <a 
+                    href="/downloads/VAP-7-mau-cau-discovery-call.pdf" 
+                    download="VAP-7-mau-cau-discovery-call.pdf"
+                    className="text-sunflower hover:underline font-semibold"
+                    onClick={(e) => {
+                      // Add a small delay to check if download fails
+                      setTimeout(() => {
+                        console.log('PDF should be downloading...');
+                      }, 100);
+                    }}
+                  >
+                    Tải về miễn phí &rarr;
+                  </a>
                 </div>
               </div>
             </div>

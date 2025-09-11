@@ -26,7 +26,7 @@ interface EmailTemplate {
   text_content: string;
   template_type: string;
   is_active: boolean;
-  variables: string[];
+  variables: string[] | null;
   created_at: string;
   updated_at: string;
 }
@@ -92,7 +92,19 @@ export const EmailTemplateManager = () => {
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      setTemplates(data || []);
+      const processedData = (data || []).map(template => ({
+        ...template,
+        variables: (() => {
+          if (Array.isArray(template.variables)) {
+            return template.variables.filter(v => typeof v === 'string') as string[];
+          }
+          if (typeof template.variables === 'string') {
+            return [template.variables];
+          }
+          return [];
+        })()
+      }));
+      setTemplates(processedData);
     } catch (error) {
       console.error('Error fetching templates:', error);
       toast({
@@ -555,7 +567,6 @@ export const EmailTemplateManager = () => {
                           <Switch
                             checked={template.is_active}
                             onCheckedChange={(checked) => handleToggleActive(template.id, checked)}
-                            size="sm"
                           />
                           <span className="text-sm">
                             {template.is_active ? 'Active' : 'Inactive'}
