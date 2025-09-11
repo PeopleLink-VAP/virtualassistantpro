@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Mail, Send, CheckCircle, Loader2, UserCheck } from 'lucide-react';
+import { Mail, Send, CheckCircle, Loader2, UserCheck, User } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { subscribeToNewsletter } from '@/utils/newsletterSubscription';
 import { useCookies } from '@/hooks/useCookies';
@@ -87,6 +87,7 @@ const ContactNewsletter = () => {
       // Store registration data in cookies for new users
       if (!isReturningUser) {
         setNewsletterData(emailToSubmit, 'newsletter_form');
+        setCookie('vap_newsletter_name', nameToSubmit);
       }
       
       setIsSubscribed(true);
@@ -99,6 +100,7 @@ const ContactNewsletter = () => {
       
       if (!isReturningUser) {
         setEmail('');
+        setName('');
       }
     } catch (error) {
       toast({
@@ -116,11 +118,14 @@ const ContactNewsletter = () => {
     deleteCookie('vap_newsletter_email');
     deleteCookie('vap_newsletter_date');
     deleteCookie('vap_newsletter_source');
+    deleteCookie('vap_newsletter_name');
     
     // Reset UI state
     setIsReturningUser(false);
     setRegisteredEmail('');
+    setRegisteredName('');
     setEmail('');
+    setName('');
     setIsSubscribed(false);
   };
 
@@ -154,9 +159,10 @@ const ContactNewsletter = () => {
                         <UserCheck className="text-leafGreen" size={20} />
                         <span className="text-leafGreen font-medium">Chào mừng bạn quay lại!</span>
                       </div>
-                      <p className="text-navy/70 text-sm">
-                        Email đã đăng ký: <span className="font-medium text-navy">{registeredEmail}</span>
-                      </p>
+                      <div className="text-navy/70 text-sm space-y-1">
+                        <p>Tên: <span className="font-medium text-navy">{registeredName || 'Chưa cập nhật'}</span></p>
+                        <p>Email: <span className="font-medium text-navy">{registeredEmail}</span></p>
+                      </div>
                     </div>
                     
                     <form onSubmit={handleSubmit} className="space-y-4">
@@ -191,12 +197,24 @@ const ContactNewsletter = () => {
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="relative">
+                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
+                      <Input
+                        type="text"
+                        placeholder="Nhập tên của bạn..."
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full pl-10 pr-4 py-3 text-lg border border-navy/20 rounded-lg focus:border-sunflower focus:ring-sunflower bg-white/50"
+                      />
+                    </div>
+                    
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
                       <Input
                         type="email"
                         placeholder="Nhập email của bạn..."
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 text-lg border border-navy/20 rounded-lg focus:border-sunflower focus:ring-sunflower bg-white/50"
+                        className="w-full pl-10 pr-4 py-3 text-lg border border-navy/20 rounded-lg focus:border-sunflower focus:ring-sunflower bg-white/50"
                       />
                     </div>
                     
