@@ -7,7 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { 
   Users, FileText, Settings, LogOut, Mail, UserCheck, 
-  BarChart3, Shield, Menu, X, Home
+  BarChart3, Shield, Menu, X, Home, GraduationCap
 } from 'lucide-react';
 
 const AdminLayout = () => {
@@ -38,6 +38,12 @@ const AdminLayout = () => {
       href: '/admin/users',
       icon: Users,
       current: location.pathname.startsWith('/admin/users')
+    },
+    {
+      name: 'Course Registrations',
+      href: '/admin/course-registrations',
+      icon: GraduationCap,
+      current: location.pathname.startsWith('/admin/course-registrations')
     },
     {
       name: 'Newsletter',

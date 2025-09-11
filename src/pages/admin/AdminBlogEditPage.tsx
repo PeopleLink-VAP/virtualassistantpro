@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
 import { EnhancedBlogEditor } from '@/components/admin/EnhancedBlogEditor';
 import { useToast } from '@/hooks/use-toast';
 import { ArrowLeft, FileText, Loader2 } from 'lucide-react';
@@ -97,7 +97,14 @@ const AdminBlogEditPage = () => {
   };
 
   const handleClose = () => {
-    navigate('/admin/blog');
+    // Check if this page was opened in a new tab/window
+    if (window.history.length <= 1 || document.referrer === '') {
+      // If opened in new tab, close the tab
+      window.close();
+    } else {
+      // If navigated within same tab, go back to blog management
+      navigate('/admin/blog');
+    }
   };
 
   const handleSave = () => {
@@ -173,24 +180,12 @@ const AdminBlogEditPage = () => {
       </div>
 
       {/* Editor Content */}
-      <div className="container mx-auto px-4 py-6">
-        <Card className="min-h-[calc(100vh-200px)]">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-2">
-              <FileText className="w-5 h-5" />
-              Blog Post Editor
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-0">
-            <div className="h-full">
-              <EnhancedBlogEditor
-                post={post}
-                onClose={handleClose}
-                onSave={handleSave}
-              />
-            </div>
-          </CardContent>
-        </Card>
+      <div className="flex-1 flex flex-col">
+        <EnhancedBlogEditor
+          post={post}
+          onClose={handleClose}
+          onSave={handleSave}
+        />
       </div>
     </div>
   );

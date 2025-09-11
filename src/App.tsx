@@ -33,6 +33,7 @@ import AdminDashboardHome from "./pages/admin/AdminDashboardHome";
 import AdminBlogPage from "./pages/admin/AdminBlogPage";
 import AdminBlogEditPage from "./pages/admin/AdminBlogEditPage";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
+import AdminCourseRegistrationsPage from "./pages/admin/AdminCourseRegistrationsPage";
 import AdminNewsletterPage from "./pages/admin/AdminNewsletterPage";
 import AdminEmailTemplatesPage from "./pages/admin/AdminEmailTemplatesPage";
 import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
@@ -84,6 +85,7 @@ const App = () => (
               <Route path="blog" element={<AdminBlogPage />} />
               <Route path="blog/edit/:id" element={<AdminBlogEditPage />} />
               <Route path="users" element={<AdminUsersPage />} />
+              <Route path="course-registrations" element={<AdminCourseRegistrationsPage />} />
               <Route path="newsletter" element={<AdminNewsletterPage />} />
               <Route path="email-templates" element={<AdminEmailTemplatesPage />} />
               <Route path="settings" element={<AdminSettingsPage />} />

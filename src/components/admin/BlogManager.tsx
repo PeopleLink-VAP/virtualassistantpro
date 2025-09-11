@@ -97,7 +97,8 @@ export const BlogManager = () => {
   };
 
   const handleEdit = (post: BlogPost) => {
-    navigate(`/admin/blog/edit/${post.id}`);
+    // Open edit page in new tab
+    window.open(`/admin/blog/edit/${post.id}`, '_blank');
   };
 
   const handleEditWithDialog = (post: BlogPost) => {
@@ -119,7 +120,8 @@ export const BlogManager = () => {
   };
 
   const handleCreateNew = () => {
-    navigate('/admin/blog/edit/new');
+    // Open new post creation in new tab
+    window.open('/admin/blog/edit/new', '_blank');
   };
 
   const handleSubmit = async (e: React.FormEvent) => {

@@ -95,11 +95,31 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
   };
 
   const execCommand = (command: string, value?: string) => {
-    document.execCommand(command, false, value);
-    if (editorRef.current) {
-      setFormData(prev => ({ ...prev, content: editorRef.current!.innerHTML }));
-      updateStats();
+    if (!editorRef.current) return;
+    
+    // Focus the editor first
+    editorRef.current.focus();
+    
+    // Handle special cases for better compatibility
+    if (command === 'insertUnorderedList' || command === 'insertOrderedList') {
+      // Better list handling
+      const selection = window.getSelection();
+      if (selection && selection.rangeCount > 0) {
+        document.execCommand(command, false, undefined);
+      }
+    } else if (command === 'formatBlock' && value === 'blockquote') {
+      // Better blockquote handling
+      const selection = window.getSelection();
+      if (selection && selection.rangeCount > 0) {
+        document.execCommand('formatBlock', false, 'blockquote');
+      }
+    } else {
+      document.execCommand(command, false, value);
     }
+    
+    // Update content and stats
+    setFormData(prev => ({ ...prev, content: editorRef.current!.innerHTML }));
+    updateStats();
   };
 
   const insertHeading = (level: number) => {
@@ -183,16 +203,31 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
         updateData.published_at = new Date().toISOString();
       }
 
-      const { error } = await supabase
-        .from('blog_posts')
-        .update(updateData)
-        .eq('id', post.id);
+      let result;
+      if (post.id === 'new') {
+        // Creating new post
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .insert([updateData])
+          .select()
+          .single();
+        result = { data, error };
+      } else {
+        // Updating existing post
+        const { data, error } = await supabase
+          .from('blog_posts')
+          .update(updateData)
+          .eq('id', post.id)
+          .select()
+          .single();
+        result = { data, error };
+      }
 
-      if (error) throw error;
+      if (result.error) throw result.error;
 
       toast({
         title: "Success",
-        description: "Blog post updated successfully.",
+        description: `Blog post ${post.id === 'new' ? 'created' : 'updated'} successfully.`,
       });
 
       onSave();
@@ -227,8 +262,8 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
   ];
 
   return (
-    <div className={`fixed inset-0 bg-background z-50 flex flex-col ${isFullscreen ? 'p-0' : 'p-4'}`}>
-      <div className="flex-1 flex flex-col max-w-6xl mx-auto w-full">
+    <div className={isFullscreen ? 'fixed inset-0 bg-background z-50 flex flex-col p-0' : 'relative flex flex-col'}>
+      <div className="flex-1 flex flex-col w-full">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           <div className="flex items-center gap-4">
@@ -260,19 +295,19 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col overflow-hidden">
           {/* Editor Area */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col min-h-0">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="flex-1 flex flex-col">
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-3 flex-shrink-0">
                 <TabsTrigger value="editor">Editor</TabsTrigger>
                 <TabsTrigger value="preview">Preview</TabsTrigger>
                 <TabsTrigger value="settings">Settings</TabsTrigger>
               </TabsList>
               
-              <TabsContent value="editor" className="flex-1 flex flex-col mt-0">
+              <TabsContent value="editor" className="flex-1 flex flex-col mt-0 overflow-hidden">
                 {/* Toolbar */}
-                <div className="border-b p-2 bg-muted/30">
+                <div className="border-b p-2 bg-muted/30 flex-shrink-0">
                   <div className="flex flex-wrap items-center gap-1">
                     {/* Heading Buttons */}
                     <div className="flex items-center gap-1 mr-2">
@@ -378,7 +413,7 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
                 </div>
                 
                 {/* Title Input */}
-                <div className="p-4 border-b">
+                <div className="p-4 border-b flex-shrink-0">
                   <Input
                     value={formData.title}
                     onChange={handleTitleChange}
@@ -388,37 +423,42 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
                 </div>
                 
                 {/* Content Editor */}
-                <div className="flex-1 p-4">
-                  <div
-                    ref={editorRef}
-                    contentEditable
-                    className="min-h-full outline-none prose prose-lg max-w-none focus:outline-none"
-                    style={{
-                      lineHeight: '1.7',
-                      fontSize: '18px',
-                    }}
-                    onInput={() => {
-                      if (editorRef.current) {
-                        setFormData(prev => ({ ...prev, content: editorRef.current!.innerHTML }));
-                        updateStats();
-                      }
-                    }}
-                    data-placeholder="Start writing your story..."
-                  />
+                <div className="flex-1 overflow-y-auto">
+                  <div className="p-4 min-h-full">
+                    <div
+                      ref={editorRef}
+                      contentEditable
+                      className="min-h-[500px] outline-none prose prose-lg max-w-none focus:outline-none"
+                      style={{
+                        lineHeight: '1.7',
+                        fontSize: '18px',
+                      }}
+                      onInput={() => {
+                        if (editorRef.current) {
+                          setFormData(prev => ({ ...prev, content: editorRef.current!.innerHTML }));
+                          updateStats();
+                        }
+                      }}
+                      data-placeholder="Start writing your story..."
+                    />
+                  </div>
                 </div>
               </TabsContent>
               
-              <TabsContent value="preview" className="flex-1 p-4">
-                <div className="max-w-4xl mx-auto">
-                  <h1 className="text-3xl font-bold mb-4">{formData.title}</h1>
-                  <div 
-                    className="prose prose-lg max-w-none"
-                    dangerouslySetInnerHTML={{ __html: formData.content }}
-                  />
+              <TabsContent value="preview" className="flex-1 overflow-y-auto">
+                <div className="p-4">
+                  <div className="max-w-4xl mx-auto">
+                    <h1 className="text-3xl font-bold mb-4">{formData.title}</h1>
+                    <div 
+                      className="prose prose-lg max-w-none"
+                      dangerouslySetInnerHTML={{ __html: formData.content }}
+                    />
+                  </div>
                 </div>
               </TabsContent>
               
-              <TabsContent value="settings" className="flex-1 p-4">
+              <TabsContent value="settings" className="flex-1 overflow-y-auto">
+                <div className="p-4">
                 <div className="max-w-2xl mx-auto space-y-6">
                   <Card>
                     <CardHeader>
@@ -506,6 +546,7 @@ export const EnhancedBlogEditor = ({ post, onClose, onSave }: EnhancedBlogEditor
                       </div>
                     </CardContent>
                   </Card>
+                  </div>
                 </div>
               </TabsContent>
             </Tabs>
