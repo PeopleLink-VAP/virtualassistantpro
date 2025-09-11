@@ -29,7 +29,7 @@ const RegisterPage = () => {
     email: '',
     phone: ''
   });
-  const { getCourseData, setCourseData } = useCookies();
+  const { getCourseData, setCourseData, getCookie, setCookie } = useCookies();
 
   // Check for existing registration on component mount
   useEffect(() => {
@@ -42,8 +42,38 @@ const RegisterPage = () => {
         phone: courseData.phone
       });
       setIsReturningUser(true);
+      
+      // Pre-fill experience and motivation from cookies if available
+      const savedExperience = getCookie('vap_course_experience');
+      const savedMotivation = getCookie('vap_course_motivation');
+      
+      if (savedExperience || savedMotivation) {
+        setFormData(prev => ({
+          ...prev,
+          experience: savedExperience || '',
+          motivation: savedMotivation || ''
+        }));
+      }
+    } else {
+      // Pre-fill form for new users if they have partial data
+      const savedFullName = getCookie('vap_course_fullName');
+      const savedEmail = getCookie('vap_course_email');
+      const savedPhone = getCookie('vap_course_phone');
+      const savedExperience = getCookie('vap_course_experience');
+      const savedMotivation = getCookie('vap_course_motivation');
+      
+      if (savedFullName || savedEmail || savedPhone || savedExperience || savedMotivation) {
+        setFormData(prev => ({
+          ...prev,
+          fullName: savedFullName || '',
+          email: savedEmail || '',
+          phone: savedPhone || '',
+          experience: savedExperience || '',
+          motivation: savedMotivation || ''
+        }));
+      }
     }
-  }, [getCourseData]);
+  }, []);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {
       name,
@@ -93,6 +123,19 @@ const RegisterPage = () => {
       if (!isReturningUser) {
         setCourseData(formData.fullName, formData.email, formData.phone, 'course_registration');
       }
+      
+      // Store additional metadata for both new and returning users
+      if (formData.experience) {
+        setCookie('vap_course_experience', formData.experience);
+      }
+      if (formData.motivation) {
+        setCookie('vap_course_motivation', formData.motivation);
+      }
+      
+      // Store submission timestamp and count
+      const submissionCount = parseInt(getCookie('vap_course_submission_count') || '0') + 1;
+      setCookie('vap_course_submission_count', submissionCount.toString());
+      setCookie('vap_course_last_submission', new Date().toISOString());
       
       // Registration successful - show success message
       setIsSubmitted(true);

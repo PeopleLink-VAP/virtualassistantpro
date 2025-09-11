@@ -35,7 +35,7 @@ export const verifyAdminAccess = async (userId: string): Promise<boolean> => {
       .from('profiles')
       .select('role')
       .eq('user_id', userId)
-      .single();
+      .maybeSingle();
     
     if (error || !data) {
       console.error('Error verifying admin access:', error);
@@ -56,7 +56,7 @@ export const getUserProfile = async (userId: string) => {
       .from('profiles')
       .select('*')
       .eq('user_id', userId)
-      .single();
+      .maybeSingle();
     
     if (error) {
       console.error('Error fetching user profile:', error);
