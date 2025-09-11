@@ -27,7 +27,7 @@ CREATE POLICY "Admin can manage course registrations" ON public.course_registrat
     EXISTS (
       SELECT 1 FROM public.profiles 
       WHERE user_id = auth.uid() 
-      AND is_admin = true
+      AND role = 'admin'
     )
   );
 

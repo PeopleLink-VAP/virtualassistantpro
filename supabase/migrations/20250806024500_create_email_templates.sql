@@ -55,7 +55,7 @@ CREATE POLICY "Admin can manage email templates" ON public.email_templates
     EXISTS (
       SELECT 1 FROM public.profiles 
       WHERE user_id = auth.uid() 
-      AND is_admin = true
+      AND role = 'admin'
     )
   );
 
@@ -65,7 +65,7 @@ CREATE POLICY "Admin can manage template variables" ON public.email_template_var
     EXISTS (
       SELECT 1 FROM public.profiles 
       WHERE user_id = auth.uid() 
-      AND is_admin = true
+      AND role = 'admin'
     )
   );
 
@@ -75,7 +75,7 @@ CREATE POLICY "Admin can view template usage" ON public.email_template_usage
     EXISTS (
       SELECT 1 FROM public.profiles 
       WHERE user_id = auth.uid() 
-      AND is_admin = true
+      AND role = 'admin'
     )
   );
 

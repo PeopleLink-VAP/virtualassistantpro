@@ -274,7 +274,7 @@ SELECT
   variable_data.name,
   variable_data.type,
   variable_data.default_val,
-  variable_data.desc,
+  variable_data.description,
   variable_data.required
 FROM public.email_templates t
 CROSS JOIN (
@@ -287,5 +287,5 @@ CROSS JOIN (
     ('facebook_group_url', 'url', 'https://www.facebook.com/groups/virtualassistantpro', 'Link đến nhóm Facebook VAP', false),
     ('support_email', 'text', 'support@virtualassistantpro.com', 'Email hỗ trợ khách hàng', false),
     ('website_url', 'url', 'https://virtualassistantpro.com', 'URL trang web chính', false)
-) AS variable_data(name, type, default_val, desc, required)
+) AS variable_data(name, type, default_val, description, required)
 WHERE t.name = 'Course Registration Confirmation';
