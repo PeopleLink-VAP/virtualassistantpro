@@ -13,7 +13,7 @@ const ContactNewsletter = () => {
   const [isReturningUser, setIsReturningUser] = useState(false);
   const [registeredEmail, setRegisteredEmail] = useState('');
   const { toast } = useToast();
-  const { getNewsletterData, setNewsletterData } = useCookies();
+  const { getNewsletterData, setNewsletterData, deleteCookie } = useCookies();
 
   // Check for existing registration on component mount
   useEffect(() => {
@@ -90,8 +90,16 @@ const ContactNewsletter = () => {
   };
 
   const handleNewRegistration = () => {
+    // Clear newsletter cookies
+    deleteCookie('vap_newsletter_email');
+    deleteCookie('vap_newsletter_date');
+    deleteCookie('vap_newsletter_source');
+    
+    // Reset UI state
     setIsReturningUser(false);
+    setRegisteredEmail('');
     setEmail('');
+    setIsSubscribed(false);
   };
 
   return (
