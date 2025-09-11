@@ -20,18 +20,18 @@ const testimonials = [
   },
   {
     id: 3,
-    name: "Ngô Thanh Nguyên",
+    name: "Thu Trang",
     role: "VAP Graduate",
     avatar: "/lovable-uploads/bcb7f570-b1f5-46d9-a4b1-25c48b3a74b0.png",
-    content: "Đi cùng chị Duyên từ lớp VA8, đến giờ mỗi khi có gì khó em vẫn nhắn chị hỗ trợ, đây không chỉ là một khóa học mà là nơi mở ra bước ngoặt mới cho rất nhiều người. Chúc VAP 14 tiếp tục dc truyền lửa và tạo ra thêm nhiều hành trình đẹp nhé",
+    content: "Học xong từ năm ngoái nay mới trồi lên feedback vì hết khóa bận đi khách liền 😄 Duyên là một người làm nghề giỏi nên kiến thức Duyên truyền đạt rất sát với thực tế và cô đọng.",
     rating: 5
   },
   {
     id: 4,
-    name: "Thùy Trang",
+    name: "Nguyễn Ngọc",
     role: "VAP Graduate",
     avatar: "/lovable-uploads/be8d8154-fff6-4b9e-a02d-c7e083bb734e.png",
-    content: "Học xong từ năm ngoái nay mới trồi lên feedback vì hết khóa bận đi khách liền 😄 Duyên là một người làm nghề giỏi nên kiến thức Duyên truyền đạt rất sát với thực tế và cô đọng.",
+    content: "Cảm ơn chị đã truyền lại những kinh nghiệm tâm huyết mà chị đã đúc kết được qua nhiều năm trong nghề. Một khoá học tuyệt vời - một người mentor nhiệt huyết, tận tâm với nghề. VA khó - đã có chị Duyên",
     rating: 5
   },
   {
