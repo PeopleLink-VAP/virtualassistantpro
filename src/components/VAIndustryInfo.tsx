@@ -97,6 +97,22 @@ const VAIndustryInfo = () => {
             </a>
           </div>
         </div>
+        
+        {/* Join Community Section */}
+        <div className="text-center mt-12">
+          <a 
+            href="https://www.facebook.com/groups/1774549309585565" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block"
+          >
+            <Button className="bg-sunflower hover:bg-sunflower/90 text-navy font-bold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center gap-2">
+              <Users size={20} />
+              Tham Gia Cộng Đồng
+              <ExternalLink size={16} />
+            </Button>
+          </a>
+        </div>
       </div>
     </section>
   );
