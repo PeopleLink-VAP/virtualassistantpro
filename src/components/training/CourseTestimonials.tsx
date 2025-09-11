@@ -123,7 +123,7 @@ const CourseTestimonials = () => {
         }}>
             <div className="flex items-center mb-4">
               <div className="relative">
-                <img src="https://randomuser.me/api/portraits/women/18.jpg" alt="Phạm Thị Lan" className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-sunflower/30" />
+                <img src="/lovable-uploads/36dd1086-fba4-43fa-b23b-56790cca78e8.png" alt="Quang Huy" className="w-16 h-16 rounded-full object-cover shadow-lg border-2 border-sunflower/30" />
                 <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-sunflower to-navy rounded-full flex items-center justify-center">
                   <Check className="h-3 w-3 text-white" />
                 </div>
