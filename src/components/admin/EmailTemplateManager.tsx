@@ -13,24 +13,14 @@ import { Switch } from '@/components/ui/switch';
 import { useToast } from '@/hooks/use-toast';
 import { useAdminAuth } from '@/hooks/useAdminAuth';
 import { emailTemplatesApi } from '@/utils/adminApi';
+import { Tables } from '@/integrations/supabase/types';
 import { 
   Plus, Edit, Trash2, Eye, Copy, Mail, Code, Settings, 
   Search, Filter, Save, X, AlertCircle, CheckCircle 
 } from 'lucide-react';
 
-interface EmailTemplate {
-  id: string;
-  name: string;
-  description: string;
-  subject: string;
-  html_content: string;
-  text_content: string;
-  template_type: string;
-  is_active: boolean;
-  variables: string[] | null;
-  created_at: string;
-  updated_at: string;
-}
+// Use the database type directly
+type EmailTemplate = Tables<'email_templates'>;
 
 interface TemplateVariable {
   id: string;

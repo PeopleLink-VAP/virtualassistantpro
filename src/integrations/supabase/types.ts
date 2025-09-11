@@ -114,36 +114,42 @@ export type Database = {
         Row: {
           created_at: string
           created_by: string | null
+          description: string | null
           html_content: string
           id: string
           is_active: boolean | null
           name: string
           subject: string
           template_type: string | null
+          text_content: string | null
           updated_at: string
           variables: string[] | null
         }
         Insert: {
           created_at?: string
           created_by?: string | null
+          description?: string | null
           html_content: string
           id?: string
           is_active?: boolean | null
           name: string
           subject: string
           template_type?: string | null
+          text_content?: string | null
           updated_at?: string
           variables?: string[] | null
         }
         Update: {
           created_at?: string
           created_by?: string | null
+          description?: string | null
           html_content?: string
           id?: string
           is_active?: boolean | null
           name?: string
           subject?: string
           template_type?: string | null
+          text_content?: string | null
           updated_at?: string
           variables?: string[] | null
         }
