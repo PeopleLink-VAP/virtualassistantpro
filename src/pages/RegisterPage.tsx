@@ -6,8 +6,11 @@ import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 import facebookQrCode from '@/assets/facebook-qr-code.png';
 const RegisterPage = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -31,11 +34,52 @@ const RegisterPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission for now
-    // TODO: Integrate with database after running migrations
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      // Use the handle_course_registration function from the database
+      const { data, error } = await supabase.rpc('handle_course_registration', {
+        p_full_name: formData.fullName,
+        p_email: formData.email,
+        p_phone: formData.phone,
+        p_experience: formData.experience || null,
+        p_motivation: formData.motivation || null
+      });
+
+      if (error) {
+        console.error('Registration error:', error);
+        toast({
+          title: "Lỗi đăng ký",
+          description: "Có lỗi xảy ra khi đăng ký. Vui lòng thử lại sau.",
+          variant: "destructive"
+        });
+        return;
+      }
+
+      // Check if registration was successful
+      const result = data as { success: boolean; message?: string } | null;
+      if (result && result.success) {
+        setIsSubmitted(true);
+        toast({
+          title: "Đăng ký thành công!",
+          description: "Cảm ơn bạn đã đăng ký khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất.",
+          variant: "default"
+        });
+      } else {
+        toast({
+          title: "Thông báo",
+          description: result?.message || "Email này đã được đăng ký trước đó.",
+          variant: "default"
+        });
+      }
+    } catch (error) {
+      console.error('Unexpected error:', error);
+      toast({
+        title: "Lỗi hệ thống",
+        description: "Có lỗi không mong muốn xảy ra. Vui lòng thử lại sau.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   if (isSubmitted) {
     return <>

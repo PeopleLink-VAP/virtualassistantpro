@@ -12,6 +12,7 @@ import { UserManager } from '@/components/admin/UserManager';
 import { NewsletterManager } from '@/components/admin/NewsletterManager';
 import { SystemSettings } from '@/components/admin/SystemSettings';
 import { EmailTemplateManager } from '@/components/admin/EmailTemplateManager';
+import { CourseRegistrationsManager } from '@/components/admin/CourseRegistrationsManager';
 import { Users, FileText, Settings, LogOut, Folder, User, Mail, UserCheck, MailOpen, GraduationCap } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -207,53 +208,7 @@ export default function AdminDashboard() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-8">
-                  <GraduationCap className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Course Registration Management</h3>
-                  <div className="space-y-4 max-w-2xl mx-auto text-left">
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                      <h4 className="font-semibold text-blue-900 mb-2">📧 Registration Email Template</h4>
-                      <p className="text-blue-800 text-sm mb-3">
-                        A professional registration confirmation email template has been created for the VAP course registration form.
-                      </p>
-                      <div className="space-y-2 text-sm">
-                        <p><strong>Template Name:</strong> "Course Registration Confirmation"</p>
-                        <p><strong>Features:</strong></p>
-                        <ul className="list-disc list-inside ml-4 space-y-1">
-                          <li>Professional Vietnamese email design</li>
-                          <li>Dynamic variables for personalization</li>
-                          <li>Contact information and next steps</li>
-                          <li>Links to course details and Facebook group</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                      <h4 className="font-semibold text-green-900 mb-2">🗄️ Database Setup</h4>
-                      <p className="text-green-800 text-sm mb-3">
-                        Database migrations have been prepared to:
-                      </p>
-                      <ul className="list-disc list-inside ml-4 space-y-1 text-sm">
-                        <li>Create course_registrations table</li>
-                        <li>Add registration email template</li>
-                        <li>Set up proper permissions and policies</li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                      <h4 className="font-semibold text-yellow-900 mb-2">⚡ Next Steps</h4>
-                      <div className="text-yellow-800 text-sm space-y-2">
-                        <p>To activate the registration system:</p>
-                        <ol className="list-decimal list-inside ml-4 space-y-1">
-                          <li>Run the database migrations</li>
-                          <li>Test the registration form</li>
-                          <li>Configure email sending service</li>
-                          <li>Monitor registrations in this admin panel</li>
-                        </ol>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <CourseRegistrationsManager />
               </CardContent>
             </Card>
           </TabsContent>
