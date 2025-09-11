@@ -47,11 +47,9 @@ const TrainingHero = () => {
           
           {/* Clean Description */}
           <div className="animate-fade-in-up animation-delay-300">
-            <p className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
-              Trở thành Virtual Assistant chuyên nghiệp và 
-              <span className="font-semibold text-navy">&nbsp;bứt phá thu nhập&nbsp;</span> 
-              với khóa học độc quyền.
-            </p>
+             <p className="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
+               Trở thành Virtual Assistant chuyên nghiệp và <span className="font-semibold text-navy">bứt phá thu nhập</span> với khóa học độc quyền.
+             </p>
           </div>
           
           {/* Clean Course Info Cards */}
