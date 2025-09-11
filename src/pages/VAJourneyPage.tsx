@@ -2,16 +2,11 @@ import { Helmet } from "react-helmet";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { User, Briefcase, Globe, Heart } from "lucide-react";
-
 const VAJourneyPage = () => {
-  return (
-    <>
+  return <>
       <Helmet>
         <title>Hành trình VA từ số 0 - Virtual Assistant Pro</title>
-        <meta 
-          name="description" 
-          content="Khám phá hành trình trở thành Virtual Assistant từ số 0 của Duyên - từ tốt nghiệp đến trở thành founder VA Agency và coach nghề VA chuyên nghiệp."
-        />
+        <meta name="description" content="Khám phá hành trình trở thành Virtual Assistant từ số 0 của Duyên - từ tốt nghiệp đến trở thành founder VA Agency và coach nghề VA chuyên nghiệp." />
       </Helmet>
       
       <Navbar />
@@ -29,10 +24,7 @@ const VAJourneyPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
                 Hành trình VA từ số 0
               </h1>
-              <p className="text-xl text-navy/70 mb-8 max-w-2xl mx-auto">
-                Từ một cử nhân Tiếng Anh mới tốt nghiệp đến founder VA Agency và coach nghề VA - 
-                đây là câu chuyện về hành trình khám phá và phát triển nghề Virtual Assistant.
-              </p>
+              
             </div>
           </div>
         </section>
@@ -58,9 +50,7 @@ const VAJourneyPage = () => {
                     Khi bắt đầu đi làm, mình tình cờ biết đến công việc <strong>trợ lý</strong> – một vai trò vừa kết nối, vừa hỗ trợ. Chữ "trợ" vốn mang ý nghĩa trợ lực, trợ thủ, và điều đó hoàn toàn phù hợp với giá trị phụng sự mà mình theo đuổi. Mỗi người sếp, mỗi khách hàng lại có yêu cầu riêng, khiến mình liên tục được thử thách và trưởng thành.
                   </p>
 
-                  <p className="mb-8">
-                    Có những việc ban đầu mình nghĩ không bao giờ làm nổi, nhưng rồi vẫn hoàn thành tốt, có khi hơn kì vòng. Chính cảm giác được thử sức, được vượt qua giới hạn đã khiến mình gắn bó với nghề trợ lý.
-                  </p>
+                  <p className="mb-8">Có những việc ban đầu mình nghĩ không bao giờ làm nổi, nhưng rồi vẫn hoàn thành tốt, có khi hơn kì vọng. Chính cảm giác được thử sức, được vượt qua giới hạn đã khiến mình gắn bó với nghề trợ lý.</p>
 
                   <p className="mb-8">
                     Dù vậy, mình không dừng lại ở việc chỉ làm <strong>trợ lý văn phòng</strong>, mà đã kinh qua nhiều vị trí quản lý, founder, co-founder ở nhiều lĩnh vực khác nhau. Trong lòng vẫn mơ ước có thể xây dựng một công ty chuyên về <strong>Trợ lý (Assistant Agency)</strong> – nơi vừa được làm nghề, vừa làm chủ kinh doanh.
@@ -145,7 +135,7 @@ const VAJourneyPage = () => {
 
                   <div className="bg-gradient-to-r from-sunflower/10 to-lightBlue/10 rounded-lg p-6 text-center">
                     <p className="text-xl font-semibold text-navy mb-0">
-                      Bởi vì:<br/>
+                      Bởi vì:<br />
                       <span className="text-2xl font-bold text-sunflower">"Every master was once a beginner."</span>
                     </p>
                   </div>
@@ -157,8 +147,6 @@ const VAJourneyPage = () => {
       </main>
 
       <Footer />
-    </>
-  );
+    </>;
 };
-
 export default VAJourneyPage;
