@@ -47,7 +47,7 @@ const CourseStats = () => {
               </div>
               <div className="text-3xl font-bold text-sunflower mb-2">70 - 85%</div>
               <h3 className="text-lg font-semibold text-white mb-2">Đồng hành với nghề VA</h3>
-              <p className="text-white/80 text-sm">Sau khi sắp xếp đủ nguồn lực và thời gian </p>
+              <p className="text-white/80 text-sm">Sau khi sắp xếp đủ nguồn lực và thời gian </p>
             </div>
           </div>
           
@@ -84,28 +84,45 @@ const CourseStats = () => {
           </div>
         </div>
         
-        {/* Clean Success Stories Preview */}
+        {/* Student Income Levels */}
         <div className="mt-16 text-center animate-fade-in-up animation-delay-700">
-          <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-8 border border-white/20 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold text-white mb-6">💼  Các cấp thu nhập của Học Viên *</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$100 - $250</div>
-                <p className="text-white/80">Giai đoạn 1:  
-Thời lượng làm việc ít. Task nhỏ lẻ. </p>
+          <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-10 border border-white/20 max-w-5xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-8">💼 Các cấp thu nhập của Học Viên *</h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Stage 1 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl font-bold text-sunflower mb-3">$100 - $250</div>
+                <div className="text-lg font-semibold text-white mb-3">Giai đoạn 1</div>
+                <p className="text-white/90 leading-relaxed text-sm">
+                  Thời lượng làm việc ít. Thực hiện các task nhỏ lẻ để làm quen với môi trường làm việc.
+                </p>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$300-900</div>
-                <p className="text-white/80">Giai đoạn 2:  
-Khối lượng công việc tăng. Tìm được ngách & tệp khách phù hợp</p>
+              
+              {/* Stage 2 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl font-bold text-sunflower mb-3">$300 - $900</div>
+                <div className="text-lg font-semibold text-white mb-3">Giai đoạn 2</div>
+                <p className="text-white/90 leading-relaxed text-sm">
+                  Khối lượng công việc tăng lên. Tìm được ngách chuyên môn và tệp khách hàng phù hợp.
+                </p>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-sunflower mb-2">$1k - $4k & more</div>
-                <p className="text-white/80">Giai đoạn 3: 
-Mở rộng tệp khách. Hiểu và cân bằng task lâu dài và ngắn hạn. Bắt đầu phát triển đội nhóm</p>
+              
+              {/* Stage 3 */}
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl font-bold text-sunflower mb-3">$1k - $4k+</div>
+                <div className="text-lg font-semibold text-white mb-3">Giai đoạn 3</div>
+                <p className="text-white/90 leading-relaxed text-sm">
+                  Mở rộng tệp khách hàng. Hiểu và cân bằng task lâu dài & ngắn hạn. Bắt đầu phát triển đội nhóm.
+                </p>
               </div>
             </div>
-            <p className="text-white/70 text-sm mt-4 italic">*Tùy thuộc vào ngách, khối lượng công việc và đối tượng khách hàng</p>
+            
+            <div className="mt-6 pt-4 border-t border-white/20">
+              <p className="text-white/70 text-sm italic">
+                *Tùy thuộc vào ngách chuyên môn, khối lượng công việc và đối tượng khách hàng
+              </p>
+            </div>
           </div>
         </div>
       </div>
