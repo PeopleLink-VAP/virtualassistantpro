@@ -79,7 +79,6 @@ export const TiptapBlogEditor = ({ post, onClose, onSave }: TiptapBlogEditorProp
       }),
       Placeholder.configure({
         placeholder: 'Start writing your story...',
-        considerAnyAsEmpty: true,
       }),
       Typography,
     ],
