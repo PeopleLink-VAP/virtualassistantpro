@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronRight, Star, TrendingUp, Users, MessageSquare, Mail, User, Phone, MapPin, BookOpen, ArrowRight, Check } from 'lucide-react';
+import { ChevronRight, Star, TrendingUp, Users, MessageSquare, Mail, User, Phone, MapPin, BookOpen, ArrowRight, Check, UserCheck } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
@@ -22,6 +22,47 @@ const RegisterPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isReturningUser, setIsReturningUser] = useState(false);
+  const [registeredData, setRegisteredData] = useState({
+    fullName: '',
+    email: '',
+    phone: ''
+  });
+
+  // Cookie utility functions
+  const setCookie = (name: string, value: string, days: number = 365) => {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  };
+
+  const getCookie = (name: string): string | null => {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  };
+
+  // Check for existing registration on component mount
+  useEffect(() => {
+    const savedFullName = getCookie('vap_course_fullName');
+    const savedEmail = getCookie('vap_course_email');
+    const savedPhone = getCookie('vap_course_phone');
+    const registrationDate = getCookie('vap_course_date');
+    
+    if (savedFullName && savedEmail && savedPhone && registrationDate) {
+      setRegisteredData({
+        fullName: savedFullName,
+        email: savedEmail,
+        phone: savedPhone
+      });
+      setIsReturningUser(true);
+    }
+  }, []);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {
       name,
@@ -35,17 +76,24 @@ const RegisterPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    
+    const dataToSubmit = isReturningUser ? {
+      fullName: registeredData.fullName,
+      email: registeredData.email,
+      phone: registeredData.phone,
+      experience: formData.experience,
+      motivation: formData.motivation
+    } : formData;
+    
     try {
       // Send notification email to admin using the existing Supabase Edge Function
       const emailResponse = await supabase.functions.invoke('send-notification', {
         body: {
           type: 'registration',
           data: {
-            fullName: formData.fullName,
-            email: formData.email,
-            phone: formData.phone,
-            experience: formData.experience,
-            motivation: formData.motivation
+            ...dataToSubmit,
+            isReturningUser: isReturningUser,
+            source: isReturningUser ? 'course_registration_returning' : 'course_registration'
           }
         }
       });
@@ -60,11 +108,22 @@ const RegisterPage = () => {
         return;
       }
 
+      // Store registration data in cookies for new users
+      if (!isReturningUser) {
+        setCookie('vap_course_fullName', formData.fullName);
+        setCookie('vap_course_email', formData.email);
+        setCookie('vap_course_phone', formData.phone);
+        setCookie('vap_course_date', new Date().toISOString());
+        setCookie('vap_course_source', 'course_registration');
+      }
+      
       // Registration successful - show success message
       setIsSubmitted(true);
       toast({
         title: "Đăng ký thành công!",
-        description: "Cảm ơn bạn đã đăng ký khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất.",
+        description: isReturningUser 
+          ? "Cảm ơn bạn đã đăng ký lại khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất." 
+          : "Cảm ơn bạn đã đăng ký khóa học. Chúng tôi sẽ liên hệ với bạn sớm nhất.",
         variant: "default"
       });
     } catch (error) {
@@ -97,11 +156,11 @@ const RegisterPage = () => {
                 <div className="space-y-4 mb-8">
                   <div className="flex items-center justify-center gap-3 text-navy/70">
                     <Mail className="h-5 w-5 text-sunflower" />
-                    <span>Email xác nhận đã được gửi đến: {formData.email}</span>
+                    <span>Email xác nhận đã được gửi đến: {isReturningUser ? registeredData.email : formData.email}</span>
                   </div>
                   <div className="flex items-center justify-center gap-3 text-navy/70">
                     <Phone className="h-5 w-5 text-leafGreen" />
-                    <span>Chúng tôi sẽ gọi điện tư vấn qua số: {formData.phone}</span>
+                    <span>Chúng tôi sẽ gọi điện tư vấn qua số: {isReturningUser ? registeredData.phone : formData.phone}</span>
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -180,36 +239,63 @@ const RegisterPage = () => {
                 </div>
               </div>
               
+              {/* Returning User Welcome Section */}
+              {isReturningUser && (
+                <div className="mb-6 bg-leafGreen/10 border border-leafGreen/20 rounded-xl p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <UserCheck className="text-leafGreen" size={20} />
+                    <span className="text-leafGreen font-medium">Chào mừng bạn quay lại!</span>
+                  </div>
+                  <div className="text-navy/70 text-sm space-y-1">
+                    <p>Họ tên: <span className="font-medium text-navy">{registeredData.fullName}</span></p>
+                    <p>Email: <span className="font-medium text-navy">{registeredData.email}</span></p>
+                    <p>Điện thoại: <span className="font-medium text-navy">{registeredData.phone}</span></p>
+                  </div>
+                  <div className="mt-3">
+                    <button
+                      onClick={() => setIsReturningUser(false)}
+                      className="text-navy/60 hover:text-navy text-sm underline transition-colors"
+                    >
+                      Sử dụng thông tin khác?
+                    </button>
+                  </div>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-semibold text-navy mb-2">
-                    Họ và tên *
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="Nhập họ và tên của bạn" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-navy mb-2">
-                    Email *
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="example@email.com" />
-                  </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-navy mb-2">
-                    Số điện thoại *
-                  </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
-                    <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="0123 456 789" />
-                  </div>
-                </div>
+                {!isReturningUser && (
+                  <>
+                    <div>
+                      <label htmlFor="fullName" className="block text-sm font-semibold text-navy mb-2">
+                        Họ và tên *
+                      </label>
+                      <div className="relative">
+                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
+                        <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="Nhập họ và tên của bạn" />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold text-navy mb-2">
+                        Email *
+                      </label>
+                      <div className="relative">
+                        <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
+                        <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="example@email.com" />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold text-navy mb-2">
+                        Số điện thoại *
+                      </label>
+                      <div className="relative">
+                        <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-navy/50" />
+                        <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleInputChange} required className="w-full pl-10 pr-4 py-3 border border-navy/20 rounded-xl focus:ring-2 focus:ring-sunflower focus:border-transparent bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-md" placeholder="0123 456 789" />
+                      </div>
+                    </div>
+                  </>
+                )}
                 
                 <div>
                   <label htmlFor="experience" className="block text-sm font-semibold text-navy mb-2">
@@ -237,7 +323,7 @@ const RegisterPage = () => {
                       Đang xử lý...
                     </span> : <span className="flex items-center justify-center gap-2">
                       <BookOpen className="h-5 w-5" />
-                      Đăng Ký Ngay
+                      {isReturningUser ? 'Đăng Ký Lại' : 'Đăng Ký Ngay'}
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </span>}
                 </Button>
