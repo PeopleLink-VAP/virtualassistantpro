@@ -66,13 +66,13 @@ const AboutDuyen = () => {
                 </Button>
               </Link>
               
-              <Link to="/blog">
+              <a href="https://virtualassistantpro.vn/va-journey" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="flex items-center gap-2 w-full sm:w-auto bg-transparent border border-navy text-navy hover:bg-navy hover:text-warmWhite transition-all backdrop-blur-sm hover:scale-105">
                   <Podcast size={18} />
                   Hành trình VA từ số 0
                   <ArrowRight size={16} />
                 </Button>
-              </Link>
+              </a>
               
               <Link to="/vap-course">
                 <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 w-full sm:w-auto hover:scale-105 transition-all">
