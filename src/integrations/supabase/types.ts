@@ -7,30 +7,10 @@ export type Json =
   | Json[]
 
 export type Database = {
-  graphql_public: {
-    Tables: {
-      [_ in never]: never
-    }
-    Views: {
-      [_ in never]: never
-    }
-    Functions: {
-      graphql: {
-        Args: {
-          extensions?: Json
-          operationName?: string
-          query?: string
-          variables?: Json
-        }
-        Returns: Json
-      }
-    }
-    Enums: {
-      [_ in never]: never
-    }
-    CompositeTypes: {
-      [_ in never]: never
-    }
+  // Allows to automatically instantiate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "13.0.4"
   }
   public: {
     Tables: {
@@ -91,7 +71,7 @@ export type Database = {
       course_registrations: {
         Row: {
           contacted_at: string | null
-          created_at: string | null
+          created_at: string
           email: string
           experience: string | null
           full_name: string
@@ -100,11 +80,11 @@ export type Database = {
           notes: string | null
           phone: string
           status: string | null
-          updated_at: string | null
+          updated_at: string
         }
         Insert: {
           contacted_at?: string | null
-          created_at?: string | null
+          created_at?: string
           email: string
           experience?: string | null
           full_name: string
@@ -113,11 +93,11 @@ export type Database = {
           notes?: string | null
           phone: string
           status?: string | null
-          updated_at?: string | null
+          updated_at?: string
         }
         Update: {
           contacted_at?: string | null
-          created_at?: string | null
+          created_at?: string
           email?: string
           experience?: string | null
           full_name?: string
@@ -126,128 +106,46 @@ export type Database = {
           notes?: string | null
           phone?: string
           status?: string | null
-          updated_at?: string | null
+          updated_at?: string
         }
         Relationships: []
       }
-      email_template_usage: {
-        Row: {
-          id: string
-          recipient_email: string | null
-          sent_at: string | null
-          template_id: string
-          used_for: string | null
-          variables_used: Json | null
-        }
-        Insert: {
-          id?: string
-          recipient_email?: string | null
-          sent_at?: string | null
-          template_id: string
-          used_for?: string | null
-          variables_used?: Json | null
-        }
-        Update: {
-          id?: string
-          recipient_email?: string | null
-          sent_at?: string | null
-          template_id?: string
-          used_for?: string | null
-          variables_used?: Json | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "email_template_usage_template_id_fkey"
-            columns: ["template_id"]
-            isOneToOne: false
-            referencedRelation: "email_templates"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
-      email_template_variables: {
-        Row: {
-          created_at: string | null
-          default_value: string | null
-          description: string | null
-          id: string
-          is_required: boolean | null
-          template_id: string
-          variable_name: string
-          variable_type: string
-        }
-        Insert: {
-          created_at?: string | null
-          default_value?: string | null
-          description?: string | null
-          id?: string
-          is_required?: boolean | null
-          template_id: string
-          variable_name: string
-          variable_type?: string
-        }
-        Update: {
-          created_at?: string | null
-          default_value?: string | null
-          description?: string | null
-          id?: string
-          is_required?: boolean | null
-          template_id?: string
-          variable_name?: string
-          variable_type?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "email_template_variables_template_id_fkey"
-            columns: ["template_id"]
-            isOneToOne: false
-            referencedRelation: "email_templates"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       email_templates: {
         Row: {
-          created_at: string | null
+          created_at: string
           created_by: string | null
-          description: string | null
           html_content: string
           id: string
           is_active: boolean | null
           name: string
           subject: string
-          template_type: string
-          text_content: string | null
-          updated_at: string | null
-          variables: Json | null
+          template_type: string | null
+          updated_at: string
+          variables: string[] | null
         }
         Insert: {
-          created_at?: string | null
+          created_at?: string
           created_by?: string | null
-          description?: string | null
           html_content: string
           id?: string
           is_active?: boolean | null
           name: string
           subject: string
-          template_type?: string
-          text_content?: string | null
-          updated_at?: string | null
-          variables?: Json | null
+          template_type?: string | null
+          updated_at?: string
+          variables?: string[] | null
         }
         Update: {
-          created_at?: string | null
+          created_at?: string
           created_by?: string | null
-          description?: string | null
           html_content?: string
           id?: string
           is_active?: boolean | null
           name?: string
           subject?: string
-          template_type?: string
-          text_content?: string | null
-          updated_at?: string | null
-          variables?: Json | null
+          template_type?: string | null
+          updated_at?: string
+          variables?: string[] | null
         }
         Relationships: [
           {
@@ -258,36 +156,6 @@ export type Database = {
             referencedColumns: ["user_id"]
           },
         ]
-      }
-      membership_tiers: {
-        Row: {
-          created_at: string
-          description: string | null
-          features: string[] | null
-          id: string
-          name: string
-          price: number | null
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          description?: string | null
-          features?: string[] | null
-          id?: string
-          name: string
-          price?: number | null
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          description?: string | null
-          features?: string[] | null
-          id?: string
-          name?: string
-          price?: number | null
-          updated_at?: string
-        }
-        Relationships: []
       }
       newsletter_campaigns: {
         Row: {
@@ -519,8 +387,11 @@ export type Database = {
           full_name: string | null
           id: string
           membership_tier: string | null
+          newsletter_subscribed: boolean | null
           role: string | null
           skills: string[] | null
+          subscribed_at: string | null
+          subscription_source: string | null
           updated_at: string
           user_id: string
         }
@@ -533,8 +404,11 @@ export type Database = {
           full_name?: string | null
           id?: string
           membership_tier?: string | null
+          newsletter_subscribed?: boolean | null
           role?: string | null
           skills?: string[] | null
+          subscribed_at?: string | null
+          subscription_source?: string | null
           updated_at?: string
           user_id: string
         }
@@ -547,138 +421,85 @@ export type Database = {
           full_name?: string | null
           id?: string
           membership_tier?: string | null
+          newsletter_subscribed?: boolean | null
           role?: string | null
           skills?: string[] | null
+          subscribed_at?: string | null
+          subscription_source?: string | null
           updated_at?: string
           user_id?: string
         }
         Relationships: []
       }
-      virtual_assistants: {
+      system_email_templates: {
         Row: {
-          admin_notes: string | null
-          availability_hours: number | null
-          avatar_url: string | null
-          certifications: string[] | null
-          client_rating: number | null
-          completed_projects: number | null
-          cover_image_url: string | null
           created_at: string
-          currency: string | null
-          cv_url: string | null
-          experience_years: number | null
-          featured: boolean | null
-          hourly_rate: number | null
+          default_html_content: string
+          default_subject: string
+          description: string | null
+          html_content: string
           id: string
-          languages: string[] | null
-          linkedin_profile: string | null
-          phone_number: string | null
-          portfolio_url: string | null
-          preferred_contact_method: string | null
-          profile_id: string
-          response_time_hours: number | null
-          specializations: string[] | null
-          success_rate: number | null
-          tags: string[] | null
-          telegram_handle: string | null
-          timezone: string | null
-          tools_proficiency: string[] | null
+          is_active: boolean | null
+          is_system: boolean | null
+          name: string
+          subject: string
+          template_key: string
+          template_type: string | null
           updated_at: string
-          va_status: string | null
-          verification_date: string | null
-          verified_by: string | null
-          whatsapp_number: string | null
+          variables: string[] | null
         }
         Insert: {
-          admin_notes?: string | null
-          availability_hours?: number | null
-          avatar_url?: string | null
-          certifications?: string[] | null
-          client_rating?: number | null
-          completed_projects?: number | null
-          cover_image_url?: string | null
           created_at?: string
-          currency?: string | null
-          cv_url?: string | null
-          experience_years?: number | null
-          featured?: boolean | null
-          hourly_rate?: number | null
+          default_html_content: string
+          default_subject: string
+          description?: string | null
+          html_content: string
           id?: string
-          languages?: string[] | null
-          linkedin_profile?: string | null
-          phone_number?: string | null
-          portfolio_url?: string | null
-          preferred_contact_method?: string | null
-          profile_id: string
-          response_time_hours?: number | null
-          specializations?: string[] | null
-          success_rate?: number | null
-          tags?: string[] | null
-          telegram_handle?: string | null
-          timezone?: string | null
-          tools_proficiency?: string[] | null
+          is_active?: boolean | null
+          is_system?: boolean | null
+          name: string
+          subject: string
+          template_key: string
+          template_type?: string | null
           updated_at?: string
-          va_status?: string | null
-          verification_date?: string | null
-          verified_by?: string | null
-          whatsapp_number?: string | null
+          variables?: string[] | null
         }
         Update: {
-          admin_notes?: string | null
-          availability_hours?: number | null
-          avatar_url?: string | null
-          certifications?: string[] | null
-          client_rating?: number | null
-          completed_projects?: number | null
-          cover_image_url?: string | null
           created_at?: string
-          currency?: string | null
-          cv_url?: string | null
-          experience_years?: number | null
-          featured?: boolean | null
-          hourly_rate?: number | null
+          default_html_content?: string
+          default_subject?: string
+          description?: string | null
+          html_content?: string
           id?: string
-          languages?: string[] | null
-          linkedin_profile?: string | null
-          phone_number?: string | null
-          portfolio_url?: string | null
-          preferred_contact_method?: string | null
-          profile_id?: string
-          response_time_hours?: number | null
-          specializations?: string[] | null
-          success_rate?: number | null
-          tags?: string[] | null
-          telegram_handle?: string | null
-          timezone?: string | null
-          tools_proficiency?: string[] | null
+          is_active?: boolean | null
+          is_system?: boolean | null
+          name?: string
+          subject?: string
+          template_key?: string
+          template_type?: string | null
           updated_at?: string
-          va_status?: string | null
-          verification_date?: string | null
-          verified_by?: string | null
-          whatsapp_number?: string | null
+          variables?: string[] | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "virtual_assistants_profile_id_fkey"
-            columns: ["profile_id"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["user_id"]
-          },
-          {
-            foreignKeyName: "virtual_assistants_verified_by_fkey"
-            columns: ["verified_by"]
-            isOneToOne: false
-            referencedRelation: "profiles"
-            referencedColumns: ["user_id"]
-          },
-        ]
+        Relationships: []
       }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
+      bootstrap_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      create_talent_activity: {
+        Args: {
+          p_activity_type: string
+          p_description: string
+          p_metadata?: Json
+          p_talent_id: string
+        }
+        Returns: string
+      }
       handle_course_registration: {
         Args: {
           p_email: string
@@ -821,11 +642,7 @@ export type CompositeTypes<
     : never
 
 export const Constants = {
-  graphql_public: {
-    Enums: {},
-  },
   public: {
     Enums: {},
   },
 } as const
-
