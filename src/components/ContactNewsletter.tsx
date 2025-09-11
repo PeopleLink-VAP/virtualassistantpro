@@ -8,31 +8,52 @@ import { useCookies } from '@/hooks/useCookies';
 
 const ContactNewsletter = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isReturningUser, setIsReturningUser] = useState(false);
   const [registeredEmail, setRegisteredEmail] = useState('');
+  const [registeredName, setRegisteredName] = useState('');
   const { toast } = useToast();
-  const { getNewsletterData, setNewsletterData, deleteCookie } = useCookies();
+  const { getNewsletterData, setNewsletterData, deleteCookie, getCookie, setCookie } = useCookies();
 
   // Check for existing registration on component mount
   useEffect(() => {
     const newsletterData = getNewsletterData();
+    const savedName = getCookie('vap_newsletter_name');
     
     if (newsletterData.isRegistered && newsletterData.email) {
       setRegisteredEmail(newsletterData.email);
+      setRegisteredName(savedName || '');
       setIsReturningUser(true);
+    } else {
+      // Pre-fill form for new users if they have partial data
+      const savedEmail = getCookie('vap_newsletter_email');
+      if (savedEmail || savedName) {
+        setEmail(savedEmail || '');
+        setName(savedName || '');
+      }
     }
-  }, [getNewsletterData]);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const emailToSubmit = isReturningUser ? registeredEmail : email;
+    const nameToSubmit = isReturningUser ? registeredName : name;
     
     if (!emailToSubmit) {
       toast({
         title: "Lỗi",
         description: "Vui lòng nhập email của bạn",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (!nameToSubmit) {
+      toast({
+        title: "Lỗi",
+        description: "Vui lòng nhập tên của bạn",
         variant: "destructive"
       });
       return;
@@ -49,6 +70,7 @@ const ContactNewsletter = () => {
           type: 'newsletter',
           data: {
             email: emailToSubmit,
+            name: nameToSubmit,
             source: isReturningUser ? 'newsletter_form_returning' : 'newsletter_form',
             isReturningUser: isReturningUser
           }
