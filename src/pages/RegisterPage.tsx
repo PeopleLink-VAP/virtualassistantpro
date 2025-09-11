@@ -8,6 +8,7 @@ import Seo from '@/components/Seo';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { useCookies } from '@/hooks/useCookies';
 import facebookQrCode from '@/assets/facebook-qr-code.png';
 const RegisterPage = () => {
   const {
@@ -28,41 +29,21 @@ const RegisterPage = () => {
     email: '',
     phone: ''
   });
-
-  // Cookie utility functions
-  const setCookie = (name: string, value: string, days: number = 365) => {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-  };
-
-  const getCookie = (name: string): string | null => {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  };
+  const { getCourseData, setCourseData } = useCookies();
 
   // Check for existing registration on component mount
   useEffect(() => {
-    const savedFullName = getCookie('vap_course_fullName');
-    const savedEmail = getCookie('vap_course_email');
-    const savedPhone = getCookie('vap_course_phone');
-    const registrationDate = getCookie('vap_course_date');
+    const courseData = getCourseData();
     
-    if (savedFullName && savedEmail && savedPhone && registrationDate) {
+    if (courseData.isRegistered && courseData.fullName && courseData.email && courseData.phone) {
       setRegisteredData({
-        fullName: savedFullName,
-        email: savedEmail,
-        phone: savedPhone
+        fullName: courseData.fullName,
+        email: courseData.email,
+        phone: courseData.phone
       });
       setIsReturningUser(true);
     }
-  }, []);
+  }, [getCourseData]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const {
       name,
@@ -110,11 +91,7 @@ const RegisterPage = () => {
 
       // Store registration data in cookies for new users
       if (!isReturningUser) {
-        setCookie('vap_course_fullName', formData.fullName);
-        setCookie('vap_course_email', formData.email);
-        setCookie('vap_course_phone', formData.phone);
-        setCookie('vap_course_date', new Date().toISOString());
-        setCookie('vap_course_source', 'course_registration');
+        setCourseData(formData.fullName, formData.email, formData.phone, 'course_registration');
       }
       
       // Registration successful - show success message

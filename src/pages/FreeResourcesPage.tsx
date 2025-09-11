@@ -1,17 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, X, Mail, User, Download, Lock } from 'lucide-react';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import ScrollToTop from '@/components/ScrollToTop';
 import Seo from '@/components/Seo';
+import NewsletterDialog from '@/components/NewsletterDialog';
+import { useCookies } from '@/hooks/useCookies';
 const FreeResourcesPage = () => {
   const [showEmailPopup, setShowEmailPopup] = useState(false);
+  const [showNewsletterDialog, setShowNewsletterDialog] = useState(false);
+  const [pendingDownload, setPendingDownload] = useState<string | null>(null);
+  const [isRegisteredUser, setIsRegisteredUser] = useState(false);
+  const { getNewsletterData } = useCookies();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Check if user is already registered
+  useEffect(() => {
+    const newsletterData = getNewsletterData();
+    setIsRegisteredUser(newsletterData.isRegistered);
+  }, [getNewsletterData]);
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -25,8 +38,32 @@ const FreeResourcesPage = () => {
     });
     setIsSubmitting(false);
   };
-  const handleFreeResourceClick = () => {
-    setShowEmailPopup(true);
+  const handleFreeResourceClick = (downloadUrl: string) => {
+    if (isRegisteredUser) {
+      // User is already registered, allow direct download
+      window.open(downloadUrl, '_blank');
+    } else {
+      // User needs to register first
+      setPendingDownload(downloadUrl);
+      setShowNewsletterDialog(true);
+    }
+  };
+
+  const handleNewsletterSuccess = (email: string) => {
+    setIsRegisteredUser(true);
+    
+    // Trigger the pending download
+    if (pendingDownload) {
+      setTimeout(() => {
+        window.open(pendingDownload, '_blank');
+        setPendingDownload(null);
+      }, 1000);
+    }
+  };
+
+  const handleNewsletterClose = () => {
+    setShowNewsletterDialog(false);
+    setPendingDownload(null);
   };
   return <>
       <Seo title="Tài Nguyên Miễn Phí - Virtual Assistant Pro" description="Khám phá các khóa học, cộng đồng và hỗ trợ dành cho Trợ lý ảo." />
@@ -78,7 +115,12 @@ const FreeResourcesPage = () => {
                 <p className="text-gray-700 text-base mb-4">Hướng dẫn giúp bạn nhận biết các tín hiệu cảnh báo từ khách hàng scam, điều khoản thanh toán đáng ngờ và các nguyên tắc cơ bản về khi làm việc online.</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 7 trang</span>
-                  <a href="/downloads/VAP-4-hinh-thuc-lua-dao-online.pdf" download className="text-sunflower hover:underline font-semibold">Tải về miễn phí &rarr;</a>
+                  <button 
+                    onClick={() => handleFreeResourceClick('/downloads/VAP-4-hinh-thuc-lua-dao-online.pdf')}
+                    className="text-sunflower hover:underline font-semibold transition-colors"
+                  >
+                    Tải về miễn phí &rarr;
+                  </button>
                 </div>
               </div>
             </div>
@@ -113,22 +155,15 @@ const FreeResourcesPage = () => {
                   </div>
                   <h3 className="font-bold text-xl text-navy">Top 7 lưu ý và mẫu câu cho Discovery call</h3>
                 </div>
-                <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế. </p>
+                <p className="text-gray-700 text-base mb-4">Hướng dẫn này cung cấp các bước chi tiết và mẫu câu hội thoại cho một buổi Discovery Call (gọi tìm hiểu nhu cầu khách hàng) dành cho freelancer, đặc biệt là những ai chưa tự tin với tiếng Anh khi làm việc với khách hàng quốc tế.</p>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-gray-500">PDF • 11 trang</span>
-                  <a 
-                    href="/downloads/VAP-7-mau-cau-discovery-call.pdf" 
-                    download="VAP-7-mau-cau-discovery-call.pdf"
-                    className="text-sunflower hover:underline font-semibold"
-                    onClick={(e) => {
-                      // Add a small delay to check if download fails
-                      setTimeout(() => {
-                        console.log('PDF should be downloading...');
-                      }, 100);
-                    }}
+                  <button 
+                    onClick={() => handleFreeResourceClick('/downloads/VAP-7-mau-cau-discovery-call.pdf')}
+                    className="text-sunflower hover:underline font-semibold transition-colors"
                   >
                     Tải về miễn phí &rarr;
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
@@ -309,7 +344,18 @@ const FreeResourcesPage = () => {
             </p>
           </div>
 
-          {/* Email Popup Modal */}
+          {/* Newsletter Dialog */}
+          <NewsletterDialog
+            isOpen={showNewsletterDialog}
+            onClose={handleNewsletterClose}
+            onSuccess={handleNewsletterSuccess}
+            title="Nhận Tài Liệu Miễn Phí"
+            description="Đăng ký để nhận ngay các tài liệu VA miễn phí, tham gia cộng đồng Virtual Assistant và nhận cập nhật mới nhất về nghề VA tại Việt Nam."
+            showNameField={true}
+            source="free_resources"
+          />
+
+          {/* Legacy Email Popup Modal */}
           {showEmailPopup && <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
               <div className="bg-white rounded-xl max-w-md w-full p-6 relative">
                 <button onClick={() => setShowEmailPopup(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">

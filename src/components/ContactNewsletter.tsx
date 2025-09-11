@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Mail, Send, CheckCircle, Loader2, UserCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { subscribeToNewsletter } from '@/utils/newsletterSubscription';
+import { useCookies } from '@/hooks/useCookies';
 
 const ContactNewsletter = () => {
   const [email, setEmail] = useState('');
@@ -12,35 +13,17 @@ const ContactNewsletter = () => {
   const [isReturningUser, setIsReturningUser] = useState(false);
   const [registeredEmail, setRegisteredEmail] = useState('');
   const { toast } = useToast();
-
-  // Cookie utility functions
-  const setCookie = (name: string, value: string, days: number = 365) => {
-    const expires = new Date();
-    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
-    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
-  };
-
-  const getCookie = (name: string): string | null => {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  };
+  const { getNewsletterData, setNewsletterData } = useCookies();
 
   // Check for existing registration on component mount
   useEffect(() => {
-    const savedEmail = getCookie('vap_newsletter_email');
-    const registrationDate = getCookie('vap_newsletter_date');
+    const newsletterData = getNewsletterData();
     
-    if (savedEmail && registrationDate) {
-      setRegisteredEmail(savedEmail);
+    if (newsletterData.isRegistered && newsletterData.email) {
+      setRegisteredEmail(newsletterData.email);
       setIsReturningUser(true);
     }
-  }, []);
+  }, [getNewsletterData]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,9 +64,7 @@ const ContactNewsletter = () => {
       
       // Store registration data in cookies for new users
       if (!isReturningUser) {
-        setCookie('vap_newsletter_email', emailToSubmit);
-        setCookie('vap_newsletter_date', new Date().toISOString());
-        setCookie('vap_newsletter_source', 'newsletter_form');
+        setNewsletterData(emailToSubmit, 'newsletter_form');
       }
       
       setIsSubscribed(true);
