@@ -155,7 +155,7 @@ const CourseTestimonials = () => {
               <Button className="btn-primary backdrop-blur-sm flex items-center gap-2 text-lg px-8 py-4 hover:scale-105 transition-all mx-auto">
                 <span className="flex items-center gap-3">
                   <Users className="h-6 w-6 group-hover:animate-bounce" />
-                  Tham Gia Ngay - Ưu Đãi Đặc Biệt
+                  Đăng ký ngay hoặc Liên hệ tư vấn miễn phí
                   <ArrowRight className="h-6 w-6 group-hover:translate-x-2 transition-transform" />
                 </span>
               </Button>
