@@ -127,7 +127,6 @@ const handler = async (req: Request): Promise<Response> => {
             
             <p style="color: #7F8C8D; font-size: 14px; text-align: center; margin: 0;">
               Bạn có thắc mắc? Liên hệ với chúng tôi qua:<br>
-              📞 Zalo: <a href="https://zalo.me/0932548082" style="color: #3498DB;">0932 548 082</a><br>
               📧 Email: <a href="mailto:duyen.pham@virtualassistantpro.vn" style="color: #3498DB;">duyen.pham@virtualassistantpro.vn</a><br>
               🌐 Website: <a href="https://virtualassistantpro.vn" style="color: #3498DB;">virtualassistantpro.vn</a>
             </p>
@@ -201,7 +200,6 @@ const handler = async (req: Request): Promise<Response> => {
             
             <p style="color: #7F8C8D; font-size: 14px; text-align: center; margin: 0;">
               Bạn có thắc mắc? Liên hệ với chúng tôi qua:<br>
-              📞 Zalo: <a href="https://zalo.me/0932548082" style="color: #3498DB;">0932 548 082</a><br>
               📧 Email: <a href="mailto:duyen.pham@virtualassistantpro.vn" style="color: #3498DB;">duyen.pham@virtualassistantpro.vn</a><br>
               🌐 Website: <a href="https://virtualassistantpro.vn" style="color: #3498DB;">virtualassistantpro.vn</a>
             </p>

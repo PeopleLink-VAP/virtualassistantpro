@@ -386,12 +386,6 @@ const RegisterPage = () => {
 
                 {/* Contact Buttons */}
                 <div className="mt-12 flex flex-wrap justify-center gap-4">
-                  <a href="https://zalo.me/0932548082" target="_blank" rel="noopener noreferrer">
-                    <Button className="btn-primary flex items-center gap-2 hover:scale-105 transition-transform">
-                      <MessageSquare className="h-5 w-5" />
-                      Contact Duyen - Zalo
-                    </Button>
-                  </a>
                   <a href="https://www.facebook.com/duyen.pham.1048" target="_blank" rel="noopener noreferrer">
                     <Button className="btn-secondary flex items-center gap-2 hover:scale-105 transition-transform">
                       <MessageSquare className="h-5 w-5" />

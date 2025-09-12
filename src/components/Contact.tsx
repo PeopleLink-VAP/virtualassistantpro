@@ -12,12 +12,6 @@ const contactMethods = [
     description: 'Liên hệ chung và thông tin'
   },
   {
-    icon: Phone,
-    title: 'Điện thoại/Zalo',
-    value: '+84 932548082',
-    description: 'Liên hệ trực tiếp qua điện thoại hoặc Zalo'
-  },
-  {
     icon: MessageSquare,
     title: 'Facebook Messenger',
     value: 'https://www.facebook.com/duyen.pham.1048',
