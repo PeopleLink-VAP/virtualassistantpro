@@ -258,12 +258,6 @@ const ContactNewsletter = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="mailto:contact@virtualassistantpro.vn"
-                  className="text-navy hover:text-sunflower transition-colors font-medium"
-                >
-                  contact@virtualassistantpro.vn
-                </a>
-                <a 
                   href="https://www.facebook.com/groups/1774549309585565"
                   target="_blank"
                   rel="noopener noreferrer"

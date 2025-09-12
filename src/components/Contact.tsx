@@ -6,12 +6,6 @@ import facebookQrCode from '@/assets/facebook-qr-code.png';
 
 const contactMethods = [
   {
-    icon: Mail,
-    title: 'Email',
-    value: 'contact@virtualassistantpro.vn',
-    description: 'Liên hệ chung và thông tin'
-  },
-  {
     icon: MessageSquare,
     title: 'Facebook Messenger',
     value: 'https://www.facebook.com/duyen.pham.1048',
