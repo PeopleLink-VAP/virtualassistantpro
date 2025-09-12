@@ -1,13 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { 
-  BookOpen, Award, Calendar, Clock, Hourglass, Star, ArrowRight
-} from 'lucide-react';
-
+import { BookOpen, Award, Calendar, Clock, Hourglass, Star, ArrowRight } from 'lucide-react';
 const TrainingHero = () => {
-  return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-warmWhite">
+  return <section className="relative pt-32 pb-20 overflow-hidden bg-warmWhite">
       {/* Subtle Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-sunflower/20 rounded-full mix-blend-multiply filter blur-2xl opacity-50 animate-float"></div>
@@ -54,18 +50,22 @@ const TrainingHero = () => {
           
           {/* Clean Course Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
-            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+            animationDelay: "0.4s"
+          }}>
               <div className="flex items-center justify-center mb-4">
                 <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Calendar className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h3 className="font-semibold text-navy mb-2">Khai Giảng</h3>
+              <h3 className="font-semibold text-navy mb-2">Khai Giảng VAP 17</h3>
               <p className="text-gray-600">Dự kiến tuần cuối tháng 9/2025</p>
-              <p className="text-gray-600">Đóng tuyển sinh ngay khi đủ số lượng đăng ký</p>
+              <p className="text-gray-600">Đóng tuyển sinh ngay khi đủ số lượng đăng ký. </p>
             </div>
             
-            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+            animationDelay: "0.5s"
+          }}>
               <div className="flex items-center justify-center mb-4">
                 <div className="w-16 h-16 bg-leafGreen/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Clock className="h-8 w-8 text-leafGreen" />
@@ -75,7 +75,9 @@ const TrainingHero = () => {
               <p className="text-gray-600">Thứ 3 & Thứ 5<br />(19:45 - 21:15)</p>
             </div>
             
-            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+            <div className="group bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-sunflower/30 transition-all duration-300 animate-fade-in-up" style={{
+            animationDelay: "0.6s"
+          }}>
               <div className="flex items-center justify-center mb-4">
                 <div className="w-16 h-16 bg-navy rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                   <Hourglass className="h-8 w-8 text-white" />
@@ -103,21 +105,13 @@ const TrainingHero = () => {
       
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={`particle-${i}`}
-            className={`absolute w-2 h-2 bg-sunflower/30 rounded-full animate-float`}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => <div key={`particle-${i}`} className={`absolute w-2 h-2 bg-sunflower/30 rounded-full animate-float`} style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 5}s`,
+        animationDuration: `${3 + Math.random() * 4}s`
+      }} />)}
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TrainingHero;
