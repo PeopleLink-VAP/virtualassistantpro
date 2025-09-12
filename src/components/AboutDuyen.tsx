@@ -25,7 +25,7 @@ const AboutDuyen = () => {
               Xin chào, mình là <span className="text-sunflower font-condensed">Duyên</span>
             </h2>
             
-            <p className="text-lg text-navy/80 mb-6 leading-relaxed">Với hơn 10 năm kinh nghiệm trong  ngành Virtual Assistant, Coaching và hỗ trợ doanh nghiệp quốc tế, mình đã đồng hành cùng hàng trăm cá nhân, công ty ở nhiều thị trường để xây dựng hệ thống, tối ưu quy trình và mở rộng kinh doanh.</p>
+            <p className="text-lg text-navy/80 mb-6 leading-relaxed">Với hơn 10 năm kinh nghiệm trong  ngành Virtual Assistant, Coaching và hỗ trợ doanh nghiệp quốc tế, mình đã đồng hành cùng 200+ cá nhân, công ty ở nhiều thị trường để xây dựng hệ thống, tối ưu quy trình và mở rộng kinh doanh.</p>
             
             <p className="text-lg text-navy/80 mb-6 leading-relaxed">Mình nhận ra rằng các chủ doanh nghiệp – từ startup đến tập đoàn – đều cần một người hỗ trợ đáng tin cậy, không chỉ làm dịch vụ theo yêu cầu mà còn đồng hành chiến lược, biến ý tưởng thành kết quả. Tuy nhiên, không phải ai cũng tìm được người hỗ trợ phù hợp.</p>
             
