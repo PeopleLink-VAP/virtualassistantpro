@@ -74,14 +74,14 @@ const BlogPostPage = () => {
         <meta property="og:url" content={window.location.href} />
         <meta property="og:title" content={post?.title || 'Virtual Assistant Pro Blog'} />
         <meta property="og:description" content={post?.excerpt || 'Bài viết từ Virtual Assistant Pro'} />
-        <meta property="og:image" content={post?.featured_image || '/images/sunflower.png'} />
+        <meta property="og:image" content={post?.featured_image || 'https://virtualassistantpro.vn/images/og-image.jpg'} />
 
         {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content={window.location.href} />
         <meta property="twitter:title" content={post?.title || 'Virtual Assistant Pro Blog'} />
         <meta property="twitter:description" content={post?.excerpt || 'Bài viết từ Virtual Assistant Pro'} />
-        <meta property="twitter:image" content={post?.featured_image || '/images/sunflower.png'} />
+        <meta property="twitter:image" content={post?.featured_image || 'https://virtualassistantpro.vn/images/og-image.jpg'} />
 
         {/* JSON-LD Structured Data */}
         {post && (
