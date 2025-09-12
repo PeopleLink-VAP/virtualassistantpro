@@ -49,10 +49,7 @@ const CareerOpportunitiesPage = () => {
             <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-sunflower hover:transform hover:scale-105 transition-all duration-300">
               <BriefcaseIcon className="h-12 w-12 text-sunflower mb-4" />
               <h3 className="text-xl font-bold text-navy mb-3">Việc Làm Chất Lượng</h3>
-              <p className="text-gray-600">
-                Kết nối với các cơ hội việc làm VA từ các doanh nghiệp uy tín trong và ngoài nước. 
-                Thu nhập hấp dẫn từ $1,500 - $5,000/tháng.
-              </p>
+              <p className="text-gray-600">Kết nối với các cơ hội việc làm VA từ các doanh nghiệp uy tín trong và ngoài nước. </p>
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-navy hover:transform hover:scale-105 transition-all duration-300">
@@ -79,18 +76,7 @@ const CareerOpportunitiesPage = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto border-2 border-sunflower/20">
-              <Clock className="h-12 w-12 text-sunflower mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-navy mb-4">Đừng Bỏ Lỡ Cơ Hội!</h3>
-              <p className="text-gray-600 mb-6">
-                Hãy đăng ký khóa học Virtual Assistant Pro ngay hôm nay để được ưu tiên 
-                truy cập sớm khi nền tảng việc làm chính thức ra mắt!
-              </p>
-              <Link to="/training" className="inline-flex items-center bg-gradient-to-r from-sunflower to-sunflower/80 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:transform hover:scale-105">
-                Đăng Ký Khóa Học Ngay
-                <Sparkles className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
+            
           </div>
           
         </div>
