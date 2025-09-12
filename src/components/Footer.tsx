@@ -1,11 +1,8 @@
-
 import { Sun, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-
 const Footer = () => {
-  return (
-    <footer className="bg-navy text-warmWhite py-12 relative overflow-hidden">
+  return <footer className="bg-navy text-warmWhite py-12 relative overflow-hidden">
       {/* Decorative sunflower elements */}
       <div className="absolute top-0 right-20 w-36 h-36 bg-sunflower/10 rounded-full animate-spin-slow"></div>
       <div className="absolute -bottom-20 left-20 w-48 h-48 bg-sunflower/5 rounded-full animate-spin-slow"></div>
@@ -15,12 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
           <div className="md:col-span-8 animate-fade-in">
             <div className="mb-4">
-              <Logo 
-                size={32}
-                variant="white"
-                linkable={false}
-                className="opacity-80"
-              />
+              <Logo size={32} variant="white" linkable={false} className="opacity-80" />
             </div>
             <p className="text-warmWhite/80 mb-6 font-['Roboto'] italic">
               Đào tạo và phát triển kỹ năng chuyên nghiệp cho các Virtual Assistant tại Việt Nam.
@@ -29,13 +21,13 @@ const Footer = () => {
               <a href="https://www.facebook.com/groups/1774549309585565" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">
                 <Facebook size={16} />
               </a>
-              <a href="https://www.linkedin.com/in/duyen-pham-customer-service/" className="w-8 h-8 bg-warmWhite/10 rounded-full flex items-center justify-center hover:bg-sunflower hover:text-navy transition-colors hover:scale-110">
-                <Linkedin size={16} />
-              </a>
+              
             </div>
           </div>
           
-          <div className="md:col-span-2 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <div className="md:col-span-2 animate-fade-in" style={{
+          animationDelay: "0.1s"
+        }}>
             <h4 className="text-lg font-semibold mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-sunflower rounded-full"></span>
               Khóa Học
@@ -48,7 +40,9 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="md:col-span-2 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <div className="md:col-span-2 animate-fade-in" style={{
+          animationDelay: "0.2s"
+        }}>
             <h4 className="text-lg font-semibold mb-2 flex items-center gap-2">
               <span className="w-2 h-2 bg-sunflower rounded-full"></span>
               Liên Kết
@@ -62,7 +56,9 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-warmWhite/20 flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0 text-warmWhite/70 text-sm animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="mb-4 md:mb-0 text-warmWhite/70 text-sm animate-fade-in" style={{
+          animationDelay: "0.4s"
+        }}>
             © 2025 Virtual Assistant Pro. Tất cả quyền được bảo lưu.
           </div>
           
@@ -75,8 +71,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
