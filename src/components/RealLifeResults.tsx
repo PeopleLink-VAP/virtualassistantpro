@@ -74,11 +74,11 @@ const RealLifeResults = () => {
         
         <div className="relative max-w-6xl mx-auto">
           {/* Floating Avatars - Responsive Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 md:gap-6 mb-12 md:mb-16 justify-items-center">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 md:gap-8 mb-16 md:mb-20 justify-items-center">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={testimonial.id} 
-                className="relative cursor-pointer transition-all duration-300 hover:scale-110 group"
+                className="relative cursor-pointer transition-all duration-300 hover:scale-110 group flex flex-col items-center"
                 onMouseEnter={() => setHoveredTestimonial(testimonial.id)}
                 onMouseLeave={() => setHoveredTestimonial(null)}
                 onClick={() => setSelectedTestimonial(selectedTestimonial === testimonial.id ? null : testimonial.id)}
@@ -87,17 +87,31 @@ const RealLifeResults = () => {
                   animationDelay: `${index * 0.3}s`
                 }}
               >
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow ring-2 ring-transparent group-hover:ring-sunflower/30">
-                  <img 
-                    src={testimonial.avatar} 
-                    alt={testimonial.name} 
-                    className="w-full h-full object-cover" 
-                  />
+                <div className="relative">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ring-2 ring-transparent group-hover:ring-sunflower/50 group-hover:ring-4">
+                    <img 
+                      src={testimonial.avatar} 
+                      alt={testimonial.name} 
+                      className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110" 
+                    />
+                  </div>
+                  
+                  {/* Hover overlay with "Xem review" text */}
+                  <div className="absolute inset-0 bg-navy/80 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="text-white text-xs font-semibold">Xem review</span>
+                  </div>
+                </div>
+                
+                {/* Small label under avatar */}
+                <div className="mt-2 text-center">
+                  <p className="text-xs text-navy/60 group-hover:text-sunflower transition-colors duration-300">
+                    Click để xem câu chuyện
+                  </p>
                 </div>
                 
                 {/* Desktop Testimonial Popup */}
                 {hoveredTestimonial === testimonial.id && (
-                  <div className="hidden md:block absolute bottom-20 -ml-40 left-1/2 transform w-80 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-2xl animate-fade-in">
+                  <div className="hidden md:block absolute bottom-24 -ml-40 left-1/2 transform w-80 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-2xl animate-fade-in z-10">
                     <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white/95 rotate-45"></div>
                     
                     <div className="flex items-center gap-3 mb-3">
