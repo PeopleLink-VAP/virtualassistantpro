@@ -105,7 +105,7 @@ const RealLifeResults = () => {
                 {/* Small label under avatar */}
                 <div className="mt-2 text-center">
                   <p className="text-xs text-navy/60 group-hover:text-sunflower transition-colors duration-300">
-                    Click để xem câu chuyện
+                    Click để đọc review
                   </p>
                 </div>
                 
