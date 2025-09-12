@@ -48,6 +48,7 @@ const Index = () => {
         description="Khóa học Virtual Assistant toàn diện từ A-Z. Học cách kiếm tiền online với Fiverr, Upwork. Đào tạo VA chuyên nghiệp với thu nhập ổn định 10-50 triệu/tháng. Đăng ký ngay!"
         keywords="khóa học virtual assistant, học VA online, đào tạo trợ lý ảo, kiếm tiền Fiverr, Upwork Vietnam, freelancer course, làm việc online, thu nhập passive, virtual assistant pro"
         canonicalUrl="https://virtualassistantpro.vn/"
+        image="https://virtualassistantpro.vn/images/og-image.jpg"
         type="website"
         structuredData={structuredData}
       />
