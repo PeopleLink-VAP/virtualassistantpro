@@ -5,8 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./hooks/useAuth";
-import { AdminAuthProvider } from "./hooks/useAdminAuth";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+
 import Seo from "./components/Seo";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
@@ -19,8 +18,7 @@ import FreeResourcesPage from "./pages/FreeResourcesPage";
 import TeamPage from "./pages/TeamPage";
 import TrainingProgramPage from "./pages/TrainingProgramPage";
 import CareerOpportunitiesPage from "./pages/CareerOpportunitiesPage";
-import BlogPage from "./pages/BlogPage";
-import BlogPostPage from "./pages/BlogPostPage";
+
 import BookMeetingPage from "./pages/BookMeetingPage";
 import ServicesPage from "./pages/ServicesPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
@@ -29,15 +27,7 @@ import PrivacyPage from "./pages/PrivacyPage";
 import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
 import RegisterPage from "./pages/RegisterPage";
 import VAJourneyPage from "./pages/VAJourneyPage";
-import AdminLayout from "./pages/admin/AdminLayout";
-import AdminDashboardHome from "./pages/admin/AdminDashboardHome";
-import AdminBlogPage from "./pages/admin/AdminBlogPage";
-import AdminBlogEditPage from "./pages/admin/AdminBlogEditPage";
-import AdminUsersPage from "./pages/admin/AdminUsersPage";
-import AdminCourseRegistrationsPage from "./pages/admin/AdminCourseRegistrationsPage";
-import AdminNewsletterPage from "./pages/admin/AdminNewsletterPage";
-import AdminEmailTemplatesPage from "./pages/admin/AdminEmailTemplatesPage";
-import AdminSettingsPage from "./pages/admin/AdminSettingsPage";
+
 import MembersDashboard from "./pages/MembersDashboard";
 
 const queryClient = new QueryClient();
@@ -45,7 +35,6 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <AuthProvider>
-      <AdminAuthProvider>
         <TooltipProvider>
         <Seo />
         <Toaster />
@@ -73,38 +62,13 @@ const App = () => (
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route 
-              path="/admin" 
-              element={
-                <ProtectedRoute requireAdmin>
-                  <AdminLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<AdminDashboardHome />} />
-              <Route path="blog" element={<AdminBlogPage />} />
-              <Route path="blog/edit/:id" element={<AdminBlogEditPage />} />
-              <Route path="users" element={<AdminUsersPage />} />
-              <Route path="course-registrations" element={<AdminCourseRegistrationsPage />} />
-              <Route path="newsletter" element={<AdminNewsletterPage />} />
-              <Route path="email-templates" element={<AdminEmailTemplatesPage />} />
-              <Route path="settings" element={<AdminSettingsPage />} />
-            </Route>
-            <Route 
-              path="/members" 
-              element={
-                <ProtectedRoute>
-                  <MembersDashboard />
-                </ProtectedRoute>
-              } 
-            />
+
+
+            <Route path="/members" element={<MembersDashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
         </TooltipProvider>
-      </AdminAuthProvider>
     </AuthProvider>
   </QueryClientProvider>
 );

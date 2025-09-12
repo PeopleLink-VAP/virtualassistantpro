@@ -153,9 +153,7 @@
     @apply backdrop-blur-sm shadow-md;
   }
   
-  .glass-blog-card {
-    @apply bg-white/60 backdrop-blur-lg border border-white/30 shadow-md transition-all duration-300 hover:backdrop-blur-xl;
-  }
+
   
   .sunflower-shadow {
     @apply shadow-[0_4px_20px_rgba(255,215,0,0.3)];
@@ -165,9 +163,7 @@
     @apply shadow-[0_4px_20px_rgba(27,54,93,0.15)];
   }
   
-  .blog-hover-shadow {
-    @apply hover:shadow-[0_10px_30px_rgba(27,54,93,0.15)];
-  }
+
   
   .btn-primary {
     @apply bg-sunflower text-navy font-semibold px-6 py-3 rounded-md hover:bg-sunflower/90 transition-all duration-300 sunflower-shadow glass-button;

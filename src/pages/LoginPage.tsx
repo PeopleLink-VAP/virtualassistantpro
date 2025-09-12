@@ -43,11 +43,7 @@ const LoginPage = () => {
   // Redirect if already logged in
   useEffect(() => {
     if (user && profile) {
-      if (profile.role === 'admin') {
-        navigate('/');
-      } else {
-        navigate('/members');
-      }
+      navigate('/members');
     }
   }, [user, profile, navigate]);
 
