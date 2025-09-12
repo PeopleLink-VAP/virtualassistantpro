@@ -256,17 +256,7 @@ const LearningPath = () => {
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <div className="lg:pr-8 order-2 lg:order-1">
-                  <div className="bg-leafGreen/10 rounded-xl p-6 border-2 border-leafGreen/20">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 bg-leafGreen rounded-full flex items-center justify-center">
-                        <Award className="h-4 w-4 text-white" />
-                      </div>
-                      <h5 className="font-bold text-leafGreen">Tổng Kết & Feedback</h5>
-                    </div>
-                    <p className="text-gray-700 text-sm">
-                      Đánh giá tiến bộ và nhận feedback cá nhân từ giáo viên tiếng Anh
-                    </p>
-                  </div>
+                  
                 </div>
                 <div className="order-1 lg:order-2">
                   <div className="bg-gray-50 rounded-xl p-6 shadow-lg border border-gray-300 hover:shadow-xl transition-all duration-300 transform hover:scale-105">
