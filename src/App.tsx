@@ -27,6 +27,7 @@ import PrivacyPage from "./pages/PrivacyPage";
 import StudentSuccessStoriesPage from "./pages/StudentSuccessStoriesPage";
 import RegisterPage from "./pages/RegisterPage";
 import VAJourneyPage from "./pages/VAJourneyPage";
+import GameOfTheWeekPage from "./pages/GameOfTheWeekPage";
 
 import MembersDashboard from "./pages/MembersDashboard";
 
@@ -62,7 +63,7 @@ const App = () => (
             <Route path="/forgot-password" element={<ForgotPasswordPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
-
+            <Route path="/games/game-of-the-week" element={<GameOfTheWeekPage />} />
 
             <Route path="/members" element={<MembersDashboard />} />
             <Route path="*" element={<NotFound />} />
