@@ -58,8 +58,8 @@ const TrainingHero = () => {
                   <Calendar className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h3 className="font-semibold text-navy mb-2">Khai Giảng VAP 17</h3>
-              <p className="text-gray-600">Dự kiến tuần cuối tháng 9/2025</p>
+              <h3 className="font-semibold text-navy mb-2">Khai Giảng VAP 18</h3>
+              <p className="text-gray-600">Dự kiến học vào ngày 11/11/2025</p>
               <p className="text-gray-600">Đóng tuyển sinh ngay khi đủ số lượng đăng ký. </p>
             </div>
             
